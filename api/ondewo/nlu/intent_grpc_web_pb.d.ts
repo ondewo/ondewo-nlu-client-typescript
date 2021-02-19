@@ -1,8 +1,8 @@
 import * as grpcWeb from 'grpc-web';
 
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
-import * as google_longrunning_operations_pb from '../../google/longrunning/operations_pb';
 import * as ondewo_nlu_intent_pb from '../../ondewo/nlu/intent_pb';
+import * as google_longrunning_operations_pb from '../../google/longrunning/operations_pb';
 
 
 export class IntentsClient {

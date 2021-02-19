@@ -23,8 +23,8 @@ export class GetAnswerRequest extends jspb.Message {
   getThresholdRetriever(): number;
   setThresholdRetriever(value: number): GetAnswerRequest;
 
-  getCustomScoreFormula(): string;
-  setCustomScoreFormula(value: string): GetAnswerRequest;
+  getThresholdOverall(): number;
+  setThresholdOverall(value: number): GetAnswerRequest;
 
   getReaderModelName(): string;
   setReaderModelName(value: string): GetAnswerRequest;
@@ -44,7 +44,7 @@ export namespace GetAnswerRequest {
     maxNumAnswers: number,
     thresholdReader: number,
     thresholdRetriever: number,
-    customScoreFormula: string,
+    thresholdOverall: number,
     readerModelName: string,
   }
 }

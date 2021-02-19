@@ -145,7 +145,7 @@ proto.ondewo.qa.GetAnswerRequest.toObject = function(includeInstance, msg) {
     maxNumAnswers: jspb.Message.getFieldWithDefault(msg, 3, 0),
     thresholdReader: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
     thresholdRetriever: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0),
-    customScoreFormula: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    thresholdOverall: jspb.Message.getFloatingPointFieldWithDefault(msg, 6, 0.0),
     readerModelName: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
@@ -205,8 +205,8 @@ proto.ondewo.qa.GetAnswerRequest.deserializeBinaryFromReader = function(msg, rea
       msg.setThresholdRetriever(value);
       break;
     case 6:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCustomScoreFormula(value);
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setThresholdOverall(value);
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
@@ -277,9 +277,9 @@ proto.ondewo.qa.GetAnswerRequest.serializeBinaryToWriter = function(message, wri
       f
     );
   }
-  f = message.getCustomScoreFormula();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getThresholdOverall();
+  if (f !== 0.0) {
+    writer.writeFloat(
       6,
       f
     );
@@ -404,20 +404,20 @@ proto.ondewo.qa.GetAnswerRequest.prototype.setThresholdRetriever = function(valu
 
 
 /**
- * optional string custom_score_formula = 6;
- * @return {string}
+ * optional float threshold_overall = 6;
+ * @return {number}
  */
-proto.ondewo.qa.GetAnswerRequest.prototype.getCustomScoreFormula = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+proto.ondewo.qa.GetAnswerRequest.prototype.getThresholdOverall = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 6, 0.0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.ondewo.qa.GetAnswerRequest} returns this
  */
-proto.ondewo.qa.GetAnswerRequest.prototype.setCustomScoreFormula = function(value) {
-  return jspb.Message.setProto3StringField(this, 6, value);
+proto.ondewo.qa.GetAnswerRequest.prototype.setThresholdOverall = function(value) {
+  return jspb.Message.setProto3FloatField(this, 6, value);
 };
 
 

@@ -3,7 +3,6 @@ import * as jspb from 'google-protobuf'
 import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
-import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
 
 
 export class Context extends jspb.Message {
@@ -13,10 +12,8 @@ export class Context extends jspb.Message {
   getLifespanCount(): number;
   setLifespanCount(value: number): Context;
 
-  getParameters(): google_protobuf_struct_pb.Struct | undefined;
-  setParameters(value?: google_protobuf_struct_pb.Struct): Context;
-  hasParameters(): boolean;
-  clearParameters(): Context;
+  getParametersMap(): jspb.Map<string, Context.Parameter>;
+  clearParametersMap(): Context;
 
   getLifespanTime(): number;
   setLifespanTime(value: number): Context;
@@ -33,9 +30,40 @@ export namespace Context {
   export type AsObject = {
     name: string,
     lifespanCount: number,
-    parameters?: google_protobuf_struct_pb.Struct.AsObject,
+    parametersMap: Array<[string, Context.Parameter.AsObject]>,
     lifespanTime: number,
   }
+
+  export class Parameter extends jspb.Message {
+    getName(): string;
+    setName(value: string): Parameter;
+
+    getDisplayName(): string;
+    setDisplayName(value: string): Parameter;
+
+    getValue(): string;
+    setValue(value: string): Parameter;
+
+    getValueOriginal(): string;
+    setValueOriginal(value: string): Parameter;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Parameter.AsObject;
+    static toObject(includeInstance: boolean, msg: Parameter): Parameter.AsObject;
+    static serializeBinaryToWriter(message: Parameter, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Parameter;
+    static deserializeBinaryFromReader(message: Parameter, reader: jspb.BinaryReader): Parameter;
+  }
+
+  export namespace Parameter {
+    export type AsObject = {
+      name: string,
+      displayName: string,
+      value: string,
+      valueOriginal: string,
+    }
+  }
+
 }
 
 export class ListContextsRequest extends jspb.Message {
