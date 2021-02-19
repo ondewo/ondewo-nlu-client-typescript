@@ -2,6 +2,8 @@
   "name": "@ondewo/nlu-client-typescript",
   "version": "0.1.0",
   "description": "Ondewo natural language understanding client library for typescript as a commonjs module",
+  "main": "public-api.js",
+  "typings": "public-api.d.ts",
   "scripts": {
     "start": "npm run build",
     "prebuild": "mv ondewo-nlu-api/googleapis/google ondewo-nlu-api/google",
