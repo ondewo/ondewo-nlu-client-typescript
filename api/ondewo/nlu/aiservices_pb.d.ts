@@ -2,6 +2,7 @@ import * as jspb from 'google-protobuf'
 
 import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as ondewo_nlu_intent_pb from '../../ondewo/nlu/intent_pb';
+import * as ondewo_nlu_entity_type_pb from '../../ondewo/nlu/entity_type_pb';
 
 
 export class ExtractEntitiesRequest extends jspb.Message {
@@ -13,6 +14,9 @@ export class ExtractEntitiesRequest extends jspb.Message {
 
   getLanguageCode(): string;
   setLanguageCode(value: string): ExtractEntitiesRequest;
+
+  getIntentName(): string;
+  setIntentName(value: string): ExtractEntitiesRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ExtractEntitiesRequest.AsObject;
@@ -27,14 +31,118 @@ export namespace ExtractEntitiesRequest {
     parent: string,
     text: string,
     languageCode: string,
+    intentName: string,
+  }
+}
+
+export class ExtractEntitiesFuzzyRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): ExtractEntitiesFuzzyRequest;
+
+  getText(): string;
+  setText(value: string): ExtractEntitiesFuzzyRequest;
+
+  getPotentialEntitiesList(): Array<EntityTypeFuzzyNerConfig>;
+  setPotentialEntitiesList(value: Array<EntityTypeFuzzyNerConfig>): ExtractEntitiesFuzzyRequest;
+  clearPotentialEntitiesList(): ExtractEntitiesFuzzyRequest;
+  addPotentialEntities(value?: EntityTypeFuzzyNerConfig, index?: number): EntityTypeFuzzyNerConfig;
+
+  getMinimalScore(): number;
+  setMinimalScore(value: number): ExtractEntitiesFuzzyRequest;
+
+  getAllowOverlaps(): boolean;
+  setAllowOverlaps(value: boolean): ExtractEntitiesFuzzyRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExtractEntitiesFuzzyRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ExtractEntitiesFuzzyRequest): ExtractEntitiesFuzzyRequest.AsObject;
+  static serializeBinaryToWriter(message: ExtractEntitiesFuzzyRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExtractEntitiesFuzzyRequest;
+  static deserializeBinaryFromReader(message: ExtractEntitiesFuzzyRequest, reader: jspb.BinaryReader): ExtractEntitiesFuzzyRequest;
+}
+
+export namespace ExtractEntitiesFuzzyRequest {
+  export type AsObject = {
+    parent: string,
+    text: string,
+    potentialEntitiesList: Array<EntityTypeFuzzyNerConfig.AsObject>,
+    minimalScore: number,
+    allowOverlaps: boolean,
+  }
+}
+
+export class EntityTypeFuzzyNerConfig extends jspb.Message {
+  getEntityType(): ondewo_nlu_entity_type_pb.EntityType | undefined;
+  setEntityType(value?: ondewo_nlu_entity_type_pb.EntityType): EntityTypeFuzzyNerConfig;
+  hasEntityType(): boolean;
+  clearEntityType(): EntityTypeFuzzyNerConfig;
+
+  getMinimalScore(): number;
+  setMinimalScore(value: number): EntityTypeFuzzyNerConfig;
+
+  getEntityValuesList(): Array<string>;
+  setEntityValuesList(value: Array<string>): EntityTypeFuzzyNerConfig;
+  clearEntityValuesList(): EntityTypeFuzzyNerConfig;
+  addEntityValues(value: string, index?: number): EntityTypeFuzzyNerConfig;
+
+  getAlgorithm(): EntityTypeFuzzyNerConfig.FuzzyNerAlgorithm;
+  setAlgorithm(value: EntityTypeFuzzyNerConfig.FuzzyNerAlgorithm): EntityTypeFuzzyNerConfig;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): EntityTypeFuzzyNerConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: EntityTypeFuzzyNerConfig): EntityTypeFuzzyNerConfig.AsObject;
+  static serializeBinaryToWriter(message: EntityTypeFuzzyNerConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): EntityTypeFuzzyNerConfig;
+  static deserializeBinaryFromReader(message: EntityTypeFuzzyNerConfig, reader: jspb.BinaryReader): EntityTypeFuzzyNerConfig;
+}
+
+export namespace EntityTypeFuzzyNerConfig {
+  export type AsObject = {
+    entityType?: ondewo_nlu_entity_type_pb.EntityType.AsObject,
+    minimalScore: number,
+    entityValuesList: Array<string>,
+    algorithm: EntityTypeFuzzyNerConfig.FuzzyNerAlgorithm,
+  }
+
+  export enum FuzzyNerAlgorithm { 
+    PREFILTER_LEVENSHTEIN = 0,
+    LOCAL_MAXIMUM = 1,
+  }
+}
+
+export class EntityDetected extends jspb.Message {
+  getEntity(): ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity | undefined;
+  setEntity(value?: ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity): EntityDetected;
+  hasEntity(): boolean;
+  clearEntity(): EntityDetected;
+
+  getExtractionMethod(): string;
+  setExtractionMethod(value: string): EntityDetected;
+
+  getScore(): number;
+  setScore(value: number): EntityDetected;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): EntityDetected.AsObject;
+  static toObject(includeInstance: boolean, msg: EntityDetected): EntityDetected.AsObject;
+  static serializeBinaryToWriter(message: EntityDetected, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): EntityDetected;
+  static deserializeBinaryFromReader(message: EntityDetected, reader: jspb.BinaryReader): EntityDetected;
+}
+
+export namespace EntityDetected {
+  export type AsObject = {
+    entity?: ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity.AsObject,
+    extractionMethod: string,
+    score: number,
   }
 }
 
 export class ExtractEntitiesResponse extends jspb.Message {
-  getEntitiesList(): Array<ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity>;
-  setEntitiesList(value: Array<ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity>): ExtractEntitiesResponse;
-  clearEntitiesList(): ExtractEntitiesResponse;
-  addEntities(value?: ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity, index?: number): ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity;
+  getEntitiesDetectedList(): Array<EntityDetected>;
+  setEntitiesDetectedList(value: Array<EntityDetected>): ExtractEntitiesResponse;
+  clearEntitiesDetectedList(): ExtractEntitiesResponse;
+  addEntitiesDetected(value?: EntityDetected, index?: number): EntityDetected;
 
   getText(): string;
   setText(value: string): ExtractEntitiesResponse;
@@ -49,7 +157,7 @@ export class ExtractEntitiesResponse extends jspb.Message {
 
 export namespace ExtractEntitiesResponse {
   export type AsObject = {
-    entitiesList: Array<ondewo_nlu_intent_pb.Intent.TrainingPhrase.Entity.AsObject>,
+    entitiesDetectedList: Array<EntityDetected.AsObject>,
     text: string,
   }
 }

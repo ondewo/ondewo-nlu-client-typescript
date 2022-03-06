@@ -63,22 +63,36 @@ export class EntityTypesClient {
     request: ondewo_nlu_entity_type_pb.BatchCreateEntitiesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: google_longrunning_operations_pb.Operation) => void
-  ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.Operation>;
+               response: ondewo_nlu_entity_type_pb.BatchEntitiesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_entity_type_pb.BatchEntitiesResponse>;
 
   batchUpdateEntities(
     request: ondewo_nlu_entity_type_pb.BatchUpdateEntitiesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: google_longrunning_operations_pb.Operation) => void
-  ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.Operation>;
+               response: ondewo_nlu_entity_type_pb.BatchEntitiesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_entity_type_pb.BatchEntitiesResponse>;
+
+  batchGetEntities(
+    request: ondewo_nlu_entity_type_pb.BatchGetEntitiesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_entity_type_pb.BatchEntitiesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_entity_type_pb.BatchEntitiesResponse>;
 
   batchDeleteEntities(
     request: ondewo_nlu_entity_type_pb.BatchDeleteEntitiesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
-               response: google_longrunning_operations_pb.Operation) => void
-  ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.Operation>;
+               response: ondewo_nlu_entity_type_pb.BatchDeleteEntitiesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_entity_type_pb.BatchDeleteEntitiesResponse>;
+
+  listEntities(
+    request: ondewo_nlu_entity_type_pb.ListEntitiesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_entity_type_pb.ListEntitiesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_entity_type_pb.ListEntitiesResponse>;
 
 }
 
@@ -125,17 +139,27 @@ export class EntityTypesPromiseClient {
   batchCreateEntities(
     request: ondewo_nlu_entity_type_pb.BatchCreateEntitiesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<google_longrunning_operations_pb.Operation>;
+  ): Promise<ondewo_nlu_entity_type_pb.BatchEntitiesResponse>;
 
   batchUpdateEntities(
     request: ondewo_nlu_entity_type_pb.BatchUpdateEntitiesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<google_longrunning_operations_pb.Operation>;
+  ): Promise<ondewo_nlu_entity_type_pb.BatchEntitiesResponse>;
+
+  batchGetEntities(
+    request: ondewo_nlu_entity_type_pb.BatchGetEntitiesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_entity_type_pb.BatchEntitiesResponse>;
 
   batchDeleteEntities(
     request: ondewo_nlu_entity_type_pb.BatchDeleteEntitiesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<google_longrunning_operations_pb.Operation>;
+  ): Promise<ondewo_nlu_entity_type_pb.BatchDeleteEntitiesResponse>;
+
+  listEntities(
+    request: ondewo_nlu_entity_type_pb.ListEntitiesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_entity_type_pb.ListEntitiesResponse>;
 
 }
 
