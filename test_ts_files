@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+echo "Checking compatibility of generated typsecript files"
+
+TS_TEST_DIR=$1
+TS_CLIENT_DIR=$2
+
+grep -F -x -v -f ${TS_TEST_DIR}/public-api.d.ts ${TS_CLIENT_DIR}/public-api.d.ts > missing
+
+if [ $(cat missing | wc -l) -gt 0 ]; then
+    echo "Missing typescript files: $(cat missing)"
+    echo "Test failed" >&2
+    exit 1
+fi
+
+echo "Found all typescript files"
+
+
+exit 0
