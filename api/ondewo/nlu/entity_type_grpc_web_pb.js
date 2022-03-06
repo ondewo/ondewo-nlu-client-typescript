@@ -645,13 +645,13 @@ proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchDeleteEntityTypes =
  * @const
  * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.BatchCreateEntitiesRequest,
- *   !proto.google.longrunning.Operation>}
+ *   !proto.ondewo.nlu.BatchEntitiesResponse>}
  */
 const methodDescriptor_EntityTypes_BatchCreateEntities = new grpc.web.MethodDescriptor(
   '/ondewo.nlu.EntityTypes/BatchCreateEntities',
   grpc.web.MethodType.UNARY,
   proto.ondewo.nlu.BatchCreateEntitiesRequest,
-  google_longrunning_operations_pb.Operation,
+  proto.ondewo.nlu.BatchEntitiesResponse,
   /**
    * @param {!proto.ondewo.nlu.BatchCreateEntitiesRequest} request
    * @return {!Uint8Array}
@@ -659,7 +659,7 @@ const methodDescriptor_EntityTypes_BatchCreateEntities = new grpc.web.MethodDesc
   function(request) {
     return request.serializeBinary();
   },
-  google_longrunning_operations_pb.Operation.deserializeBinary
+  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
 );
 
 
@@ -667,10 +667,10 @@ const methodDescriptor_EntityTypes_BatchCreateEntities = new grpc.web.MethodDesc
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
  *   !proto.ondewo.nlu.BatchCreateEntitiesRequest,
- *   !proto.google.longrunning.Operation>}
+ *   !proto.ondewo.nlu.BatchEntitiesResponse>}
  */
 const methodInfo_EntityTypes_BatchCreateEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  google_longrunning_operations_pb.Operation,
+  proto.ondewo.nlu.BatchEntitiesResponse,
   /**
    * @param {!proto.ondewo.nlu.BatchCreateEntitiesRequest} request
    * @return {!Uint8Array}
@@ -678,7 +678,7 @@ const methodInfo_EntityTypes_BatchCreateEntities = new grpc.web.AbstractClientBa
   function(request) {
     return request.serializeBinary();
   },
-  google_longrunning_operations_pb.Operation.deserializeBinary
+  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
 );
 
 
@@ -687,9 +687,9 @@ const methodInfo_EntityTypes_BatchCreateEntities = new grpc.web.AbstractClientBa
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.longrunning.Operation)}
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchEntitiesResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.longrunning.Operation>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.ondewo.nlu.EntityTypesClient.prototype.batchCreateEntities =
@@ -708,7 +708,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchCreateEntities =
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.google.longrunning.Operation>}
+ * @return {!Promise<!proto.ondewo.nlu.BatchEntitiesResponse>}
  *     Promise that resolves to the response
  */
 proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchCreateEntities =
@@ -725,13 +725,13 @@ proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchCreateEntities =
  * @const
  * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.BatchUpdateEntitiesRequest,
- *   !proto.google.longrunning.Operation>}
+ *   !proto.ondewo.nlu.BatchEntitiesResponse>}
  */
 const methodDescriptor_EntityTypes_BatchUpdateEntities = new grpc.web.MethodDescriptor(
   '/ondewo.nlu.EntityTypes/BatchUpdateEntities',
   grpc.web.MethodType.UNARY,
   proto.ondewo.nlu.BatchUpdateEntitiesRequest,
-  google_longrunning_operations_pb.Operation,
+  proto.ondewo.nlu.BatchEntitiesResponse,
   /**
    * @param {!proto.ondewo.nlu.BatchUpdateEntitiesRequest} request
    * @return {!Uint8Array}
@@ -739,7 +739,7 @@ const methodDescriptor_EntityTypes_BatchUpdateEntities = new grpc.web.MethodDesc
   function(request) {
     return request.serializeBinary();
   },
-  google_longrunning_operations_pb.Operation.deserializeBinary
+  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
 );
 
 
@@ -747,10 +747,10 @@ const methodDescriptor_EntityTypes_BatchUpdateEntities = new grpc.web.MethodDesc
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
  *   !proto.ondewo.nlu.BatchUpdateEntitiesRequest,
- *   !proto.google.longrunning.Operation>}
+ *   !proto.ondewo.nlu.BatchEntitiesResponse>}
  */
 const methodInfo_EntityTypes_BatchUpdateEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  google_longrunning_operations_pb.Operation,
+  proto.ondewo.nlu.BatchEntitiesResponse,
   /**
    * @param {!proto.ondewo.nlu.BatchUpdateEntitiesRequest} request
    * @return {!Uint8Array}
@@ -758,7 +758,7 @@ const methodInfo_EntityTypes_BatchUpdateEntities = new grpc.web.AbstractClientBa
   function(request) {
     return request.serializeBinary();
   },
-  google_longrunning_operations_pb.Operation.deserializeBinary
+  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
 );
 
 
@@ -767,9 +767,9 @@ const methodInfo_EntityTypes_BatchUpdateEntities = new grpc.web.AbstractClientBa
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.longrunning.Operation)}
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchEntitiesResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.longrunning.Operation>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.ondewo.nlu.EntityTypesClient.prototype.batchUpdateEntities =
@@ -788,7 +788,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchUpdateEntities =
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.google.longrunning.Operation>}
+ * @return {!Promise<!proto.ondewo.nlu.BatchEntitiesResponse>}
  *     Promise that resolves to the response
  */
 proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchUpdateEntities =
@@ -804,14 +804,94 @@ proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchUpdateEntities =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.BatchGetEntitiesRequest,
+ *   !proto.ondewo.nlu.BatchEntitiesResponse>}
+ */
+const methodDescriptor_EntityTypes_BatchGetEntities = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.EntityTypes/BatchGetEntities',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.BatchGetEntitiesRequest,
+  proto.ondewo.nlu.BatchEntitiesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.BatchGetEntitiesRequest,
+ *   !proto.ondewo.nlu.BatchEntitiesResponse>}
+ */
+const methodInfo_EntityTypes_BatchGetEntities = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ondewo.nlu.BatchEntitiesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchEntitiesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchEntitiesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.EntityTypesClient.prototype.batchGetEntities =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.EntityTypes/BatchGetEntities',
+      request,
+      metadata || {},
+      methodDescriptor_EntityTypes_BatchGetEntities,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.BatchEntitiesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchGetEntities =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.EntityTypes/BatchGetEntities',
+      request,
+      metadata || {},
+      methodDescriptor_EntityTypes_BatchGetEntities);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.BatchDeleteEntitiesRequest,
- *   !proto.google.longrunning.Operation>}
+ *   !proto.ondewo.nlu.BatchDeleteEntitiesResponse>}
  */
 const methodDescriptor_EntityTypes_BatchDeleteEntities = new grpc.web.MethodDescriptor(
   '/ondewo.nlu.EntityTypes/BatchDeleteEntities',
   grpc.web.MethodType.UNARY,
   proto.ondewo.nlu.BatchDeleteEntitiesRequest,
-  google_longrunning_operations_pb.Operation,
+  proto.ondewo.nlu.BatchDeleteEntitiesResponse,
   /**
    * @param {!proto.ondewo.nlu.BatchDeleteEntitiesRequest} request
    * @return {!Uint8Array}
@@ -819,7 +899,7 @@ const methodDescriptor_EntityTypes_BatchDeleteEntities = new grpc.web.MethodDesc
   function(request) {
     return request.serializeBinary();
   },
-  google_longrunning_operations_pb.Operation.deserializeBinary
+  proto.ondewo.nlu.BatchDeleteEntitiesResponse.deserializeBinary
 );
 
 
@@ -827,10 +907,10 @@ const methodDescriptor_EntityTypes_BatchDeleteEntities = new grpc.web.MethodDesc
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
  *   !proto.ondewo.nlu.BatchDeleteEntitiesRequest,
- *   !proto.google.longrunning.Operation>}
+ *   !proto.ondewo.nlu.BatchDeleteEntitiesResponse>}
  */
 const methodInfo_EntityTypes_BatchDeleteEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  google_longrunning_operations_pb.Operation,
+  proto.ondewo.nlu.BatchDeleteEntitiesResponse,
   /**
    * @param {!proto.ondewo.nlu.BatchDeleteEntitiesRequest} request
    * @return {!Uint8Array}
@@ -838,7 +918,7 @@ const methodInfo_EntityTypes_BatchDeleteEntities = new grpc.web.AbstractClientBa
   function(request) {
     return request.serializeBinary();
   },
-  google_longrunning_operations_pb.Operation.deserializeBinary
+  proto.ondewo.nlu.BatchDeleteEntitiesResponse.deserializeBinary
 );
 
 
@@ -847,9 +927,9 @@ const methodInfo_EntityTypes_BatchDeleteEntities = new grpc.web.AbstractClientBa
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.longrunning.Operation)}
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchDeleteEntitiesResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.longrunning.Operation>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchDeleteEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.ondewo.nlu.EntityTypesClient.prototype.batchDeleteEntities =
@@ -868,7 +948,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchDeleteEntities =
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.google.longrunning.Operation>}
+ * @return {!Promise<!proto.ondewo.nlu.BatchDeleteEntitiesResponse>}
  *     Promise that resolves to the response
  */
 proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchDeleteEntities =
@@ -878,6 +958,86 @@ proto.ondewo.nlu.EntityTypesPromiseClient.prototype.batchDeleteEntities =
       request,
       metadata || {},
       methodDescriptor_EntityTypes_BatchDeleteEntities);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListEntitiesRequest,
+ *   !proto.ondewo.nlu.ListEntitiesResponse>}
+ */
+const methodDescriptor_EntityTypes_ListEntities = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.EntityTypes/ListEntities',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListEntitiesRequest,
+  proto.ondewo.nlu.ListEntitiesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListEntitiesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListEntitiesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.ListEntitiesRequest,
+ *   !proto.ondewo.nlu.ListEntitiesResponse>}
+ */
+const methodInfo_EntityTypes_ListEntities = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ondewo.nlu.ListEntitiesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListEntitiesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListEntitiesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListEntitiesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListEntitiesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListEntitiesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.EntityTypesClient.prototype.listEntities =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.EntityTypes/ListEntities',
+      request,
+      metadata || {},
+      methodDescriptor_EntityTypes_ListEntities,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListEntitiesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListEntitiesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.EntityTypesPromiseClient.prototype.listEntities =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.EntityTypes/ListEntities',
+      request,
+      metadata || {},
+      methodDescriptor_EntityTypes_ListEntities);
 };
 
 

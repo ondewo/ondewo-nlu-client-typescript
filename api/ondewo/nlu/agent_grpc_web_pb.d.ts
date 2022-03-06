@@ -122,6 +122,13 @@ export class AgentsClient {
                response: google_longrunning_operations_pb.Operation) => void
   ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.Operation>;
 
+  exportBenchmarkAgent(
+    request: ondewo_nlu_agent_pb.ExportBenchmarkAgentRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: google_longrunning_operations_pb.Operation) => void
+  ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.Operation>;
+
   importAgent(
     request: ondewo_nlu_agent_pb.ImportAgentRequest,
     metadata: grpcWeb.Metadata | undefined,
@@ -177,6 +184,27 @@ export class AgentsClient {
     callback: (err: grpcWeb.Error,
                response: ondewo_nlu_agent_pb.ExportResourcesResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_agent_pb.ExportResourcesResponse>;
+
+  getModelStatuses(
+    request: ondewo_nlu_agent_pb.GetModelStatusesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_agent_pb.GetModelStatusesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_agent_pb.GetModelStatusesResponse>;
+
+  getPlatformMapping(
+    request: ondewo_nlu_agent_pb.GetPlatformMappingRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_agent_pb.PlatformMapping) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_agent_pb.PlatformMapping>;
+
+  setPlatformMapping(
+    request: ondewo_nlu_agent_pb.PlatformMapping,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_agent_pb.PlatformMapping) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_agent_pb.PlatformMapping>;
 
 }
 
@@ -265,6 +293,11 @@ export class AgentsPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<google_longrunning_operations_pb.Operation>;
 
+  exportBenchmarkAgent(
+    request: ondewo_nlu_agent_pb.ExportBenchmarkAgentRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<google_longrunning_operations_pb.Operation>;
+
   importAgent(
     request: ondewo_nlu_agent_pb.ImportAgentRequest,
     metadata?: grpcWeb.Metadata
@@ -304,6 +337,21 @@ export class AgentsPromiseClient {
     request: ondewo_nlu_agent_pb.ExportResourcesRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_agent_pb.ExportResourcesResponse>;
+
+  getModelStatuses(
+    request: ondewo_nlu_agent_pb.GetModelStatusesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_agent_pb.GetModelStatusesResponse>;
+
+  getPlatformMapping(
+    request: ondewo_nlu_agent_pb.GetPlatformMappingRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_agent_pb.PlatformMapping>;
+
+  setPlatformMapping(
+    request: ondewo_nlu_agent_pb.PlatformMapping,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_agent_pb.PlatformMapping>;
 
 }
 
