@@ -5,6 +5,7 @@ import * as ondewo_nlu_context_pb from '../../ondewo/nlu/context_pb';
 import * as ondewo_nlu_common_pb from '../../ondewo/nlu/common_pb';
 import * as google_longrunning_operations_pb from '../../google/longrunning/operations_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
 import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
 
@@ -98,6 +99,21 @@ export class Intent extends jspb.Message {
   getStatus(): Intent.IntentStatus;
   setStatus(value: Intent.IntentStatus): Intent;
 
+  getStartDate(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setStartDate(value?: google_protobuf_timestamp_pb.Timestamp): Intent;
+  hasStartDate(): boolean;
+  clearStartDate(): Intent;
+
+  getEndDate(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setEndDate(value?: google_protobuf_timestamp_pb.Timestamp): Intent;
+  hasEndDate(): boolean;
+  clearEndDate(): Intent;
+
+  getTagsList(): Array<string>;
+  setTagsList(value: Array<string>): Intent;
+  clearTagsList(): Intent;
+  addTags(value: string, index?: number): Intent;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Intent.AsObject;
   static toObject(includeInstance: boolean, msg: Intent): Intent.AsObject;
@@ -132,6 +148,9 @@ export namespace Intent {
     isEndOfDeviation: boolean,
     trainingPhraseCount: number,
     status: Intent.IntentStatus,
+    startDate?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    endDate?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    tagsList: Array<string>,
   }
 
   export class TrainingPhrase extends jspb.Message {
@@ -152,6 +171,9 @@ export namespace Intent {
     getTimesAddedCount(): number;
     setTimesAddedCount(value: number): TrainingPhrase;
 
+    getLanguageCode(): string;
+    setLanguageCode(value: string): TrainingPhrase;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): TrainingPhrase.AsObject;
     static toObject(includeInstance: boolean, msg: TrainingPhrase): TrainingPhrase.AsObject;
@@ -167,6 +189,7 @@ export namespace Intent {
       text: string,
       entitiesList: Array<Intent.TrainingPhrase.Entity.AsObject>,
       timesAddedCount: number,
+      languageCode: string,
     }
 
     export class Entity extends jspb.Message {
@@ -246,10 +269,10 @@ export namespace Intent {
     getMandatory(): boolean;
     setMandatory(value: boolean): Parameter;
 
-    getPromptsList(): Array<string>;
-    setPromptsList(value: Array<string>): Parameter;
+    getPromptsList(): Array<Intent.Parameter.Prompt>;
+    setPromptsList(value: Array<Intent.Parameter.Prompt>): Parameter;
     clearPromptsList(): Parameter;
-    addPrompts(value: string, index?: number): Parameter;
+    addPrompts(value?: Intent.Parameter.Prompt, index?: number): Intent.Parameter.Prompt;
 
     getIsList(): boolean;
     setIsList(value: boolean): Parameter;
@@ -271,13 +294,46 @@ export namespace Intent {
       entityTypeName: string,
       entityTypeDisplayName: string,
       mandatory: boolean,
-      promptsList: Array<string>,
+      promptsList: Array<Intent.Parameter.Prompt.AsObject>,
       isList: boolean,
     }
+
+    export class Prompt extends jspb.Message {
+      getName(): string;
+      setName(value: string): Prompt;
+
+      getText(): string;
+      setText(value: string): Prompt;
+
+      getLanguageCode(): string;
+      setLanguageCode(value: string): Prompt;
+
+      serializeBinary(): Uint8Array;
+      toObject(includeInstance?: boolean): Prompt.AsObject;
+      static toObject(includeInstance: boolean, msg: Prompt): Prompt.AsObject;
+      static serializeBinaryToWriter(message: Prompt, writer: jspb.BinaryWriter): void;
+      static deserializeBinary(bytes: Uint8Array): Prompt;
+      static deserializeBinaryFromReader(message: Prompt, reader: jspb.BinaryReader): Prompt;
+    }
+
+    export namespace Prompt {
+      export type AsObject = {
+        name: string,
+        text: string,
+        languageCode: string,
+      }
+    }
+
   }
 
 
   export class Message extends jspb.Message {
+    getName(): string;
+    setName(value: string): Message;
+
+    getLanguageCode(): string;
+    setLanguageCode(value: string): Message;
+
     getText(): Intent.Message.Text | undefined;
     setText(value?: Intent.Message.Text): Message;
     hasText(): boolean;
@@ -351,6 +407,9 @@ export namespace Intent {
     getPlatform(): Intent.Message.Platform;
     setPlatform(value: Intent.Message.Platform): Message;
 
+    getIsPrompt(): boolean;
+    setIsPrompt(value: boolean): Message;
+
     getMessageCase(): Message.MessageCase;
 
     serializeBinary(): Uint8Array;
@@ -363,6 +422,8 @@ export namespace Intent {
 
   export namespace Message {
     export type AsObject = {
+      name: string,
+      languageCode: string,
       text?: Intent.Message.Text.AsObject,
       image?: Intent.Message.Image.AsObject,
       quickReplies?: Intent.Message.QuickReplies.AsObject,
@@ -378,6 +439,7 @@ export namespace Intent {
       video?: Intent.Message.Video.AsObject,
       audio?: Intent.Message.Audio.AsObject,
       platform: Intent.Message.Platform,
+      isPrompt: boolean,
     }
 
     export class Text extends jspb.Message {
@@ -917,6 +979,26 @@ export namespace Intent {
       LINE = 6,
       VIBER = 7,
       ACTIONS_ON_GOOGLE = 8,
+      PLACEHOLDER_1 = 9,
+      PLACEHOLDER_2 = 10,
+      PLACEHOLDER_3 = 11,
+      PLACEHOLDER_4 = 12,
+      PLACEHOLDER_5 = 13,
+      PLACEHOLDER_6 = 14,
+      PLACEHOLDER_7 = 15,
+      PLACEHOLDER_8 = 16,
+      PLACEHOLDER_9 = 17,
+      PLACEHOLDER_10 = 18,
+      PLACEHOLDER_11 = 19,
+      PLACEHOLDER_12 = 20,
+      PLACEHOLDER_13 = 21,
+      PLACEHOLDER_14 = 22,
+      PLACEHOLDER_15 = 23,
+      PLACEHOLDER_16 = 24,
+      PLACEHOLDER_17 = 25,
+      PLACEHOLDER_18 = 26,
+      PLACEHOLDER_19 = 27,
+      PLACEHOLDER_20 = 28,
     }
 
     export enum MessageCase { 
@@ -995,6 +1077,11 @@ export class ListIntentsRequest extends jspb.Message {
   hasSortByField(): boolean;
   clearSortByField(): ListIntentsRequest;
 
+  getFilterByTagsList(): Array<string>;
+  setFilterByTagsList(value: Array<string>): ListIntentsRequest;
+  clearFilterByTagsList(): ListIntentsRequest;
+  addFilterByTags(value: string, index?: number): ListIntentsRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListIntentsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListIntentsRequest): ListIntentsRequest.AsObject;
@@ -1011,6 +1098,7 @@ export namespace ListIntentsRequest {
     pageToken: string,
     filterByCategory: IntentCategory,
     sortByField?: IntentSorting.AsObject,
+    filterByTagsList: Array<string>,
   }
 }
 
@@ -1293,6 +1381,836 @@ export namespace IntentSorting {
     SORT_INTENT_BY_CREATION_DATE = 2,
     SORT_INTENT_BY_LAST_UPDATED = 3,
     SORT_INTENT_BY_USERSAYS_COUNT = 4,
+    SORT_INTENT_BY_START_DATE = 5,
+    SORT_INTENT_BY_END_DATE = 6,
+  }
+}
+
+export class IntentTagMessage extends jspb.Message {
+  getIntentName(): string;
+  setIntentName(value: string): IntentTagMessage;
+
+  getValue(): string;
+  setValue(value: string): IntentTagMessage;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): IntentTagMessage.AsObject;
+  static toObject(includeInstance: boolean, msg: IntentTagMessage): IntentTagMessage.AsObject;
+  static serializeBinaryToWriter(message: IntentTagMessage, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): IntentTagMessage;
+  static deserializeBinaryFromReader(message: IntentTagMessage, reader: jspb.BinaryReader): IntentTagMessage;
+}
+
+export namespace IntentTagMessage {
+  export type AsObject = {
+    intentName: string,
+    value: string,
+  }
+}
+
+export class BatchUpdateTrainingPhrasesRequest extends jspb.Message {
+  getTrainingPhrasesList(): Array<Intent.TrainingPhrase>;
+  setTrainingPhrasesList(value: Array<Intent.TrainingPhrase>): BatchUpdateTrainingPhrasesRequest;
+  clearTrainingPhrasesList(): BatchUpdateTrainingPhrasesRequest;
+  addTrainingPhrases(value?: Intent.TrainingPhrase, index?: number): Intent.TrainingPhrase;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchUpdateTrainingPhrasesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchUpdateTrainingPhrasesRequest): BatchUpdateTrainingPhrasesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchUpdateTrainingPhrasesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchUpdateTrainingPhrasesRequest;
+  static deserializeBinaryFromReader(message: BatchUpdateTrainingPhrasesRequest, reader: jspb.BinaryReader): BatchUpdateTrainingPhrasesRequest;
+}
+
+export namespace BatchUpdateTrainingPhrasesRequest {
+  export type AsObject = {
+    trainingPhrasesList: Array<Intent.TrainingPhrase.AsObject>,
+  }
+}
+
+export class TrainingPhraseStatus extends jspb.Message {
+  getTrainingPhrase(): Intent.TrainingPhrase | undefined;
+  setTrainingPhrase(value?: Intent.TrainingPhrase): TrainingPhraseStatus;
+  hasTrainingPhrase(): boolean;
+  clearTrainingPhrase(): TrainingPhraseStatus;
+
+  getErrorMessage(): string;
+  setErrorMessage(value: string): TrainingPhraseStatus;
+
+  getPhraseOrStatusCase(): TrainingPhraseStatus.PhraseOrStatusCase;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TrainingPhraseStatus.AsObject;
+  static toObject(includeInstance: boolean, msg: TrainingPhraseStatus): TrainingPhraseStatus.AsObject;
+  static serializeBinaryToWriter(message: TrainingPhraseStatus, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TrainingPhraseStatus;
+  static deserializeBinaryFromReader(message: TrainingPhraseStatus, reader: jspb.BinaryReader): TrainingPhraseStatus;
+}
+
+export namespace TrainingPhraseStatus {
+  export type AsObject = {
+    trainingPhrase?: Intent.TrainingPhrase.AsObject,
+    errorMessage: string,
+  }
+
+  export enum PhraseOrStatusCase { 
+    PHRASE_OR_STATUS_NOT_SET = 0,
+    TRAINING_PHRASE = 1,
+    ERROR_MESSAGE = 2,
+  }
+}
+
+export class BatchTrainingPhrasesStatusResponse extends jspb.Message {
+  getTrainingPhraseStatusesList(): Array<TrainingPhraseStatus>;
+  setTrainingPhraseStatusesList(value: Array<TrainingPhraseStatus>): BatchTrainingPhrasesStatusResponse;
+  clearTrainingPhraseStatusesList(): BatchTrainingPhrasesStatusResponse;
+  addTrainingPhraseStatuses(value?: TrainingPhraseStatus, index?: number): TrainingPhraseStatus;
+
+  getHasErrors(): boolean;
+  setHasErrors(value: boolean): BatchTrainingPhrasesStatusResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchTrainingPhrasesStatusResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchTrainingPhrasesStatusResponse): BatchTrainingPhrasesStatusResponse.AsObject;
+  static serializeBinaryToWriter(message: BatchTrainingPhrasesStatusResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchTrainingPhrasesStatusResponse;
+  static deserializeBinaryFromReader(message: BatchTrainingPhrasesStatusResponse, reader: jspb.BinaryReader): BatchTrainingPhrasesStatusResponse;
+}
+
+export namespace BatchTrainingPhrasesStatusResponse {
+  export type AsObject = {
+    trainingPhraseStatusesList: Array<TrainingPhraseStatus.AsObject>,
+    hasErrors: boolean,
+  }
+}
+
+export class BatchCreateTrainingPhrasesRequest extends jspb.Message {
+  getTrainingPhraseRequestsList(): Array<BatchCreateTrainingPhrasesRequest.CreateTrainingPhraseRequest>;
+  setTrainingPhraseRequestsList(value: Array<BatchCreateTrainingPhrasesRequest.CreateTrainingPhraseRequest>): BatchCreateTrainingPhrasesRequest;
+  clearTrainingPhraseRequestsList(): BatchCreateTrainingPhrasesRequest;
+  addTrainingPhraseRequests(value?: BatchCreateTrainingPhrasesRequest.CreateTrainingPhraseRequest, index?: number): BatchCreateTrainingPhrasesRequest.CreateTrainingPhraseRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchCreateTrainingPhrasesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchCreateTrainingPhrasesRequest): BatchCreateTrainingPhrasesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchCreateTrainingPhrasesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchCreateTrainingPhrasesRequest;
+  static deserializeBinaryFromReader(message: BatchCreateTrainingPhrasesRequest, reader: jspb.BinaryReader): BatchCreateTrainingPhrasesRequest;
+}
+
+export namespace BatchCreateTrainingPhrasesRequest {
+  export type AsObject = {
+    trainingPhraseRequestsList: Array<BatchCreateTrainingPhrasesRequest.CreateTrainingPhraseRequest.AsObject>,
+  }
+
+  export class CreateTrainingPhraseRequest extends jspb.Message {
+    getIntentName(): string;
+    setIntentName(value: string): CreateTrainingPhraseRequest;
+
+    getTrainingPhrase(): Intent.TrainingPhrase | undefined;
+    setTrainingPhrase(value?: Intent.TrainingPhrase): CreateTrainingPhraseRequest;
+    hasTrainingPhrase(): boolean;
+    clearTrainingPhrase(): CreateTrainingPhraseRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateTrainingPhraseRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateTrainingPhraseRequest): CreateTrainingPhraseRequest.AsObject;
+    static serializeBinaryToWriter(message: CreateTrainingPhraseRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateTrainingPhraseRequest;
+    static deserializeBinaryFromReader(message: CreateTrainingPhraseRequest, reader: jspb.BinaryReader): CreateTrainingPhraseRequest;
+  }
+
+  export namespace CreateTrainingPhraseRequest {
+    export type AsObject = {
+      intentName: string,
+      trainingPhrase?: Intent.TrainingPhrase.AsObject,
+    }
+  }
+
+}
+
+export class BatchGetTrainingPhrasesRequest extends jspb.Message {
+  getNamesList(): Array<string>;
+  setNamesList(value: Array<string>): BatchGetTrainingPhrasesRequest;
+  clearNamesList(): BatchGetTrainingPhrasesRequest;
+  addNames(value: string, index?: number): BatchGetTrainingPhrasesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchGetTrainingPhrasesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchGetTrainingPhrasesRequest): BatchGetTrainingPhrasesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchGetTrainingPhrasesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchGetTrainingPhrasesRequest;
+  static deserializeBinaryFromReader(message: BatchGetTrainingPhrasesRequest, reader: jspb.BinaryReader): BatchGetTrainingPhrasesRequest;
+}
+
+export namespace BatchGetTrainingPhrasesRequest {
+  export type AsObject = {
+    namesList: Array<string>,
+  }
+}
+
+export class BatchDeleteTrainingPhrasesRequest extends jspb.Message {
+  getNamesList(): Array<string>;
+  setNamesList(value: Array<string>): BatchDeleteTrainingPhrasesRequest;
+  clearNamesList(): BatchDeleteTrainingPhrasesRequest;
+  addNames(value: string, index?: number): BatchDeleteTrainingPhrasesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchDeleteTrainingPhrasesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchDeleteTrainingPhrasesRequest): BatchDeleteTrainingPhrasesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchDeleteTrainingPhrasesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchDeleteTrainingPhrasesRequest;
+  static deserializeBinaryFromReader(message: BatchDeleteTrainingPhrasesRequest, reader: jspb.BinaryReader): BatchDeleteTrainingPhrasesRequest;
+}
+
+export namespace BatchDeleteTrainingPhrasesRequest {
+  export type AsObject = {
+    namesList: Array<string>,
+  }
+}
+
+export class BatchDeleteTrainingPhrasesResponse extends jspb.Message {
+  getDeleteStatusesList(): Array<BatchDeleteTrainingPhrasesResponse.DeleteTrainingPhraseStatus>;
+  setDeleteStatusesList(value: Array<BatchDeleteTrainingPhrasesResponse.DeleteTrainingPhraseStatus>): BatchDeleteTrainingPhrasesResponse;
+  clearDeleteStatusesList(): BatchDeleteTrainingPhrasesResponse;
+  addDeleteStatuses(value?: BatchDeleteTrainingPhrasesResponse.DeleteTrainingPhraseStatus, index?: number): BatchDeleteTrainingPhrasesResponse.DeleteTrainingPhraseStatus;
+
+  getHasErrors(): boolean;
+  setHasErrors(value: boolean): BatchDeleteTrainingPhrasesResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchDeleteTrainingPhrasesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchDeleteTrainingPhrasesResponse): BatchDeleteTrainingPhrasesResponse.AsObject;
+  static serializeBinaryToWriter(message: BatchDeleteTrainingPhrasesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchDeleteTrainingPhrasesResponse;
+  static deserializeBinaryFromReader(message: BatchDeleteTrainingPhrasesResponse, reader: jspb.BinaryReader): BatchDeleteTrainingPhrasesResponse;
+}
+
+export namespace BatchDeleteTrainingPhrasesResponse {
+  export type AsObject = {
+    deleteStatusesList: Array<BatchDeleteTrainingPhrasesResponse.DeleteTrainingPhraseStatus.AsObject>,
+    hasErrors: boolean,
+  }
+
+  export class DeleteTrainingPhraseStatus extends jspb.Message {
+    getSuccessfullyDeleted(): google_protobuf_empty_pb.Empty | undefined;
+    setSuccessfullyDeleted(value?: google_protobuf_empty_pb.Empty): DeleteTrainingPhraseStatus;
+    hasSuccessfullyDeleted(): boolean;
+    clearSuccessfullyDeleted(): DeleteTrainingPhraseStatus;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): DeleteTrainingPhraseStatus;
+
+    getDeleteStatusCase(): DeleteTrainingPhraseStatus.DeleteStatusCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteTrainingPhraseStatus.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteTrainingPhraseStatus): DeleteTrainingPhraseStatus.AsObject;
+    static serializeBinaryToWriter(message: DeleteTrainingPhraseStatus, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteTrainingPhraseStatus;
+    static deserializeBinaryFromReader(message: DeleteTrainingPhraseStatus, reader: jspb.BinaryReader): DeleteTrainingPhraseStatus;
+  }
+
+  export namespace DeleteTrainingPhraseStatus {
+    export type AsObject = {
+      successfullyDeleted?: google_protobuf_empty_pb.Empty.AsObject,
+      errorMessage: string,
+    }
+
+    export enum DeleteStatusCase { 
+      DELETE_STATUS_NOT_SET = 0,
+      SUCCESSFULLY_DELETED = 1,
+      ERROR_MESSAGE = 2,
+    }
+  }
+
+}
+
+export class ListTrainingPhrasesRequest extends jspb.Message {
+  getIntentName(): string;
+  setIntentName(value: string): ListTrainingPhrasesRequest;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): ListTrainingPhrasesRequest;
+
+  getPageToken(): string;
+  setPageToken(value: string): ListTrainingPhrasesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListTrainingPhrasesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListTrainingPhrasesRequest): ListTrainingPhrasesRequest.AsObject;
+  static serializeBinaryToWriter(message: ListTrainingPhrasesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListTrainingPhrasesRequest;
+  static deserializeBinaryFromReader(message: ListTrainingPhrasesRequest, reader: jspb.BinaryReader): ListTrainingPhrasesRequest;
+}
+
+export namespace ListTrainingPhrasesRequest {
+  export type AsObject = {
+    intentName: string,
+    languageCode: string,
+    pageToken: string,
+  }
+}
+
+export class ListTrainingPhrasesResponse extends jspb.Message {
+  getTrainingPhrasesList(): Array<Intent.TrainingPhrase>;
+  setTrainingPhrasesList(value: Array<Intent.TrainingPhrase>): ListTrainingPhrasesResponse;
+  clearTrainingPhrasesList(): ListTrainingPhrasesResponse;
+  addTrainingPhrases(value?: Intent.TrainingPhrase, index?: number): Intent.TrainingPhrase;
+
+  getNextPageToken(): string;
+  setNextPageToken(value: string): ListTrainingPhrasesResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListTrainingPhrasesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListTrainingPhrasesResponse): ListTrainingPhrasesResponse.AsObject;
+  static serializeBinaryToWriter(message: ListTrainingPhrasesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListTrainingPhrasesResponse;
+  static deserializeBinaryFromReader(message: ListTrainingPhrasesResponse, reader: jspb.BinaryReader): ListTrainingPhrasesResponse;
+}
+
+export namespace ListTrainingPhrasesResponse {
+  export type AsObject = {
+    trainingPhrasesList: Array<Intent.TrainingPhrase.AsObject>,
+    nextPageToken: string,
+  }
+}
+
+export class BatchResponseMessagesStatusResponse extends jspb.Message {
+  getResponseMessageStatusesList(): Array<BatchResponseMessagesStatusResponse.ResponseMessageStatus>;
+  setResponseMessageStatusesList(value: Array<BatchResponseMessagesStatusResponse.ResponseMessageStatus>): BatchResponseMessagesStatusResponse;
+  clearResponseMessageStatusesList(): BatchResponseMessagesStatusResponse;
+  addResponseMessageStatuses(value?: BatchResponseMessagesStatusResponse.ResponseMessageStatus, index?: number): BatchResponseMessagesStatusResponse.ResponseMessageStatus;
+
+  getHasErrors(): boolean;
+  setHasErrors(value: boolean): BatchResponseMessagesStatusResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchResponseMessagesStatusResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchResponseMessagesStatusResponse): BatchResponseMessagesStatusResponse.AsObject;
+  static serializeBinaryToWriter(message: BatchResponseMessagesStatusResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchResponseMessagesStatusResponse;
+  static deserializeBinaryFromReader(message: BatchResponseMessagesStatusResponse, reader: jspb.BinaryReader): BatchResponseMessagesStatusResponse;
+}
+
+export namespace BatchResponseMessagesStatusResponse {
+  export type AsObject = {
+    responseMessageStatusesList: Array<BatchResponseMessagesStatusResponse.ResponseMessageStatus.AsObject>,
+    hasErrors: boolean,
+  }
+
+  export class ResponseMessageStatus extends jspb.Message {
+    getResponseMessage(): Intent.Message | undefined;
+    setResponseMessage(value?: Intent.Message): ResponseMessageStatus;
+    hasResponseMessage(): boolean;
+    clearResponseMessage(): ResponseMessageStatus;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): ResponseMessageStatus;
+
+    getPhraseOrStatusCase(): ResponseMessageStatus.PhraseOrStatusCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ResponseMessageStatus.AsObject;
+    static toObject(includeInstance: boolean, msg: ResponseMessageStatus): ResponseMessageStatus.AsObject;
+    static serializeBinaryToWriter(message: ResponseMessageStatus, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ResponseMessageStatus;
+    static deserializeBinaryFromReader(message: ResponseMessageStatus, reader: jspb.BinaryReader): ResponseMessageStatus;
+  }
+
+  export namespace ResponseMessageStatus {
+    export type AsObject = {
+      responseMessage?: Intent.Message.AsObject,
+      errorMessage: string,
+    }
+
+    export enum PhraseOrStatusCase { 
+      PHRASE_OR_STATUS_NOT_SET = 0,
+      RESPONSE_MESSAGE = 1,
+      ERROR_MESSAGE = 2,
+    }
+  }
+
+}
+
+export class BatchCreateResponseMessagesRequest extends jspb.Message {
+  getResponseMessageRequestsList(): Array<BatchCreateResponseMessagesRequest.CreateResponseMessageRequest>;
+  setResponseMessageRequestsList(value: Array<BatchCreateResponseMessagesRequest.CreateResponseMessageRequest>): BatchCreateResponseMessagesRequest;
+  clearResponseMessageRequestsList(): BatchCreateResponseMessagesRequest;
+  addResponseMessageRequests(value?: BatchCreateResponseMessagesRequest.CreateResponseMessageRequest, index?: number): BatchCreateResponseMessagesRequest.CreateResponseMessageRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchCreateResponseMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchCreateResponseMessagesRequest): BatchCreateResponseMessagesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchCreateResponseMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchCreateResponseMessagesRequest;
+  static deserializeBinaryFromReader(message: BatchCreateResponseMessagesRequest, reader: jspb.BinaryReader): BatchCreateResponseMessagesRequest;
+}
+
+export namespace BatchCreateResponseMessagesRequest {
+  export type AsObject = {
+    responseMessageRequestsList: Array<BatchCreateResponseMessagesRequest.CreateResponseMessageRequest.AsObject>,
+  }
+
+  export class CreateResponseMessageRequest extends jspb.Message {
+    getIntentName(): string;
+    setIntentName(value: string): CreateResponseMessageRequest;
+
+    getResponseMessage(): Intent.Message | undefined;
+    setResponseMessage(value?: Intent.Message): CreateResponseMessageRequest;
+    hasResponseMessage(): boolean;
+    clearResponseMessage(): CreateResponseMessageRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateResponseMessageRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateResponseMessageRequest): CreateResponseMessageRequest.AsObject;
+    static serializeBinaryToWriter(message: CreateResponseMessageRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateResponseMessageRequest;
+    static deserializeBinaryFromReader(message: CreateResponseMessageRequest, reader: jspb.BinaryReader): CreateResponseMessageRequest;
+  }
+
+  export namespace CreateResponseMessageRequest {
+    export type AsObject = {
+      intentName: string,
+      responseMessage?: Intent.Message.AsObject,
+    }
+  }
+
+}
+
+export class BatchUpdateResponseMessagesRequest extends jspb.Message {
+  getResponseMessagesList(): Array<Intent.Message>;
+  setResponseMessagesList(value: Array<Intent.Message>): BatchUpdateResponseMessagesRequest;
+  clearResponseMessagesList(): BatchUpdateResponseMessagesRequest;
+  addResponseMessages(value?: Intent.Message, index?: number): Intent.Message;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchUpdateResponseMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchUpdateResponseMessagesRequest): BatchUpdateResponseMessagesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchUpdateResponseMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchUpdateResponseMessagesRequest;
+  static deserializeBinaryFromReader(message: BatchUpdateResponseMessagesRequest, reader: jspb.BinaryReader): BatchUpdateResponseMessagesRequest;
+}
+
+export namespace BatchUpdateResponseMessagesRequest {
+  export type AsObject = {
+    responseMessagesList: Array<Intent.Message.AsObject>,
+  }
+}
+
+export class BatchGetResponseMessagesRequest extends jspb.Message {
+  getNamesList(): Array<string>;
+  setNamesList(value: Array<string>): BatchGetResponseMessagesRequest;
+  clearNamesList(): BatchGetResponseMessagesRequest;
+  addNames(value: string, index?: number): BatchGetResponseMessagesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchGetResponseMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchGetResponseMessagesRequest): BatchGetResponseMessagesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchGetResponseMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchGetResponseMessagesRequest;
+  static deserializeBinaryFromReader(message: BatchGetResponseMessagesRequest, reader: jspb.BinaryReader): BatchGetResponseMessagesRequest;
+}
+
+export namespace BatchGetResponseMessagesRequest {
+  export type AsObject = {
+    namesList: Array<string>,
+  }
+}
+
+export class BatchDeleteResponseMessagesRequest extends jspb.Message {
+  getNamesList(): Array<string>;
+  setNamesList(value: Array<string>): BatchDeleteResponseMessagesRequest;
+  clearNamesList(): BatchDeleteResponseMessagesRequest;
+  addNames(value: string, index?: number): BatchDeleteResponseMessagesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchDeleteResponseMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchDeleteResponseMessagesRequest): BatchDeleteResponseMessagesRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchDeleteResponseMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchDeleteResponseMessagesRequest;
+  static deserializeBinaryFromReader(message: BatchDeleteResponseMessagesRequest, reader: jspb.BinaryReader): BatchDeleteResponseMessagesRequest;
+}
+
+export namespace BatchDeleteResponseMessagesRequest {
+  export type AsObject = {
+    namesList: Array<string>,
+  }
+}
+
+export class BatchDeleteResponseMessagesResponse extends jspb.Message {
+  getDeleteStatusesList(): Array<BatchDeleteResponseMessagesResponse.DeleteResponseMessageStatus>;
+  setDeleteStatusesList(value: Array<BatchDeleteResponseMessagesResponse.DeleteResponseMessageStatus>): BatchDeleteResponseMessagesResponse;
+  clearDeleteStatusesList(): BatchDeleteResponseMessagesResponse;
+  addDeleteStatuses(value?: BatchDeleteResponseMessagesResponse.DeleteResponseMessageStatus, index?: number): BatchDeleteResponseMessagesResponse.DeleteResponseMessageStatus;
+
+  getHasErrors(): boolean;
+  setHasErrors(value: boolean): BatchDeleteResponseMessagesResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchDeleteResponseMessagesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchDeleteResponseMessagesResponse): BatchDeleteResponseMessagesResponse.AsObject;
+  static serializeBinaryToWriter(message: BatchDeleteResponseMessagesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchDeleteResponseMessagesResponse;
+  static deserializeBinaryFromReader(message: BatchDeleteResponseMessagesResponse, reader: jspb.BinaryReader): BatchDeleteResponseMessagesResponse;
+}
+
+export namespace BatchDeleteResponseMessagesResponse {
+  export type AsObject = {
+    deleteStatusesList: Array<BatchDeleteResponseMessagesResponse.DeleteResponseMessageStatus.AsObject>,
+    hasErrors: boolean,
+  }
+
+  export class DeleteResponseMessageStatus extends jspb.Message {
+    getSuccessfullyDeleted(): google_protobuf_empty_pb.Empty | undefined;
+    setSuccessfullyDeleted(value?: google_protobuf_empty_pb.Empty): DeleteResponseMessageStatus;
+    hasSuccessfullyDeleted(): boolean;
+    clearSuccessfullyDeleted(): DeleteResponseMessageStatus;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): DeleteResponseMessageStatus;
+
+    getDeleteStatusCase(): DeleteResponseMessageStatus.DeleteStatusCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteResponseMessageStatus.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteResponseMessageStatus): DeleteResponseMessageStatus.AsObject;
+    static serializeBinaryToWriter(message: DeleteResponseMessageStatus, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteResponseMessageStatus;
+    static deserializeBinaryFromReader(message: DeleteResponseMessageStatus, reader: jspb.BinaryReader): DeleteResponseMessageStatus;
+  }
+
+  export namespace DeleteResponseMessageStatus {
+    export type AsObject = {
+      successfullyDeleted?: google_protobuf_empty_pb.Empty.AsObject,
+      errorMessage: string,
+    }
+
+    export enum DeleteStatusCase { 
+      DELETE_STATUS_NOT_SET = 0,
+      SUCCESSFULLY_DELETED = 1,
+      ERROR_MESSAGE = 2,
+    }
+  }
+
+}
+
+export class ListResponseMessagesRequest extends jspb.Message {
+  getIntentName(): string;
+  setIntentName(value: string): ListResponseMessagesRequest;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): ListResponseMessagesRequest;
+
+  getPageToken(): string;
+  setPageToken(value: string): ListResponseMessagesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListResponseMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListResponseMessagesRequest): ListResponseMessagesRequest.AsObject;
+  static serializeBinaryToWriter(message: ListResponseMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListResponseMessagesRequest;
+  static deserializeBinaryFromReader(message: ListResponseMessagesRequest, reader: jspb.BinaryReader): ListResponseMessagesRequest;
+}
+
+export namespace ListResponseMessagesRequest {
+  export type AsObject = {
+    intentName: string,
+    languageCode: string,
+    pageToken: string,
+  }
+}
+
+export class ListResponseMessagesResponse extends jspb.Message {
+  getResponseMessagesList(): Array<Intent.Message>;
+  setResponseMessagesList(value: Array<Intent.Message>): ListResponseMessagesResponse;
+  clearResponseMessagesList(): ListResponseMessagesResponse;
+  addResponseMessages(value?: Intent.Message, index?: number): Intent.Message;
+
+  getNextPageToken(): string;
+  setNextPageToken(value: string): ListResponseMessagesResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListResponseMessagesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListResponseMessagesResponse): ListResponseMessagesResponse.AsObject;
+  static serializeBinaryToWriter(message: ListResponseMessagesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListResponseMessagesResponse;
+  static deserializeBinaryFromReader(message: ListResponseMessagesResponse, reader: jspb.BinaryReader): ListResponseMessagesResponse;
+}
+
+export namespace ListResponseMessagesResponse {
+  export type AsObject = {
+    responseMessagesList: Array<Intent.Message.AsObject>,
+    nextPageToken: string,
+  }
+}
+
+export class BatchParametersStatusResponse extends jspb.Message {
+  getParameterStatusesList(): Array<BatchParametersStatusResponse.ParameterStatus>;
+  setParameterStatusesList(value: Array<BatchParametersStatusResponse.ParameterStatus>): BatchParametersStatusResponse;
+  clearParameterStatusesList(): BatchParametersStatusResponse;
+  addParameterStatuses(value?: BatchParametersStatusResponse.ParameterStatus, index?: number): BatchParametersStatusResponse.ParameterStatus;
+
+  getHasErrors(): boolean;
+  setHasErrors(value: boolean): BatchParametersStatusResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchParametersStatusResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchParametersStatusResponse): BatchParametersStatusResponse.AsObject;
+  static serializeBinaryToWriter(message: BatchParametersStatusResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchParametersStatusResponse;
+  static deserializeBinaryFromReader(message: BatchParametersStatusResponse, reader: jspb.BinaryReader): BatchParametersStatusResponse;
+}
+
+export namespace BatchParametersStatusResponse {
+  export type AsObject = {
+    parameterStatusesList: Array<BatchParametersStatusResponse.ParameterStatus.AsObject>,
+    hasErrors: boolean,
+  }
+
+  export class ParameterStatus extends jspb.Message {
+    getParameter(): Intent.Parameter | undefined;
+    setParameter(value?: Intent.Parameter): ParameterStatus;
+    hasParameter(): boolean;
+    clearParameter(): ParameterStatus;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): ParameterStatus;
+
+    getPhraseOrStatusCase(): ParameterStatus.PhraseOrStatusCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ParameterStatus.AsObject;
+    static toObject(includeInstance: boolean, msg: ParameterStatus): ParameterStatus.AsObject;
+    static serializeBinaryToWriter(message: ParameterStatus, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ParameterStatus;
+    static deserializeBinaryFromReader(message: ParameterStatus, reader: jspb.BinaryReader): ParameterStatus;
+  }
+
+  export namespace ParameterStatus {
+    export type AsObject = {
+      parameter?: Intent.Parameter.AsObject,
+      errorMessage: string,
+    }
+
+    export enum PhraseOrStatusCase { 
+      PHRASE_OR_STATUS_NOT_SET = 0,
+      PARAMETER = 1,
+      ERROR_MESSAGE = 2,
+    }
+  }
+
+}
+
+export class BatchCreateParametersRequest extends jspb.Message {
+  getParameterRequestsList(): Array<BatchCreateParametersRequest.CreateParameterRequest>;
+  setParameterRequestsList(value: Array<BatchCreateParametersRequest.CreateParameterRequest>): BatchCreateParametersRequest;
+  clearParameterRequestsList(): BatchCreateParametersRequest;
+  addParameterRequests(value?: BatchCreateParametersRequest.CreateParameterRequest, index?: number): BatchCreateParametersRequest.CreateParameterRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchCreateParametersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchCreateParametersRequest): BatchCreateParametersRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchCreateParametersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchCreateParametersRequest;
+  static deserializeBinaryFromReader(message: BatchCreateParametersRequest, reader: jspb.BinaryReader): BatchCreateParametersRequest;
+}
+
+export namespace BatchCreateParametersRequest {
+  export type AsObject = {
+    parameterRequestsList: Array<BatchCreateParametersRequest.CreateParameterRequest.AsObject>,
+  }
+
+  export class CreateParameterRequest extends jspb.Message {
+    getIntentName(): string;
+    setIntentName(value: string): CreateParameterRequest;
+
+    getParameter(): Intent.Parameter | undefined;
+    setParameter(value?: Intent.Parameter): CreateParameterRequest;
+    hasParameter(): boolean;
+    clearParameter(): CreateParameterRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CreateParameterRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateParameterRequest): CreateParameterRequest.AsObject;
+    static serializeBinaryToWriter(message: CreateParameterRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateParameterRequest;
+    static deserializeBinaryFromReader(message: CreateParameterRequest, reader: jspb.BinaryReader): CreateParameterRequest;
+  }
+
+  export namespace CreateParameterRequest {
+    export type AsObject = {
+      intentName: string,
+      parameter?: Intent.Parameter.AsObject,
+    }
+  }
+
+}
+
+export class BatchUpdateParametersRequest extends jspb.Message {
+  getParametersList(): Array<Intent.Parameter>;
+  setParametersList(value: Array<Intent.Parameter>): BatchUpdateParametersRequest;
+  clearParametersList(): BatchUpdateParametersRequest;
+  addParameters(value?: Intent.Parameter, index?: number): Intent.Parameter;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchUpdateParametersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchUpdateParametersRequest): BatchUpdateParametersRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchUpdateParametersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchUpdateParametersRequest;
+  static deserializeBinaryFromReader(message: BatchUpdateParametersRequest, reader: jspb.BinaryReader): BatchUpdateParametersRequest;
+}
+
+export namespace BatchUpdateParametersRequest {
+  export type AsObject = {
+    parametersList: Array<Intent.Parameter.AsObject>,
+  }
+}
+
+export class BatchGetParametersRequest extends jspb.Message {
+  getNamesList(): Array<string>;
+  setNamesList(value: Array<string>): BatchGetParametersRequest;
+  clearNamesList(): BatchGetParametersRequest;
+  addNames(value: string, index?: number): BatchGetParametersRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchGetParametersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchGetParametersRequest): BatchGetParametersRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchGetParametersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchGetParametersRequest;
+  static deserializeBinaryFromReader(message: BatchGetParametersRequest, reader: jspb.BinaryReader): BatchGetParametersRequest;
+}
+
+export namespace BatchGetParametersRequest {
+  export type AsObject = {
+    namesList: Array<string>,
+  }
+}
+
+export class BatchDeleteParametersRequest extends jspb.Message {
+  getNamesList(): Array<string>;
+  setNamesList(value: Array<string>): BatchDeleteParametersRequest;
+  clearNamesList(): BatchDeleteParametersRequest;
+  addNames(value: string, index?: number): BatchDeleteParametersRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchDeleteParametersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchDeleteParametersRequest): BatchDeleteParametersRequest.AsObject;
+  static serializeBinaryToWriter(message: BatchDeleteParametersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchDeleteParametersRequest;
+  static deserializeBinaryFromReader(message: BatchDeleteParametersRequest, reader: jspb.BinaryReader): BatchDeleteParametersRequest;
+}
+
+export namespace BatchDeleteParametersRequest {
+  export type AsObject = {
+    namesList: Array<string>,
+  }
+}
+
+export class BatchDeleteParametersResponse extends jspb.Message {
+  getDeleteStatusesList(): Array<BatchDeleteParametersResponse.DeleteParameterStatus>;
+  setDeleteStatusesList(value: Array<BatchDeleteParametersResponse.DeleteParameterStatus>): BatchDeleteParametersResponse;
+  clearDeleteStatusesList(): BatchDeleteParametersResponse;
+  addDeleteStatuses(value?: BatchDeleteParametersResponse.DeleteParameterStatus, index?: number): BatchDeleteParametersResponse.DeleteParameterStatus;
+
+  getHasErrors(): boolean;
+  setHasErrors(value: boolean): BatchDeleteParametersResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BatchDeleteParametersResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BatchDeleteParametersResponse): BatchDeleteParametersResponse.AsObject;
+  static serializeBinaryToWriter(message: BatchDeleteParametersResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BatchDeleteParametersResponse;
+  static deserializeBinaryFromReader(message: BatchDeleteParametersResponse, reader: jspb.BinaryReader): BatchDeleteParametersResponse;
+}
+
+export namespace BatchDeleteParametersResponse {
+  export type AsObject = {
+    deleteStatusesList: Array<BatchDeleteParametersResponse.DeleteParameterStatus.AsObject>,
+    hasErrors: boolean,
+  }
+
+  export class DeleteParameterStatus extends jspb.Message {
+    getSuccessfullyDeleted(): google_protobuf_empty_pb.Empty | undefined;
+    setSuccessfullyDeleted(value?: google_protobuf_empty_pb.Empty): DeleteParameterStatus;
+    hasSuccessfullyDeleted(): boolean;
+    clearSuccessfullyDeleted(): DeleteParameterStatus;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): DeleteParameterStatus;
+
+    getDeleteStatusCase(): DeleteParameterStatus.DeleteStatusCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteParameterStatus.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteParameterStatus): DeleteParameterStatus.AsObject;
+    static serializeBinaryToWriter(message: DeleteParameterStatus, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteParameterStatus;
+    static deserializeBinaryFromReader(message: DeleteParameterStatus, reader: jspb.BinaryReader): DeleteParameterStatus;
+  }
+
+  export namespace DeleteParameterStatus {
+    export type AsObject = {
+      successfullyDeleted?: google_protobuf_empty_pb.Empty.AsObject,
+      errorMessage: string,
+    }
+
+    export enum DeleteStatusCase { 
+      DELETE_STATUS_NOT_SET = 0,
+      SUCCESSFULLY_DELETED = 1,
+      ERROR_MESSAGE = 2,
+    }
+  }
+
+}
+
+export class ListParametersRequest extends jspb.Message {
+  getIntentName(): string;
+  setIntentName(value: string): ListParametersRequest;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): ListParametersRequest;
+
+  getPageToken(): string;
+  setPageToken(value: string): ListParametersRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListParametersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListParametersRequest): ListParametersRequest.AsObject;
+  static serializeBinaryToWriter(message: ListParametersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListParametersRequest;
+  static deserializeBinaryFromReader(message: ListParametersRequest, reader: jspb.BinaryReader): ListParametersRequest;
+}
+
+export namespace ListParametersRequest {
+  export type AsObject = {
+    intentName: string,
+    languageCode: string,
+    pageToken: string,
+  }
+}
+
+export class ListParametersResponse extends jspb.Message {
+  getParametersList(): Array<Intent.Parameter>;
+  setParametersList(value: Array<Intent.Parameter>): ListParametersResponse;
+  clearParametersList(): ListParametersResponse;
+  addParameters(value?: Intent.Parameter, index?: number): Intent.Parameter;
+
+  getNextPageToken(): string;
+  setNextPageToken(value: string): ListParametersResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListParametersResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListParametersResponse): ListParametersResponse.AsObject;
+  static serializeBinaryToWriter(message: ListParametersResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListParametersResponse;
+  static deserializeBinaryFromReader(message: ListParametersResponse, reader: jspb.BinaryReader): ListParametersResponse;
+}
+
+export namespace ListParametersResponse {
+  export type AsObject = {
+    parametersList: Array<Intent.Parameter.AsObject>,
+    nextPageToken: string,
   }
 }
 
@@ -1306,4 +2224,7 @@ export enum IntentCategory {
   ALL_INTENTS = 0,
   DEFAULT_INTENTS = 1,
   USER_DEFINED_INTENTS = 2,
+  DATE_EXPIRED_INTENTS = 3,
+  DATE_ACTIVE_INTENTS = 4,
+  DATE_UPCOMING_INTENTS = 5,
 }

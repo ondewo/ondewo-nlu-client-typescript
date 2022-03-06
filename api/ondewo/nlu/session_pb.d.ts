@@ -747,6 +747,28 @@ export namespace GetSessionRequest {
   }
 }
 
+export class CreateSessionRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): CreateSessionRequest;
+
+  getSessionUuid(): string;
+  setSessionUuid(value: string): CreateSessionRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateSessionRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateSessionRequest): CreateSessionRequest.AsObject;
+  static serializeBinaryToWriter(message: CreateSessionRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateSessionRequest;
+  static deserializeBinaryFromReader(message: CreateSessionRequest, reader: jspb.BinaryReader): CreateSessionRequest;
+}
+
+export namespace CreateSessionRequest {
+  export type AsObject = {
+    parent: string,
+    sessionUuid: string,
+  }
+}
+
 export class DeleteSessionRequest extends jspb.Message {
   getSessionId(): string;
   setSessionId(value: string): DeleteSessionRequest;
@@ -846,6 +868,11 @@ export class SessionReviewStep extends jspb.Message {
   clearContextsList(): SessionReviewStep;
   addContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
 
+  getContextsOutList(): Array<ondewo_nlu_context_pb.Context>;
+  setContextsOutList(value: Array<ondewo_nlu_context_pb.Context>): SessionReviewStep;
+  clearContextsOutList(): SessionReviewStep;
+  addContextsOut(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SessionReviewStep.AsObject;
   static toObject(includeInstance: boolean, msg: SessionReviewStep): SessionReviewStep.AsObject;
@@ -860,6 +887,7 @@ export namespace SessionReviewStep {
     languageCode: string,
     detectedIntentsList: Array<DetectedIntent.AsObject>,
     contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
+    contextsOutList: Array<ondewo_nlu_context_pb.Context.AsObject>,
   }
 }
 

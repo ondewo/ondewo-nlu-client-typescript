@@ -28,9 +28,13 @@ var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_
 
 var ondewo_nlu_common_pb = require('../../ondewo/nlu/common_pb.js')
 
+var ondewo_nlu_intent_pb = require('../../ondewo/nlu/intent_pb.js')
+
 var ondewo_nlu_user_pb = require('../../ondewo/nlu/user_pb.js')
 
 var ondewo_nlu_project_role_pb = require('../../ondewo/nlu/project_role_pb.js')
+
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js')
 const proto = {};
 proto.ondewo = {};
 proto.ondewo.nlu = require('./agent_pb.js');
@@ -1370,6 +1374,86 @@ proto.ondewo.nlu.AgentsPromiseClient.prototype.exportAgent =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ExportBenchmarkAgentRequest,
+ *   !proto.google.longrunning.Operation>}
+ */
+const methodDescriptor_Agents_ExportBenchmarkAgent = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/ExportBenchmarkAgent',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ExportBenchmarkAgentRequest,
+  google_longrunning_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.ExportBenchmarkAgentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_longrunning_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.ExportBenchmarkAgentRequest,
+ *   !proto.google.longrunning.Operation>}
+ */
+const methodInfo_Agents_ExportBenchmarkAgent = new grpc.web.AbstractClientBase.MethodInfo(
+  google_longrunning_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.ExportBenchmarkAgentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_longrunning_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ExportBenchmarkAgentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.google.longrunning.Operation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.longrunning.Operation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.exportBenchmarkAgent =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/ExportBenchmarkAgent',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_ExportBenchmarkAgent,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ExportBenchmarkAgentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.longrunning.Operation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.exportBenchmarkAgent =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/ExportBenchmarkAgent',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_ExportBenchmarkAgent);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.ImportAgentRequest,
  *   !proto.google.longrunning.Operation>}
  */
@@ -2004,6 +2088,246 @@ proto.ondewo.nlu.AgentsPromiseClient.prototype.exportResources =
       request,
       metadata || {},
       methodDescriptor_Agents_ExportResources);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetModelStatusesRequest,
+ *   !proto.ondewo.nlu.GetModelStatusesResponse>}
+ */
+const methodDescriptor_Agents_GetModelStatuses = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/GetModelStatuses',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetModelStatusesRequest,
+  proto.ondewo.nlu.GetModelStatusesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.GetModelStatusesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.GetModelStatusesResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.GetModelStatusesRequest,
+ *   !proto.ondewo.nlu.GetModelStatusesResponse>}
+ */
+const methodInfo_Agents_GetModelStatuses = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ondewo.nlu.GetModelStatusesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.GetModelStatusesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.GetModelStatusesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetModelStatusesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GetModelStatusesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetModelStatusesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.getModelStatuses =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/GetModelStatuses',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_GetModelStatuses,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetModelStatusesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.GetModelStatusesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.getModelStatuses =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/GetModelStatuses',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_GetModelStatuses);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetPlatformMappingRequest,
+ *   !proto.ondewo.nlu.PlatformMapping>}
+ */
+const methodDescriptor_Agents_GetPlatformMapping = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/GetPlatformMapping',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetPlatformMappingRequest,
+  proto.ondewo.nlu.PlatformMapping,
+  /**
+   * @param {!proto.ondewo.nlu.GetPlatformMappingRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.PlatformMapping.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.GetPlatformMappingRequest,
+ *   !proto.ondewo.nlu.PlatformMapping>}
+ */
+const methodInfo_Agents_GetPlatformMapping = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ondewo.nlu.PlatformMapping,
+  /**
+   * @param {!proto.ondewo.nlu.GetPlatformMappingRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.PlatformMapping.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetPlatformMappingRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.PlatformMapping)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.PlatformMapping>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.getPlatformMapping =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/GetPlatformMapping',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_GetPlatformMapping,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetPlatformMappingRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.PlatformMapping>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.getPlatformMapping =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/GetPlatformMapping',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_GetPlatformMapping);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.PlatformMapping,
+ *   !proto.ondewo.nlu.PlatformMapping>}
+ */
+const methodDescriptor_Agents_SetPlatformMapping = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/SetPlatformMapping',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.PlatformMapping,
+  proto.ondewo.nlu.PlatformMapping,
+  /**
+   * @param {!proto.ondewo.nlu.PlatformMapping} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.PlatformMapping.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.PlatformMapping,
+ *   !proto.ondewo.nlu.PlatformMapping>}
+ */
+const methodInfo_Agents_SetPlatformMapping = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ondewo.nlu.PlatformMapping,
+  /**
+   * @param {!proto.ondewo.nlu.PlatformMapping} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.PlatformMapping.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.PlatformMapping} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.PlatformMapping)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.PlatformMapping>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.setPlatformMapping =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/SetPlatformMapping',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_SetPlatformMapping,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.PlatformMapping} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.PlatformMapping>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.setPlatformMapping =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/SetPlatformMapping',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_SetPlatformMapping);
 };
 
 

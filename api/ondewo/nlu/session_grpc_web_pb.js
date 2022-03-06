@@ -330,6 +330,86 @@ proto.ondewo.nlu.SessionsPromiseClient.prototype.getSession =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateSessionRequest,
+ *   !proto.ondewo.nlu.Session>}
+ */
+const methodDescriptor_Sessions_CreateSession = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Sessions/CreateSession',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateSessionRequest,
+  proto.ondewo.nlu.Session,
+  /**
+   * @param {!proto.ondewo.nlu.CreateSessionRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.Session.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.ondewo.nlu.CreateSessionRequest,
+ *   !proto.ondewo.nlu.Session>}
+ */
+const methodInfo_Sessions_CreateSession = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.ondewo.nlu.Session,
+  /**
+   * @param {!proto.ondewo.nlu.CreateSessionRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.Session.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateSessionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Session)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Session>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.createSession =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Sessions/CreateSession',
+      request,
+      metadata || {},
+      methodDescriptor_Sessions_CreateSession,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateSessionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Session>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.createSession =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Sessions/CreateSession',
+      request,
+      metadata || {},
+      methodDescriptor_Sessions_CreateSession);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.TrackSessionStepRequest,
  *   !proto.ondewo.nlu.Session>}
  */
