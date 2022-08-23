@@ -165,11 +165,32 @@ build: check_out_correct_submodule_versions build_compiler copy_proto_files_all_
 	do \
 		sudo chown `whoami`:`whoami` $$f && echo $$f; \
 	done
+	make remove_npm_script
+	make create_npm_package
+	make install_dependencies
+	rm -rf ${NLU_APIS_DIR}/google
+
+
+remove_npm_script:
+	$(eval script_lines:= $(shell cat package.json | sed -n '/\"scripts\"/,/\}\,/='))
+	$(eval start:= $(shell echo $(script_lines) | cut -c 1-2))
+	$(eval end:= $(shell echo $(script_lines) | rev | cut -c 1-3 | rev))
+	@sed -i '$(start),$(end)d' package.json
+
+create_npm_package:
+	rm -rf npm
+	mkdir npm
+	cp -R api npm
+	cp public-api.d.ts npm
+	cp package.json npm
+	cp LICENSE npm
+	cp README.md npm
+
+install_dependencies:
 	npm i eslint --save-dev
 	npm i prettier --save-dev
 	npm i @typescript-eslint/eslint-plugin --save-dev
 	npm i husky --save-dev
-	rm -rf ${NLU_APIS_DIR}/google
 
 check_out_correct_submodule_versions: ## Fetches all Submodules and checksout specified branch
 	@echo "START checking out correct submodule versions ..."
