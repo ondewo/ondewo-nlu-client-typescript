@@ -57,6 +57,9 @@ export class OperationMetadata extends jspb.Message {
   getMaxNumReruns(): number;
   setMaxNumReruns(value: number): OperationMetadata;
 
+  getDescription(): string;
+  setDescription(value: string): OperationMetadata;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperationMetadata.AsObject;
   static toObject(includeInstance: boolean, msg: OperationMetadata): OperationMetadata.AsObject;
@@ -82,6 +85,7 @@ export namespace OperationMetadata {
     hostName: string,
     numReruns: number,
     maxNumReruns: number,
+    description: string,
   }
 
   export enum Status { 
@@ -102,6 +106,7 @@ export namespace OperationMetadata {
     RESTORE_AGENT = 5,
     BUILD_AGENT_CACHE = 6,
     TRAIN_AGENT = 7,
+    EXPORT_BENCHMARK_AGENT = 8,
   }
 }
 

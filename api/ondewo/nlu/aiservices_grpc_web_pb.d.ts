@@ -50,6 +50,20 @@ export class AiServicesClient {
                response: ondewo_nlu_aiservices_pb.GetSynonymsResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_aiservices_pb.GetSynonymsResponse>;
 
+  classifyIntents(
+    request: ondewo_nlu_aiservices_pb.ClassifyIntentsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_aiservices_pb.ClassifyIntentsResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_aiservices_pb.ClassifyIntentsResponse>;
+
+  extractEntitiesFuzzy(
+    request: ondewo_nlu_aiservices_pb.ExtractEntitiesFuzzyRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_aiservices_pb.ExtractEntitiesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_aiservices_pb.ExtractEntitiesResponse>;
+
 }
 
 export class AiServicesPromiseClient {
@@ -86,6 +100,16 @@ export class AiServicesPromiseClient {
     request: ondewo_nlu_aiservices_pb.GetSynonymsRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_aiservices_pb.GetSynonymsResponse>;
+
+  classifyIntents(
+    request: ondewo_nlu_aiservices_pb.ClassifyIntentsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_aiservices_pb.ClassifyIntentsResponse>;
+
+  extractEntitiesFuzzy(
+    request: ondewo_nlu_aiservices_pb.ExtractEntitiesFuzzyRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_aiservices_pb.ExtractEntitiesResponse>;
 
 }
 

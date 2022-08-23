@@ -17,11 +17,18 @@ export class QAClient {
   ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.GetAnswerResponse>;
 
   runScraper(
-    request: google_protobuf_empty_pb.Empty,
+    request: ondewo_qa_qa_pb.RunScraperRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.Error,
                response: ondewo_qa_qa_pb.RunScraperResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.RunScraperResponse>;
+
+  updateDatabase(
+    request: ondewo_qa_qa_pb.UpdateDatabaseRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_qa_qa_pb.UpdateDatabaseResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.UpdateDatabaseResponse>;
 
   runTraining(
     request: google_protobuf_empty_pb.Empty,
@@ -29,6 +36,27 @@ export class QAClient {
     callback: (err: grpcWeb.Error,
                response: ondewo_qa_qa_pb.RunTrainingResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.RunTrainingResponse>;
+
+  getServerState(
+    request: google_protobuf_empty_pb.Empty,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_qa_qa_pb.GetServerStateResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.GetServerStateResponse>;
+
+  listProjectIds(
+    request: google_protobuf_empty_pb.Empty,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_qa_qa_pb.ListProjectIdsResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.ListProjectIdsResponse>;
+
+  getProjectConfig(
+    request: ondewo_qa_qa_pb.GetProjectConfigRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_qa_qa_pb.GetProjectConfigResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_qa_qa_pb.GetProjectConfigResponse>;
 
 }
 
@@ -43,14 +71,34 @@ export class QAPromiseClient {
   ): Promise<ondewo_qa_qa_pb.GetAnswerResponse>;
 
   runScraper(
-    request: google_protobuf_empty_pb.Empty,
+    request: ondewo_qa_qa_pb.RunScraperRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_qa_qa_pb.RunScraperResponse>;
+
+  updateDatabase(
+    request: ondewo_qa_qa_pb.UpdateDatabaseRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_qa_qa_pb.UpdateDatabaseResponse>;
 
   runTraining(
     request: google_protobuf_empty_pb.Empty,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_qa_qa_pb.RunTrainingResponse>;
+
+  getServerState(
+    request: google_protobuf_empty_pb.Empty,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_qa_qa_pb.GetServerStateResponse>;
+
+  listProjectIds(
+    request: google_protobuf_empty_pb.Empty,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_qa_qa_pb.ListProjectIdsResponse>;
+
+  getProjectConfig(
+    request: ondewo_qa_qa_pb.GetProjectConfigRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_qa_qa_pb.GetProjectConfigResponse>;
 
 }
 

@@ -1,22 +1,26 @@
 {
-  "name": "@ondewo/nlu-client-typescript",
-  "version": "0.1.0",
-  "description": "Ondewo natural language understanding client library for typescript as a commonjs module",
-  "main": "public-api.js",
-  "typings": "public-api.d.ts",
-  "scripts": {
-    "start": "npm run build",
-    "prebuild": "mv ondewo-nlu-api/googleapis/google ondewo-nlu-api/google",
-    "build": "git submodule update --init --recursive && docker run -it -v ${PWD}:/input-volume -v ${PWD}/..:/output-volume ondewo-typescript-proto-compiler ondewo-nlu-api ondewo",
-    "postbuild": "mv ondewo-nlu-api/google ondewo-nlu-api/googleapis/google",
-    "predebug": "mv ondewo-nlu-api/googleapis/google ondewo-nlu-api/google",
-    "debug": "docker run -it --entrypoint /bin/bash -v ${PWD}:/input-volume -v ${PWD}/..:/output-volume ondewo-typescript-proto-compiler"
-  },
-  "author": "Markus Peitl  @ Ondewo",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "google-protobuf": "^3.11.4",
-    "grpc-web": "^1.0.7",
-    "tslib": "^1.10.0"
-  }
+	"name": "@ondewo/nlu-client-typescript",
+	"version": "2.13.0",
+	"description": "Ondewo Natural Language Understanding (NLU) Client library for typescript as a commonjs module",
+	"main": "public-api.js",
+	"typings": "public-api.d.ts",
+	"scripts": {
+		"start": "npm run build",
+		"build": "docker run -it -v ${PWD}:/input-volume -v ${PWD}/..:/output-volume ondewo-typescript-proto-compiler ondewo-nlu-api ondewo",
+		"predebug": "mv ondewo-nlu-api/googleapis/google ondewo-nlu-api/google",
+		"debug": "docker run -it --entrypoint /bin/bash -v ${PWD}:/input-volume -v ${PWD}/..:/output-volume ondewo-typescript-proto-compiler"
+	},
+	"author": "ONDEWO GmbH <office@ondewo.com>",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"google-protobuf": "^3.21.0",
+		"grpc-web": "^1.3.1",
+		"tslib": "^2.4.0"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.34.0",
+		"eslint": "^8.22.0",
+		"husky": "^8.0.1",
+		"prettier": "^2.7.1"
+	}
 }

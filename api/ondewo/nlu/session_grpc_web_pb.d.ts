@@ -30,6 +30,13 @@ export class SessionsClient {
                response: ondewo_nlu_session_pb.Session) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
 
+  createSession(
+    request: ondewo_nlu_session_pb.CreateSessionRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.Error,
+               response: ondewo_nlu_session_pb.Session) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
+
   trackSessionStep(
     request: ondewo_nlu_session_pb.TrackSessionStepRequest,
     metadata: grpcWeb.Metadata | undefined,
@@ -112,6 +119,11 @@ export class SessionsPromiseClient {
 
   getSession(
     request: ondewo_nlu_session_pb.GetSessionRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_session_pb.Session>;
+
+  createSession(
+    request: ondewo_nlu_session_pb.CreateSessionRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_session_pb.Session>;
 
