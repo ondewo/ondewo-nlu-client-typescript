@@ -12,28 +12,28 @@ export class OperationsClient {
   listOperations(
     request: ondewo_nlu_operations_pb.ListOperationsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_operations_pb.ListOperationsResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_operations_pb.ListOperationsResponse>;
 
   getOperation(
     request: ondewo_nlu_operations_pb.GetOperationRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_operations_pb.Operation) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_operations_pb.Operation>;
 
   deleteOperation(
     request: ondewo_nlu_operations_pb.DeleteOperationRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 
   cancelOperation(
     request: ondewo_nlu_operations_pb.CancelOperationRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 

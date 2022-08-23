@@ -38,7 +38,7 @@ proto.ondewo.nlu = require('./intent_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -46,7 +46,7 @@ proto.ondewo.nlu = require('./intent_pb.js');
 proto.ondewo.nlu.IntentsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -64,7 +64,7 @@ proto.ondewo.nlu.IntentsClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -72,7 +72,7 @@ proto.ondewo.nlu.IntentsClient =
 proto.ondewo.nlu.IntentsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -110,30 +110,11 @@ const methodDescriptor_Intents_ListIntents = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListIntentsRequest,
- *   !proto.ondewo.nlu.ListIntentsResponse>}
- */
-const methodInfo_Intents_ListIntents = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListIntentsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListIntentsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListIntentsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListIntentsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListIntentsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListIntentsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListIntentsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -152,7 +133,7 @@ proto.ondewo.nlu.IntentsClient.prototype.listIntents =
 /**
  * @param {!proto.ondewo.nlu.ListIntentsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListIntentsResponse>}
  *     Promise that resolves to the response
@@ -190,30 +171,11 @@ const methodDescriptor_Intents_GetIntent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetIntentRequest,
- *   !proto.ondewo.nlu.Intent>}
- */
-const methodInfo_Intents_GetIntent = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Intent,
-  /**
-   * @param {!proto.ondewo.nlu.GetIntentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Intent.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetIntentRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Intent)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Intent)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Intent>|undefined}
  *     The XHR Node Readable Stream
@@ -232,7 +194,7 @@ proto.ondewo.nlu.IntentsClient.prototype.getIntent =
 /**
  * @param {!proto.ondewo.nlu.GetIntentRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Intent>}
  *     Promise that resolves to the response
@@ -270,30 +232,11 @@ const methodDescriptor_Intents_CreateIntent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CreateIntentRequest,
- *   !proto.ondewo.nlu.Intent>}
- */
-const methodInfo_Intents_CreateIntent = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Intent,
-  /**
-   * @param {!proto.ondewo.nlu.CreateIntentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Intent.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CreateIntentRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Intent)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Intent)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Intent>|undefined}
  *     The XHR Node Readable Stream
@@ -312,7 +255,7 @@ proto.ondewo.nlu.IntentsClient.prototype.createIntent =
 /**
  * @param {!proto.ondewo.nlu.CreateIntentRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Intent>}
  *     Promise that resolves to the response
@@ -350,30 +293,11 @@ const methodDescriptor_Intents_UpdateIntent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.UpdateIntentRequest,
- *   !proto.ondewo.nlu.Intent>}
- */
-const methodInfo_Intents_UpdateIntent = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Intent,
-  /**
-   * @param {!proto.ondewo.nlu.UpdateIntentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Intent.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.UpdateIntentRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Intent)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Intent)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Intent>|undefined}
  *     The XHR Node Readable Stream
@@ -392,7 +316,7 @@ proto.ondewo.nlu.IntentsClient.prototype.updateIntent =
 /**
  * @param {!proto.ondewo.nlu.UpdateIntentRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Intent>}
  *     Promise that resolves to the response
@@ -430,30 +354,11 @@ const methodDescriptor_Intents_DeleteIntent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.DeleteIntentRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Intents_DeleteIntent = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.DeleteIntentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.DeleteIntentRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -472,7 +377,7 @@ proto.ondewo.nlu.IntentsClient.prototype.deleteIntent =
 /**
  * @param {!proto.ondewo.nlu.DeleteIntentRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -510,30 +415,11 @@ const methodDescriptor_Intents_BatchUpdateIntents = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchUpdateIntentsRequest,
- *   !proto.ondewo.nlu.Operation>}
- */
-const methodInfo_Intents_BatchUpdateIntents = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_operations_pb.Operation,
-  /**
-   * @param {!proto.ondewo.nlu.BatchUpdateIntentsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_operations_pb.Operation.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchUpdateIntentsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
  *     The XHR Node Readable Stream
@@ -552,7 +438,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchUpdateIntents =
 /**
  * @param {!proto.ondewo.nlu.BatchUpdateIntentsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Operation>}
  *     Promise that resolves to the response
@@ -590,30 +476,11 @@ const methodDescriptor_Intents_BatchDeleteIntents = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchDeleteIntentsRequest,
- *   !proto.ondewo.nlu.Operation>}
- */
-const methodInfo_Intents_BatchDeleteIntents = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_operations_pb.Operation,
-  /**
-   * @param {!proto.ondewo.nlu.BatchDeleteIntentsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_operations_pb.Operation.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchDeleteIntentsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
  *     The XHR Node Readable Stream
@@ -632,7 +499,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchDeleteIntents =
 /**
  * @param {!proto.ondewo.nlu.BatchDeleteIntentsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Operation>}
  *     Promise that resolves to the response
@@ -670,30 +537,11 @@ const methodDescriptor_Intents_TagIntent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.IntentTagRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Intents_TagIntent = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.IntentTagRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.IntentTagRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -712,7 +560,7 @@ proto.ondewo.nlu.IntentsClient.prototype.tagIntent =
 /**
  * @param {!proto.ondewo.nlu.IntentTagRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -750,30 +598,11 @@ const methodDescriptor_Intents_DeleteIntentTag = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.IntentTagRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Intents_DeleteIntentTag = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.IntentTagRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.IntentTagRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -792,7 +621,7 @@ proto.ondewo.nlu.IntentsClient.prototype.deleteIntentTag =
 /**
  * @param {!proto.ondewo.nlu.IntentTagRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -830,30 +659,11 @@ const methodDescriptor_Intents_GetIntentTags = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetIntentTagsRequest,
- *   !proto.ondewo.nlu.GetIntentTagsResponse>}
- */
-const methodInfo_Intents_GetIntentTags = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GetIntentTagsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetIntentTagsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GetIntentTagsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetIntentTagsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GetIntentTagsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetIntentTagsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetIntentTagsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -872,7 +682,7 @@ proto.ondewo.nlu.IntentsClient.prototype.getIntentTags =
 /**
  * @param {!proto.ondewo.nlu.GetIntentTagsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GetIntentTagsResponse>}
  *     Promise that resolves to the response
@@ -910,30 +720,11 @@ const methodDescriptor_Intents_GetAllIntentTags = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetAllIntentTagsRequest,
- *   !proto.ondewo.nlu.GetIntentTagsResponse>}
- */
-const methodInfo_Intents_GetAllIntentTags = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GetIntentTagsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetAllIntentTagsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GetIntentTagsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetAllIntentTagsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GetIntentTagsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetIntentTagsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetIntentTagsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -952,7 +743,7 @@ proto.ondewo.nlu.IntentsClient.prototype.getAllIntentTags =
 /**
  * @param {!proto.ondewo.nlu.GetAllIntentTagsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GetIntentTagsResponse>}
  *     Promise that resolves to the response
@@ -990,30 +781,11 @@ const methodDescriptor_Intents_BatchCreateTrainingPhrases = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchCreateTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>}
- */
-const methodInfo_Intents_BatchCreateTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchCreateTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchCreateTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1032,7 +804,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchCreateTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.BatchCreateTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>}
  *     Promise that resolves to the response
@@ -1070,30 +842,11 @@ const methodDescriptor_Intents_BatchGetTrainingPhrases = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchGetTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>}
- */
-const methodInfo_Intents_BatchGetTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchGetTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchGetTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1112,7 +865,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchGetTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.BatchGetTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>}
  *     Promise that resolves to the response
@@ -1150,30 +903,11 @@ const methodDescriptor_Intents_BatchUpdateTrainingPhrases = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchUpdateTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>}
- */
-const methodInfo_Intents_BatchUpdateTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchUpdateTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchUpdateTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1192,7 +926,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchUpdateTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.BatchUpdateTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchTrainingPhrasesStatusResponse>}
  *     Promise that resolves to the response
@@ -1230,30 +964,11 @@ const methodDescriptor_Intents_BatchDeleteTrainingPhrases = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchDeleteTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse>}
- */
-const methodInfo_Intents_BatchDeleteTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchDeleteTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchDeleteTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1272,7 +987,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchDeleteTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.BatchDeleteTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchDeleteTrainingPhrasesResponse>}
  *     Promise that resolves to the response
@@ -1310,30 +1025,11 @@ const methodDescriptor_Intents_ListTrainingPhrases = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.ListTrainingPhrasesResponse>}
- */
-const methodInfo_Intents_ListTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListTrainingPhrasesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListTrainingPhrasesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListTrainingPhrasesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListTrainingPhrasesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListTrainingPhrasesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1352,7 +1048,7 @@ proto.ondewo.nlu.IntentsClient.prototype.listTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.ListTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListTrainingPhrasesResponse>}
  *     Promise that resolves to the response
@@ -1390,30 +1086,11 @@ const methodDescriptor_Intents_BatchCreateResponseMessages = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchCreateResponseMessagesRequest,
- *   !proto.ondewo.nlu.BatchResponseMessagesStatusResponse>}
- */
-const methodInfo_Intents_BatchCreateResponseMessages = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchResponseMessagesStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchCreateResponseMessagesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchResponseMessagesStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchCreateResponseMessagesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchResponseMessagesStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchResponseMessagesStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchResponseMessagesStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1432,7 +1109,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchCreateResponseMessages =
 /**
  * @param {!proto.ondewo.nlu.BatchCreateResponseMessagesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchResponseMessagesStatusResponse>}
  *     Promise that resolves to the response
@@ -1470,30 +1147,11 @@ const methodDescriptor_Intents_BatchGetResponseMessages = new grpc.web.MethodDes
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchGetResponseMessagesRequest,
- *   !proto.ondewo.nlu.BatchResponseMessagesStatusResponse>}
- */
-const methodInfo_Intents_BatchGetResponseMessages = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchResponseMessagesStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchGetResponseMessagesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchResponseMessagesStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchGetResponseMessagesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchResponseMessagesStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchResponseMessagesStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchResponseMessagesStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1512,7 +1170,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchGetResponseMessages =
 /**
  * @param {!proto.ondewo.nlu.BatchGetResponseMessagesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchResponseMessagesStatusResponse>}
  *     Promise that resolves to the response
@@ -1550,30 +1208,11 @@ const methodDescriptor_Intents_BatchUpdateResponseMessages = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchUpdateResponseMessagesRequest,
- *   !proto.ondewo.nlu.BatchResponseMessagesStatusResponse>}
- */
-const methodInfo_Intents_BatchUpdateResponseMessages = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchResponseMessagesStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchUpdateResponseMessagesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchResponseMessagesStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchUpdateResponseMessagesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchResponseMessagesStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchResponseMessagesStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchResponseMessagesStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1592,7 +1231,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchUpdateResponseMessages =
 /**
  * @param {!proto.ondewo.nlu.BatchUpdateResponseMessagesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchResponseMessagesStatusResponse>}
  *     Promise that resolves to the response
@@ -1630,30 +1269,11 @@ const methodDescriptor_Intents_BatchDeleteResponseMessages = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchDeleteResponseMessagesRequest,
- *   !proto.ondewo.nlu.BatchDeleteResponseMessagesResponse>}
- */
-const methodInfo_Intents_BatchDeleteResponseMessages = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchDeleteResponseMessagesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchDeleteResponseMessagesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchDeleteResponseMessagesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchDeleteResponseMessagesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchDeleteResponseMessagesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchDeleteResponseMessagesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchDeleteResponseMessagesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1672,7 +1292,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchDeleteResponseMessages =
 /**
  * @param {!proto.ondewo.nlu.BatchDeleteResponseMessagesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchDeleteResponseMessagesResponse>}
  *     Promise that resolves to the response
@@ -1710,30 +1330,11 @@ const methodDescriptor_Intents_ListResponseMessages = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListResponseMessagesRequest,
- *   !proto.ondewo.nlu.ListResponseMessagesResponse>}
- */
-const methodInfo_Intents_ListResponseMessages = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListResponseMessagesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListResponseMessagesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListResponseMessagesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListResponseMessagesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListResponseMessagesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListResponseMessagesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListResponseMessagesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1752,7 +1353,7 @@ proto.ondewo.nlu.IntentsClient.prototype.listResponseMessages =
 /**
  * @param {!proto.ondewo.nlu.ListResponseMessagesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListResponseMessagesResponse>}
  *     Promise that resolves to the response
@@ -1790,30 +1391,11 @@ const methodDescriptor_Intents_BatchCreateParameters = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchCreateParametersRequest,
- *   !proto.ondewo.nlu.BatchParametersStatusResponse>}
- */
-const methodInfo_Intents_BatchCreateParameters = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchParametersStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchCreateParametersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchParametersStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchCreateParametersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchParametersStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchParametersStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchParametersStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1832,7 +1414,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchCreateParameters =
 /**
  * @param {!proto.ondewo.nlu.BatchCreateParametersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchParametersStatusResponse>}
  *     Promise that resolves to the response
@@ -1870,30 +1452,11 @@ const methodDescriptor_Intents_BatchGetParameters = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchGetParametersRequest,
- *   !proto.ondewo.nlu.BatchParametersStatusResponse>}
- */
-const methodInfo_Intents_BatchGetParameters = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchParametersStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchGetParametersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchParametersStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchGetParametersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchParametersStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchParametersStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchParametersStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1912,7 +1475,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchGetParameters =
 /**
  * @param {!proto.ondewo.nlu.BatchGetParametersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchParametersStatusResponse>}
  *     Promise that resolves to the response
@@ -1950,30 +1513,11 @@ const methodDescriptor_Intents_BatchUpdateParameters = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchUpdateParametersRequest,
- *   !proto.ondewo.nlu.BatchParametersStatusResponse>}
- */
-const methodInfo_Intents_BatchUpdateParameters = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchParametersStatusResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchUpdateParametersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchParametersStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchUpdateParametersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchParametersStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchParametersStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchParametersStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1992,7 +1536,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchUpdateParameters =
 /**
  * @param {!proto.ondewo.nlu.BatchUpdateParametersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchParametersStatusResponse>}
  *     Promise that resolves to the response
@@ -2030,30 +1574,11 @@ const methodDescriptor_Intents_BatchDeleteParameters = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchDeleteParametersRequest,
- *   !proto.ondewo.nlu.BatchDeleteParametersResponse>}
- */
-const methodInfo_Intents_BatchDeleteParameters = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchDeleteParametersResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchDeleteParametersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchDeleteParametersResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchDeleteParametersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchDeleteParametersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchDeleteParametersResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchDeleteParametersResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -2072,7 +1597,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchDeleteParameters =
 /**
  * @param {!proto.ondewo.nlu.BatchDeleteParametersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchDeleteParametersResponse>}
  *     Promise that resolves to the response
@@ -2110,30 +1635,11 @@ const methodDescriptor_Intents_ListParameters = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListParametersRequest,
- *   !proto.ondewo.nlu.ListParametersResponse>}
- */
-const methodInfo_Intents_ListParameters = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListParametersResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListParametersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListParametersResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListParametersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListParametersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListParametersResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListParametersResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -2152,7 +1658,7 @@ proto.ondewo.nlu.IntentsClient.prototype.listParameters =
 /**
  * @param {!proto.ondewo.nlu.ListParametersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListParametersResponse>}
  *     Promise that resolves to the response
@@ -2190,30 +1696,11 @@ const methodDescriptor_Intents_ListTrainingPhrasesofIntentsWithEnrichment = new 
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentRequest,
- *   !proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse>}
- */
-const methodInfo_Intents_ListTrainingPhrasesofIntentsWithEnrichment = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -2232,7 +1719,7 @@ proto.ondewo.nlu.IntentsClient.prototype.listTrainingPhrasesofIntentsWithEnrichm
 /**
  * @param {!proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListTrainingPhrasesofIntentsWithEnrichmentResponse>}
  *     Promise that resolves to the response

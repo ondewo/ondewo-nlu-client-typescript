@@ -30,7 +30,7 @@ proto.ondewo.nlu = require('./user_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -38,7 +38,7 @@ proto.ondewo.nlu = require('./user_pb.js');
 proto.ondewo.nlu.UsersClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -56,7 +56,7 @@ proto.ondewo.nlu.UsersClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -64,7 +64,7 @@ proto.ondewo.nlu.UsersClient =
 proto.ondewo.nlu.UsersPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -102,30 +102,11 @@ const methodDescriptor_Users_CreateUser = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CreateUserRequest,
- *   !proto.ondewo.nlu.User>}
- */
-const methodInfo_Users_CreateUser = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.User,
-  /**
-   * @param {!proto.ondewo.nlu.CreateUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.User.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CreateUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.User)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.User)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.User>|undefined}
  *     The XHR Node Readable Stream
@@ -144,7 +125,7 @@ proto.ondewo.nlu.UsersClient.prototype.createUser =
 /**
  * @param {!proto.ondewo.nlu.CreateUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.User>}
  *     Promise that resolves to the response
@@ -182,30 +163,11 @@ const methodDescriptor_Users_GetUser = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetUserRequest,
- *   !proto.ondewo.nlu.User>}
- */
-const methodInfo_Users_GetUser = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.User,
-  /**
-   * @param {!proto.ondewo.nlu.GetUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.User.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.User)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.User)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.User>|undefined}
  *     The XHR Node Readable Stream
@@ -224,7 +186,7 @@ proto.ondewo.nlu.UsersClient.prototype.getUser =
 /**
  * @param {!proto.ondewo.nlu.GetUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.User>}
  *     Promise that resolves to the response
@@ -262,30 +224,11 @@ const methodDescriptor_Users_GetUserInfo = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetUserRequest,
- *   !proto.ondewo.nlu.UserInfo>}
- */
-const methodInfo_Users_GetUserInfo = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.UserInfo,
-  /**
-   * @param {!proto.ondewo.nlu.GetUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.UserInfo.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.UserInfo)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.UserInfo)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.UserInfo>|undefined}
  *     The XHR Node Readable Stream
@@ -304,7 +247,7 @@ proto.ondewo.nlu.UsersClient.prototype.getUserInfo =
 /**
  * @param {!proto.ondewo.nlu.GetUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.UserInfo>}
  *     Promise that resolves to the response
@@ -342,30 +285,11 @@ const methodDescriptor_Users_DeleteUser = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetUserRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Users_DeleteUser = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.GetUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -384,7 +308,7 @@ proto.ondewo.nlu.UsersClient.prototype.deleteUser =
 /**
  * @param {!proto.ondewo.nlu.GetUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -422,30 +346,11 @@ const methodDescriptor_Users_UpdateUser = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.UpdateUserRequest,
- *   !proto.ondewo.nlu.User>}
- */
-const methodInfo_Users_UpdateUser = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.User,
-  /**
-   * @param {!proto.ondewo.nlu.UpdateUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.User.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.UpdateUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.User)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.User)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.User>|undefined}
  *     The XHR Node Readable Stream
@@ -464,7 +369,7 @@ proto.ondewo.nlu.UsersClient.prototype.updateUser =
 /**
  * @param {!proto.ondewo.nlu.UpdateUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.User>}
  *     Promise that resolves to the response
@@ -502,30 +407,11 @@ const methodDescriptor_Users_ListUsers = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListUsersRequest,
- *   !proto.ondewo.nlu.ListUsersResponse>}
- */
-const methodInfo_Users_ListUsers = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListUsersResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListUsersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListUsersResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListUsersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListUsersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListUsersResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListUsersResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -544,7 +430,7 @@ proto.ondewo.nlu.UsersClient.prototype.listUsers =
 /**
  * @param {!proto.ondewo.nlu.ListUsersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListUsersResponse>}
  *     Promise that resolves to the response
@@ -582,30 +468,11 @@ const methodDescriptor_Users_ListUserInfos = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListUsersRequest,
- *   !proto.ondewo.nlu.ListUserInfosResponse>}
- */
-const methodInfo_Users_ListUserInfos = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListUserInfosResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListUsersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListUserInfosResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListUsersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListUserInfosResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListUserInfosResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListUserInfosResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -624,7 +491,7 @@ proto.ondewo.nlu.UsersClient.prototype.listUserInfos =
 /**
  * @param {!proto.ondewo.nlu.ListUsersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListUserInfosResponse>}
  *     Promise that resolves to the response
@@ -662,30 +529,11 @@ const methodDescriptor_Users_CreateServerRole = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CreateServerRoleRequest,
- *   !proto.ondewo.nlu.ServerRole>}
- */
-const methodInfo_Users_CreateServerRole = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ServerRole,
-  /**
-   * @param {!proto.ondewo.nlu.CreateServerRoleRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ServerRole.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CreateServerRoleRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ServerRole)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ServerRole)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ServerRole>|undefined}
  *     The XHR Node Readable Stream
@@ -704,7 +552,7 @@ proto.ondewo.nlu.UsersClient.prototype.createServerRole =
 /**
  * @param {!proto.ondewo.nlu.CreateServerRoleRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ServerRole>}
  *     Promise that resolves to the response
@@ -742,30 +590,11 @@ const methodDescriptor_Users_GetServerRole = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetServerRoleRequest,
- *   !proto.ondewo.nlu.ServerRole>}
- */
-const methodInfo_Users_GetServerRole = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ServerRole,
-  /**
-   * @param {!proto.ondewo.nlu.GetServerRoleRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ServerRole.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetServerRoleRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ServerRole)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ServerRole)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ServerRole>|undefined}
  *     The XHR Node Readable Stream
@@ -784,7 +613,7 @@ proto.ondewo.nlu.UsersClient.prototype.getServerRole =
 /**
  * @param {!proto.ondewo.nlu.GetServerRoleRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ServerRole>}
  *     Promise that resolves to the response
@@ -822,30 +651,11 @@ const methodDescriptor_Users_DeleteServerRole = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.DeleteServerRoleRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Users_DeleteServerRole = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.DeleteServerRoleRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.DeleteServerRoleRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -864,7 +674,7 @@ proto.ondewo.nlu.UsersClient.prototype.deleteServerRole =
 /**
  * @param {!proto.ondewo.nlu.DeleteServerRoleRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -902,30 +712,11 @@ const methodDescriptor_Users_UpdateServerRole = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.UpdateServerRoleRequest,
- *   !proto.ondewo.nlu.ServerRole>}
- */
-const methodInfo_Users_UpdateServerRole = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ServerRole,
-  /**
-   * @param {!proto.ondewo.nlu.UpdateServerRoleRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ServerRole.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.UpdateServerRoleRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ServerRole)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ServerRole)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ServerRole>|undefined}
  *     The XHR Node Readable Stream
@@ -944,7 +735,7 @@ proto.ondewo.nlu.UsersClient.prototype.updateServerRole =
 /**
  * @param {!proto.ondewo.nlu.UpdateServerRoleRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ServerRole>}
  *     Promise that resolves to the response
@@ -982,30 +773,11 @@ const methodDescriptor_Users_ListServerRoles = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListServerRolesRequest,
- *   !proto.ondewo.nlu.ListServerRolesResponse>}
- */
-const methodInfo_Users_ListServerRoles = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListServerRolesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListServerRolesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListServerRolesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListServerRolesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListServerRolesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListServerRolesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListServerRolesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1024,7 +796,7 @@ proto.ondewo.nlu.UsersClient.prototype.listServerRoles =
 /**
  * @param {!proto.ondewo.nlu.ListServerRolesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListServerRolesResponse>}
  *     Promise that resolves to the response
@@ -1062,30 +834,11 @@ const methodDescriptor_Users_ListServerPermissions = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListServerPermissionsRequest,
- *   !proto.ondewo.nlu.ListServerPermissionsResponse>}
- */
-const methodInfo_Users_ListServerPermissions = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListServerPermissionsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListServerPermissionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListServerPermissionsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListServerPermissionsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListServerPermissionsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListServerPermissionsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListServerPermissionsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1104,7 +857,7 @@ proto.ondewo.nlu.UsersClient.prototype.listServerPermissions =
 /**
  * @param {!proto.ondewo.nlu.ListServerPermissionsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListServerPermissionsResponse>}
  *     Promise that resolves to the response
@@ -1142,30 +895,11 @@ const methodDescriptor_Users_Login = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.LoginRequest,
- *   !proto.ondewo.nlu.LoginResponse>}
- */
-const methodInfo_Users_Login = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.LoginResponse,
-  /**
-   * @param {!proto.ondewo.nlu.LoginRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.LoginResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.LoginRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.LoginResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LoginResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LoginResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1184,7 +918,7 @@ proto.ondewo.nlu.UsersClient.prototype.login =
 /**
  * @param {!proto.ondewo.nlu.LoginRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.LoginResponse>}
  *     Promise that resolves to the response
@@ -1222,30 +956,11 @@ const methodDescriptor_Users_CheckLogin = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.protobuf.Empty,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Users_CheckLogin = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -1264,7 +979,7 @@ proto.ondewo.nlu.UsersClient.prototype.checkLogin =
 /**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response

@@ -1,7 +1,7 @@
 import * as grpcWeb from 'grpc-web';
 
-import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_longrunning_operations_pb from '../../google/longrunning/operations_pb';
+import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 
 
 export class OperationsClient {
@@ -12,28 +12,28 @@ export class OperationsClient {
   listOperations(
     request: google_longrunning_operations_pb.ListOperationsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_longrunning_operations_pb.ListOperationsResponse) => void
   ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.ListOperationsResponse>;
 
   getOperation(
     request: google_longrunning_operations_pb.GetOperationRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_longrunning_operations_pb.Operation) => void
   ): grpcWeb.ClientReadableStream<google_longrunning_operations_pb.Operation>;
 
   deleteOperation(
     request: google_longrunning_operations_pb.DeleteOperationRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 
   cancelOperation(
     request: google_longrunning_operations_pb.CancelOperationRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 

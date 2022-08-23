@@ -30,7 +30,7 @@ proto.google.longrunning = require('./operations_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -38,7 +38,7 @@ proto.google.longrunning = require('./operations_pb.js');
 proto.google.longrunning.OperationsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -56,7 +56,7 @@ proto.google.longrunning.OperationsClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -64,7 +64,7 @@ proto.google.longrunning.OperationsClient =
 proto.google.longrunning.OperationsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -102,30 +102,11 @@ const methodDescriptor_Operations_ListOperations = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.longrunning.ListOperationsRequest,
- *   !proto.google.longrunning.ListOperationsResponse>}
- */
-const methodInfo_Operations_ListOperations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.google.longrunning.ListOperationsResponse,
-  /**
-   * @param {!proto.google.longrunning.ListOperationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.google.longrunning.ListOperationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.longrunning.ListOperationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.longrunning.ListOperationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.longrunning.ListOperationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.longrunning.ListOperationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -144,7 +125,7 @@ proto.google.longrunning.OperationsClient.prototype.listOperations =
 /**
  * @param {!proto.google.longrunning.ListOperationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.longrunning.ListOperationsResponse>}
  *     Promise that resolves to the response
@@ -182,30 +163,11 @@ const methodDescriptor_Operations_GetOperation = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.longrunning.GetOperationRequest,
- *   !proto.google.longrunning.Operation>}
- */
-const methodInfo_Operations_GetOperation = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.google.longrunning.Operation,
-  /**
-   * @param {!proto.google.longrunning.GetOperationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.google.longrunning.Operation.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.longrunning.GetOperationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.longrunning.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.longrunning.Operation)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.longrunning.Operation>|undefined}
  *     The XHR Node Readable Stream
@@ -224,7 +186,7 @@ proto.google.longrunning.OperationsClient.prototype.getOperation =
 /**
  * @param {!proto.google.longrunning.GetOperationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.longrunning.Operation>}
  *     Promise that resolves to the response
@@ -262,30 +224,11 @@ const methodDescriptor_Operations_DeleteOperation = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.longrunning.DeleteOperationRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Operations_DeleteOperation = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.google.longrunning.DeleteOperationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.longrunning.DeleteOperationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -304,7 +247,7 @@ proto.google.longrunning.OperationsClient.prototype.deleteOperation =
 /**
  * @param {!proto.google.longrunning.DeleteOperationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -342,30 +285,11 @@ const methodDescriptor_Operations_CancelOperation = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.longrunning.CancelOperationRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Operations_CancelOperation = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.google.longrunning.CancelOperationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.longrunning.CancelOperationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -384,7 +308,7 @@ proto.google.longrunning.OperationsClient.prototype.cancelOperation =
 /**
  * @param {!proto.google.longrunning.CancelOperationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response

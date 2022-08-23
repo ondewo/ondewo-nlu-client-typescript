@@ -26,7 +26,7 @@ proto.ondewo.nlu = require('./utility_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.ondewo.nlu = require('./utility_pb.js');
 proto.ondewo.nlu.UtilitiesClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.ondewo.nlu.UtilitiesClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.ondewo.nlu.UtilitiesClient =
 proto.ondewo.nlu.UtilitiesPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Utilities_ValidateRegex = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ValidateRegexRequest,
- *   !proto.ondewo.nlu.ValidateRegexResponse>}
- */
-const methodInfo_Utilities_ValidateRegex = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ValidateRegexResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ValidateRegexRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ValidateRegexResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ValidateRegexRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ValidateRegexResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ValidateRegexResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ValidateRegexResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.validateRegex =
 /**
  * @param {!proto.ondewo.nlu.ValidateRegexRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ValidateRegexResponse>}
  *     Promise that resolves to the response
@@ -178,30 +159,11 @@ const methodDescriptor_Utilities_ValidateEmbeddedRegex = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ValidateEmbeddedRegexRequest,
- *   !proto.ondewo.nlu.ValidateEmbeddedRegexResponse>}
- */
-const methodInfo_Utilities_ValidateEmbeddedRegex = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ValidateEmbeddedRegexResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ValidateEmbeddedRegexRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ValidateEmbeddedRegexResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ValidateEmbeddedRegexRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ValidateEmbeddedRegexResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ValidateEmbeddedRegexResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ValidateEmbeddedRegexResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -220,7 +182,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.validateEmbeddedRegex =
 /**
  * @param {!proto.ondewo.nlu.ValidateEmbeddedRegexRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ValidateEmbeddedRegexResponse>}
  *     Promise that resolves to the response
@@ -258,30 +220,11 @@ const methodDescriptor_Utilities_CleanAllIntents = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CleanAllIntentsRequest,
- *   !proto.ondewo.nlu.CleanAllIntentsResponse>}
- */
-const methodInfo_Utilities_CleanAllIntents = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.CleanAllIntentsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.CleanAllIntentsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.CleanAllIntentsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CleanAllIntentsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.CleanAllIntentsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.CleanAllIntentsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.CleanAllIntentsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -300,7 +243,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.cleanAllIntents =
 /**
  * @param {!proto.ondewo.nlu.CleanAllIntentsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.CleanAllIntentsResponse>}
  *     Promise that resolves to the response
@@ -338,30 +281,11 @@ const methodDescriptor_Utilities_CleanIntent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CleanIntentRequest,
- *   !proto.ondewo.nlu.CleanIntentResponse>}
- */
-const methodInfo_Utilities_CleanIntent = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.CleanIntentResponse,
-  /**
-   * @param {!proto.ondewo.nlu.CleanIntentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.CleanIntentResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CleanIntentRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.CleanIntentResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.CleanIntentResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.CleanIntentResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -380,7 +304,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.cleanIntent =
 /**
  * @param {!proto.ondewo.nlu.CleanIntentRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.CleanIntentResponse>}
  *     Promise that resolves to the response
@@ -418,30 +342,11 @@ const methodDescriptor_Utilities_CleanAllEntityTypes = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CleanAllEntityTypesRequest,
- *   !proto.ondewo.nlu.CleanAllEntityTypesResponse>}
- */
-const methodInfo_Utilities_CleanAllEntityTypes = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.CleanAllEntityTypesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.CleanAllEntityTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.CleanAllEntityTypesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CleanAllEntityTypesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.CleanAllEntityTypesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.CleanAllEntityTypesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.CleanAllEntityTypesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -460,7 +365,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.cleanAllEntityTypes =
 /**
  * @param {!proto.ondewo.nlu.CleanAllEntityTypesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.CleanAllEntityTypesResponse>}
  *     Promise that resolves to the response
@@ -498,30 +403,11 @@ const methodDescriptor_Utilities_CleanEntityType = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CleanEntityTypeRequest,
- *   !proto.ondewo.nlu.CleanEntityTypeResponse>}
- */
-const methodInfo_Utilities_CleanEntityType = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.CleanEntityTypeResponse,
-  /**
-   * @param {!proto.ondewo.nlu.CleanEntityTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.CleanEntityTypeResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CleanEntityTypeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.CleanEntityTypeResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.CleanEntityTypeResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.CleanEntityTypeResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -540,7 +426,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.cleanEntityType =
 /**
  * @param {!proto.ondewo.nlu.CleanEntityTypeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.CleanEntityTypeResponse>}
  *     Promise that resolves to the response
@@ -578,30 +464,11 @@ const methodDescriptor_Utilities_AddTrainingPhrases = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.AddTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.AddTrainingPhrasesResponse>}
- */
-const methodInfo_Utilities_AddTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.AddTrainingPhrasesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.AddTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.AddTrainingPhrasesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.AddTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.AddTrainingPhrasesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.AddTrainingPhrasesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.AddTrainingPhrasesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -620,7 +487,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.addTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.AddTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.AddTrainingPhrasesResponse>}
  *     Promise that resolves to the response
@@ -658,30 +525,11 @@ const methodDescriptor_Utilities_AddTrainingPhrasesFromCSV = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.AddTrainingPhrasesFromCSVRequest,
- *   !proto.ondewo.nlu.AddTrainingPhrasesResponse>}
- */
-const methodInfo_Utilities_AddTrainingPhrasesFromCSV = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.AddTrainingPhrasesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.AddTrainingPhrasesFromCSVRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.AddTrainingPhrasesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.AddTrainingPhrasesFromCSVRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.AddTrainingPhrasesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.AddTrainingPhrasesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.AddTrainingPhrasesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -700,7 +548,7 @@ proto.ondewo.nlu.UtilitiesClient.prototype.addTrainingPhrasesFromCSV =
 /**
  * @param {!proto.ondewo.nlu.AddTrainingPhrasesFromCSVRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.AddTrainingPhrasesResponse>}
  *     Promise that resolves to the response

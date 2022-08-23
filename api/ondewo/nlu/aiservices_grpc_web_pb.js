@@ -28,7 +28,7 @@ proto.ondewo.nlu = require('./aiservices_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.ondewo.nlu = require('./aiservices_pb.js');
 proto.ondewo.nlu.AiServicesClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.ondewo.nlu.AiServicesClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.ondewo.nlu.AiServicesClient =
 proto.ondewo.nlu.AiServicesPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_AiServices_ExtractEntities = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ExtractEntitiesRequest,
- *   !proto.ondewo.nlu.ExtractEntitiesResponse>}
- */
-const methodInfo_AiServices_ExtractEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ExtractEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ExtractEntitiesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ExtractEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ExtractEntitiesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ExtractEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ExtractEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ExtractEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.extractEntities =
 /**
  * @param {!proto.ondewo.nlu.ExtractEntitiesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ExtractEntitiesResponse>}
  *     Promise that resolves to the response
@@ -180,30 +161,11 @@ const methodDescriptor_AiServices_GenerateUserSays = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GenerateUserSaysRequest,
- *   !proto.ondewo.nlu.GenerateUserSaysResponse>}
- */
-const methodInfo_AiServices_GenerateUserSays = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GenerateUserSaysResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GenerateUserSaysRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GenerateUserSaysResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GenerateUserSaysRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GenerateUserSaysResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GenerateUserSaysResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GenerateUserSaysResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -222,7 +184,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.generateUserSays =
 /**
  * @param {!proto.ondewo.nlu.GenerateUserSaysRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GenerateUserSaysResponse>}
  *     Promise that resolves to the response
@@ -260,30 +222,11 @@ const methodDescriptor_AiServices_GenerateResponses = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GenerateResponsesRequest,
- *   !proto.ondewo.nlu.GenerateResponsesResponse>}
- */
-const methodInfo_AiServices_GenerateResponses = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GenerateResponsesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GenerateResponsesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GenerateResponsesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GenerateResponsesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GenerateResponsesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GenerateResponsesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GenerateResponsesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -302,7 +245,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.generateResponses =
 /**
  * @param {!proto.ondewo.nlu.GenerateResponsesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GenerateResponsesResponse>}
  *     Promise that resolves to the response
@@ -340,30 +283,11 @@ const methodDescriptor_AiServices_GetAlternativeSentences = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetAlternativeSentencesRequest,
- *   !proto.ondewo.nlu.GetAlternativeSentencesResponse>}
- */
-const methodInfo_AiServices_GetAlternativeSentences = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GetAlternativeSentencesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetAlternativeSentencesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GetAlternativeSentencesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetAlternativeSentencesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GetAlternativeSentencesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetAlternativeSentencesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetAlternativeSentencesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -382,7 +306,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.getAlternativeSentences =
 /**
  * @param {!proto.ondewo.nlu.GetAlternativeSentencesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GetAlternativeSentencesResponse>}
  *     Promise that resolves to the response
@@ -420,30 +344,11 @@ const methodDescriptor_AiServices_GetAlternativeTrainingPhrases = new grpc.web.M
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetAlternativeTrainingPhrasesRequest,
- *   !proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse>}
- */
-const methodInfo_AiServices_GetAlternativeTrainingPhrases = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetAlternativeTrainingPhrasesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetAlternativeTrainingPhrasesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -462,7 +367,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.getAlternativeTrainingPhrases =
 /**
  * @param {!proto.ondewo.nlu.GetAlternativeTrainingPhrasesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GetAlternativeTrainingPhrasesResponse>}
  *     Promise that resolves to the response
@@ -500,30 +405,11 @@ const methodDescriptor_AiServices_GetSynonyms = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetSynonymsRequest,
- *   !proto.ondewo.nlu.GetSynonymsResponse>}
- */
-const methodInfo_AiServices_GetSynonyms = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.GetSynonymsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetSynonymsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.GetSynonymsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetSynonymsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.GetSynonymsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetSynonymsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetSynonymsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -542,7 +428,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.getSynonyms =
 /**
  * @param {!proto.ondewo.nlu.GetSynonymsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.GetSynonymsResponse>}
  *     Promise that resolves to the response
@@ -580,30 +466,11 @@ const methodDescriptor_AiServices_ClassifyIntents = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ClassifyIntentsRequest,
- *   !proto.ondewo.nlu.ClassifyIntentsResponse>}
- */
-const methodInfo_AiServices_ClassifyIntents = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ClassifyIntentsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ClassifyIntentsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ClassifyIntentsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ClassifyIntentsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ClassifyIntentsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ClassifyIntentsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ClassifyIntentsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -622,7 +489,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.classifyIntents =
 /**
  * @param {!proto.ondewo.nlu.ClassifyIntentsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ClassifyIntentsResponse>}
  *     Promise that resolves to the response
@@ -660,30 +527,11 @@ const methodDescriptor_AiServices_ExtractEntitiesFuzzy = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ExtractEntitiesFuzzyRequest,
- *   !proto.ondewo.nlu.ExtractEntitiesResponse>}
- */
-const methodInfo_AiServices_ExtractEntitiesFuzzy = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ExtractEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ExtractEntitiesFuzzyRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ExtractEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ExtractEntitiesFuzzyRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ExtractEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ExtractEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ExtractEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -702,7 +550,7 @@ proto.ondewo.nlu.AiServicesClient.prototype.extractEntitiesFuzzy =
 /**
  * @param {!proto.ondewo.nlu.ExtractEntitiesFuzzyRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ExtractEntitiesResponse>}
  *     Promise that resolves to the response

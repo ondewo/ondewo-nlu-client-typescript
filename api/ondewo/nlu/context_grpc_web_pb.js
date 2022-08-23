@@ -28,7 +28,7 @@ proto.ondewo.nlu = require('./context_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.ondewo.nlu = require('./context_pb.js');
 proto.ondewo.nlu.ContextsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.ondewo.nlu.ContextsClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.ondewo.nlu.ContextsClient =
 proto.ondewo.nlu.ContextsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_Contexts_ListContexts = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListContextsRequest,
- *   !proto.ondewo.nlu.ListContextsResponse>}
- */
-const methodInfo_Contexts_ListContexts = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListContextsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListContextsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListContextsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListContextsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListContextsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListContextsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListContextsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.ondewo.nlu.ContextsClient.prototype.listContexts =
 /**
  * @param {!proto.ondewo.nlu.ListContextsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListContextsResponse>}
  *     Promise that resolves to the response
@@ -180,30 +161,11 @@ const methodDescriptor_Contexts_GetContext = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetContextRequest,
- *   !proto.ondewo.nlu.Context>}
- */
-const methodInfo_Contexts_GetContext = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Context,
-  /**
-   * @param {!proto.ondewo.nlu.GetContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Context.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetContextRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Context)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Context)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Context>|undefined}
  *     The XHR Node Readable Stream
@@ -222,7 +184,7 @@ proto.ondewo.nlu.ContextsClient.prototype.getContext =
 /**
  * @param {!proto.ondewo.nlu.GetContextRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Context>}
  *     Promise that resolves to the response
@@ -260,30 +222,11 @@ const methodDescriptor_Contexts_CreateContext = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CreateContextRequest,
- *   !proto.ondewo.nlu.Context>}
- */
-const methodInfo_Contexts_CreateContext = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Context,
-  /**
-   * @param {!proto.ondewo.nlu.CreateContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Context.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CreateContextRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Context)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Context)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Context>|undefined}
  *     The XHR Node Readable Stream
@@ -302,7 +245,7 @@ proto.ondewo.nlu.ContextsClient.prototype.createContext =
 /**
  * @param {!proto.ondewo.nlu.CreateContextRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Context>}
  *     Promise that resolves to the response
@@ -340,30 +283,11 @@ const methodDescriptor_Contexts_UpdateContext = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.UpdateContextRequest,
- *   !proto.ondewo.nlu.Context>}
- */
-const methodInfo_Contexts_UpdateContext = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Context,
-  /**
-   * @param {!proto.ondewo.nlu.UpdateContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Context.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.UpdateContextRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Context)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Context)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Context>|undefined}
  *     The XHR Node Readable Stream
@@ -382,7 +306,7 @@ proto.ondewo.nlu.ContextsClient.prototype.updateContext =
 /**
  * @param {!proto.ondewo.nlu.UpdateContextRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Context>}
  *     Promise that resolves to the response
@@ -420,30 +344,11 @@ const methodDescriptor_Contexts_DeleteContext = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.DeleteContextRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Contexts_DeleteContext = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.DeleteContextRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.DeleteContextRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -462,7 +367,7 @@ proto.ondewo.nlu.ContextsClient.prototype.deleteContext =
 /**
  * @param {!proto.ondewo.nlu.DeleteContextRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -500,30 +405,11 @@ const methodDescriptor_Contexts_DeleteAllContexts = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.DeleteAllContextsRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Contexts_DeleteAllContexts = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.DeleteAllContextsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.DeleteAllContextsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -542,7 +428,7 @@ proto.ondewo.nlu.ContextsClient.prototype.deleteAllContexts =
 /**
  * @param {!proto.ondewo.nlu.DeleteAllContextsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response

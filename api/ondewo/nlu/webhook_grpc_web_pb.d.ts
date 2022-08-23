@@ -11,21 +11,21 @@ export class WebhookClient {
   responseRefinement(
     request: ondewo_nlu_webhook_pb.WebhookRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_webhook_pb.WebhookResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_webhook_pb.WebhookResponse>;
 
   slotFilling(
     request: ondewo_nlu_webhook_pb.WebhookRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_webhook_pb.WebhookResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_webhook_pb.WebhookResponse>;
 
   ping(
     request: ondewo_nlu_webhook_pb.PingRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_webhook_pb.PingResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_webhook_pb.PingResponse>;
 

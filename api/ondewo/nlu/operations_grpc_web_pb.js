@@ -34,7 +34,7 @@ proto.ondewo.nlu = require('./operations_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -42,7 +42,7 @@ proto.ondewo.nlu = require('./operations_pb.js');
 proto.ondewo.nlu.OperationsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -60,7 +60,7 @@ proto.ondewo.nlu.OperationsClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -68,7 +68,7 @@ proto.ondewo.nlu.OperationsClient =
 proto.ondewo.nlu.OperationsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -106,30 +106,11 @@ const methodDescriptor_Operations_ListOperations = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListOperationsRequest,
- *   !proto.ondewo.nlu.ListOperationsResponse>}
- */
-const methodInfo_Operations_ListOperations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListOperationsResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListOperationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListOperationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListOperationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListOperationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListOperationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListOperationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -148,7 +129,7 @@ proto.ondewo.nlu.OperationsClient.prototype.listOperations =
 /**
  * @param {!proto.ondewo.nlu.ListOperationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListOperationsResponse>}
  *     Promise that resolves to the response
@@ -186,30 +167,11 @@ const methodDescriptor_Operations_GetOperation = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetOperationRequest,
- *   !proto.ondewo.nlu.Operation>}
- */
-const methodInfo_Operations_GetOperation = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.Operation,
-  /**
-   * @param {!proto.ondewo.nlu.GetOperationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.Operation.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetOperationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
  *     The XHR Node Readable Stream
@@ -228,7 +190,7 @@ proto.ondewo.nlu.OperationsClient.prototype.getOperation =
 /**
  * @param {!proto.ondewo.nlu.GetOperationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Operation>}
  *     Promise that resolves to the response
@@ -266,30 +228,11 @@ const methodDescriptor_Operations_DeleteOperation = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.DeleteOperationRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Operations_DeleteOperation = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.DeleteOperationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.DeleteOperationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -308,7 +251,7 @@ proto.ondewo.nlu.OperationsClient.prototype.deleteOperation =
 /**
  * @param {!proto.ondewo.nlu.DeleteOperationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -346,30 +289,11 @@ const methodDescriptor_Operations_CancelOperation = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CancelOperationRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_Operations_CancelOperation = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.CancelOperationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CancelOperationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -388,7 +312,7 @@ proto.ondewo.nlu.OperationsClient.prototype.cancelOperation =
 /**
  * @param {!proto.ondewo.nlu.CancelOperationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response

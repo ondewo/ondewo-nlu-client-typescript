@@ -11,56 +11,56 @@ export class UtilitiesClient {
   validateRegex(
     request: ondewo_nlu_utility_pb.ValidateRegexRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.ValidateRegexResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.ValidateRegexResponse>;
 
   validateEmbeddedRegex(
     request: ondewo_nlu_utility_pb.ValidateEmbeddedRegexRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.ValidateEmbeddedRegexResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.ValidateEmbeddedRegexResponse>;
 
   cleanAllIntents(
     request: ondewo_nlu_utility_pb.CleanAllIntentsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.CleanAllIntentsResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.CleanAllIntentsResponse>;
 
   cleanIntent(
     request: ondewo_nlu_utility_pb.CleanIntentRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.CleanIntentResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.CleanIntentResponse>;
 
   cleanAllEntityTypes(
     request: ondewo_nlu_utility_pb.CleanAllEntityTypesRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.CleanAllEntityTypesResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.CleanAllEntityTypesResponse>;
 
   cleanEntityType(
     request: ondewo_nlu_utility_pb.CleanEntityTypeRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.CleanEntityTypeResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.CleanEntityTypeResponse>;
 
   addTrainingPhrases(
     request: ondewo_nlu_utility_pb.AddTrainingPhrasesRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.AddTrainingPhrasesResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.AddTrainingPhrasesResponse>;
 
   addTrainingPhrasesFromCSV(
     request: ondewo_nlu_utility_pb.AddTrainingPhrasesFromCSVRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_utility_pb.AddTrainingPhrasesResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_utility_pb.AddTrainingPhrasesResponse>;
 

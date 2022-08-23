@@ -32,7 +32,7 @@ proto.ondewo.nlu = require('./entity_type_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -40,7 +40,7 @@ proto.ondewo.nlu = require('./entity_type_pb.js');
 proto.ondewo.nlu.EntityTypesClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -58,7 +58,7 @@ proto.ondewo.nlu.EntityTypesClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -66,7 +66,7 @@ proto.ondewo.nlu.EntityTypesClient =
 proto.ondewo.nlu.EntityTypesPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -104,30 +104,11 @@ const methodDescriptor_EntityTypes_ListEntityTypes = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListEntityTypesRequest,
- *   !proto.ondewo.nlu.ListEntityTypesResponse>}
- */
-const methodInfo_EntityTypes_ListEntityTypes = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListEntityTypesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListEntityTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListEntityTypesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListEntityTypesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListEntityTypesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListEntityTypesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListEntityTypesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -146,7 +127,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.listEntityTypes =
 /**
  * @param {!proto.ondewo.nlu.ListEntityTypesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListEntityTypesResponse>}
  *     Promise that resolves to the response
@@ -184,30 +165,11 @@ const methodDescriptor_EntityTypes_GetEntityType = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetEntityTypeRequest,
- *   !proto.ondewo.nlu.EntityType>}
- */
-const methodInfo_EntityTypes_GetEntityType = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.EntityType,
-  /**
-   * @param {!proto.ondewo.nlu.GetEntityTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.EntityType.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetEntityTypeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.EntityType)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.EntityType)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.EntityType>|undefined}
  *     The XHR Node Readable Stream
@@ -226,7 +188,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.getEntityType =
 /**
  * @param {!proto.ondewo.nlu.GetEntityTypeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.EntityType>}
  *     Promise that resolves to the response
@@ -264,30 +226,11 @@ const methodDescriptor_EntityTypes_CreateEntityType = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.CreateEntityTypeRequest,
- *   !proto.ondewo.nlu.EntityType>}
- */
-const methodInfo_EntityTypes_CreateEntityType = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.EntityType,
-  /**
-   * @param {!proto.ondewo.nlu.CreateEntityTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.EntityType.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.CreateEntityTypeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.EntityType)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.EntityType)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.EntityType>|undefined}
  *     The XHR Node Readable Stream
@@ -306,7 +249,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.createEntityType =
 /**
  * @param {!proto.ondewo.nlu.CreateEntityTypeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.EntityType>}
  *     Promise that resolves to the response
@@ -344,30 +287,11 @@ const methodDescriptor_EntityTypes_UpdateEntityType = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.UpdateEntityTypeRequest,
- *   !proto.ondewo.nlu.EntityType>}
- */
-const methodInfo_EntityTypes_UpdateEntityType = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.EntityType,
-  /**
-   * @param {!proto.ondewo.nlu.UpdateEntityTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.EntityType.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.UpdateEntityTypeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.EntityType)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.EntityType)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.EntityType>|undefined}
  *     The XHR Node Readable Stream
@@ -386,7 +310,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.updateEntityType =
 /**
  * @param {!proto.ondewo.nlu.UpdateEntityTypeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.EntityType>}
  *     Promise that resolves to the response
@@ -424,30 +348,11 @@ const methodDescriptor_EntityTypes_DeleteEntityType = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.DeleteEntityTypeRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodInfo_EntityTypes_DeleteEntityType = new grpc.web.AbstractClientBase.MethodInfo(
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.DeleteEntityTypeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.DeleteEntityTypeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -466,7 +371,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.deleteEntityType =
 /**
  * @param {!proto.ondewo.nlu.DeleteEntityTypeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
@@ -504,30 +409,11 @@ const methodDescriptor_EntityTypes_BatchUpdateEntityTypes = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchUpdateEntityTypesRequest,
- *   !proto.ondewo.nlu.Operation>}
- */
-const methodInfo_EntityTypes_BatchUpdateEntityTypes = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_operations_pb.Operation,
-  /**
-   * @param {!proto.ondewo.nlu.BatchUpdateEntityTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_operations_pb.Operation.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchUpdateEntityTypesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
  *     The XHR Node Readable Stream
@@ -546,7 +432,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchUpdateEntityTypes =
 /**
  * @param {!proto.ondewo.nlu.BatchUpdateEntityTypesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Operation>}
  *     Promise that resolves to the response
@@ -584,30 +470,11 @@ const methodDescriptor_EntityTypes_BatchDeleteEntityTypes = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchDeleteEntityTypesRequest,
- *   !proto.ondewo.nlu.Operation>}
- */
-const methodInfo_EntityTypes_BatchDeleteEntityTypes = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_operations_pb.Operation,
-  /**
-   * @param {!proto.ondewo.nlu.BatchDeleteEntityTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_operations_pb.Operation.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchDeleteEntityTypesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
  *     The XHR Node Readable Stream
@@ -626,7 +493,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchDeleteEntityTypes =
 /**
  * @param {!proto.ondewo.nlu.BatchDeleteEntityTypesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Operation>}
  *     Promise that resolves to the response
@@ -664,30 +531,11 @@ const methodDescriptor_EntityTypes_BatchCreateEntities = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchCreateEntitiesRequest,
- *   !proto.ondewo.nlu.BatchEntitiesResponse>}
- */
-const methodInfo_EntityTypes_BatchCreateEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchCreateEntitiesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchCreateEntitiesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -706,7 +554,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchCreateEntities =
 /**
  * @param {!proto.ondewo.nlu.BatchCreateEntitiesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchEntitiesResponse>}
  *     Promise that resolves to the response
@@ -744,30 +592,11 @@ const methodDescriptor_EntityTypes_BatchUpdateEntities = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchUpdateEntitiesRequest,
- *   !proto.ondewo.nlu.BatchEntitiesResponse>}
- */
-const methodInfo_EntityTypes_BatchUpdateEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchUpdateEntitiesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchUpdateEntitiesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -786,7 +615,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchUpdateEntities =
 /**
  * @param {!proto.ondewo.nlu.BatchUpdateEntitiesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchEntitiesResponse>}
  *     Promise that resolves to the response
@@ -824,30 +653,11 @@ const methodDescriptor_EntityTypes_BatchGetEntities = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchGetEntitiesRequest,
- *   !proto.ondewo.nlu.BatchEntitiesResponse>}
- */
-const methodInfo_EntityTypes_BatchGetEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -866,7 +676,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchGetEntities =
 /**
  * @param {!proto.ondewo.nlu.BatchGetEntitiesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchEntitiesResponse>}
  *     Promise that resolves to the response
@@ -904,30 +714,11 @@ const methodDescriptor_EntityTypes_BatchDeleteEntities = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.BatchDeleteEntitiesRequest,
- *   !proto.ondewo.nlu.BatchDeleteEntitiesResponse>}
- */
-const methodInfo_EntityTypes_BatchDeleteEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.BatchDeleteEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.BatchDeleteEntitiesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.BatchDeleteEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.BatchDeleteEntitiesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.BatchDeleteEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchDeleteEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchDeleteEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -946,7 +737,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.batchDeleteEntities =
 /**
  * @param {!proto.ondewo.nlu.BatchDeleteEntitiesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.BatchDeleteEntitiesResponse>}
  *     Promise that resolves to the response
@@ -984,30 +775,11 @@ const methodDescriptor_EntityTypes_ListEntities = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.ListEntitiesRequest,
- *   !proto.ondewo.nlu.ListEntitiesResponse>}
- */
-const methodInfo_EntityTypes_ListEntities = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.ListEntitiesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.ListEntitiesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.ListEntitiesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.ListEntitiesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.ListEntitiesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListEntitiesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListEntitiesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1026,7 +798,7 @@ proto.ondewo.nlu.EntityTypesClient.prototype.listEntities =
 /**
  * @param {!proto.ondewo.nlu.ListEntitiesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.ListEntitiesResponse>}
  *     Promise that resolves to the response

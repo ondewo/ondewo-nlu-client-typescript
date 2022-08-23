@@ -32,7 +32,7 @@ proto.ondewo.nlu = require('./webhook_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -40,7 +40,7 @@ proto.ondewo.nlu = require('./webhook_pb.js');
 proto.ondewo.nlu.WebhookClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -58,7 +58,7 @@ proto.ondewo.nlu.WebhookClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -66,7 +66,7 @@ proto.ondewo.nlu.WebhookClient =
 proto.ondewo.nlu.WebhookPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -104,30 +104,11 @@ const methodDescriptor_Webhook_ResponseRefinement = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.WebhookRequest,
- *   !proto.ondewo.nlu.WebhookResponse>}
- */
-const methodInfo_Webhook_ResponseRefinement = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.WebhookResponse,
-  /**
-   * @param {!proto.ondewo.nlu.WebhookRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.WebhookResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.WebhookRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.WebhookResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.WebhookResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.WebhookResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -146,7 +127,7 @@ proto.ondewo.nlu.WebhookClient.prototype.responseRefinement =
 /**
  * @param {!proto.ondewo.nlu.WebhookRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.WebhookResponse>}
  *     Promise that resolves to the response
@@ -184,30 +165,11 @@ const methodDescriptor_Webhook_SlotFilling = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.WebhookRequest,
- *   !proto.ondewo.nlu.WebhookResponse>}
- */
-const methodInfo_Webhook_SlotFilling = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.WebhookResponse,
-  /**
-   * @param {!proto.ondewo.nlu.WebhookRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.WebhookResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.WebhookRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.WebhookResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.WebhookResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.WebhookResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -226,7 +188,7 @@ proto.ondewo.nlu.WebhookClient.prototype.slotFilling =
 /**
  * @param {!proto.ondewo.nlu.WebhookRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.WebhookResponse>}
  *     Promise that resolves to the response
@@ -264,30 +226,11 @@ const methodDescriptor_Webhook_Ping = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.PingRequest,
- *   !proto.ondewo.nlu.PingResponse>}
- */
-const methodInfo_Webhook_Ping = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ondewo.nlu.PingResponse,
-  /**
-   * @param {!proto.ondewo.nlu.PingRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.PingResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.PingRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.PingResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.PingResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.PingResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -306,7 +249,7 @@ proto.ondewo.nlu.WebhookClient.prototype.ping =
 /**
  * @param {!proto.ondewo.nlu.PingRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.PingResponse>}
  *     Promise that resolves to the response
