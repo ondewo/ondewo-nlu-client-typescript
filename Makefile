@@ -58,8 +58,6 @@ eslint: ## Checks Code Logic and Typing
 TEST:	## Prints some important variables
 	@echo "Release Notes: \n \n $(CURRENT_RELEASE_NOTES)"
 	@echo "GH Token: \t $(GITHUB_GH_TOKEN)"
-	@echo "NPM Name: \t $(NPM_USERNAME)"
-	@echo "NPM Password: \t $(NPM_PASSWORD)"
 
 help: ## Print usage info about help targets
 	# (first comment after target starting with double hashes ##)
@@ -165,6 +163,8 @@ build: check_out_correct_submodule_versions build_compiler copy_proto_files_all_
 	do \
 		sudo chown `whoami`:`whoami` $$f && echo $$f; \
 	done
+	cp src/README.md .
+	cp src/RELEASE.md .
 	make remove_npm_script
 	make create_npm_package
 	make install_dependencies
