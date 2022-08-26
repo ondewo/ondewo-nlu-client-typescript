@@ -28,7 +28,7 @@ proto.ondewo.nlu = require('./server_statistics_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.ondewo.nlu = require('./server_statistics_pb.js');
 proto.ondewo.nlu.ServerStatisticsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.ondewo.nlu.ServerStatisticsClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.ondewo.nlu.ServerStatisticsClient =
 proto.ondewo.nlu.ServerStatisticsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_ServerStatistics_GetProjectCount = new grpc.web.MethodDes
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.protobuf.Empty,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ServerStatistics_GetProjectCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.ondewo.nlu.ServerStatisticsClient.prototype.getProjectCount =
 /**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -180,30 +161,11 @@ const methodDescriptor_ServerStatistics_GetUserProjectCount = new grpc.web.Metho
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetUserProjectCountRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ServerStatistics_GetUserProjectCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetUserProjectCountRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetUserProjectCountRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -222,7 +184,7 @@ proto.ondewo.nlu.ServerStatisticsClient.prototype.getUserProjectCount =
 /**
  * @param {!proto.ondewo.nlu.GetUserProjectCountRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -260,30 +222,11 @@ const methodDescriptor_ServerStatistics_GetUserCount = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.google.protobuf.Empty,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ServerStatistics_GetUserCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -302,7 +245,7 @@ proto.ondewo.nlu.ServerStatisticsClient.prototype.getUserCount =
 /**
  * @param {!proto.google.protobuf.Empty} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response

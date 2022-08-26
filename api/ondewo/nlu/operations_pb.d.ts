@@ -4,14 +4,16 @@ import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_rpc_status_pb from '../../google/rpc/status_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
+import * as ondewo_nlu_operation_metadata_pb from '../../ondewo/nlu/operation_metadata_pb';
 
 
 export class Operation extends jspb.Message {
   getName(): string;
   setName(value: string): Operation;
 
-  getMetadata(): google_protobuf_any_pb.Any | undefined;
-  setMetadata(value?: google_protobuf_any_pb.Any): Operation;
+  getMetadata(): ondewo_nlu_operation_metadata_pb.OperationMetadata | undefined;
+  setMetadata(value?: ondewo_nlu_operation_metadata_pb.OperationMetadata): Operation;
   hasMetadata(): boolean;
   clearMetadata(): Operation;
 
@@ -41,7 +43,7 @@ export class Operation extends jspb.Message {
 export namespace Operation {
   export type AsObject = {
     name: string,
-    metadata?: google_protobuf_any_pb.Any.AsObject,
+    metadata?: ondewo_nlu_operation_metadata_pb.OperationMetadata.AsObject,
     done: boolean,
     error?: google_rpc_status_pb.Status.AsObject,
     response?: google_protobuf_any_pb.Any.AsObject,
@@ -85,6 +87,11 @@ export class ListOperationsRequest extends jspb.Message {
   getPageToken(): string;
   setPageToken(value: string): ListOperationsRequest;
 
+  getOperationFilter(): OperationFilter | undefined;
+  setOperationFilter(value?: OperationFilter): ListOperationsRequest;
+  hasOperationFilter(): boolean;
+  clearOperationFilter(): ListOperationsRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListOperationsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListOperationsRequest): ListOperationsRequest.AsObject;
@@ -99,6 +106,71 @@ export namespace ListOperationsRequest {
     filter: string,
     pageSize: number,
     pageToken: string,
+    operationFilter?: OperationFilter.AsObject,
+  }
+}
+
+export class OperationFilter extends jspb.Message {
+  getProjectParentsList(): Array<string>;
+  setProjectParentsList(value: Array<string>): OperationFilter;
+  clearProjectParentsList(): OperationFilter;
+  addProjectParents(value: string, index?: number): OperationFilter;
+
+  getStatusesList(): Array<ondewo_nlu_operation_metadata_pb.OperationMetadata.Status>;
+  setStatusesList(value: Array<ondewo_nlu_operation_metadata_pb.OperationMetadata.Status>): OperationFilter;
+  clearStatusesList(): OperationFilter;
+  addStatuses(value: ondewo_nlu_operation_metadata_pb.OperationMetadata.Status, index?: number): OperationFilter;
+
+  getTypesList(): Array<ondewo_nlu_operation_metadata_pb.OperationMetadata.OperationType>;
+  setTypesList(value: Array<ondewo_nlu_operation_metadata_pb.OperationMetadata.OperationType>): OperationFilter;
+  clearTypesList(): OperationFilter;
+  addTypes(value: ondewo_nlu_operation_metadata_pb.OperationMetadata.OperationType, index?: number): OperationFilter;
+
+  getStartTime(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setStartTime(value?: google_protobuf_timestamp_pb.Timestamp): OperationFilter;
+  hasStartTime(): boolean;
+  clearStartTime(): OperationFilter;
+
+  getEndTime(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setEndTime(value?: google_protobuf_timestamp_pb.Timestamp): OperationFilter;
+  hasEndTime(): boolean;
+  clearEndTime(): OperationFilter;
+
+  getUserIdsList(): Array<string>;
+  setUserIdsList(value: Array<string>): OperationFilter;
+  clearUserIdsList(): OperationFilter;
+  addUserIds(value: string, index?: number): OperationFilter;
+
+  getStartTimeOneofCase(): OperationFilter.StartTimeOneofCase;
+
+  getEndTimeOneofCase(): OperationFilter.EndTimeOneofCase;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OperationFilter.AsObject;
+  static toObject(includeInstance: boolean, msg: OperationFilter): OperationFilter.AsObject;
+  static serializeBinaryToWriter(message: OperationFilter, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OperationFilter;
+  static deserializeBinaryFromReader(message: OperationFilter, reader: jspb.BinaryReader): OperationFilter;
+}
+
+export namespace OperationFilter {
+  export type AsObject = {
+    projectParentsList: Array<string>,
+    statusesList: Array<ondewo_nlu_operation_metadata_pb.OperationMetadata.Status>,
+    typesList: Array<ondewo_nlu_operation_metadata_pb.OperationMetadata.OperationType>,
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    userIdsList: Array<string>,
+  }
+
+  export enum StartTimeOneofCase { 
+    START_TIME_ONEOF_NOT_SET = 0,
+    START_TIME = 4,
+  }
+
+  export enum EndTimeOneofCase { 
+    END_TIME_ONEOF_NOT_SET = 0,
+    END_TIME = 5,
   }
 }
 

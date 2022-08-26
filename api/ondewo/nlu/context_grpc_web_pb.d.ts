@@ -12,42 +12,42 @@ export class ContextsClient {
   listContexts(
     request: ondewo_nlu_context_pb.ListContextsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_context_pb.ListContextsResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_context_pb.ListContextsResponse>;
 
   getContext(
     request: ondewo_nlu_context_pb.GetContextRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_context_pb.Context) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_context_pb.Context>;
 
   createContext(
     request: ondewo_nlu_context_pb.CreateContextRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_context_pb.Context) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_context_pb.Context>;
 
   updateContext(
     request: ondewo_nlu_context_pb.UpdateContextRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_context_pb.Context) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_context_pb.Context>;
 
   deleteContext(
     request: ondewo_nlu_context_pb.DeleteContextRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 
   deleteAllContexts(
     request: ondewo_nlu_context_pb.DeleteAllContextsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 

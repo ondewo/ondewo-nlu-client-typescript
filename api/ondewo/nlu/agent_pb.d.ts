@@ -1,13 +1,16 @@
 import * as jspb from 'google-protobuf'
 
 import * as google_api_annotations_pb from '../../google/api/annotations_pb';
-import * as google_longrunning_operations_pb from '../../google/longrunning/operations_pb';
 import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
+import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
 import * as ondewo_nlu_common_pb from '../../ondewo/nlu/common_pb';
+import * as ondewo_nlu_intent_pb from '../../ondewo/nlu/intent_pb';
 import * as ondewo_nlu_user_pb from '../../ondewo/nlu/user_pb';
 import * as ondewo_nlu_project_role_pb from '../../ondewo/nlu/project_role_pb';
+import * as ondewo_nlu_operations_pb from '../../ondewo/nlu/operations_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 
 
 export class Agent extends jspb.Message {
@@ -297,6 +300,9 @@ export class TrainAgentRequest extends jspb.Message {
   getBranch(): string;
   setBranch(value: string): TrainAgentRequest;
 
+  getInitiationProtocol(): InitiationProtocol;
+  setInitiationProtocol(value: InitiationProtocol): TrainAgentRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TrainAgentRequest.AsObject;
   static toObject(includeInstance: boolean, msg: TrainAgentRequest): TrainAgentRequest.AsObject;
@@ -309,6 +315,7 @@ export namespace TrainAgentRequest {
   export type AsObject = {
     parent: string,
     branch: string,
+    initiationProtocol: InitiationProtocol,
   }
 }
 
@@ -341,6 +348,9 @@ export class ExportAgentRequest extends jspb.Message {
   getAgentUri(): string;
   setAgentUri(value: string): ExportAgentRequest;
 
+  getCompressionLevel(): number;
+  setCompressionLevel(value: number): ExportAgentRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ExportAgentRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ExportAgentRequest): ExportAgentRequest.AsObject;
@@ -353,6 +363,7 @@ export namespace ExportAgentRequest {
   export type AsObject = {
     parent: string,
     agentUri: string,
+    compressionLevel: number,
   }
 }
 
@@ -385,6 +396,64 @@ export namespace ExportAgentResponse {
     AGENT_NOT_SET = 0,
     AGENT_URI = 1,
     AGENT_CONTENT = 2,
+  }
+}
+
+export class ExportBenchmarkAgentRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): ExportBenchmarkAgentRequest;
+
+  getCompressionLevel(): number;
+  setCompressionLevel(value: number): ExportBenchmarkAgentRequest;
+
+  getTestSize(): number;
+  setTestSize(value: number): ExportBenchmarkAgentRequest;
+
+  getTrainSize(): number;
+  setTrainSize(value: number): ExportBenchmarkAgentRequest;
+
+  getRandomState(): number;
+  setRandomState(value: number): ExportBenchmarkAgentRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExportBenchmarkAgentRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ExportBenchmarkAgentRequest): ExportBenchmarkAgentRequest.AsObject;
+  static serializeBinaryToWriter(message: ExportBenchmarkAgentRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExportBenchmarkAgentRequest;
+  static deserializeBinaryFromReader(message: ExportBenchmarkAgentRequest, reader: jspb.BinaryReader): ExportBenchmarkAgentRequest;
+}
+
+export namespace ExportBenchmarkAgentRequest {
+  export type AsObject = {
+    parent: string,
+    compressionLevel: number,
+    testSize: number,
+    trainSize: number,
+    randomState: number,
+  }
+}
+
+export class ExportBenchmarkAgentResponse extends jspb.Message {
+  getAgentContent(): Uint8Array | string;
+  getAgentContent_asU8(): Uint8Array;
+  getAgentContent_asB64(): string;
+  setAgentContent(value: Uint8Array | string): ExportBenchmarkAgentResponse;
+
+  getTrainingPhrasesMap(): jspb.Map<string, ondewo_nlu_intent_pb.ListTrainingPhrasesResponse>;
+  clearTrainingPhrasesMap(): ExportBenchmarkAgentResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExportBenchmarkAgentResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ExportBenchmarkAgentResponse): ExportBenchmarkAgentResponse.AsObject;
+  static serializeBinaryToWriter(message: ExportBenchmarkAgentResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExportBenchmarkAgentResponse;
+  static deserializeBinaryFromReader(message: ExportBenchmarkAgentResponse, reader: jspb.BinaryReader): ExportBenchmarkAgentResponse;
+}
+
+export namespace ExportBenchmarkAgentResponse {
+  export type AsObject = {
+    agentContent: Uint8Array | string,
+    trainingPhrasesMap: Array<[string, ondewo_nlu_intent_pb.ListTrainingPhrasesResponse.AsObject]>,
   }
 }
 
@@ -984,10 +1053,249 @@ export namespace ExportResourcesResponse {
   }
 }
 
+export class GetModelStatusesRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): GetModelStatusesRequest;
+
+  getCacheVersion(): number;
+  setCacheVersion(value: number): GetModelStatusesRequest;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): GetModelStatusesRequest;
+
+  getModelName(): string;
+  setModelName(value: string): GetModelStatusesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetModelStatusesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetModelStatusesRequest): GetModelStatusesRequest.AsObject;
+  static serializeBinaryToWriter(message: GetModelStatusesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetModelStatusesRequest;
+  static deserializeBinaryFromReader(message: GetModelStatusesRequest, reader: jspb.BinaryReader): GetModelStatusesRequest;
+}
+
+export namespace GetModelStatusesRequest {
+  export type AsObject = {
+    parent: string,
+    cacheVersion: number,
+    languageCode: string,
+    modelName: string,
+  }
+}
+
+export class ModelStatus extends jspb.Message {
+  getCacheVersion(): number;
+  setCacheVersion(value: number): ModelStatus;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): ModelStatus;
+
+  getModelName(): string;
+  setModelName(value: string): ModelStatus;
+
+  getStatusSetTime(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setStatusSetTime(value?: google_protobuf_timestamp_pb.Timestamp): ModelStatus;
+  hasStatusSetTime(): boolean;
+  clearStatusSetTime(): ModelStatus;
+
+  getConfig(): string;
+  setConfig(value: string): ModelStatus;
+
+  getStatus(): ModelStatus.StatusName;
+  setStatus(value: ModelStatus.StatusName): ModelStatus;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ModelStatus.AsObject;
+  static toObject(includeInstance: boolean, msg: ModelStatus): ModelStatus.AsObject;
+  static serializeBinaryToWriter(message: ModelStatus, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ModelStatus;
+  static deserializeBinaryFromReader(message: ModelStatus, reader: jspb.BinaryReader): ModelStatus;
+}
+
+export namespace ModelStatus {
+  export type AsObject = {
+    cacheVersion: number,
+    languageCode: string,
+    modelName: string,
+    statusSetTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    config: string,
+    status: ModelStatus.StatusName,
+  }
+
+  export enum StatusName { 
+    UNKNOWN = 0,
+    INITIALIZING = 1,
+    INITIALIZED = 2,
+    LOADING_DATA = 3,
+    TRAINING = 4,
+    TESTING = 5,
+    TRAINED = 6,
+  }
+}
+
+export class GetModelStatusesResponse extends jspb.Message {
+  getModelStatusesList(): Array<ModelStatus>;
+  setModelStatusesList(value: Array<ModelStatus>): GetModelStatusesResponse;
+  clearModelStatusesList(): GetModelStatusesResponse;
+  addModelStatuses(value?: ModelStatus, index?: number): ModelStatus;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetModelStatusesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetModelStatusesResponse): GetModelStatusesResponse.AsObject;
+  static serializeBinaryToWriter(message: GetModelStatusesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetModelStatusesResponse;
+  static deserializeBinaryFromReader(message: GetModelStatusesResponse, reader: jspb.BinaryReader): GetModelStatusesResponse;
+}
+
+export namespace GetModelStatusesResponse {
+  export type AsObject = {
+    modelStatusesList: Array<ModelStatus.AsObject>,
+  }
+}
+
+export class CustomPlatformInfo extends jspb.Message {
+  getPlatform(): ondewo_nlu_intent_pb.Intent.Message.Platform;
+  setPlatform(value: ondewo_nlu_intent_pb.Intent.Message.Platform): CustomPlatformInfo;
+
+  getDisplayName(): string;
+  setDisplayName(value: string): CustomPlatformInfo;
+
+  getPosition(): number;
+  setPosition(value: number): CustomPlatformInfo;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CustomPlatformInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: CustomPlatformInfo): CustomPlatformInfo.AsObject;
+  static serializeBinaryToWriter(message: CustomPlatformInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CustomPlatformInfo;
+  static deserializeBinaryFromReader(message: CustomPlatformInfo, reader: jspb.BinaryReader): CustomPlatformInfo;
+}
+
+export namespace CustomPlatformInfo {
+  export type AsObject = {
+    platform: ondewo_nlu_intent_pb.Intent.Message.Platform,
+    displayName: string,
+    position: number,
+  }
+}
+
+export class GetPlatformMappingRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): GetPlatformMappingRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetPlatformMappingRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetPlatformMappingRequest): GetPlatformMappingRequest.AsObject;
+  static serializeBinaryToWriter(message: GetPlatformMappingRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetPlatformMappingRequest;
+  static deserializeBinaryFromReader(message: GetPlatformMappingRequest, reader: jspb.BinaryReader): GetPlatformMappingRequest;
+}
+
+export namespace GetPlatformMappingRequest {
+  export type AsObject = {
+    parent: string,
+  }
+}
+
+export class PlatformMapping extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): PlatformMapping;
+
+  getPlatformInfoList(): Array<CustomPlatformInfo>;
+  setPlatformInfoList(value: Array<CustomPlatformInfo>): PlatformMapping;
+  clearPlatformInfoList(): PlatformMapping;
+  addPlatformInfo(value?: CustomPlatformInfo, index?: number): CustomPlatformInfo;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlatformMapping.AsObject;
+  static toObject(includeInstance: boolean, msg: PlatformMapping): PlatformMapping.AsObject;
+  static serializeBinaryToWriter(message: PlatformMapping, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlatformMapping;
+  static deserializeBinaryFromReader(message: PlatformMapping, reader: jspb.BinaryReader): PlatformMapping;
+}
+
+export namespace PlatformMapping {
+  export type AsObject = {
+    parent: string,
+    platformInfoList: Array<CustomPlatformInfo.AsObject>,
+  }
+}
+
+export class FullTextSearchRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): FullTextSearchRequest;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): FullTextSearchRequest;
+
+  getQueryType(): FullTextSearchRequest.QueryType;
+  setQueryType(value: FullTextSearchRequest.QueryType): FullTextSearchRequest;
+
+  getTerm(): string;
+  setTerm(value: string): FullTextSearchRequest;
+
+  getPageToken(): string;
+  setPageToken(value: string): FullTextSearchRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FullTextSearchRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: FullTextSearchRequest): FullTextSearchRequest.AsObject;
+  static serializeBinaryToWriter(message: FullTextSearchRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FullTextSearchRequest;
+  static deserializeBinaryFromReader(message: FullTextSearchRequest, reader: jspb.BinaryReader): FullTextSearchRequest;
+}
+
+export namespace FullTextSearchRequest {
+  export type AsObject = {
+    parent: string,
+    languageCode: string,
+    queryType: FullTextSearchRequest.QueryType,
+    term: string,
+    pageToken: string,
+  }
+
+  export enum QueryType { 
+    ALL = 0,
+    ONDEWOENTITYQUERY = 1,
+    ONDEWOENTITYTYPEQUERY = 2,
+    ONDEWOENTITYSYNONYMQUERY = 3,
+    ONDEWOINTENTQUERY = 4,
+    ONDEWOINTENTCONTEXTINQUERY = 5,
+    ONDEWOINTENTCONTEXTOUTQUERY = 6,
+    ONDEWOINTENTUSERSAYSQUERY = 7,
+    ONDEWOINTENTTAGSQUERY = 8,
+    ONDEWOINTENTPARAMETERSQUERY = 9,
+    ONDEWOINTENTRESPONSEQUERY = 10,
+  }
+}
+
+export class FullTextSearchResponse extends jspb.Message {
+  getResponseMap(): jspb.Map<string, google_protobuf_any_pb.Any>;
+  clearResponseMap(): FullTextSearchResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FullTextSearchResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: FullTextSearchResponse): FullTextSearchResponse.AsObject;
+  static serializeBinaryToWriter(message: FullTextSearchResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FullTextSearchResponse;
+  static deserializeBinaryFromReader(message: FullTextSearchResponse, reader: jspb.BinaryReader): FullTextSearchResponse;
+}
+
+export namespace FullTextSearchResponse {
+  export type AsObject = {
+    responseMap: Array<[string, google_protobuf_any_pb.Any.AsObject]>,
+  }
+}
+
 export enum AgentView { 
   AGENT_VIEW_UNSPECIFIED = 0,
   AGENT_VIEW_FULL = 1,
   AGENT_VIEW_SHALLOW = 2,
+}
+export enum InitiationProtocol { 
+  AS_SOON_AS_POSSIBLE = 0,
+  WHEN_TRAINED = 1,
+  NEVER = 2,
 }
 export enum ReportType { 
   ALL = 0,

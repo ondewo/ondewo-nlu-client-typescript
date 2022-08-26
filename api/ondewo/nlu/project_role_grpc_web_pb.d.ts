@@ -12,35 +12,35 @@ export class ProjectRolesClient {
   createProjectRole(
     request: ondewo_nlu_project_role_pb.CreateProjectRoleRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_project_role_pb.ProjectRole) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_project_role_pb.ProjectRole>;
 
   getProjectRole(
     request: ondewo_nlu_project_role_pb.GetProjectRoleRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_project_role_pb.ProjectRole) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_project_role_pb.ProjectRole>;
 
   deleteProjectRole(
     request: ondewo_nlu_project_role_pb.DeleteProjectRoleRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void
   ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 
   updateProjectRole(
     request: ondewo_nlu_project_role_pb.UpdateProjectRoleRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_project_role_pb.ProjectRole) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_project_role_pb.ProjectRole>;
 
   listProjectRoles(
     request: ondewo_nlu_project_role_pb.ListProjectRolesRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_project_role_pb.ListProjectRolesResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_project_role_pb.ListProjectRolesResponse>;
 

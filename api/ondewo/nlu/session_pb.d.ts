@@ -611,6 +611,26 @@ export class SessionFilter extends jspb.Message {
   clearUserIdsList(): SessionFilter;
   addUserIds(value: string, index?: number): SessionFilter;
 
+  getIntentTagsList(): Array<string>;
+  setIntentTagsList(value: Array<string>): SessionFilter;
+  clearIntentTagsList(): SessionFilter;
+  addIntentTags(value: string, index?: number): SessionFilter;
+
+  getSessionIdsList(): Array<string>;
+  setSessionIdsList(value: Array<string>): SessionFilter;
+  clearSessionIdsList(): SessionFilter;
+  addSessionIds(value: string, index?: number): SessionFilter;
+
+  getInputContextsList(): Array<ondewo_nlu_context_pb.Context>;
+  setInputContextsList(value: Array<ondewo_nlu_context_pb.Context>): SessionFilter;
+  clearInputContextsList(): SessionFilter;
+  addInputContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
+
+  getOutputContextsList(): Array<ondewo_nlu_context_pb.Context>;
+  setOutputContextsList(value: Array<ondewo_nlu_context_pb.Context>): SessionFilter;
+  clearOutputContextsList(): SessionFilter;
+  addOutputContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SessionFilter.AsObject;
   static toObject(includeInstance: boolean, msg: SessionFilter): SessionFilter.AsObject;
@@ -634,6 +654,10 @@ export namespace SessionFilter {
     maxNumberTurns: number,
     labelsList: Array<string>,
     userIdsList: Array<string>,
+    intentTagsList: Array<string>,
+    sessionIdsList: Array<string>,
+    inputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
+    outputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
   }
 }
 
@@ -678,6 +702,21 @@ export class SessionInfo extends jspb.Message {
   clearUserIdsList(): SessionInfo;
   addUserIds(value: string, index?: number): SessionInfo;
 
+  getIntentTagsList(): Array<string>;
+  setIntentTagsList(value: Array<string>): SessionInfo;
+  clearIntentTagsList(): SessionInfo;
+  addIntentTags(value: string, index?: number): SessionInfo;
+
+  getInputContextStepsList(): Array<SessionInfo.ContextSteps>;
+  setInputContextStepsList(value: Array<SessionInfo.ContextSteps>): SessionInfo;
+  clearInputContextStepsList(): SessionInfo;
+  addInputContextSteps(value?: SessionInfo.ContextSteps, index?: number): SessionInfo.ContextSteps;
+
+  getOutputContextStepsList(): Array<SessionInfo.ContextSteps>;
+  setOutputContextStepsList(value: Array<SessionInfo.ContextSteps>): SessionInfo;
+  clearOutputContextStepsList(): SessionInfo;
+  addOutputContextSteps(value?: SessionInfo.ContextSteps, index?: number): SessionInfo.ContextSteps;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SessionInfo.AsObject;
   static toObject(includeInstance: boolean, msg: SessionInfo): SessionInfo.AsObject;
@@ -698,7 +737,31 @@ export namespace SessionInfo {
     numberTurns: number,
     labelsList: Array<string>,
     userIdsList: Array<string>,
+    intentTagsList: Array<string>,
+    inputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>,
+    outputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>,
   }
+
+  export class ContextSteps extends jspb.Message {
+    getContextsList(): Array<ondewo_nlu_context_pb.Context>;
+    setContextsList(value: Array<ondewo_nlu_context_pb.Context>): ContextSteps;
+    clearContextsList(): ContextSteps;
+    addContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ContextSteps.AsObject;
+    static toObject(includeInstance: boolean, msg: ContextSteps): ContextSteps.AsObject;
+    static serializeBinaryToWriter(message: ContextSteps, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ContextSteps;
+    static deserializeBinaryFromReader(message: ContextSteps, reader: jspb.BinaryReader): ContextSteps;
+  }
+
+  export namespace ContextSteps {
+    export type AsObject = {
+      contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
+    }
+  }
+
 }
 
 export class ListSessionsResponse extends jspb.Message {
@@ -744,6 +807,28 @@ export namespace GetSessionRequest {
   export type AsObject = {
     sessionId: string,
     sessionView: Session.View,
+  }
+}
+
+export class CreateSessionRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): CreateSessionRequest;
+
+  getSessionUuid(): string;
+  setSessionUuid(value: string): CreateSessionRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateSessionRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateSessionRequest): CreateSessionRequest.AsObject;
+  static serializeBinaryToWriter(message: CreateSessionRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateSessionRequest;
+  static deserializeBinaryFromReader(message: CreateSessionRequest, reader: jspb.BinaryReader): CreateSessionRequest;
+}
+
+export namespace CreateSessionRequest {
+  export type AsObject = {
+    parent: string,
+    sessionUuid: string,
   }
 }
 
@@ -846,6 +931,11 @@ export class SessionReviewStep extends jspb.Message {
   clearContextsList(): SessionReviewStep;
   addContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
 
+  getContextsOutList(): Array<ondewo_nlu_context_pb.Context>;
+  setContextsOutList(value: Array<ondewo_nlu_context_pb.Context>): SessionReviewStep;
+  clearContextsOutList(): SessionReviewStep;
+  addContextsOut(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SessionReviewStep.AsObject;
   static toObject(includeInstance: boolean, msg: SessionReviewStep): SessionReviewStep.AsObject;
@@ -860,6 +950,7 @@ export namespace SessionReviewStep {
     languageCode: string,
     detectedIntentsList: Array<DetectedIntent.AsObject>,
     contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
+    contextsOutList: Array<ondewo_nlu_context_pb.Context.AsObject>,
   }
 }
 

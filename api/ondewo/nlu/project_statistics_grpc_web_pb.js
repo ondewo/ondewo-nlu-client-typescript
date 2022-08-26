@@ -30,7 +30,7 @@ proto.ondewo.nlu = require('./project_statistics_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -38,7 +38,7 @@ proto.ondewo.nlu = require('./project_statistics_pb.js');
 proto.ondewo.nlu.ProjectStatisticsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -56,7 +56,7 @@ proto.ondewo.nlu.ProjectStatisticsClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -64,7 +64,7 @@ proto.ondewo.nlu.ProjectStatisticsClient =
 proto.ondewo.nlu.ProjectStatisticsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -102,30 +102,11 @@ const methodDescriptor_ProjectStatistics_GetIntentCount = new grpc.web.MethodDes
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetIntentCountRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetIntentCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetIntentCountRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetIntentCountRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -144,7 +125,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getIntentCount =
 /**
  * @param {!proto.ondewo.nlu.GetIntentCountRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -182,30 +163,11 @@ const methodDescriptor_ProjectStatistics_GetEntityTypeCount = new grpc.web.Metho
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetEntityTypeCountRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetEntityTypeCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetEntityTypeCountRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetEntityTypeCountRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -224,7 +186,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getEntityTypeCount =
 /**
  * @param {!proto.ondewo.nlu.GetEntityTypeCountRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -262,30 +224,11 @@ const methodDescriptor_ProjectStatistics_GetUserCount = new grpc.web.MethodDescr
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetProjectStatRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetUserCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetProjectStatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetProjectStatRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -304,7 +247,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getUserCount =
 /**
  * @param {!proto.ondewo.nlu.GetProjectStatRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -342,30 +285,11 @@ const methodDescriptor_ProjectStatistics_GetSessionCount = new grpc.web.MethodDe
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetProjectStatRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetSessionCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetProjectStatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetProjectStatRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -384,7 +308,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getSessionCount =
 /**
  * @param {!proto.ondewo.nlu.GetProjectStatRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -422,30 +346,11 @@ const methodDescriptor_ProjectStatistics_GetTrainingPhraseCount = new grpc.web.M
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetProjectElementStatRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetTrainingPhraseCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -464,7 +369,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getTrainingPhraseCount =
 /**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -502,30 +407,11 @@ const methodDescriptor_ProjectStatistics_GetResponseCount = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetProjectElementStatRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetResponseCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -544,7 +430,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getResponseCount =
 /**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -582,30 +468,11 @@ const methodDescriptor_ProjectStatistics_GetEntityValueCount = new grpc.web.Meth
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetProjectElementStatRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetEntityValueCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -624,7 +491,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getEntityValueCount =
 /**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
@@ -662,30 +529,11 @@ const methodDescriptor_ProjectStatistics_GetEntitySynonymCount = new grpc.web.Me
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ondewo.nlu.GetProjectElementStatRequest,
- *   !proto.ondewo.nlu.StatResponse>}
- */
-const methodInfo_ProjectStatistics_GetEntitySynonymCount = new grpc.web.AbstractClientBase.MethodInfo(
-  ondewo_nlu_common_pb.StatResponse,
-  /**
-   * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  ondewo_nlu_common_pb.StatResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ondewo.nlu.StatResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.StatResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.StatResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -704,7 +552,7 @@ proto.ondewo.nlu.ProjectStatisticsClient.prototype.getEntitySynonymCount =
 /**
  * @param {!proto.ondewo.nlu.GetProjectElementStatRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.StatResponse>}
  *     Promise that resolves to the response
