@@ -6,21 +6,17 @@
 
 // GENERATED CODE -- DO NOT EDIT!
 
-
 /* eslint-disable */
 // @ts-nocheck
-
-
 
 const grpc = {};
 grpc.web = require('grpc-web');
 
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 
-var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js')
+var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 
-var google_api_annotations_pb = require('../../google/api/annotations_pb.js')
-
-var ondewo_nlu_session_pb = require('../../ondewo/nlu/session_pb.js')
+var ondewo_nlu_session_pb = require('../../ondewo/nlu/session_pb.js');
 const proto = {};
 proto.ondewo = {};
 proto.ondewo.qa = require('./qa_pb.js');
@@ -33,23 +29,20 @@ proto.ondewo.qa = require('./qa_pb.js');
  * @struct
  * @final
  */
-proto.ondewo.qa.QAClient =
-    function(hostname, credentials, options) {
-  if (!options) options = {};
-  options.format = 'binary';
+proto.ondewo.qa.QAClient = function (hostname, credentials, options) {
+	if (!options) options = {};
+	options.format = 'binary';
 
-  /**
-   * @private @const {!grpc.web.GrpcWebClientBase} The client
-   */
-  this.client_ = new grpc.web.GrpcWebClientBase(options);
+	/**
+	 * @private @const {!grpc.web.GrpcWebClientBase} The client
+	 */
+	this.client_ = new grpc.web.GrpcWebClientBase(options);
 
-  /**
-   * @private @const {string} The hostname
-   */
-  this.hostname_ = hostname;
-
+	/**
+	 * @private @const {string} The hostname
+	 */
+	this.hostname_ = hostname;
 };
-
 
 /**
  * @param {string} hostname
@@ -59,23 +52,20 @@ proto.ondewo.qa.QAClient =
  * @struct
  * @final
  */
-proto.ondewo.qa.QAPromiseClient =
-    function(hostname, credentials, options) {
-  if (!options) options = {};
-  options.format = 'binary';
+proto.ondewo.qa.QAPromiseClient = function (hostname, credentials, options) {
+	if (!options) options = {};
+	options.format = 'binary';
 
-  /**
-   * @private @const {!grpc.web.GrpcWebClientBase} The client
-   */
-  this.client_ = new grpc.web.GrpcWebClientBase(options);
+	/**
+	 * @private @const {!grpc.web.GrpcWebClientBase} The client
+	 */
+	this.client_ = new grpc.web.GrpcWebClientBase(options);
 
-  /**
-   * @private @const {string} The hostname
-   */
-  this.hostname_ = hostname;
-
+	/**
+	 * @private @const {string} The hostname
+	 */
+	this.hostname_ = hostname;
 };
-
 
 /**
  * @const
@@ -84,20 +74,19 @@ proto.ondewo.qa.QAPromiseClient =
  *   !proto.ondewo.qa.GetAnswerResponse>}
  */
 const methodDescriptor_QA_GetAnswer = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/GetAnswer',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.qa.GetAnswerRequest,
-  proto.ondewo.qa.GetAnswerResponse,
-  /**
-   * @param {!proto.ondewo.qa.GetAnswerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.GetAnswerResponse.deserializeBinary
+	'/ondewo.qa.QA/GetAnswer',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.qa.GetAnswerRequest,
+	proto.ondewo.qa.GetAnswerResponse,
+	/**
+	 * @param {!proto.ondewo.qa.GetAnswerRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.GetAnswerResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.ondewo.qa.GetAnswerRequest} request The
@@ -109,16 +98,15 @@ const methodDescriptor_QA_GetAnswer = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.GetAnswerResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.getAnswer =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/GetAnswer',
-      request,
-      metadata || {},
-      methodDescriptor_QA_GetAnswer,
-      callback);
+proto.ondewo.qa.QAClient.prototype.getAnswer = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/GetAnswer',
+		request,
+		metadata || {},
+		methodDescriptor_QA_GetAnswer,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.ondewo.qa.GetAnswerRequest} request The
@@ -128,15 +116,14 @@ proto.ondewo.qa.QAClient.prototype.getAnswer =
  * @return {!Promise<!proto.ondewo.qa.GetAnswerResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.getAnswer =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/GetAnswer',
-      request,
-      metadata || {},
-      methodDescriptor_QA_GetAnswer);
+proto.ondewo.qa.QAPromiseClient.prototype.getAnswer = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/GetAnswer',
+		request,
+		metadata || {},
+		methodDescriptor_QA_GetAnswer
+	);
 };
-
 
 /**
  * @const
@@ -145,20 +132,19 @@ proto.ondewo.qa.QAPromiseClient.prototype.getAnswer =
  *   !proto.ondewo.qa.RunScraperResponse>}
  */
 const methodDescriptor_QA_RunScraper = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/RunScraper',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.qa.RunScraperRequest,
-  proto.ondewo.qa.RunScraperResponse,
-  /**
-   * @param {!proto.ondewo.qa.RunScraperRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.RunScraperResponse.deserializeBinary
+	'/ondewo.qa.QA/RunScraper',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.qa.RunScraperRequest,
+	proto.ondewo.qa.RunScraperResponse,
+	/**
+	 * @param {!proto.ondewo.qa.RunScraperRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.RunScraperResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.ondewo.qa.RunScraperRequest} request The
@@ -170,16 +156,15 @@ const methodDescriptor_QA_RunScraper = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.RunScraperResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.runScraper =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/RunScraper',
-      request,
-      metadata || {},
-      methodDescriptor_QA_RunScraper,
-      callback);
+proto.ondewo.qa.QAClient.prototype.runScraper = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/RunScraper',
+		request,
+		metadata || {},
+		methodDescriptor_QA_RunScraper,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.ondewo.qa.RunScraperRequest} request The
@@ -189,15 +174,14 @@ proto.ondewo.qa.QAClient.prototype.runScraper =
  * @return {!Promise<!proto.ondewo.qa.RunScraperResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.runScraper =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/RunScraper',
-      request,
-      metadata || {},
-      methodDescriptor_QA_RunScraper);
+proto.ondewo.qa.QAPromiseClient.prototype.runScraper = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/RunScraper',
+		request,
+		metadata || {},
+		methodDescriptor_QA_RunScraper
+	);
 };
-
 
 /**
  * @const
@@ -206,20 +190,19 @@ proto.ondewo.qa.QAPromiseClient.prototype.runScraper =
  *   !proto.ondewo.qa.UpdateDatabaseResponse>}
  */
 const methodDescriptor_QA_UpdateDatabase = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/UpdateDatabase',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.qa.UpdateDatabaseRequest,
-  proto.ondewo.qa.UpdateDatabaseResponse,
-  /**
-   * @param {!proto.ondewo.qa.UpdateDatabaseRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.UpdateDatabaseResponse.deserializeBinary
+	'/ondewo.qa.QA/UpdateDatabase',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.qa.UpdateDatabaseRequest,
+	proto.ondewo.qa.UpdateDatabaseResponse,
+	/**
+	 * @param {!proto.ondewo.qa.UpdateDatabaseRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.UpdateDatabaseResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.ondewo.qa.UpdateDatabaseRequest} request The
@@ -231,16 +214,15 @@ const methodDescriptor_QA_UpdateDatabase = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.UpdateDatabaseResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.updateDatabase =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/UpdateDatabase',
-      request,
-      metadata || {},
-      methodDescriptor_QA_UpdateDatabase,
-      callback);
+proto.ondewo.qa.QAClient.prototype.updateDatabase = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/UpdateDatabase',
+		request,
+		metadata || {},
+		methodDescriptor_QA_UpdateDatabase,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.ondewo.qa.UpdateDatabaseRequest} request The
@@ -250,15 +232,14 @@ proto.ondewo.qa.QAClient.prototype.updateDatabase =
  * @return {!Promise<!proto.ondewo.qa.UpdateDatabaseResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.updateDatabase =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/UpdateDatabase',
-      request,
-      metadata || {},
-      methodDescriptor_QA_UpdateDatabase);
+proto.ondewo.qa.QAPromiseClient.prototype.updateDatabase = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/UpdateDatabase',
+		request,
+		metadata || {},
+		methodDescriptor_QA_UpdateDatabase
+	);
 };
-
 
 /**
  * @const
@@ -267,20 +248,19 @@ proto.ondewo.qa.QAPromiseClient.prototype.updateDatabase =
  *   !proto.ondewo.qa.RunTrainingResponse>}
  */
 const methodDescriptor_QA_RunTraining = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/RunTraining',
-  grpc.web.MethodType.UNARY,
-  google_protobuf_empty_pb.Empty,
-  proto.ondewo.qa.RunTrainingResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.RunTrainingResponse.deserializeBinary
+	'/ondewo.qa.QA/RunTraining',
+	grpc.web.MethodType.UNARY,
+	google_protobuf_empty_pb.Empty,
+	proto.ondewo.qa.RunTrainingResponse,
+	/**
+	 * @param {!proto.google.protobuf.Empty} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.RunTrainingResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.google.protobuf.Empty} request The
@@ -292,16 +272,15 @@ const methodDescriptor_QA_RunTraining = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.RunTrainingResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.runTraining =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/RunTraining',
-      request,
-      metadata || {},
-      methodDescriptor_QA_RunTraining,
-      callback);
+proto.ondewo.qa.QAClient.prototype.runTraining = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/RunTraining',
+		request,
+		metadata || {},
+		methodDescriptor_QA_RunTraining,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.google.protobuf.Empty} request The
@@ -311,15 +290,14 @@ proto.ondewo.qa.QAClient.prototype.runTraining =
  * @return {!Promise<!proto.ondewo.qa.RunTrainingResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.runTraining =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/RunTraining',
-      request,
-      metadata || {},
-      methodDescriptor_QA_RunTraining);
+proto.ondewo.qa.QAPromiseClient.prototype.runTraining = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/RunTraining',
+		request,
+		metadata || {},
+		methodDescriptor_QA_RunTraining
+	);
 };
-
 
 /**
  * @const
@@ -328,20 +306,19 @@ proto.ondewo.qa.QAPromiseClient.prototype.runTraining =
  *   !proto.ondewo.qa.GetServerStateResponse>}
  */
 const methodDescriptor_QA_GetServerState = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/GetServerState',
-  grpc.web.MethodType.UNARY,
-  google_protobuf_empty_pb.Empty,
-  proto.ondewo.qa.GetServerStateResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.GetServerStateResponse.deserializeBinary
+	'/ondewo.qa.QA/GetServerState',
+	grpc.web.MethodType.UNARY,
+	google_protobuf_empty_pb.Empty,
+	proto.ondewo.qa.GetServerStateResponse,
+	/**
+	 * @param {!proto.google.protobuf.Empty} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.GetServerStateResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.google.protobuf.Empty} request The
@@ -353,16 +330,15 @@ const methodDescriptor_QA_GetServerState = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.GetServerStateResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.getServerState =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/GetServerState',
-      request,
-      metadata || {},
-      methodDescriptor_QA_GetServerState,
-      callback);
+proto.ondewo.qa.QAClient.prototype.getServerState = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/GetServerState',
+		request,
+		metadata || {},
+		methodDescriptor_QA_GetServerState,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.google.protobuf.Empty} request The
@@ -372,15 +348,14 @@ proto.ondewo.qa.QAClient.prototype.getServerState =
  * @return {!Promise<!proto.ondewo.qa.GetServerStateResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.getServerState =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/GetServerState',
-      request,
-      metadata || {},
-      methodDescriptor_QA_GetServerState);
+proto.ondewo.qa.QAPromiseClient.prototype.getServerState = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/GetServerState',
+		request,
+		metadata || {},
+		methodDescriptor_QA_GetServerState
+	);
 };
-
 
 /**
  * @const
@@ -389,20 +364,19 @@ proto.ondewo.qa.QAPromiseClient.prototype.getServerState =
  *   !proto.ondewo.qa.ListProjectIdsResponse>}
  */
 const methodDescriptor_QA_ListProjectIds = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/ListProjectIds',
-  grpc.web.MethodType.UNARY,
-  google_protobuf_empty_pb.Empty,
-  proto.ondewo.qa.ListProjectIdsResponse,
-  /**
-   * @param {!proto.google.protobuf.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.ListProjectIdsResponse.deserializeBinary
+	'/ondewo.qa.QA/ListProjectIds',
+	grpc.web.MethodType.UNARY,
+	google_protobuf_empty_pb.Empty,
+	proto.ondewo.qa.ListProjectIdsResponse,
+	/**
+	 * @param {!proto.google.protobuf.Empty} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.ListProjectIdsResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.google.protobuf.Empty} request The
@@ -414,16 +388,15 @@ const methodDescriptor_QA_ListProjectIds = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.ListProjectIdsResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.listProjectIds =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/ListProjectIds',
-      request,
-      metadata || {},
-      methodDescriptor_QA_ListProjectIds,
-      callback);
+proto.ondewo.qa.QAClient.prototype.listProjectIds = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/ListProjectIds',
+		request,
+		metadata || {},
+		methodDescriptor_QA_ListProjectIds,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.google.protobuf.Empty} request The
@@ -433,15 +406,14 @@ proto.ondewo.qa.QAClient.prototype.listProjectIds =
  * @return {!Promise<!proto.ondewo.qa.ListProjectIdsResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.listProjectIds =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/ListProjectIds',
-      request,
-      metadata || {},
-      methodDescriptor_QA_ListProjectIds);
+proto.ondewo.qa.QAPromiseClient.prototype.listProjectIds = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/ListProjectIds',
+		request,
+		metadata || {},
+		methodDescriptor_QA_ListProjectIds
+	);
 };
-
 
 /**
  * @const
@@ -450,20 +422,19 @@ proto.ondewo.qa.QAPromiseClient.prototype.listProjectIds =
  *   !proto.ondewo.qa.GetProjectConfigResponse>}
  */
 const methodDescriptor_QA_GetProjectConfig = new grpc.web.MethodDescriptor(
-  '/ondewo.qa.QA/GetProjectConfig',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.qa.GetProjectConfigRequest,
-  proto.ondewo.qa.GetProjectConfigResponse,
-  /**
-   * @param {!proto.ondewo.qa.GetProjectConfigRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.qa.GetProjectConfigResponse.deserializeBinary
+	'/ondewo.qa.QA/GetProjectConfig',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.qa.GetProjectConfigRequest,
+	proto.ondewo.qa.GetProjectConfigResponse,
+	/**
+	 * @param {!proto.ondewo.qa.GetProjectConfigRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.qa.GetProjectConfigResponse.deserializeBinary
 );
-
 
 /**
  * @param {!proto.ondewo.qa.GetProjectConfigRequest} request The
@@ -475,16 +446,15 @@ const methodDescriptor_QA_GetProjectConfig = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.qa.GetProjectConfigResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.qa.QAClient.prototype.getProjectConfig =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.qa.QA/GetProjectConfig',
-      request,
-      metadata || {},
-      methodDescriptor_QA_GetProjectConfig,
-      callback);
+proto.ondewo.qa.QAClient.prototype.getProjectConfig = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.qa.QA/GetProjectConfig',
+		request,
+		metadata || {},
+		methodDescriptor_QA_GetProjectConfig,
+		callback
+	);
 };
-
 
 /**
  * @param {!proto.ondewo.qa.GetProjectConfigRequest} request The
@@ -494,15 +464,13 @@ proto.ondewo.qa.QAClient.prototype.getProjectConfig =
  * @return {!Promise<!proto.ondewo.qa.GetProjectConfigResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.qa.QAPromiseClient.prototype.getProjectConfig =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.qa.QA/GetProjectConfig',
-      request,
-      metadata || {},
-      methodDescriptor_QA_GetProjectConfig);
+proto.ondewo.qa.QAPromiseClient.prototype.getProjectConfig = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.qa.QA/GetProjectConfig',
+		request,
+		metadata || {},
+		methodDescriptor_QA_GetProjectConfig
+	);
 };
 
-
 module.exports = proto.ondewo.qa;
-
