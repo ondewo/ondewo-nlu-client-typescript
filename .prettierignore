@@ -3,9 +3,7 @@ src/
 esm2020/
 fesm2015/
 fesm2020/
-api/
 ondewo-proto-compiler
 ondewo-nlu-api
 npm
 .vscode
-ondewo-nlu-client-angular.metadata.json
