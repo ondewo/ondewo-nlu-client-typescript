@@ -1,6 +1,6 @@
 {
 	"name": "@ondewo/nlu-client-typescript",
-	"version": "2.13.0",
+	"version": "3.0.0",
 	"description": "Ondewo Natural Language Understanding (NLU) Client library for typescript as a commonjs module",
 	"main": "public-api.js",
 	"typings": "public-api.d.ts",
