@@ -10451,7 +10451,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				name: jspb.Message.getFieldWithDefault(msg, 1, ''),
 				displayName: jspb.Message.getFieldWithDefault(msg, 2, ''),
 				entityTypeName: jspb.Message.getFieldWithDefault(msg, 3, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 4, '')
+				entityTypeDisplayName: jspb.Message.getFieldWithDefault(msg, 4, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 5, '')
 			};
 
 		if (includeInstance) {
@@ -10500,6 +10501,10 @@ proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.deserializeBina
 				break;
 			case 4:
 				var value = /** @type {string} */ (reader.readString());
+				msg.setEntityTypeDisplayName(value);
+				break;
+			case 5:
+				var value = /** @type {string} */ (reader.readString());
 				msg.setLanguage(value);
 				break;
 			default:
@@ -10541,9 +10546,13 @@ proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.serializeBinary
 	if (f.length > 0) {
 		writer.writeString(3, f);
 	}
-	f = message.getLanguage();
+	f = message.getEntityTypeDisplayName();
 	if (f.length > 0) {
 		writer.writeString(4, f);
+	}
+	f = message.getLanguage();
+	if (f.length > 0) {
+		writer.writeString(5, f);
 	}
 };
 
@@ -10596,10 +10605,10 @@ proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.setEn
 };
 
 /**
- * optional string language = 4;
+ * optional string entity_type_display_name = 4;
  * @return {string}
  */
-proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.getLanguage = function () {
+proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.getEntityTypeDisplayName = function () {
 	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
 };
 
@@ -10607,8 +10616,24 @@ proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.getLa
  * @param {string} value
  * @return {!proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult} returns this
  */
-proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.setLanguage = function (value) {
+proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.setEntityTypeDisplayName = function (value) {
 	return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+/**
+ * optional string language = 5;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.getLanguage = function () {
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
+};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseEntity.EntitySearchResult.prototype.setLanguage = function (value) {
+	return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 /**
@@ -10962,8 +10987,10 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				name: jspb.Message.getFieldWithDefault(msg, 1, ''),
 				displayName: jspb.Message.getFieldWithDefault(msg, 2, ''),
 				entityTypeName: jspb.Message.getFieldWithDefault(msg, 3, ''),
-				entityName: jspb.Message.getFieldWithDefault(msg, 4, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 5, '')
+				entityTypeDisplayName: jspb.Message.getFieldWithDefault(msg, 4, ''),
+				entityName: jspb.Message.getFieldWithDefault(msg, 5, ''),
+				entityDisplayName: jspb.Message.getFieldWithDefault(msg, 6, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 7, '')
 			};
 
 		if (includeInstance) {
@@ -11018,9 +11045,17 @@ proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.d
 				break;
 			case 4:
 				var value = /** @type {string} */ (reader.readString());
-				msg.setEntityName(value);
+				msg.setEntityTypeDisplayName(value);
 				break;
 			case 5:
+				var value = /** @type {string} */ (reader.readString());
+				msg.setEntityName(value);
+				break;
+			case 6:
+				var value = /** @type {string} */ (reader.readString());
+				msg.setEntityDisplayName(value);
+				break;
+			case 7:
 				var value = /** @type {string} */ (reader.readString());
 				msg.setLanguage(value);
 				break;
@@ -11066,13 +11101,21 @@ proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.s
 	if (f.length > 0) {
 		writer.writeString(3, f);
 	}
-	f = message.getEntityName();
+	f = message.getEntityTypeDisplayName();
 	if (f.length > 0) {
 		writer.writeString(4, f);
 	}
-	f = message.getLanguage();
+	f = message.getEntityName();
 	if (f.length > 0) {
 		writer.writeString(5, f);
+	}
+	f = message.getEntityDisplayName();
+	if (f.length > 0) {
+		writer.writeString(6, f);
+	}
+	f = message.getLanguage();
+	if (f.length > 0) {
+		writer.writeString(7, f);
 	}
 };
 
@@ -11130,11 +11173,29 @@ proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.p
 };
 
 /**
- * optional string entity_name = 4;
+ * optional string entity_type_display_name = 4;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.getEntityTypeDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.setEntityTypeDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 4, value);
+	};
+
+/**
+ * optional string entity_name = 5;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.getEntityName = function () {
-	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
 };
 
 /**
@@ -11144,15 +11205,33 @@ proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.p
 proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.setEntityName = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 4, value);
+	return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 /**
- * optional string language = 5;
+ * optional string entity_display_name = 6;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.getEntityDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.setEntityDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 6, value);
+	};
+
+/**
+ * optional string language = 7;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.getLanguage = function () {
-	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ''));
 };
 
 /**
@@ -11162,7 +11241,7 @@ proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.p
 proto.ondewo.nlu.FullTextSearchResponseEntitySynonym.EntitySynonymSearchResult.prototype.setLanguage = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 5, value);
+	return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 /**
@@ -12025,7 +12104,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 			obj = {
 				name: jspb.Message.getFieldWithDefault(msg, 1, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 2, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 3, '')
+				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 3, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 4, '')
 			};
 
 		if (includeInstance) {
@@ -12076,6 +12156,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResu
 					break;
 				case 3:
 					var value = /** @type {string} */ (reader.readString());
+					msg.setIntentDisplayName(value);
+					break;
+				case 4:
+					var value = /** @type {string} */ (reader.readString());
 					msg.setLanguage(value);
 					break;
 				default:
@@ -12120,9 +12204,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResu
 	if (f.length > 0) {
 		writer.writeString(2, f);
 	}
-	f = message.getLanguage();
+	f = message.getIntentDisplayName();
 	if (f.length > 0) {
 		writer.writeString(3, f);
+	}
+	f = message.getLanguage();
+	if (f.length > 0) {
+		writer.writeString(4, f);
 	}
 };
 
@@ -12164,11 +12252,29 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResu
 };
 
 /**
- * optional string language = 3;
+ * optional string intent_display_name = 3;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResult.prototype.getIntentDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResult.prototype.setIntentDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 3, value);
+	};
+
+/**
+ * optional string language = 4;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResult.prototype.getLanguage = function () {
-	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ''));
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
 };
 
 /**
@@ -12178,7 +12284,7 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResu
 proto.ondewo.nlu.FullTextSearchResponseIntentContextIn.IntentContextInSearchResult.prototype.setLanguage = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 3, value);
+	return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 /**
@@ -12539,7 +12645,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 			obj = {
 				name: jspb.Message.getFieldWithDefault(msg, 1, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 2, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 3, '')
+				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 3, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 4, '')
 			};
 
 		if (includeInstance) {
@@ -12590,6 +12697,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchRe
 					break;
 				case 3:
 					var value = /** @type {string} */ (reader.readString());
+					msg.setIntentDisplayName(value);
+					break;
+				case 4:
+					var value = /** @type {string} */ (reader.readString());
 					msg.setLanguage(value);
 					break;
 				default:
@@ -12632,9 +12743,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchRe
 		if (f.length > 0) {
 			writer.writeString(2, f);
 		}
-		f = message.getLanguage();
+		f = message.getIntentDisplayName();
 		if (f.length > 0) {
 			writer.writeString(3, f);
+		}
+		f = message.getLanguage();
+		if (f.length > 0) {
+			writer.writeString(4, f);
 		}
 	};
 
@@ -12675,12 +12790,30 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchRe
 	};
 
 /**
- * optional string language = 3;
+ * optional string intent_display_name = 3;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchResult.prototype.getIntentDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchResult.prototype.setIntentDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 3, value);
+	};
+
+/**
+ * optional string language = 4;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchResult.prototype.getLanguage =
 	function () {
-		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ''));
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
 	};
 
 /**
@@ -12690,7 +12823,7 @@ proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchRe
 proto.ondewo.nlu.FullTextSearchResponseIntentContextOut.IntentContextOutSearchResult.prototype.setLanguage = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 3, value);
+	return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 /**
@@ -13054,7 +13187,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				textAsEntityValues: jspb.Message.getFieldWithDefault(msg, 4, ''),
 				type: jspb.Message.getFieldWithDefault(msg, 5, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 6, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 7, '')
+				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 7, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 8, '')
 			};
 
 		if (includeInstance) {
@@ -13119,6 +13253,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult
 					break;
 				case 7:
 					var value = /** @type {string} */ (reader.readString());
+					msg.setIntentDisplayName(value);
+					break;
+				case 8:
+					var value = /** @type {string} */ (reader.readString());
 					msg.setLanguage(value);
 					break;
 				default:
@@ -13179,9 +13317,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult
 	if (f.length > 0) {
 		writer.writeString(6, f);
 	}
-	f = message.getLanguage();
+	f = message.getIntentDisplayName();
 	if (f.length > 0) {
 		writer.writeString(7, f);
+	}
+	f = message.getLanguage();
+	if (f.length > 0) {
+		writer.writeString(8, f);
 	}
 };
 
@@ -13288,11 +13430,29 @@ proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult
 };
 
 /**
- * optional string language = 7;
+ * optional string intent_display_name = 7;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult.prototype.getIntentDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult.prototype.setIntentDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 7, value);
+	};
+
+/**
+ * optional string language = 8;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult.prototype.getLanguage = function () {
-	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ''));
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ''));
 };
 
 /**
@@ -13302,7 +13462,7 @@ proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult
 proto.ondewo.nlu.FullTextSearchResponseIntentUsersays.IntentUsersaysSearchResult.prototype.setLanguage = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 7, value);
+	return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 /**
@@ -13657,7 +13817,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				name: jspb.Message.getFieldWithDefault(msg, 1, ''),
 				text: jspb.Message.getFieldWithDefault(msg, 2, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 3, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 4, '')
+				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 4, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 5, '')
 			};
 
 		if (includeInstance) {
@@ -13712,6 +13873,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.deseria
 				break;
 			case 4:
 				var value = /** @type {string} */ (reader.readString());
+				msg.setIntentDisplayName(value);
+				break;
+			case 5:
+				var value = /** @type {string} */ (reader.readString());
 				msg.setLanguage(value);
 				break;
 			default:
@@ -13756,9 +13921,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.seriali
 	if (f.length > 0) {
 		writer.writeString(3, f);
 	}
-	f = message.getLanguage();
+	f = message.getIntentDisplayName();
 	if (f.length > 0) {
 		writer.writeString(4, f);
+	}
+	f = message.getLanguage();
+	if (f.length > 0) {
+		writer.writeString(5, f);
 	}
 };
 
@@ -13811,10 +13980,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototy
 };
 
 /**
- * optional string language = 4;
+ * optional string intent_display_name = 4;
  * @return {string}
  */
-proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.getLanguage = function () {
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.getIntentDisplayName = function () {
 	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
 };
 
@@ -13822,8 +13991,26 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototy
  * @param {string} value
  * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult} returns this
  */
-proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.setLanguage = function (value) {
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.setIntentDisplayName = function (
+	value
+) {
 	return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+/**
+ * optional string language = 5;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.getLanguage = function () {
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
+};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.setLanguage = function (value) {
+	return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 /**
@@ -14182,7 +14369,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				platform: jspb.Message.getFieldWithDefault(msg, 2, ''),
 				responseType: jspb.Message.getFieldWithDefault(msg, 3, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 4, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 5, '')
+				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 5, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 6, '')
 			};
 
 		if (includeInstance) {
@@ -14239,6 +14427,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult
 					break;
 				case 5:
 					var value = /** @type {string} */ (reader.readString());
+					msg.setIntentDisplayName(value);
+					break;
+				case 6:
+					var value = /** @type {string} */ (reader.readString());
 					msg.setLanguage(value);
 					break;
 				default:
@@ -14291,9 +14483,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult
 	if (f.length > 0) {
 		writer.writeString(4, f);
 	}
-	f = message.getLanguage();
+	f = message.getIntentDisplayName();
 	if (f.length > 0) {
 		writer.writeString(5, f);
+	}
+	f = message.getLanguage();
+	if (f.length > 0) {
+		writer.writeString(6, f);
 	}
 };
 
@@ -14369,11 +14565,29 @@ proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult
 };
 
 /**
- * optional string language = 5;
+ * optional string intent_display_name = 5;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult.prototype.getIntentDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult.prototype.setIntentDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 5, value);
+	};
+
+/**
+ * optional string language = 6;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult.prototype.getLanguage = function () {
-	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ''));
 };
 
 /**
@@ -14383,7 +14597,7 @@ proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult
 proto.ondewo.nlu.FullTextSearchResponseIntentResponse.IntentResponseSearchResult.prototype.setLanguage = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 5, value);
+	return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 /**
@@ -14745,7 +14959,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				parameterName: jspb.Message.getFieldWithDefault(msg, 1, ''),
 				parameterDisplayName: jspb.Message.getFieldWithDefault(msg, 2, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 3, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 4, '')
+				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 4, ''),
+				language: jspb.Message.getFieldWithDefault(msg, 5, '')
 			};
 
 		if (includeInstance) {
@@ -14800,6 +15015,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchRe
 					break;
 				case 4:
 					var value = /** @type {string} */ (reader.readString());
+					msg.setIntentDisplayName(value);
+					break;
+				case 5:
+					var value = /** @type {string} */ (reader.readString());
 					msg.setLanguage(value);
 					break;
 				default:
@@ -14846,9 +15065,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchRe
 		if (f.length > 0) {
 			writer.writeString(3, f);
 		}
-		f = message.getLanguage();
+		f = message.getIntentDisplayName();
 		if (f.length > 0) {
 			writer.writeString(4, f);
+		}
+		f = message.getLanguage();
+		if (f.length > 0) {
+			writer.writeString(5, f);
 		}
 	};
 
@@ -14907,12 +15130,30 @@ proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchRe
 	};
 
 /**
- * optional string language = 4;
+ * optional string intent_display_name = 4;
+ * @return {string}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchResult.prototype.getIntentDisplayName =
+	function () {
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
+	};
+
+/**
+ * @param {string} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchResult.prototype.setIntentDisplayName =
+	function (value) {
+		return jspb.Message.setProto3StringField(this, 4, value);
+	};
+
+/**
+ * optional string language = 5;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchResult.prototype.getLanguage =
 	function () {
-		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ''));
+		return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
 	};
 
 /**
@@ -14922,7 +15163,7 @@ proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchRe
 proto.ondewo.nlu.FullTextSearchResponseIntentParameters.IntentParametersSearchResult.prototype.setLanguage = function (
 	value
 ) {
-	return jspb.Message.setProto3StringField(this, 4, value);
+	return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 /**
