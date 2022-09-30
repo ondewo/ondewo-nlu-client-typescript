@@ -1418,7 +1418,14 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult = function (opt_data) {
-	jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+	jspb.Message.initialize(
+		this,
+		opt_data,
+		0,
+		-1,
+		proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.repeatedFields_,
+		null
+	);
 };
 goog.inherits(proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -13783,6 +13790,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.serializeBinaryToWriter = func
 	}
 };
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.repeatedFields_ = [5];
+
 if (jspb.Message.GENERATE_TO_OBJECT) {
 	/**
 	 * Creates an object representation of this proto.
@@ -13818,7 +13832,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 				text: jspb.Message.getFieldWithDefault(msg, 2, ''),
 				intentName: jspb.Message.getFieldWithDefault(msg, 3, ''),
 				intentDisplayName: jspb.Message.getFieldWithDefault(msg, 4, ''),
-				language: jspb.Message.getFieldWithDefault(msg, 5, '')
+				tagsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
+				language: jspb.Message.getFieldWithDefault(msg, 6, '')
 			};
 
 		if (includeInstance) {
@@ -13877,6 +13892,10 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.deseria
 				break;
 			case 5:
 				var value = /** @type {string} */ (reader.readString());
+				msg.addTags(value);
+				break;
+			case 6:
+				var value = /** @type {string} */ (reader.readString());
 				msg.setLanguage(value);
 				break;
 			default:
@@ -13925,9 +13944,13 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.seriali
 	if (f.length > 0) {
 		writer.writeString(4, f);
 	}
+	f = message.getTagsList();
+	if (f.length > 0) {
+		writer.writeRepeatedString(5, f);
+	}
 	f = message.getLanguage();
 	if (f.length > 0) {
-		writer.writeString(5, f);
+		writer.writeString(6, f);
 	}
 };
 
@@ -13998,11 +14021,47 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototy
 };
 
 /**
- * optional string language = 5;
+ * repeated string tags = 5;
+ * @return {!Array<string>}
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.getTagsList = function () {
+	return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
+};
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.setTagsList = function (value) {
+	return jspb.Message.setField(this, 5, value || []);
+};
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.addTags = function (
+	value,
+	opt_index
+) {
+	return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult} returns this
+ */
+proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.clearTagsList = function () {
+	return this.setTagsList([]);
+};
+
+/**
+ * optional string language = 6;
  * @return {string}
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.getLanguage = function () {
-	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ''));
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ''));
 };
 
 /**
@@ -14010,7 +14069,7 @@ proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototy
  * @return {!proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult} returns this
  */
 proto.ondewo.nlu.FullTextSearchResponseIntentTags.IntentTagsSearchResult.prototype.setLanguage = function (value) {
-	return jspb.Message.setProto3StringField(this, 5, value);
+	return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 /**

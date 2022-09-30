@@ -2028,6 +2028,11 @@ export namespace FullTextSearchResponseIntentTags {
 		getIntentDisplayName(): string;
 		setIntentDisplayName(value: string): IntentTagsSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentTagsSearchResult;
+		clearTagsList(): IntentTagsSearchResult;
+		addTags(value: string, index?: number): IntentTagsSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentTagsSearchResult;
 
@@ -2048,6 +2053,7 @@ export namespace FullTextSearchResponseIntentTags {
 			text: string;
 			intentName: string;
 			intentDisplayName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
