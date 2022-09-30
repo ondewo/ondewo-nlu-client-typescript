@@ -1660,6 +1660,11 @@ export namespace FullTextSearchResponseIntent {
 		getDomainName(): string;
 		setDomainName(value: string): IntentSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentSearchResult;
+		clearTagsList(): IntentSearchResult;
+		addTags(value: string, index?: number): IntentSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentSearchResult;
 
@@ -1676,6 +1681,7 @@ export namespace FullTextSearchResponseIntent {
 			name: string;
 			displayName: string;
 			domainName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
@@ -1745,6 +1751,11 @@ export namespace FullTextSearchResponseIntentContextIn {
 		getIntentDisplayName(): string;
 		setIntentDisplayName(value: string): IntentContextInSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentContextInSearchResult;
+		clearTagsList(): IntentContextInSearchResult;
+		addTags(value: string, index?: number): IntentContextInSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentContextInSearchResult;
 
@@ -1764,6 +1775,7 @@ export namespace FullTextSearchResponseIntentContextIn {
 			name: string;
 			intentName: string;
 			intentDisplayName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
@@ -1833,6 +1845,11 @@ export namespace FullTextSearchResponseIntentContextOut {
 		getIntentDisplayName(): string;
 		setIntentDisplayName(value: string): IntentContextOutSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentContextOutSearchResult;
+		clearTagsList(): IntentContextOutSearchResult;
+		addTags(value: string, index?: number): IntentContextOutSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentContextOutSearchResult;
 
@@ -1852,6 +1869,7 @@ export namespace FullTextSearchResponseIntentContextOut {
 			name: string;
 			intentName: string;
 			intentDisplayName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
@@ -1933,6 +1951,11 @@ export namespace FullTextSearchResponseIntentUsersays {
 		getIntentDisplayName(): string;
 		setIntentDisplayName(value: string): IntentUsersaysSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentUsersaysSearchResult;
+		clearTagsList(): IntentUsersaysSearchResult;
+		addTags(value: string, index?: number): IntentUsersaysSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentUsersaysSearchResult;
 
@@ -1956,6 +1979,7 @@ export namespace FullTextSearchResponseIntentUsersays {
 			type: string;
 			intentName: string;
 			intentDisplayName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
@@ -2129,6 +2153,11 @@ export namespace FullTextSearchResponseIntentResponse {
 		getIntentDisplayName(): string;
 		setIntentDisplayName(value: string): IntentResponseSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentResponseSearchResult;
+		clearTagsList(): IntentResponseSearchResult;
+		addTags(value: string, index?: number): IntentResponseSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentResponseSearchResult;
 
@@ -2150,6 +2179,7 @@ export namespace FullTextSearchResponseIntentResponse {
 			responseType: string;
 			intentName: string;
 			intentDisplayName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
@@ -2222,6 +2252,11 @@ export namespace FullTextSearchResponseIntentParameters {
 		getIntentDisplayName(): string;
 		setIntentDisplayName(value: string): IntentParametersSearchResult;
 
+		getTagsList(): Array<string>;
+		setTagsList(value: Array<string>): IntentParametersSearchResult;
+		clearTagsList(): IntentParametersSearchResult;
+		addTags(value: string, index?: number): IntentParametersSearchResult;
+
 		getLanguage(): string;
 		setLanguage(value: string): IntentParametersSearchResult;
 
@@ -2242,6 +2277,7 @@ export namespace FullTextSearchResponseIntentParameters {
 			parameterDisplayName: string;
 			intentName: string;
 			intentDisplayName: string;
+			tagsList: Array<string>;
 			language: string;
 		};
 	}
