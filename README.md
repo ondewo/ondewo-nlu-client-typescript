@@ -18,7 +18,7 @@
   </tr>
 </table>
   <h1 align="center">
-    ONDEWO NLU Client Javascript
+    ONDEWO NLU Client Typescript
   </h1>
 </p>
 
