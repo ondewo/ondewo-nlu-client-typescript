@@ -84,6 +84,23 @@ check_build: #Checks if all built proto-code is there
 	done
 	@rm -rf build_check.txt
 
+setup_example_develop:
+	@rm -rf examples/api
+	#@cp -R api examples/
+	@rm -rf exmp_log
+	@for examp in `find ./examples -iname "*.ts" | sort`;\
+	do \
+		echo $${examp} >> exmp_log;\
+		webpack --config "examples/webpack.js" --output-library "nlu_ts_api" --output-filename "nlu_ts_api" --output-path "examples/" --entry "$${examp}";\
+	done
+
+run_example: ## npx ts-node examples/create_agent.ts
+	@for examp in `find ./examples -iname "example_*"`;\
+	do \
+		echo $${examp};\
+
+	done
+
 ########################################################
 #       Repo Specific Make Targets
 ########################################################
@@ -229,6 +246,8 @@ install_dependencies:
 	npm i prettier --save-dev
 	npm i @typescript-eslint/eslint-plugin --save-dev
 	npm i husky --save-dev
+	npm i webpack --save-dev
+	npm i webpack-merge --save-dev
 
 check_out_correct_submodule_versions: ## Fetches all Submodules and checksout specified branch
 	@echo "START checking out correct submodule versions ..."

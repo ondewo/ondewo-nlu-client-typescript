@@ -1,6 +1,6 @@
 import { AgentsClient } from '../api/ondewo/nlu/agent_grpc_web_pb';
 import { ListAgentsRequest } from '../api/ondewo/nlu/agent_pb';
-import { Client } from './ts-client';
+import { Client } from './a_ts-client';
 const grpcWeb = require('grpc-web');
 
 require('dotenv').config();

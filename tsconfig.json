@@ -7,6 +7,6 @@
 		"outDir": "./dist",
 		"types": ["node"]
 	},
-	"include": ["examples/ts-client.ts", "*.ts", "*.js"],
+	"include": ["examples/a_ts-client.ts", "*.ts", "*.js"],
 	"exclude": ["node_modules", "api"]
 }

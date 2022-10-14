@@ -1,4 +1,5 @@
 export * from './api/google/rpc/status_pb';
+export * from './api/google/api/http_pb';
 export * from './api/google/api/annotations_pb';
 export * from './api/google/type/latlng_pb';
 export * from './api/google/protobuf/struct_pb';
