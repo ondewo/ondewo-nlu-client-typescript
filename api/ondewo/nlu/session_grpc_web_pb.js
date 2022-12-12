@@ -486,6 +486,64 @@ proto.ondewo.nlu.SessionsPromiseClient.prototype.listSessionLabels = function (r
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListSessionLabelsOfAllSessionsRequest,
+ *   !proto.ondewo.nlu.ListSessionLabelsResponse>}
+ */
+const methodDescriptor_Sessions_ListSessionLabelsOfAllSessions = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/ListSessionLabelsOfAllSessions',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.ListSessionLabelsOfAllSessionsRequest,
+	proto.ondewo.nlu.ListSessionLabelsResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.ListSessionLabelsOfAllSessionsRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.ListSessionLabelsResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.ListSessionLabelsOfAllSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListSessionLabelsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListSessionLabelsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.listSessionLabelsOfAllSessions = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/ListSessionLabelsOfAllSessions',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_ListSessionLabelsOfAllSessions,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.ListSessionLabelsOfAllSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListSessionLabelsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.listSessionLabelsOfAllSessions = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/ListSessionLabelsOfAllSessions',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_ListSessionLabelsOfAllSessions
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.AddSessionLabelsRequest,
  *   !proto.ondewo.nlu.Session>}
  */
@@ -544,16 +602,16 @@ proto.ondewo.nlu.SessionsPromiseClient.prototype.addSessionLabels = function (re
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RemoveSessionLabelsRequest,
+ *   !proto.ondewo.nlu.DeleteSessionLabelsRequest,
  *   !proto.ondewo.nlu.Session>}
  */
-const methodDescriptor_Sessions_RemoveSessionLabels = new grpc.web.MethodDescriptor(
-	'/ondewo.nlu.Sessions/RemoveSessionLabels',
+const methodDescriptor_Sessions_DeleteSessionLabels = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/DeleteSessionLabels',
 	grpc.web.MethodType.UNARY,
-	proto.ondewo.nlu.RemoveSessionLabelsRequest,
+	proto.ondewo.nlu.DeleteSessionLabelsRequest,
 	proto.ondewo.nlu.Session,
 	/**
-	 * @param {!proto.ondewo.nlu.RemoveSessionLabelsRequest} request
+	 * @param {!proto.ondewo.nlu.DeleteSessionLabelsRequest} request
 	 * @return {!Uint8Array}
 	 */
 	function (request) {
@@ -563,7 +621,7 @@ const methodDescriptor_Sessions_RemoveSessionLabels = new grpc.web.MethodDescrip
 );
 
 /**
- * @param {!proto.ondewo.nlu.RemoveSessionLabelsRequest} request The
+ * @param {!proto.ondewo.nlu.DeleteSessionLabelsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -572,30 +630,30 @@ const methodDescriptor_Sessions_RemoveSessionLabels = new grpc.web.MethodDescrip
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Session>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.SessionsClient.prototype.removeSessionLabels = function (request, metadata, callback) {
+proto.ondewo.nlu.SessionsClient.prototype.deleteSessionLabels = function (request, metadata, callback) {
 	return this.client_.rpcCall(
-		this.hostname_ + '/ondewo.nlu.Sessions/RemoveSessionLabels',
+		this.hostname_ + '/ondewo.nlu.Sessions/DeleteSessionLabels',
 		request,
 		metadata || {},
-		methodDescriptor_Sessions_RemoveSessionLabels,
+		methodDescriptor_Sessions_DeleteSessionLabels,
 		callback
 	);
 };
 
 /**
- * @param {!proto.ondewo.nlu.RemoveSessionLabelsRequest} request The
+ * @param {!proto.ondewo.nlu.DeleteSessionLabelsRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.Session>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.SessionsPromiseClient.prototype.removeSessionLabels = function (request, metadata) {
+proto.ondewo.nlu.SessionsPromiseClient.prototype.deleteSessionLabels = function (request, metadata) {
 	return this.client_.unaryCall(
-		this.hostname_ + '/ondewo.nlu.Sessions/RemoveSessionLabels',
+		this.hostname_ + '/ondewo.nlu.Sessions/DeleteSessionLabels',
 		request,
 		metadata || {},
-		methodDescriptor_Sessions_RemoveSessionLabels
+		methodDescriptor_Sessions_DeleteSessionLabels
 	);
 };
 

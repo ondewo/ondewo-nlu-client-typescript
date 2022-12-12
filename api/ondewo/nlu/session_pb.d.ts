@@ -836,6 +836,11 @@ export class CreateSessionRequest extends jspb.Message {
 	getSessionUuid(): string;
 	setSessionUuid(value: string): CreateSessionRequest;
 
+	getLabelsList(): Array<string>;
+	setLabelsList(value: Array<string>): CreateSessionRequest;
+	clearLabelsList(): CreateSessionRequest;
+	addLabels(value: string, index?: number): CreateSessionRequest;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): CreateSessionRequest.AsObject;
 	static toObject(includeInstance: boolean, msg: CreateSessionRequest): CreateSessionRequest.AsObject;
@@ -848,6 +853,7 @@ export namespace CreateSessionRequest {
 	export type AsObject = {
 		parent: string;
 		sessionUuid: string;
+		labelsList: Array<string>;
 	};
 }
 
@@ -1018,8 +1024,8 @@ export namespace DetectedIntent {
 }
 
 export class ListSessionLabelsRequest extends jspb.Message {
-	getParent(): string;
-	setParent(value: string): ListSessionLabelsRequest;
+	getSessionId(): string;
+	setSessionId(value: string): ListSessionLabelsRequest;
 
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): ListSessionLabelsRequest.AsObject;
@@ -1033,6 +1039,30 @@ export class ListSessionLabelsRequest extends jspb.Message {
 }
 
 export namespace ListSessionLabelsRequest {
+	export type AsObject = {
+		sessionId: string;
+	};
+}
+
+export class ListSessionLabelsOfAllSessionsRequest extends jspb.Message {
+	getParent(): string;
+	setParent(value: string): ListSessionLabelsOfAllSessionsRequest;
+
+	serializeBinary(): Uint8Array;
+	toObject(includeInstance?: boolean): ListSessionLabelsOfAllSessionsRequest.AsObject;
+	static toObject(
+		includeInstance: boolean,
+		msg: ListSessionLabelsOfAllSessionsRequest
+	): ListSessionLabelsOfAllSessionsRequest.AsObject;
+	static serializeBinaryToWriter(message: ListSessionLabelsOfAllSessionsRequest, writer: jspb.BinaryWriter): void;
+	static deserializeBinary(bytes: Uint8Array): ListSessionLabelsOfAllSessionsRequest;
+	static deserializeBinaryFromReader(
+		message: ListSessionLabelsOfAllSessionsRequest,
+		reader: jspb.BinaryReader
+	): ListSessionLabelsOfAllSessionsRequest;
+}
+
+export namespace ListSessionLabelsOfAllSessionsRequest {
 	export type AsObject = {
 		parent: string;
 	};
@@ -1070,9 +1100,6 @@ export class AddSessionLabelsRequest extends jspb.Message {
 	clearLabelsList(): AddSessionLabelsRequest;
 	addLabels(value: string, index?: number): AddSessionLabelsRequest;
 
-	getSessionView(): Session.View;
-	setSessionView(value: Session.View): AddSessionLabelsRequest;
-
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): AddSessionLabelsRequest.AsObject;
 	static toObject(includeInstance: boolean, msg: AddSessionLabelsRequest): AddSessionLabelsRequest.AsObject;
@@ -1088,38 +1115,33 @@ export namespace AddSessionLabelsRequest {
 	export type AsObject = {
 		sessionId: string;
 		labelsList: Array<string>;
-		sessionView: Session.View;
 	};
 }
 
-export class RemoveSessionLabelsRequest extends jspb.Message {
+export class DeleteSessionLabelsRequest extends jspb.Message {
 	getSessionId(): string;
-	setSessionId(value: string): RemoveSessionLabelsRequest;
+	setSessionId(value: string): DeleteSessionLabelsRequest;
 
 	getLabelsList(): Array<string>;
-	setLabelsList(value: Array<string>): RemoveSessionLabelsRequest;
-	clearLabelsList(): RemoveSessionLabelsRequest;
-	addLabels(value: string, index?: number): RemoveSessionLabelsRequest;
-
-	getSessionView(): Session.View;
-	setSessionView(value: Session.View): RemoveSessionLabelsRequest;
+	setLabelsList(value: Array<string>): DeleteSessionLabelsRequest;
+	clearLabelsList(): DeleteSessionLabelsRequest;
+	addLabels(value: string, index?: number): DeleteSessionLabelsRequest;
 
 	serializeBinary(): Uint8Array;
-	toObject(includeInstance?: boolean): RemoveSessionLabelsRequest.AsObject;
-	static toObject(includeInstance: boolean, msg: RemoveSessionLabelsRequest): RemoveSessionLabelsRequest.AsObject;
-	static serializeBinaryToWriter(message: RemoveSessionLabelsRequest, writer: jspb.BinaryWriter): void;
-	static deserializeBinary(bytes: Uint8Array): RemoveSessionLabelsRequest;
+	toObject(includeInstance?: boolean): DeleteSessionLabelsRequest.AsObject;
+	static toObject(includeInstance: boolean, msg: DeleteSessionLabelsRequest): DeleteSessionLabelsRequest.AsObject;
+	static serializeBinaryToWriter(message: DeleteSessionLabelsRequest, writer: jspb.BinaryWriter): void;
+	static deserializeBinary(bytes: Uint8Array): DeleteSessionLabelsRequest;
 	static deserializeBinaryFromReader(
-		message: RemoveSessionLabelsRequest,
+		message: DeleteSessionLabelsRequest,
 		reader: jspb.BinaryReader
-	): RemoveSessionLabelsRequest;
+	): DeleteSessionLabelsRequest;
 }
 
-export namespace RemoveSessionLabelsRequest {
+export namespace DeleteSessionLabelsRequest {
 	export type AsObject = {
 		sessionId: string;
 		labelsList: Array<string>;
-		sessionView: Session.View;
 	};
 }
 

@@ -52,14 +52,20 @@ export class SessionsClient {
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.ListSessionLabelsResponse) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.ListSessionLabelsResponse>;
 
+	listSessionLabelsOfAllSessions(
+		request: ondewo_nlu_session_pb.ListSessionLabelsOfAllSessionsRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.ListSessionLabelsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.ListSessionLabelsResponse>;
+
 	addSessionLabels(
 		request: ondewo_nlu_session_pb.AddSessionLabelsRequest,
 		metadata: grpcWeb.Metadata | undefined,
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.Session) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
 
-	removeSessionLabels(
-		request: ondewo_nlu_session_pb.RemoveSessionLabelsRequest,
+	deleteSessionLabels(
+		request: ondewo_nlu_session_pb.DeleteSessionLabelsRequest,
 		metadata: grpcWeb.Metadata | undefined,
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.Session) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
@@ -131,13 +137,18 @@ export class SessionsPromiseClient {
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_session_pb.ListSessionLabelsResponse>;
 
+	listSessionLabelsOfAllSessions(
+		request: ondewo_nlu_session_pb.ListSessionLabelsOfAllSessionsRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.ListSessionLabelsResponse>;
+
 	addSessionLabels(
 		request: ondewo_nlu_session_pb.AddSessionLabelsRequest,
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_session_pb.Session>;
 
-	removeSessionLabels(
-		request: ondewo_nlu_session_pb.RemoveSessionLabelsRequest,
+	deleteSessionLabels(
+		request: ondewo_nlu_session_pb.DeleteSessionLabelsRequest,
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_session_pb.Session>;
 
