@@ -2,6 +2,7 @@ import * as jspb from 'google-protobuf';
 
 import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
+import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
 import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
 import * as google_rpc_status_pb from '../../google/rpc/status_pb';
 import * as google_type_latlng_pb from '../../google/type/latlng_pb';
@@ -97,6 +98,11 @@ export class QueryParameters extends jspb.Message {
 	hasPayload(): boolean;
 	clearPayload(): QueryParameters;
 
+	getLabelsList(): Array<string>;
+	setLabelsList(value: Array<string>): QueryParameters;
+	clearLabelsList(): QueryParameters;
+	addLabels(value: string, index?: number): QueryParameters;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): QueryParameters.AsObject;
 	static toObject(includeInstance: boolean, msg: QueryParameters): QueryParameters.AsObject;
@@ -112,6 +118,7 @@ export namespace QueryParameters {
 		contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
 		resetContexts: boolean;
 		payload?: google_protobuf_struct_pb.Struct.AsObject;
+		labelsList: Array<string>;
 	};
 }
 
@@ -445,8 +452,8 @@ export namespace EventInput {
 }
 
 export class Session extends jspb.Message {
-	getSessionId(): string;
-	setSessionId(value: string): Session;
+	getName(): string;
+	setName(value: string): Session;
 
 	getSessionStepsList(): Array<SessionStep>;
 	setSessionStepsList(value: Array<SessionStep>): Session;
@@ -468,7 +475,7 @@ export class Session extends jspb.Message {
 
 export namespace Session {
 	export type AsObject = {
-		sessionId: string;
+		name: string;
 		sessionStepsList: Array<SessionStep.AsObject>;
 		sessionInfo?: SessionInfo.AsObject;
 	};
@@ -481,6 +488,9 @@ export namespace Session {
 }
 
 export class SessionStep extends jspb.Message {
+	getName(): string;
+	setName(value: string): SessionStep;
+
 	getDetectIntentRequest(): DetectIntentRequest | undefined;
 	setDetectIntentRequest(value?: DetectIntentRequest): SessionStep;
 	hasDetectIntentRequest(): boolean;
@@ -506,6 +516,7 @@ export class SessionStep extends jspb.Message {
 
 export namespace SessionStep {
 	export type AsObject = {
+		name: string;
 		detectIntentRequest?: DetectIntentRequest.AsObject;
 		detectIntentResponse?: DetectIntentResponse.AsObject;
 		contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
@@ -558,6 +569,11 @@ export class ListSessionsRequest extends jspb.Message {
 	hasSessionFilter(): boolean;
 	clearSessionFilter(): ListSessionsRequest;
 
+	getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+	setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): ListSessionsRequest;
+	hasFieldMask(): boolean;
+	clearFieldMask(): ListSessionsRequest;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): ListSessionsRequest.AsObject;
 	static toObject(includeInstance: boolean, msg: ListSessionsRequest): ListSessionsRequest.AsObject;
@@ -572,6 +588,37 @@ export namespace ListSessionsRequest {
 		sessionView: Session.View;
 		pageToken: string;
 		sessionFilter?: SessionFilter.AsObject;
+		fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+	};
+}
+
+export class ContextFilter extends jspb.Message {
+	getContextName(): string;
+	setContextName(value: string): ContextFilter;
+
+	getKey(): string;
+	setKey(value: string): ContextFilter;
+
+	getValue(): string;
+	setValue(value: string): ContextFilter;
+
+	getOperator(): ComparisonOperator;
+	setOperator(value: ComparisonOperator): ContextFilter;
+
+	serializeBinary(): Uint8Array;
+	toObject(includeInstance?: boolean): ContextFilter.AsObject;
+	static toObject(includeInstance: boolean, msg: ContextFilter): ContextFilter.AsObject;
+	static serializeBinaryToWriter(message: ContextFilter, writer: jspb.BinaryWriter): void;
+	static deserializeBinary(bytes: Uint8Array): ContextFilter;
+	static deserializeBinaryFromReader(message: ContextFilter, reader: jspb.BinaryReader): ContextFilter;
+}
+
+export namespace ContextFilter {
+	export type AsObject = {
+		contextName: string;
+		key: string;
+		value: string;
+		operator: ComparisonOperator;
 	};
 }
 
@@ -648,6 +695,78 @@ export class SessionFilter extends jspb.Message {
 	clearOutputContextsList(): SessionFilter;
 	addOutputContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
 
+	getDurationInSMin(): number;
+	setDurationInSMin(value: number): SessionFilter;
+
+	getDurationInSMax(): number;
+	setDurationInSMax(value: number): SessionFilter;
+
+	getDurationInMMin(): number;
+	setDurationInMMin(value: number): SessionFilter;
+
+	getDurationInMMax(): number;
+	setDurationInMMax(value: number): SessionFilter;
+
+	getDurationInMRoundedMin(): number;
+	setDurationInMRoundedMin(value: number): SessionFilter;
+
+	getDurationInMRoundedMax(): number;
+	setDurationInMRoundedMax(value: number): SessionFilter;
+
+	getDurationInterval15sRoundedMin(): number;
+	setDurationInterval15sRoundedMin(value: number): SessionFilter;
+
+	getDurationInterval15sRoundedMax(): number;
+	setDurationInterval15sRoundedMax(value: number): SessionFilter;
+
+	getDurationInterval30sRoundedMin(): number;
+	setDurationInterval30sRoundedMin(value: number): SessionFilter;
+
+	getDurationInterval30sRoundedMax(): number;
+	setDurationInterval30sRoundedMax(value: number): SessionFilter;
+
+	getDurationInterval45sRoundedMin(): number;
+	setDurationInterval45sRoundedMin(value: number): SessionFilter;
+
+	getDurationInterval45sRoundedMax(): number;
+	setDurationInterval45sRoundedMax(value: number): SessionFilter;
+
+	getStartedTimeSlotPerHourMin(): string;
+	setStartedTimeSlotPerHourMin(value: string): SessionFilter;
+
+	getStartedTimeSlotPerHourMax(): string;
+	setStartedTimeSlotPerHourMax(value: string): SessionFilter;
+
+	getStartedTimeSlotPerQuarterHourMin(): string;
+	setStartedTimeSlotPerQuarterHourMin(value: string): SessionFilter;
+
+	getStartedTimeSlotPerQuarterHourMax(): string;
+	setStartedTimeSlotPerQuarterHourMax(value: string): SessionFilter;
+
+	getStartedTimeSlotPerHalfHourMin(): string;
+	setStartedTimeSlotPerHalfHourMin(value: string): SessionFilter;
+
+	getStartedTimeSlotPerHalfHourMax(): string;
+	setStartedTimeSlotPerHalfHourMax(value: string): SessionFilter;
+
+	getStartedTimeSlotPerDayPhaseMin(): string;
+	setStartedTimeSlotPerDayPhaseMin(value: string): SessionFilter;
+
+	getStartedTimeSlotPerDayPhaseMax(): string;
+	setStartedTimeSlotPerDayPhaseMax(value: string): SessionFilter;
+
+	getStartedTimeSlotPerMinuteMin(): string;
+	setStartedTimeSlotPerMinuteMin(value: string): SessionFilter;
+
+	getStartedTimeSlotPerMinuteMax(): string;
+	setStartedTimeSlotPerMinuteMax(value: string): SessionFilter;
+
+	getDurationInSRoundedMin(): number;
+	setDurationInSRoundedMin(value: number): SessionFilter;
+
+	getDurationInSRoundedMax(): number;
+	setDurationInSRoundedMax(value: number): SessionFilter;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): SessionFilter.AsObject;
 	static toObject(includeInstance: boolean, msg: SessionFilter): SessionFilter.AsObject;
@@ -675,6 +794,30 @@ export namespace SessionFilter {
 		sessionIdsList: Array<string>;
 		inputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
 		outputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+		durationInSMin: number;
+		durationInSMax: number;
+		durationInMMin: number;
+		durationInMMax: number;
+		durationInMRoundedMin: number;
+		durationInMRoundedMax: number;
+		durationInterval15sRoundedMin: number;
+		durationInterval15sRoundedMax: number;
+		durationInterval30sRoundedMin: number;
+		durationInterval30sRoundedMax: number;
+		durationInterval45sRoundedMin: number;
+		durationInterval45sRoundedMax: number;
+		startedTimeSlotPerHourMin: string;
+		startedTimeSlotPerHourMax: string;
+		startedTimeSlotPerQuarterHourMin: string;
+		startedTimeSlotPerQuarterHourMax: string;
+		startedTimeSlotPerHalfHourMin: string;
+		startedTimeSlotPerHalfHourMax: string;
+		startedTimeSlotPerDayPhaseMin: string;
+		startedTimeSlotPerDayPhaseMax: string;
+		startedTimeSlotPerMinuteMin: string;
+		startedTimeSlotPerMinuteMax: string;
+		durationInSRoundedMin: number;
+		durationInSRoundedMax: number;
 	};
 }
 
@@ -737,6 +880,42 @@ export class SessionInfo extends jspb.Message {
 	clearOutputContextStepsList(): SessionInfo;
 	addOutputContextSteps(value?: SessionInfo.ContextSteps, index?: number): SessionInfo.ContextSteps;
 
+	getDurationInS(): number;
+	setDurationInS(value: number): SessionInfo;
+
+	getDurationInM(): number;
+	setDurationInM(value: number): SessionInfo;
+
+	getDurationInMRounded(): number;
+	setDurationInMRounded(value: number): SessionInfo;
+
+	getDurationInterval15sRounded(): number;
+	setDurationInterval15sRounded(value: number): SessionInfo;
+
+	getDurationInterval30sRounded(): number;
+	setDurationInterval30sRounded(value: number): SessionInfo;
+
+	getDurationInterval45sRounded(): number;
+	setDurationInterval45sRounded(value: number): SessionInfo;
+
+	getStartedTimeSlotPerHour(): string;
+	setStartedTimeSlotPerHour(value: string): SessionInfo;
+
+	getStartedTimeSlotPerQuarterHour(): string;
+	setStartedTimeSlotPerQuarterHour(value: string): SessionInfo;
+
+	getStartedTimeSlotPerHalfHour(): string;
+	setStartedTimeSlotPerHalfHour(value: string): SessionInfo;
+
+	getStartedTimeSlotPerDayPhase(): string;
+	setStartedTimeSlotPerDayPhase(value: string): SessionInfo;
+
+	getStartedTimeSlotPerMinute(): string;
+	setStartedTimeSlotPerMinute(value: string): SessionInfo;
+
+	getDurationInSRounded(): number;
+	setDurationInSRounded(value: number): SessionInfo;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): SessionInfo.AsObject;
 	static toObject(includeInstance: boolean, msg: SessionInfo): SessionInfo.AsObject;
@@ -760,6 +939,18 @@ export namespace SessionInfo {
 		intentTagsList: Array<string>;
 		inputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>;
 		outputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>;
+		durationInS: number;
+		durationInM: number;
+		durationInMRounded: number;
+		durationInterval15sRounded: number;
+		durationInterval30sRounded: number;
+		durationInterval45sRounded: number;
+		startedTimeSlotPerHour: string;
+		startedTimeSlotPerQuarterHour: string;
+		startedTimeSlotPerHalfHour: string;
+		startedTimeSlotPerDayPhase: string;
+		startedTimeSlotPerMinute: string;
+		durationInSRounded: number;
 	};
 
 	export class ContextSteps extends jspb.Message {
@@ -814,6 +1005,11 @@ export class GetSessionRequest extends jspb.Message {
 	getSessionView(): Session.View;
 	setSessionView(value: Session.View): GetSessionRequest;
 
+	getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+	setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): GetSessionRequest;
+	hasFieldMask(): boolean;
+	clearFieldMask(): GetSessionRequest;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): GetSessionRequest.AsObject;
 	static toObject(includeInstance: boolean, msg: GetSessionRequest): GetSessionRequest.AsObject;
@@ -826,6 +1022,7 @@ export namespace GetSessionRequest {
 	export type AsObject = {
 		sessionId: string;
 		sessionView: Session.View;
+		fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
 	};
 }
 
@@ -911,8 +1108,8 @@ export namespace CreateSessionReviewRequest {
 }
 
 export class SessionReview extends jspb.Message {
-	getSessionReviewId(): string;
-	setSessionReviewId(value: string): SessionReview;
+	getName(): string;
+	setName(value: string): SessionReview;
 
 	getSessionReviewStepsList(): Array<SessionReviewStep>;
 	setSessionReviewStepsList(value: Array<SessionReviewStep>): SessionReview;
@@ -929,7 +1126,7 @@ export class SessionReview extends jspb.Message {
 
 export namespace SessionReview {
 	export type AsObject = {
-		sessionReviewId: string;
+		name: string;
 		sessionReviewStepsList: Array<SessionReviewStep.AsObject>;
 	};
 
@@ -941,6 +1138,9 @@ export namespace SessionReview {
 }
 
 export class SessionReviewStep extends jspb.Message {
+	getName(): string;
+	setName(value: string): SessionReviewStep;
+
 	getAnnotatedUsersays(): ondewo_nlu_intent_pb.Intent.TrainingPhrase | undefined;
 	setAnnotatedUsersays(value?: ondewo_nlu_intent_pb.Intent.TrainingPhrase): SessionReviewStep;
 	hasAnnotatedUsersays(): boolean;
@@ -974,6 +1174,7 @@ export class SessionReviewStep extends jspb.Message {
 
 export namespace SessionReviewStep {
 	export type AsObject = {
+		name: string;
 		annotatedUsersays?: ondewo_nlu_intent_pb.Intent.TrainingPhrase.AsObject;
 		languageCode: string;
 		detectedIntentsList: Array<DetectedIntent.AsObject>;
@@ -1260,4 +1461,13 @@ export enum AudioEncoding {
 	AUDIO_ENCODING_AMR_WB = 5,
 	AUDIO_ENCODING_OGG_OPUS = 6,
 	AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE = 7
+}
+export enum ComparisonOperator {
+	EQUAL = 0,
+	GREATER = 1,
+	GREATER_OR_EQUAL = 2,
+	LESS_OR_EQUAL = 3,
+	CONTAINS = 4,
+	STARTS_WITH = 5,
+	ENDS_WITH = 6
 }
