@@ -827,6 +827,12 @@ export class SessionFilter extends jspb.Message {
 	clearIdentifiedUserIdsList(): SessionFilter;
 	addIdentifiedUserIds(value: string, index?: number): SessionFilter;
 
+	getDurationInterval60sRoundedMin(): number;
+	setDurationInterval60sRoundedMin(value: number): SessionFilter;
+
+	getDurationInterval60sRoundedMax(): number;
+	setDurationInterval60sRoundedMax(value: number): SessionFilter;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): SessionFilter.AsObject;
 	static toObject(includeInstance: boolean, msg: SessionFilter): SessionFilter.AsObject;
@@ -884,6 +890,8 @@ export namespace SessionFilter {
 		datastreamIdsList: Array<string>;
 		originIdsList: Array<string>;
 		identifiedUserIdsList: Array<string>;
+		durationInterval60sRoundedMin: number;
+		durationInterval60sRoundedMax: number;
 	};
 }
 
@@ -1012,6 +1020,9 @@ export class SessionInfo extends jspb.Message {
 	clearIdentifiedUserIdsList(): SessionInfo;
 	addIdentifiedUserIds(value: string, index?: number): SessionInfo;
 
+	getDurationInterval60sRounded(): number;
+	setDurationInterval60sRounded(value: number): SessionInfo;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): SessionInfo.AsObject;
 	static toObject(includeInstance: boolean, msg: SessionInfo): SessionInfo.AsObject;
@@ -1053,6 +1064,7 @@ export namespace SessionInfo {
 		datastreamIdsList: Array<string>;
 		originIdsList: Array<string>;
 		identifiedUserIdsList: Array<string>;
+		durationInterval60sRounded: number;
 	};
 
 	export class ContextSteps extends jspb.Message {
