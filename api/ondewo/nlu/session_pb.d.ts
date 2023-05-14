@@ -4,6 +4,7 @@ import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
 import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 import * as google_rpc_status_pb from '../../google/rpc/status_pb';
 import * as google_type_latlng_pb from '../../google/type/latlng_pb';
 import * as ondewo_nlu_context_pb from '../../ondewo/nlu/context_pb';
@@ -536,6 +537,11 @@ export class SessionStep extends jspb.Message {
 	clearContextsList(): SessionStep;
 	addContexts(value?: ondewo_nlu_context_pb.Context, index?: number): ondewo_nlu_context_pb.Context;
 
+	getTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): SessionStep;
+	hasTimestamp(): boolean;
+	clearTimestamp(): SessionStep;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): SessionStep.AsObject;
 	static toObject(includeInstance: boolean, msg: SessionStep): SessionStep.AsObject;
@@ -550,6 +556,7 @@ export namespace SessionStep {
 		detectIntentRequest?: DetectIntentRequest.AsObject;
 		detectIntentResponse?: DetectIntentResponse.AsObject;
 		contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+		timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
 	};
 }
 
@@ -1292,6 +1299,11 @@ export class SessionReviewStep extends jspb.Message {
 	clearPlatformsList(): SessionReviewStep;
 	addPlatforms(value: ondewo_nlu_intent_pb.Intent.Message.Platform, index?: number): SessionReviewStep;
 
+	getTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): SessionReviewStep;
+	hasTimestamp(): boolean;
+	clearTimestamp(): SessionReviewStep;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): SessionReviewStep.AsObject;
 	static toObject(includeInstance: boolean, msg: SessionReviewStep): SessionReviewStep.AsObject;
@@ -1310,6 +1322,7 @@ export namespace SessionReviewStep {
 		contextsOutList: Array<ondewo_nlu_context_pb.Context.AsObject>;
 		queryTextOriginal: string;
 		platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>;
+		timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
 	};
 }
 

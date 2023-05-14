@@ -20,6 +20,8 @@ var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/fie
 
 var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_pb.js');
 
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
+
 var google_rpc_status_pb = require('../../google/rpc/status_pb.js');
 
 var google_type_latlng_pb = require('../../google/type/latlng_pb.js');
