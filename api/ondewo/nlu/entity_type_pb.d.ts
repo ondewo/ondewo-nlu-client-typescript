@@ -3,6 +3,7 @@ import * as jspb from 'google-protobuf';
 import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 import * as ondewo_nlu_common_pb from '../../ondewo/nlu/common_pb';
 import * as ondewo_nlu_operations_pb from '../../ondewo/nlu/operations_pb';
 
@@ -36,6 +37,22 @@ export class EntityType extends jspb.Message {
 	getSynonymCount(): number;
 	setSynonymCount(value: number): EntityType;
 
+	getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntityType;
+	hasCreatedAt(): boolean;
+	clearCreatedAt(): EntityType;
+
+	getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntityType;
+	hasModifiedAt(): boolean;
+	clearModifiedAt(): EntityType;
+
+	getCreatedBy(): string;
+	setCreatedBy(value: string): EntityType;
+
+	getModifiedBy(): string;
+	setModifiedBy(value: string): EntityType;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): EntityType.AsObject;
 	static toObject(includeInstance: boolean, msg: EntityType): EntityType.AsObject;
@@ -55,6 +72,10 @@ export namespace EntityType {
 		entityCount: number;
 		status: EntityType.EntityTypeStatus;
 		synonymCount: number;
+		createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+		modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+		createdBy: string;
+		modifiedBy: string;
 	};
 
 	export class Entity extends jspb.Message {
@@ -78,6 +99,22 @@ export namespace EntityType {
 		getLanguageCode(): string;
 		setLanguageCode(value: string): Entity;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Entity;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): Entity;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Entity;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): Entity;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): Entity;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): Entity;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): Entity.AsObject;
 		static toObject(includeInstance: boolean, msg: Entity): Entity.AsObject;
@@ -94,6 +131,10 @@ export namespace EntityType {
 			displayName: string;
 			synonymCount: number;
 			languageCode: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 

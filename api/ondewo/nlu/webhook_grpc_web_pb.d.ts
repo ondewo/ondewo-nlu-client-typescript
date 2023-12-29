@@ -1,5 +1,6 @@
 import * as grpcWeb from 'grpc-web';
 
+import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as ondewo_nlu_webhook_pb from '../../ondewo/nlu/webhook_pb';
 
 export class WebhookClient {
@@ -26,6 +27,24 @@ export class WebhookClient {
 		metadata: grpcWeb.Metadata | undefined,
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_webhook_pb.PingResponse) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_webhook_pb.PingResponse>;
+
+	createSessionEntityType(
+		request: ondewo_nlu_webhook_pb.CreateSessionEntityTypeRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_webhook_pb.SessionEntityType) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_webhook_pb.SessionEntityType>;
+
+	updateSessionEntityType(
+		request: ondewo_nlu_webhook_pb.UpdateSessionEntityTypeRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_webhook_pb.SessionEntityType) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_webhook_pb.SessionEntityType>;
+
+	deleteSessionEntityType(
+		request: ondewo_nlu_webhook_pb.DeleteSessionEntityTypeRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: google_protobuf_empty_pb.Empty) => void
+	): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 }
 
 export class WebhookPromiseClient {
@@ -49,4 +68,19 @@ export class WebhookPromiseClient {
 		request: ondewo_nlu_webhook_pb.PingRequest,
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_webhook_pb.PingResponse>;
+
+	createSessionEntityType(
+		request: ondewo_nlu_webhook_pb.CreateSessionEntityTypeRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_webhook_pb.SessionEntityType>;
+
+	updateSessionEntityType(
+		request: ondewo_nlu_webhook_pb.UpdateSessionEntityTypeRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_webhook_pb.SessionEntityType>;
+
+	deleteSessionEntityType(
+		request: ondewo_nlu_webhook_pb.DeleteSessionEntityTypeRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<google_protobuf_empty_pb.Empty>;
 }

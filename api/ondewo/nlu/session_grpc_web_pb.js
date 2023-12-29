@@ -26,6 +26,8 @@ var google_rpc_status_pb = require('../../google/rpc/status_pb.js');
 
 var google_type_latlng_pb = require('../../google/type/latlng_pb.js');
 
+var ondewo_nlu_common_pb = require('../../ondewo/nlu/common_pb.js');
+
 var ondewo_nlu_context_pb = require('../../ondewo/nlu/context_pb.js');
 
 var ondewo_nlu_intent_pb = require('../../ondewo/nlu/intent_pb.js');
@@ -1418,6 +1420,238 @@ proto.ondewo.nlu.SessionsPromiseClient.prototype.deleteSessionLabels = function 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.AddSessionCommentRequest,
+ *   !proto.ondewo.nlu.Comment>}
+ */
+const methodDescriptor_Sessions_AddSessionComment = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/AddSessionComment',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.AddSessionCommentRequest,
+	ondewo_nlu_common_pb.Comment,
+	/**
+	 * @param {!proto.ondewo.nlu.AddSessionCommentRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	ondewo_nlu_common_pb.Comment.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.AddSessionCommentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Comment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Comment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.addSessionComment = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/AddSessionComment',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_AddSessionComment,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.AddSessionCommentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Comment>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.addSessionComment = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/AddSessionComment',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_AddSessionComment
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteSessionCommentsRequest,
+ *   !proto.ondewo.nlu.Session>}
+ */
+const methodDescriptor_Sessions_DeleteSessionComments = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/DeleteSessionComments',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.DeleteSessionCommentsRequest,
+	proto.ondewo.nlu.Session,
+	/**
+	 * @param {!proto.ondewo.nlu.DeleteSessionCommentsRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.Session.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteSessionCommentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Session)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Session>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.deleteSessionComments = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/DeleteSessionComments',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_DeleteSessionComments,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteSessionCommentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Session>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.deleteSessionComments = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/DeleteSessionComments',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_DeleteSessionComments
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateSessionCommentsRequest,
+ *   !proto.ondewo.nlu.Session>}
+ */
+const methodDescriptor_Sessions_UpdateSessionComments = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/UpdateSessionComments',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.UpdateSessionCommentsRequest,
+	proto.ondewo.nlu.Session,
+	/**
+	 * @param {!proto.ondewo.nlu.UpdateSessionCommentsRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.Session.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateSessionCommentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Session)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Session>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.updateSessionComments = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/UpdateSessionComments',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_UpdateSessionComments,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateSessionCommentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Session>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.updateSessionComments = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/UpdateSessionComments',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_UpdateSessionComments
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListSessionCommentsRequest,
+ *   !proto.ondewo.nlu.ListSessionCommentsResponse>}
+ */
+const methodDescriptor_Sessions_ListSessionComments = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/ListSessionComments',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.ListSessionCommentsRequest,
+	proto.ondewo.nlu.ListSessionCommentsResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.ListSessionCommentsRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.ListSessionCommentsResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.ListSessionCommentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListSessionCommentsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListSessionCommentsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.listSessionComments = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/ListSessionComments',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_ListSessionComments,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.ListSessionCommentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListSessionCommentsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.listSessionComments = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/ListSessionComments',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_ListSessionComments
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.ListSessionReviewsRequest,
  *   !proto.ondewo.nlu.ListSessionReviewsResponse>}
  */
@@ -1644,6 +1878,296 @@ proto.ondewo.nlu.SessionsPromiseClient.prototype.createSessionReview = function 
 		request,
 		metadata || {},
 		methodDescriptor_Sessions_CreateSessionReview
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetAudioFilesRequest,
+ *   !proto.ondewo.nlu.GetAudioFilesResponse>}
+ */
+const methodDescriptor_Sessions_GetAudioFiles = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/GetAudioFiles',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.GetAudioFilesRequest,
+	proto.ondewo.nlu.GetAudioFilesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.GetAudioFilesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.GetAudioFilesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.GetAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetAudioFilesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetAudioFilesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.getAudioFiles = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/GetAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_GetAudioFiles,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.GetAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.GetAudioFilesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.getAudioFiles = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/GetAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_GetAudioFiles
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.AddAudioFilesRequest,
+ *   !proto.ondewo.nlu.AddAudioFilesResponse>}
+ */
+const methodDescriptor_Sessions_AddAudioFiles = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/AddAudioFiles',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.AddAudioFilesRequest,
+	proto.ondewo.nlu.AddAudioFilesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.AddAudioFilesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.AddAudioFilesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.AddAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.AddAudioFilesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.AddAudioFilesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.addAudioFiles = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/AddAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_AddAudioFiles,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.AddAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.AddAudioFilesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.addAudioFiles = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/AddAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_AddAudioFiles
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteAudioFilesRequest,
+ *   !proto.ondewo.nlu.DeleteAudioFilesResponse>}
+ */
+const methodDescriptor_Sessions_DeleteAudioFiles = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/DeleteAudioFiles',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.DeleteAudioFilesRequest,
+	proto.ondewo.nlu.DeleteAudioFilesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.DeleteAudioFilesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.DeleteAudioFilesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.DeleteAudioFilesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.DeleteAudioFilesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.deleteAudioFiles = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/DeleteAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_DeleteAudioFiles,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.DeleteAudioFilesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.deleteAudioFiles = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/DeleteAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_DeleteAudioFiles
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetAudioFileOfSessionRequest,
+ *   !proto.ondewo.nlu.AudioFileResource>}
+ */
+const methodDescriptor_Sessions_GetAudioFileOfSession = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/GetAudioFileOfSession',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.GetAudioFileOfSessionRequest,
+	proto.ondewo.nlu.AudioFileResource,
+	/**
+	 * @param {!proto.ondewo.nlu.GetAudioFileOfSessionRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.AudioFileResource.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.GetAudioFileOfSessionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.AudioFileResource)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.AudioFileResource>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.getAudioFileOfSession = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/GetAudioFileOfSession',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_GetAudioFileOfSession,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.GetAudioFileOfSessionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.AudioFileResource>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.getAudioFileOfSession = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/GetAudioFileOfSession',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_GetAudioFileOfSession
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListAudioFilesRequest,
+ *   !proto.ondewo.nlu.ListAudioFilesResponse>}
+ */
+const methodDescriptor_Sessions_ListAudioFiles = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Sessions/ListAudioFiles',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.ListAudioFilesRequest,
+	proto.ondewo.nlu.ListAudioFilesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.ListAudioFilesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.ListAudioFilesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.ListAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListAudioFilesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListAudioFilesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.SessionsClient.prototype.listAudioFiles = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/ListAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_ListAudioFiles,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.ListAudioFilesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListAudioFilesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.SessionsPromiseClient.prototype.listAudioFiles = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Sessions/ListAudioFiles',
+		request,
+		metadata || {},
+		methodDescriptor_Sessions_ListAudioFiles
 	);
 };
 

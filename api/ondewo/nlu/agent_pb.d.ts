@@ -4,13 +4,14 @@ import * as google_api_annotations_pb from '../../google/api/annotations_pb';
 import * as google_protobuf_field_mask_pb from 'google-protobuf/google/protobuf/field_mask_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_protobuf_struct_pb from 'google-protobuf/google/protobuf/struct_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 import * as ondewo_nlu_common_pb from '../../ondewo/nlu/common_pb';
 import * as ondewo_nlu_intent_pb from '../../ondewo/nlu/intent_pb';
 import * as ondewo_nlu_user_pb from '../../ondewo/nlu/user_pb';
 import * as ondewo_nlu_project_role_pb from '../../ondewo/nlu/project_role_pb';
 import * as ondewo_nlu_operations_pb from '../../ondewo/nlu/operations_pb';
 import * as ondewo_nlu_session_pb from '../../ondewo/nlu/session_pb';
-import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
+import * as ondewo_nlu_ccai_project_pb from '../../ondewo/nlu/ccai_project_pb';
 
 export class Agent extends jspb.Message {
 	getParent(): string;
@@ -47,6 +48,22 @@ export class Agent extends jspb.Message {
 	getDescription(): string;
 	setDescription(value: string): Agent;
 
+	getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Agent;
+	hasCreatedAt(): boolean;
+	clearCreatedAt(): Agent;
+
+	getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Agent;
+	hasModifiedAt(): boolean;
+	clearModifiedAt(): Agent;
+
+	getCreatedBy(): string;
+	setCreatedBy(value: string): Agent;
+
+	getModifiedBy(): string;
+	setModifiedBy(value: string): Agent;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): Agent.AsObject;
 	static toObject(includeInstance: boolean, msg: Agent): Agent.AsObject;
@@ -67,6 +84,10 @@ export namespace Agent {
 		ownerId: string;
 		status: AgentStatus;
 		description: string;
+		createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+		modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+		createdBy: string;
+		modifiedBy: string;
 	};
 }
 
@@ -1495,6 +1516,22 @@ export namespace FullTextSearchResponseEntityType {
 		getLanguage(): string;
 		setLanguage(value: string): EntityTypeSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntityTypeSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): EntityTypeSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntityTypeSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): EntityTypeSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): EntityTypeSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): EntityTypeSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): EntityTypeSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: EntityTypeSearchResult): EntityTypeSearchResult.AsObject;
@@ -1511,6 +1548,10 @@ export namespace FullTextSearchResponseEntityType {
 			name: string;
 			displayName: string;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -1580,6 +1621,22 @@ export namespace FullTextSearchResponseEntity {
 		getLanguage(): string;
 		setLanguage(value: string): EntitySearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntitySearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): EntitySearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntitySearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): EntitySearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): EntitySearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): EntitySearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): EntitySearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: EntitySearchResult): EntitySearchResult.AsObject;
@@ -1595,6 +1652,10 @@ export namespace FullTextSearchResponseEntity {
 			entityTypeName: string;
 			entityTypeDisplayName: string;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -1675,6 +1736,22 @@ export namespace FullTextSearchResponseEntitySynonym {
 		getLanguage(): string;
 		setLanguage(value: string): EntitySynonymSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntitySynonymSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): EntitySynonymSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): EntitySynonymSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): EntitySynonymSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): EntitySynonymSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): EntitySynonymSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): EntitySynonymSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: EntitySynonymSearchResult): EntitySynonymSearchResult.AsObject;
@@ -1695,6 +1772,10 @@ export namespace FullTextSearchResponseEntitySynonym {
 			entityName: string;
 			entityDisplayName: string;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -1766,6 +1847,22 @@ export namespace FullTextSearchResponseIntent {
 		getLanguage(): string;
 		setLanguage(value: string): IntentSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentSearchResult): IntentSearchResult.AsObject;
@@ -1781,6 +1878,10 @@ export namespace FullTextSearchResponseIntent {
 			domainName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -1857,6 +1958,22 @@ export namespace FullTextSearchResponseIntentContextIn {
 		getLanguage(): string;
 		setLanguage(value: string): IntentContextInSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentContextInSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentContextInSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentContextInSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentContextInSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentContextInSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentContextInSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentContextInSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentContextInSearchResult): IntentContextInSearchResult.AsObject;
@@ -1875,6 +1992,10 @@ export namespace FullTextSearchResponseIntentContextIn {
 			intentDisplayName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -1951,6 +2072,22 @@ export namespace FullTextSearchResponseIntentContextOut {
 		getLanguage(): string;
 		setLanguage(value: string): IntentContextOutSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentContextOutSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentContextOutSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentContextOutSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentContextOutSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentContextOutSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentContextOutSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentContextOutSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentContextOutSearchResult): IntentContextOutSearchResult.AsObject;
@@ -1969,6 +2106,10 @@ export namespace FullTextSearchResponseIntentContextOut {
 			intentDisplayName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -2057,6 +2198,22 @@ export namespace FullTextSearchResponseIntentUsersays {
 		getLanguage(): string;
 		setLanguage(value: string): IntentUsersaysSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentUsersaysSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentUsersaysSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentUsersaysSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentUsersaysSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentUsersaysSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentUsersaysSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentUsersaysSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentUsersaysSearchResult): IntentUsersaysSearchResult.AsObject;
@@ -2079,6 +2236,10 @@ export namespace FullTextSearchResponseIntentUsersays {
 			intentDisplayName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -2158,6 +2319,22 @@ export namespace FullTextSearchResponseIntentTags {
 		getLanguage(): string;
 		setLanguage(value: string): IntentTagsSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentTagsSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentTagsSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentTagsSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentTagsSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentTagsSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentTagsSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentTagsSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentTagsSearchResult): IntentTagsSearchResult.AsObject;
@@ -2177,6 +2354,10 @@ export namespace FullTextSearchResponseIntentTags {
 			intentDisplayName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -2259,6 +2440,22 @@ export namespace FullTextSearchResponseIntentResponse {
 		getLanguage(): string;
 		setLanguage(value: string): IntentResponseSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentResponseSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentResponseSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentResponseSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentResponseSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentResponseSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentResponseSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentResponseSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentResponseSearchResult): IntentResponseSearchResult.AsObject;
@@ -2279,6 +2476,10 @@ export namespace FullTextSearchResponseIntentResponse {
 			intentDisplayName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }
@@ -2358,6 +2559,22 @@ export namespace FullTextSearchResponseIntentParameters {
 		getLanguage(): string;
 		setLanguage(value: string): IntentParametersSearchResult;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentParametersSearchResult;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): IntentParametersSearchResult;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): IntentParametersSearchResult;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): IntentParametersSearchResult;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): IntentParametersSearchResult;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): IntentParametersSearchResult;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): IntentParametersSearchResult.AsObject;
 		static toObject(includeInstance: boolean, msg: IntentParametersSearchResult): IntentParametersSearchResult.AsObject;
@@ -2377,6 +2594,10 @@ export namespace FullTextSearchResponseIntentParameters {
 			intentDisplayName: string;
 			tagsList: Array<string>;
 			language: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 	}
 }

@@ -113,6 +113,22 @@ export class Intent extends jspb.Message {
 	clearTagsList(): Intent;
 	addTags(value: string, index?: number): Intent;
 
+	getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Intent;
+	hasCreatedAt(): boolean;
+	clearCreatedAt(): Intent;
+
+	getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+	setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Intent;
+	hasModifiedAt(): boolean;
+	clearModifiedAt(): Intent;
+
+	getCreatedBy(): string;
+	setCreatedBy(value: string): Intent;
+
+	getModifiedBy(): string;
+	setModifiedBy(value: string): Intent;
+
 	serializeBinary(): Uint8Array;
 	toObject(includeInstance?: boolean): Intent.AsObject;
 	static toObject(includeInstance: boolean, msg: Intent): Intent.AsObject;
@@ -150,6 +166,10 @@ export namespace Intent {
 		startDate?: google_protobuf_timestamp_pb.Timestamp.AsObject;
 		endDate?: google_protobuf_timestamp_pb.Timestamp.AsObject;
 		tagsList: Array<string>;
+		createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+		modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+		createdBy: string;
+		modifiedBy: string;
 	};
 
 	export class TrainingPhrase extends jspb.Message {
@@ -173,6 +193,22 @@ export namespace Intent {
 		getLanguageCode(): string;
 		setLanguageCode(value: string): TrainingPhrase;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): TrainingPhrase;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): TrainingPhrase;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): TrainingPhrase;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): TrainingPhrase;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): TrainingPhrase;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): TrainingPhrase;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): TrainingPhrase.AsObject;
 		static toObject(includeInstance: boolean, msg: TrainingPhrase): TrainingPhrase.AsObject;
@@ -189,6 +225,10 @@ export namespace Intent {
 			entitiesList: Array<Intent.TrainingPhrase.Entity.AsObject>;
 			timesAddedCount: number;
 			languageCode: string;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 
 		export class Entity extends jspb.Message {
@@ -216,6 +256,22 @@ export namespace Intent {
 			getParameterDisplayName(): string;
 			setParameterDisplayName(value: string): Entity;
 
+			getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+			setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Entity;
+			hasCreatedAt(): boolean;
+			clearCreatedAt(): Entity;
+
+			getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+			setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Entity;
+			hasModifiedAt(): boolean;
+			clearModifiedAt(): Entity;
+
+			getCreatedBy(): string;
+			setCreatedBy(value: string): Entity;
+
+			getModifiedBy(): string;
+			setModifiedBy(value: string): Entity;
+
 			serializeBinary(): Uint8Array;
 			toObject(includeInstance?: boolean): Entity.AsObject;
 			static toObject(includeInstance: boolean, msg: Entity): Entity.AsObject;
@@ -234,6 +290,10 @@ export namespace Intent {
 				end: number;
 				parameterName: string;
 				parameterDisplayName: string;
+				createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+				modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+				createdBy: string;
+				modifiedBy: string;
 			};
 		}
 
@@ -274,6 +334,22 @@ export namespace Intent {
 		getIsList(): boolean;
 		setIsList(value: boolean): Parameter;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Parameter;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): Parameter;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Parameter;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): Parameter;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): Parameter;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): Parameter;
+
 		serializeBinary(): Uint8Array;
 		toObject(includeInstance?: boolean): Parameter.AsObject;
 		static toObject(includeInstance: boolean, msg: Parameter): Parameter.AsObject;
@@ -293,6 +369,10 @@ export namespace Intent {
 			mandatory: boolean;
 			promptsList: Array<Intent.Parameter.Prompt.AsObject>;
 			isList: boolean;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 
 		export class Prompt extends jspb.Message {
@@ -304,6 +384,22 @@ export namespace Intent {
 
 			getLanguageCode(): string;
 			setLanguageCode(value: string): Prompt;
+
+			getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+			setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Prompt;
+			hasCreatedAt(): boolean;
+			clearCreatedAt(): Prompt;
+
+			getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+			setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Prompt;
+			hasModifiedAt(): boolean;
+			clearModifiedAt(): Prompt;
+
+			getCreatedBy(): string;
+			setCreatedBy(value: string): Prompt;
+
+			getModifiedBy(): string;
+			setModifiedBy(value: string): Prompt;
 
 			serializeBinary(): Uint8Array;
 			toObject(includeInstance?: boolean): Prompt.AsObject;
@@ -318,6 +414,10 @@ export namespace Intent {
 				name: string;
 				text: string;
 				languageCode: string;
+				createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+				modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+				createdBy: string;
+				modifiedBy: string;
 			};
 		}
 	}
@@ -405,6 +505,22 @@ export namespace Intent {
 		getIsPrompt(): boolean;
 		setIsPrompt(value: boolean): Message;
 
+		getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): Message;
+		hasCreatedAt(): boolean;
+		clearCreatedAt(): Message;
+
+		getModifiedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+		setModifiedAt(value?: google_protobuf_timestamp_pb.Timestamp): Message;
+		hasModifiedAt(): boolean;
+		clearModifiedAt(): Message;
+
+		getCreatedBy(): string;
+		setCreatedBy(value: string): Message;
+
+		getModifiedBy(): string;
+		setModifiedBy(value: string): Message;
+
 		getMessageCase(): Message.MessageCase;
 
 		serializeBinary(): Uint8Array;
@@ -435,6 +551,10 @@ export namespace Intent {
 			audio?: Intent.Message.Audio.AsObject;
 			platform: Intent.Message.Platform;
 			isPrompt: boolean;
+			createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+			createdBy: string;
+			modifiedBy: string;
 		};
 
 		export class Text extends jspb.Message {

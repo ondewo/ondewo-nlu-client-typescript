@@ -2,6 +2,7 @@ import * as grpcWeb from 'grpc-web';
 
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as ondewo_nlu_session_pb from '../../ondewo/nlu/session_pb';
+import * as ondewo_nlu_common_pb from '../../ondewo/nlu/common_pb';
 
 export class SessionsClient {
 	constructor(
@@ -148,6 +149,30 @@ export class SessionsClient {
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.Session) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
 
+	addSessionComment(
+		request: ondewo_nlu_session_pb.AddSessionCommentRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_common_pb.Comment) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_common_pb.Comment>;
+
+	deleteSessionComments(
+		request: ondewo_nlu_session_pb.DeleteSessionCommentsRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.Session) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
+
+	updateSessionComments(
+		request: ondewo_nlu_session_pb.UpdateSessionCommentsRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.Session) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.Session>;
+
+	listSessionComments(
+		request: ondewo_nlu_session_pb.ListSessionCommentsRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.ListSessionCommentsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.ListSessionCommentsResponse>;
+
 	listSessionReviews(
 		request: ondewo_nlu_session_pb.ListSessionReviewsRequest,
 		metadata: grpcWeb.Metadata | undefined,
@@ -171,6 +196,36 @@ export class SessionsClient {
 		metadata: grpcWeb.Metadata | undefined,
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.SessionReview) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.SessionReview>;
+
+	getAudioFiles(
+		request: ondewo_nlu_session_pb.GetAudioFilesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.GetAudioFilesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.GetAudioFilesResponse>;
+
+	addAudioFiles(
+		request: ondewo_nlu_session_pb.AddAudioFilesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.AddAudioFilesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.AddAudioFilesResponse>;
+
+	deleteAudioFiles(
+		request: ondewo_nlu_session_pb.DeleteAudioFilesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.DeleteAudioFilesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.DeleteAudioFilesResponse>;
+
+	getAudioFileOfSession(
+		request: ondewo_nlu_session_pb.GetAudioFileOfSessionRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.AudioFileResource) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.AudioFileResource>;
+
+	listAudioFiles(
+		request: ondewo_nlu_session_pb.ListAudioFilesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_session_pb.ListAudioFilesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_session_pb.ListAudioFilesResponse>;
 }
 
 export class SessionsPromiseClient {
@@ -295,6 +350,26 @@ export class SessionsPromiseClient {
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_session_pb.Session>;
 
+	addSessionComment(
+		request: ondewo_nlu_session_pb.AddSessionCommentRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_common_pb.Comment>;
+
+	deleteSessionComments(
+		request: ondewo_nlu_session_pb.DeleteSessionCommentsRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.Session>;
+
+	updateSessionComments(
+		request: ondewo_nlu_session_pb.UpdateSessionCommentsRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.Session>;
+
+	listSessionComments(
+		request: ondewo_nlu_session_pb.ListSessionCommentsRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.ListSessionCommentsResponse>;
+
 	listSessionReviews(
 		request: ondewo_nlu_session_pb.ListSessionReviewsRequest,
 		metadata?: grpcWeb.Metadata
@@ -314,4 +389,29 @@ export class SessionsPromiseClient {
 		request: ondewo_nlu_session_pb.CreateSessionReviewRequest,
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_session_pb.SessionReview>;
+
+	getAudioFiles(
+		request: ondewo_nlu_session_pb.GetAudioFilesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.GetAudioFilesResponse>;
+
+	addAudioFiles(
+		request: ondewo_nlu_session_pb.AddAudioFilesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.AddAudioFilesResponse>;
+
+	deleteAudioFiles(
+		request: ondewo_nlu_session_pb.DeleteAudioFilesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.DeleteAudioFilesResponse>;
+
+	getAudioFileOfSession(
+		request: ondewo_nlu_session_pb.GetAudioFileOfSessionRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.AudioFileResource>;
+
+	listAudioFiles(
+		request: ondewo_nlu_session_pb.ListAudioFilesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_session_pb.ListAudioFilesResponse>;
 }

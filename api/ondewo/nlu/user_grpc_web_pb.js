@@ -18,7 +18,11 @@ var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb
 
 var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js');
 
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
+
 var ondewo_nlu_project_role_pb = require('../../ondewo/nlu/project_role_pb.js');
+
+var ondewo_nlu_common_pb = require('../../ondewo/nlu/common_pb.js');
 const proto = {};
 proto.ondewo = {};
 proto.ondewo.nlu = require('./user_pb.js');
@@ -936,6 +940,412 @@ proto.ondewo.nlu.UsersPromiseClient.prototype.checkLogin = function (request, me
 		request,
 		metadata || {},
 		methodDescriptor_Users_CheckLogin
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListNotificationsRequest,
+ *   !proto.ondewo.nlu.ListNotificationsResponse>}
+ */
+const methodDescriptor_Users_ListNotifications = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/ListNotifications',
+	grpc.web.MethodType.UNARY,
+	ondewo_nlu_common_pb.ListNotificationsRequest,
+	ondewo_nlu_common_pb.ListNotificationsResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.ListNotificationsRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	ondewo_nlu_common_pb.ListNotificationsResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.ListNotificationsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListNotificationsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListNotificationsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.listNotifications = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/ListNotifications',
+		request,
+		metadata || {},
+		methodDescriptor_Users_ListNotifications,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.ListNotificationsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListNotificationsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.listNotifications = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/ListNotifications',
+		request,
+		metadata || {},
+		methodDescriptor_Users_ListNotifications
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.SetNotificationsFlaggedStatusRequest,
+ *   !proto.ondewo.nlu.ListNotificationsResponse>}
+ */
+const methodDescriptor_Users_SetNotificationsFlaggedStatus = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/SetNotificationsFlaggedStatus',
+	grpc.web.MethodType.UNARY,
+	ondewo_nlu_common_pb.SetNotificationsFlaggedStatusRequest,
+	ondewo_nlu_common_pb.ListNotificationsResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.SetNotificationsFlaggedStatusRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	ondewo_nlu_common_pb.ListNotificationsResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.SetNotificationsFlaggedStatusRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListNotificationsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListNotificationsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.setNotificationsFlaggedStatus = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/SetNotificationsFlaggedStatus',
+		request,
+		metadata || {},
+		methodDescriptor_Users_SetNotificationsFlaggedStatus,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.SetNotificationsFlaggedStatusRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListNotificationsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.setNotificationsFlaggedStatus = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/SetNotificationsFlaggedStatus',
+		request,
+		metadata || {},
+		methodDescriptor_Users_SetNotificationsFlaggedStatus
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.SetNotificationsReadStatusRequest,
+ *   !proto.ondewo.nlu.ListNotificationsResponse>}
+ */
+const methodDescriptor_Users_SetNotificationsReadStatus = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/SetNotificationsReadStatus',
+	grpc.web.MethodType.UNARY,
+	ondewo_nlu_common_pb.SetNotificationsReadStatusRequest,
+	ondewo_nlu_common_pb.ListNotificationsResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.SetNotificationsReadStatusRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	ondewo_nlu_common_pb.ListNotificationsResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.SetNotificationsReadStatusRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListNotificationsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListNotificationsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.setNotificationsReadStatus = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/SetNotificationsReadStatus',
+		request,
+		metadata || {},
+		methodDescriptor_Users_SetNotificationsReadStatus,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.SetNotificationsReadStatusRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListNotificationsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.setNotificationsReadStatus = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/SetNotificationsReadStatus',
+		request,
+		metadata || {},
+		methodDescriptor_Users_SetNotificationsReadStatus
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetUserPreferencesRequest,
+ *   !proto.ondewo.nlu.GetUserPreferencesResponse>}
+ */
+const methodDescriptor_Users_GetUserPreferences = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/GetUserPreferences',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.GetUserPreferencesRequest,
+	proto.ondewo.nlu.GetUserPreferencesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.GetUserPreferencesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.GetUserPreferencesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.GetUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetUserPreferencesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetUserPreferencesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.getUserPreferences = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/GetUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_GetUserPreferences,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.GetUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.GetUserPreferencesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.getUserPreferences = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/GetUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_GetUserPreferences
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.SetUserPreferencesRequest,
+ *   !proto.ondewo.nlu.SetUserPreferencesResponse>}
+ */
+const methodDescriptor_Users_SetUserPreferences = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/SetUserPreferences',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.SetUserPreferencesRequest,
+	proto.ondewo.nlu.SetUserPreferencesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.SetUserPreferencesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.SetUserPreferencesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.SetUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.SetUserPreferencesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.SetUserPreferencesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.setUserPreferences = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/SetUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_SetUserPreferences,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.SetUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.SetUserPreferencesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.setUserPreferences = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/SetUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_SetUserPreferences
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteUserPreferencesRequest,
+ *   !proto.ondewo.nlu.DeleteUserPreferencesResponse>}
+ */
+const methodDescriptor_Users_DeleteUserPreferences = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/DeleteUserPreferences',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.DeleteUserPreferencesRequest,
+	proto.ondewo.nlu.DeleteUserPreferencesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.DeleteUserPreferencesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.DeleteUserPreferencesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.DeleteUserPreferencesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.DeleteUserPreferencesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.deleteUserPreferences = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/DeleteUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_DeleteUserPreferences,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.DeleteUserPreferencesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.deleteUserPreferences = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/DeleteUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_DeleteUserPreferences
+	);
+};
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteAllUserPreferencesRequest,
+ *   !proto.ondewo.nlu.DeleteUserPreferencesResponse>}
+ */
+const methodDescriptor_Users_DeleteAllUserPreferences = new grpc.web.MethodDescriptor(
+	'/ondewo.nlu.Users/DeleteAllUserPreferences',
+	grpc.web.MethodType.UNARY,
+	proto.ondewo.nlu.DeleteAllUserPreferencesRequest,
+	proto.ondewo.nlu.DeleteUserPreferencesResponse,
+	/**
+	 * @param {!proto.ondewo.nlu.DeleteAllUserPreferencesRequest} request
+	 * @return {!Uint8Array}
+	 */
+	function (request) {
+		return request.serializeBinary();
+	},
+	proto.ondewo.nlu.DeleteUserPreferencesResponse.deserializeBinary
+);
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteAllUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.DeleteUserPreferencesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.DeleteUserPreferencesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.UsersClient.prototype.deleteAllUserPreferences = function (request, metadata, callback) {
+	return this.client_.rpcCall(
+		this.hostname_ + '/ondewo.nlu.Users/DeleteAllUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_DeleteAllUserPreferences,
+		callback
+	);
+};
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteAllUserPreferencesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.DeleteUserPreferencesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.UsersPromiseClient.prototype.deleteAllUserPreferences = function (request, metadata) {
+	return this.client_.unaryCall(
+		this.hostname_ + '/ondewo.nlu.Users/DeleteAllUserPreferences',
+		request,
+		metadata || {},
+		methodDescriptor_Users_DeleteAllUserPreferences
 	);
 };
 

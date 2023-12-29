@@ -2,6 +2,7 @@ import * as grpcWeb from 'grpc-web';
 
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as ondewo_nlu_user_pb from '../../ondewo/nlu/user_pb';
+import * as ondewo_nlu_common_pb from '../../ondewo/nlu/common_pb';
 
 export class UsersClient {
 	constructor(
@@ -99,6 +100,48 @@ export class UsersClient {
 		metadata: grpcWeb.Metadata | undefined,
 		callback: (err: grpcWeb.RpcError, response: google_protobuf_empty_pb.Empty) => void
 	): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
+
+	listNotifications(
+		request: ondewo_nlu_common_pb.ListNotificationsRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_common_pb.ListNotificationsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_common_pb.ListNotificationsResponse>;
+
+	setNotificationsFlaggedStatus(
+		request: ondewo_nlu_common_pb.SetNotificationsFlaggedStatusRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_common_pb.ListNotificationsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_common_pb.ListNotificationsResponse>;
+
+	setNotificationsReadStatus(
+		request: ondewo_nlu_common_pb.SetNotificationsReadStatusRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_common_pb.ListNotificationsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_common_pb.ListNotificationsResponse>;
+
+	getUserPreferences(
+		request: ondewo_nlu_user_pb.GetUserPreferencesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_user_pb.GetUserPreferencesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_user_pb.GetUserPreferencesResponse>;
+
+	setUserPreferences(
+		request: ondewo_nlu_user_pb.SetUserPreferencesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_user_pb.SetUserPreferencesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_user_pb.SetUserPreferencesResponse>;
+
+	deleteUserPreferences(
+		request: ondewo_nlu_user_pb.DeleteUserPreferencesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_user_pb.DeleteUserPreferencesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_user_pb.DeleteUserPreferencesResponse>;
+
+	deleteAllUserPreferences(
+		request: ondewo_nlu_user_pb.DeleteAllUserPreferencesRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_user_pb.DeleteUserPreferencesResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_user_pb.DeleteUserPreferencesResponse>;
 }
 
 export class UsersPromiseClient {
@@ -179,4 +222,39 @@ export class UsersPromiseClient {
 		request: google_protobuf_empty_pb.Empty,
 		metadata?: grpcWeb.Metadata
 	): Promise<google_protobuf_empty_pb.Empty>;
+
+	listNotifications(
+		request: ondewo_nlu_common_pb.ListNotificationsRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_common_pb.ListNotificationsResponse>;
+
+	setNotificationsFlaggedStatus(
+		request: ondewo_nlu_common_pb.SetNotificationsFlaggedStatusRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_common_pb.ListNotificationsResponse>;
+
+	setNotificationsReadStatus(
+		request: ondewo_nlu_common_pb.SetNotificationsReadStatusRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_common_pb.ListNotificationsResponse>;
+
+	getUserPreferences(
+		request: ondewo_nlu_user_pb.GetUserPreferencesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_user_pb.GetUserPreferencesResponse>;
+
+	setUserPreferences(
+		request: ondewo_nlu_user_pb.SetUserPreferencesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_user_pb.SetUserPreferencesResponse>;
+
+	deleteUserPreferences(
+		request: ondewo_nlu_user_pb.DeleteUserPreferencesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_user_pb.DeleteUserPreferencesResponse>;
+
+	deleteAllUserPreferences(
+		request: ondewo_nlu_user_pb.DeleteAllUserPreferencesRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_user_pb.DeleteUserPreferencesResponse>;
 }

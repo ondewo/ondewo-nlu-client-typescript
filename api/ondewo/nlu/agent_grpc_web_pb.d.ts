@@ -2,6 +2,7 @@ import * as grpcWeb from 'grpc-web';
 
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as ondewo_nlu_agent_pb from '../../ondewo/nlu/agent_pb';
+import * as ondewo_nlu_ccai_project_pb from '../../ondewo/nlu/ccai_project_pb';
 import * as ondewo_nlu_operations_pb from '../../ondewo/nlu/operations_pb';
 
 export class AgentsClient {
@@ -250,6 +251,36 @@ export class AgentsClient {
 		metadata: grpcWeb.Metadata | undefined,
 		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_operations_pb.Operation) => void
 	): grpcWeb.ClientReadableStream<ondewo_nlu_operations_pb.Operation>;
+
+	createCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.CreateCcaiProjectRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_ccai_project_pb.CreateCcaiProjectResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_ccai_project_pb.CreateCcaiProjectResponse>;
+
+	deleteCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.DeleteCcaiProjectRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_ccai_project_pb.DeleteCcaiProjectResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_ccai_project_pb.DeleteCcaiProjectResponse>;
+
+	getCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.GetCcaiProjectRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_ccai_project_pb.CcaiProject) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_ccai_project_pb.CcaiProject>;
+
+	listCcaiProjects(
+		request: ondewo_nlu_ccai_project_pb.ListCcaiProjectsRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_ccai_project_pb.ListCcaiProjectsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_ccai_project_pb.ListCcaiProjectsResponse>;
+
+	updateCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.UpdateCcaiProjectRequest,
+		metadata: grpcWeb.Metadata | undefined,
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_ccai_project_pb.UpdateCcaiProjectResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_ccai_project_pb.UpdateCcaiProjectResponse>;
 }
 
 export class AgentsPromiseClient {
@@ -458,4 +489,29 @@ export class AgentsPromiseClient {
 		request: ondewo_nlu_agent_pb.ReindexAgentRequest,
 		metadata?: grpcWeb.Metadata
 	): Promise<ondewo_nlu_operations_pb.Operation>;
+
+	createCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.CreateCcaiProjectRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_ccai_project_pb.CreateCcaiProjectResponse>;
+
+	deleteCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.DeleteCcaiProjectRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_ccai_project_pb.DeleteCcaiProjectResponse>;
+
+	getCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.GetCcaiProjectRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_ccai_project_pb.CcaiProject>;
+
+	listCcaiProjects(
+		request: ondewo_nlu_ccai_project_pb.ListCcaiProjectsRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_ccai_project_pb.ListCcaiProjectsResponse>;
+
+	updateCcaiProject(
+		request: ondewo_nlu_ccai_project_pb.UpdateCcaiProjectRequest,
+		metadata?: grpcWeb.Metadata
+	): Promise<ondewo_nlu_ccai_project_pb.UpdateCcaiProjectResponse>;
 }
