@@ -44,8 +44,8 @@ export class IntentsClient {
 	batchUpdateIntents(
 		request: ondewo_nlu_intent_pb.BatchUpdateIntentsRequest,
 		metadata: grpcWeb.Metadata | undefined,
-		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_operations_pb.Operation) => void
-	): grpcWeb.ClientReadableStream<ondewo_nlu_operations_pb.Operation>;
+		callback: (err: grpcWeb.RpcError, response: ondewo_nlu_intent_pb.BatchUpdateIntentsResponse) => void
+	): grpcWeb.ClientReadableStream<ondewo_nlu_intent_pb.BatchUpdateIntentsResponse>;
 
 	batchDeleteIntents(
 		request: ondewo_nlu_intent_pb.BatchDeleteIntentsRequest,
@@ -212,7 +212,7 @@ export class IntentsPromiseClient {
 	batchUpdateIntents(
 		request: ondewo_nlu_intent_pb.BatchUpdateIntentsRequest,
 		metadata?: grpcWeb.Metadata
-	): Promise<ondewo_nlu_operations_pb.Operation>;
+	): Promise<ondewo_nlu_intent_pb.BatchUpdateIntentsResponse>;
 
 	batchDeleteIntents(
 		request: ondewo_nlu_intent_pb.BatchDeleteIntentsRequest,

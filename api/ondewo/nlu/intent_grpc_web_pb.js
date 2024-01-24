@@ -371,13 +371,13 @@ proto.ondewo.nlu.IntentsPromiseClient.prototype.deleteIntent = function (request
  * @const
  * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.BatchUpdateIntentsRequest,
- *   !proto.ondewo.nlu.Operation>}
+ *   !proto.ondewo.nlu.BatchUpdateIntentsResponse>}
  */
 const methodDescriptor_Intents_BatchUpdateIntents = new grpc.web.MethodDescriptor(
 	'/ondewo.nlu.Intents/BatchUpdateIntents',
 	grpc.web.MethodType.UNARY,
 	proto.ondewo.nlu.BatchUpdateIntentsRequest,
-	ondewo_nlu_operations_pb.Operation,
+	proto.ondewo.nlu.BatchUpdateIntentsResponse,
 	/**
 	 * @param {!proto.ondewo.nlu.BatchUpdateIntentsRequest} request
 	 * @return {!Uint8Array}
@@ -385,7 +385,7 @@ const methodDescriptor_Intents_BatchUpdateIntents = new grpc.web.MethodDescripto
 	function (request) {
 		return request.serializeBinary();
 	},
-	ondewo_nlu_operations_pb.Operation.deserializeBinary
+	proto.ondewo.nlu.BatchUpdateIntentsResponse.deserializeBinary
 );
 
 /**
@@ -393,9 +393,9 @@ const methodDescriptor_Intents_BatchUpdateIntents = new grpc.web.MethodDescripto
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.BatchUpdateIntentsResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.BatchUpdateIntentsResponse>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.ondewo.nlu.IntentsClient.prototype.batchUpdateIntents = function (request, metadata, callback) {
@@ -413,7 +413,7 @@ proto.ondewo.nlu.IntentsClient.prototype.batchUpdateIntents = function (request,
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.Operation>}
+ * @return {!Promise<!proto.ondewo.nlu.BatchUpdateIntentsResponse>}
  *     Promise that resolves to the response
  */
 proto.ondewo.nlu.IntentsPromiseClient.prototype.batchUpdateIntents = function (request, metadata) {
