@@ -18,7 +18,7 @@ export
 ONDEWO_NLU_VERSION = 5.0.0
 
 NLU_API_GIT_BRANCH=tags/5.0.0
-ONDEWO_PROTO_COMPILER_GIT_BRANCH=tags/4.7.0
+ONDEWO_PROTO_COMPILER_GIT_BRANCH=tags/4.8.0
 ONDEWO_PROTO_COMPILER_DIR=ondewo-proto-compiler
 NLU_APIS_DIR=src/ondewo-nlu-api
 NLU_PROTOS_DIR=${NLU_APIS_DIR}/ondewo
@@ -31,7 +31,6 @@ PRETTIER_WRITE?=
 
 CURRENT_RELEASE_NOTES=`cat RELEASE.md \
 	| sed -n '/Release ONDEWO NLU Typescript Client ${ONDEWO_NLU_VERSION}/,/\*\*/p'`
-
 
 GH_REPO="https://github.com/ondewo/ondewo-nlu-client-typescript"
 DEVOPS_ACCOUNT_GIT="ondewo-devops-accounts"
@@ -74,6 +73,7 @@ check_build: #Checks if all built proto-code is there
 	@for proto in `find src/ondewo-nlu-api/ondewo -iname "*.proto*"`; \
 	do \
 		cat $${proto} | grep import | grep "google/" | cut -d "/" -f 3 | cut -d "." -f 1 >> build_check.txt; \
+		sed -i 's/import.*//g' build_check.txt; \
 		echo $${proto} | cut -d "/" -f 5 | cut -d "." -f 1 >> build_check.txt; \
 	done
 	@echo "`sort build_check.txt | uniq`" > build_check.txt
@@ -114,7 +114,6 @@ release: ## Create Github and NPM Release
 	make create_release_tag
 	make release_to_github_via_docker_image
 	@echo "Finished Release"
-
 
 gh_release: build_utils_docker_image release_to_github_via_docker_image ## Builds Utils Image and Releases to Github
 
@@ -186,7 +185,6 @@ spc: ## Checks if the Release Branch, Tag and Pypi version already exist
 	@if test "$(filtered_branches)" != ""; then echo "-- Test 1: Branch exists!!" & exit 1; else echo "-- Test 1: Branch is fine";fi
 	@if test "$(filtered_tags)" != ""; then echo "-- Test 2: Tag exists!!" & exit 1; else echo "-- Test 2: Tag is fine";fi
 
-
 ########################################################
 # Build
 
@@ -209,13 +207,13 @@ build: check_out_correct_submodule_versions build_compiler update_package npm_ru
 	make install_dependencies
 	# rm -rf ${NLU_APIS_DIR}/google
 
-remove_npm_script:
+remove_npm_script: ## Removes Script section from package.json
 	$(eval script_lines:= $(shell cat package.json | sed -n '/\"scripts\"/,/\}\,/='))
 	$(eval start:= $(shell echo $(script_lines) | cut -c 1-2))
 	$(eval end:= $(shell echo $(script_lines) | rev | cut -c 1-3 | rev))
 	@sed -i '$(start),$(end)d' package.json
 
-create_npm_package:
+create_npm_package: ## Create NPM Package for Release
 	rm -rf npm
 	mkdir npm
 	cp -R api npm
@@ -224,11 +222,12 @@ create_npm_package:
 	cp LICENSE npm
 	cp README.md npm
 
-install_dependencies:
-	npm i eslint --save-dev
-	npm i prettier --save-dev
-	npm i @typescript-eslint/eslint-plugin --save-dev
-	npm i husky --save-dev
+install_dependencies: ## Installs Dev-Dependencies
+	npm i @typescript-eslint/eslint-plugin \
+		  eslint \
+		  prettier \
+		  husky \
+		  --save-dev
 
 check_out_correct_submodule_versions: ## Fetches all Submodules and checksout specified branch
 	@echo "START checking out correct submodule versions ..."
@@ -249,4 +248,3 @@ test-in-ondewo-aim: ## Runs test
 	@echo "START copying files to local AIM for testing ..."
 	cd src/ && npm run test-in-ondewo-aim && cd ..
 	@echo "DONE copying files to local AIM for testing."
-
