@@ -20,7 +20,7 @@ const config: Config = {
 	httpToken: process.env.EXAMPLES_HTTP_TOKEN || '',
 	userName: process.env.EXAMPLES_USER_NAME || '',
 	password: process.env.EXAMPLES_PASSWORD || '',
-	grpcCert: process.env.EXAMPLES_GRPC_CERT || '',
+	grpcCert: process.env.EXAMPLES_GRPC_CERT || ''
 };
 
 interface AgentClientOptions {
@@ -34,7 +34,7 @@ const agentClientOptions: AgentClientOptions = {
 	userName: config.userName,
 	password: config.password,
 	grpcCert: config.grpcCert,
-	httpToken: config.httpToken,
+	httpToken: config.httpToken
 };
 
 const client: Client = new Client(new AgentsClient(`${config.host}:${config.port}`, agentClientOptions));
