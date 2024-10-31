@@ -21,7 +21,6 @@ export default [
 			'src/ondewo-nlu-api',
 			'**/ondewo-proto-compiler',
 			'**/*.mjs',
-			'examples/*',
 			'npm/public-api.d.ts'
 		]
 	},
