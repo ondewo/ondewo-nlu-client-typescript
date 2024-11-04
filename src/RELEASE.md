@@ -118,6 +118,7 @@
 ### Improvements 
  * Tracking API Version [3.0.0](https://github.com/ondewo/ondewo-nlu-api/releases/tag/3.0.0) ( [Documentation](https://ondewo.github.io/ondewo-nlu-api/) ) 
 
+
 *****************
 
 ## Release ONDEWO NLU Typescript Client 2.13.0
@@ -126,6 +127,7 @@
  * Update to NLU client version tag 2.13.0
  * [[OND211-2039]](https://ondewo.atlassian.net/browse/OND211-2039) - Implemented automated release for GitHub and NPM
  * [[OND211-2039]](https://ondewo.atlassian.net/browse/OND211-2039) - Added pre-commit hooks and adjusted files to them
+
 
 *****************
 

@@ -1,5 +1,4 @@
 export
-
 # ---------------- BEFORE RELEASE ----------------
 # 1 - Update Version Number
 # 2 - Update RELEASE.md
@@ -57,9 +56,11 @@ prettier: ## Checks formatting with Prettier - Use PRETTIER_WRITE=-w to also aut
 eslint: ## Checks Code Logic and Typing
 	./node_modules/.bin/eslint --config eslint.config.mjs .
 
-TEST:	## Prints some important variables
-	@echo "Release Notes: \n \n $(CURRENT_RELEASE_NOTES)"
+TEST: ## Prints some important variables
+	@echo "Release Notes: \n \n$(CURRENT_RELEASE_NOTES)"
 	@echo "GH Token: \t $(GITHUB_GH_TOKEN)"
+	@echo "NPM Name: \t $(NPM_USERNAME)"
+	@echo "NPM Password: \t $(NPM_PASSWORD)"
 
 help: ## Print usage info about help targets
 	# (first comment after target starting with double hashes ##)
@@ -68,7 +69,7 @@ help: ## Print usage info about help targets
 makefile_chapters: ## Shows all sections of Makefile
 	@echo `cat Makefile| grep "########################################################" -A 1 | grep -v "########################################################"`
 
-check_build: #Checks if all built proto-code is there
+check_build: ## Checks if all built proto-code is there
 	@rm -rf build_check.txt
 	@for proto in `find src/ondewo-nlu-api/ondewo -iname "*.proto*"`; \
 	do \
@@ -145,12 +146,12 @@ push_to_gh: login_to_gh build_gh_release ##Logs into Github CLI and Releases
 build_compiler: ## Builds Ondewo-Proto-Compiler
 	cd ondewo-proto-compiler/typescript && sh build.sh
 
-release_to_github_via_docker_image:  ## Release to Github via docker
+release_to_github_via_docker_image: ## Release to Github via docker
 	docker run --rm \
 		-e GITHUB_GH_TOKEN=${GITHUB_GH_TOKEN} \
 		${IMAGE_UTILS_NAME} make push_to_gh
 
-build_utils_docker_image:  ## Build utils docker image
+build_utils_docker_image: ## Build utils docker image
 	docker build -f Dockerfile.utils -t ${IMAGE_UTILS_NAME} .
 
 publish_npm_via_docker: build_utils_docker_image ## Builds Code, Docker-Image and Releases to NPM
@@ -197,6 +198,7 @@ build: check_out_correct_submodule_versions build_compiler update_package npm_ru
 	do \
 		sudo chown -R `whoami`:`whoami` $$f && echo $$f; \
 	done
+	-cd src/ondewo-nlu-api && git checkout -- '**/*.proto' && cd ../..
 	cp src/README.md .
 	cp src/RELEASE.md .
 	make remove_npm_script
@@ -246,8 +248,3 @@ npm_run_build: ## Runs the build command in package.json
 	@echo "START npm run build ..."
 	cd src/ && npm run build && cd ..
 	@echo "DONE npm run build."
-
-test-in-ondewo-aim: ## Runs test
-	@echo "START copying files to local AIM for testing ..."
-	cd src/ && npm run test-in-ondewo-aim && cd ..
-	@echo "DONE copying files to local AIM for testing."
