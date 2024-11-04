@@ -120,7 +120,6 @@
 
 
 *****************
-
 ## Release ONDEWO NLU Typescript Client 2.13.0
 
 ### Improvements
@@ -130,7 +129,6 @@
 
 
 *****************
-
 ## Release ONDEWO NLU Typescript Client 1.0.0
 
 ### New Features

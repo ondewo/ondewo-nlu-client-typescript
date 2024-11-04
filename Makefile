@@ -35,6 +35,7 @@ GH_REPO="https://github.com/ondewo/ondewo-nlu-client-typescript"
 DEVOPS_ACCOUNT_GIT="ondewo-devops-accounts"
 DEVOPS_ACCOUNT_DIR="./${DEVOPS_ACCOUNT_GIT}"
 .DEFAULT_GOAL := help
+
 ########################################################
 #       ONDEWO Standard Make Targets
 ########################################################
@@ -47,7 +48,7 @@ install_packages: ## Install npm packages
 install_precommit_hooks: ## Install precommit hooks
 	npx husky install
 
-run_precommit_hooks:
+run_precommit_hooks: ## Runs all precommit hooks
 	.husky/pre-commit
 
 prettier: ## Checks formatting with Prettier - Use PRETTIER_WRITE=-w to also automatically apply corrections where needed
@@ -220,6 +221,7 @@ create_npm_package: ## Create NPM Package for Release
 	mkdir npm
 	cp -R api npm
 	cp public-api.d.ts npm
+	cp public-api.js npm
 	cp package.json npm
 	cp LICENSE npm
 	cp README.md npm
