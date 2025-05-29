@@ -641,6 +641,26 @@ export namespace RestoreAgentRequest {
   }
 }
 
+export class MigrateAgentRequest extends jspb.Message {
+  getAgentContent(): Uint8Array | string;
+  getAgentContent_asU8(): Uint8Array;
+  getAgentContent_asB64(): string;
+  setAgentContent(value: Uint8Array | string): MigrateAgentRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MigrateAgentRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: MigrateAgentRequest): MigrateAgentRequest.AsObject;
+  static serializeBinaryToWriter(message: MigrateAgentRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MigrateAgentRequest;
+  static deserializeBinaryFromReader(message: MigrateAgentRequest, reader: jspb.BinaryReader): MigrateAgentRequest;
+}
+
+export namespace MigrateAgentRequest {
+  export type AsObject = {
+    agentContent: Uint8Array | string,
+  }
+}
+
 export class GetAgentStatisticsRequest extends jspb.Message {
   getParent(): string;
   setParent(value: string): GetAgentStatisticsRequest;
