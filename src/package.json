@@ -21,7 +21,7 @@
     "predebug": "# mv ondewo-nlu-api/google ondewo-nlu-api/google",
     "debug": "docker run -it --entrypoint /bin/bash -v ${PWD}:/input-volume -v ${PWD}/..:/output-volume ondewo-typescript-proto-compiler"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "directory": "https://github.com/ondewo/ondewo-nlu-client-typescript"
   },
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
-    "@types/node": "^20.12.14",
+    "@types/node": "^22.15.27",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "dotenv": "^16.4.5",
     "eslint": "^9.13.0",
