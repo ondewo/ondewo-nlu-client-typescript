@@ -200,6 +200,11 @@ export class ListUsersRequest extends jspb.Message {
   getPageToken(): string;
   setPageToken(value: string): ListUsersRequest;
 
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): ListUsersRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): ListUsersRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListUsersRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListUsersRequest): ListUsersRequest.AsObject;
@@ -211,6 +216,12 @@ export class ListUsersRequest extends jspb.Message {
 export namespace ListUsersRequest {
   export type AsObject = {
     pageToken: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 2,
   }
 }
 
@@ -381,6 +392,11 @@ export class GetServerRoleRequest extends jspb.Message {
   getRoleName(): string;
   setRoleName(value: string): GetServerRoleRequest;
 
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): GetServerRoleRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): GetServerRoleRequest;
+
   getServerRoleIdentifierCase(): GetServerRoleRequest.ServerRoleIdentifierCase;
 
   serializeBinary(): Uint8Array;
@@ -395,6 +411,7 @@ export namespace GetServerRoleRequest {
   export type AsObject = {
     roleId: number,
     roleName: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
 
   export enum ServerRoleIdentifierCase { 
@@ -402,11 +419,21 @@ export namespace GetServerRoleRequest {
     ROLE_ID = 1,
     ROLE_NAME = 2,
   }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 3,
+  }
 }
 
 export class ListServerRolesRequest extends jspb.Message {
   getPageToken(): string;
   setPageToken(value: string): ListServerRolesRequest;
+
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): ListServerRolesRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): ListServerRolesRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListServerRolesRequest.AsObject;
@@ -419,6 +446,12 @@ export class ListServerRolesRequest extends jspb.Message {
 export namespace ListServerRolesRequest {
   export type AsObject = {
     pageToken: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 2,
   }
 }
 
@@ -450,6 +483,11 @@ export class ListServerPermissionsRequest extends jspb.Message {
   getPageToken(): string;
   setPageToken(value: string): ListServerPermissionsRequest;
 
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): ListServerPermissionsRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): ListServerPermissionsRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListServerPermissionsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListServerPermissionsRequest): ListServerPermissionsRequest.AsObject;
@@ -461,6 +499,12 @@ export class ListServerPermissionsRequest extends jspb.Message {
 export namespace ListServerPermissionsRequest {
   export type AsObject = {
     pageToken: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 2,
   }
 }
 
@@ -495,6 +539,11 @@ export class LoginRequest extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): LoginRequest;
 
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): LoginRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): LoginRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): LoginRequest.AsObject;
   static toObject(includeInstance: boolean, msg: LoginRequest): LoginRequest.AsObject;
@@ -507,6 +556,12 @@ export namespace LoginRequest {
   export type AsObject = {
     userEmail: string,
     password: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 3,
   }
 }
 
@@ -546,6 +601,11 @@ export class GetUserPreferencesRequest extends jspb.Message {
   getRegexInclude(): string;
   setRegexInclude(value: string): GetUserPreferencesRequest;
 
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): GetUserPreferencesRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): GetUserPreferencesRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetUserPreferencesRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetUserPreferencesRequest): GetUserPreferencesRequest.AsObject;
@@ -559,6 +619,12 @@ export namespace GetUserPreferencesRequest {
     userName: string,
     keysList: Array<string>,
     regexInclude: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 4,
   }
 }
 
@@ -727,6 +793,11 @@ export class ListUserPreferencesRequest extends jspb.Message {
   getRegexFilter(): string;
   setRegexFilter(value: string): ListUserPreferencesRequest;
 
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): ListUserPreferencesRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): ListUserPreferencesRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListUserPreferencesRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListUserPreferencesRequest): ListUserPreferencesRequest.AsObject;
@@ -739,6 +810,12 @@ export namespace ListUserPreferencesRequest {
   export type AsObject = {
     userName: string,
     regexFilter: string,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+
+  export enum FieldMaskCase { 
+    _FIELD_MASK_NOT_SET = 0,
+    FIELD_MASK = 3,
   }
 }
 
