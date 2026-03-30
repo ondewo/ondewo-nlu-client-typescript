@@ -23,6 +23,18 @@ grpc.web = require('grpc-web');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js')
 
 var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_pb.js')
+
+var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js')
+
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js')
+
+var ondewo_nlu_operation_metadata_pb = require('../../ondewo/nlu/operation_metadata_pb.js')
+
+var ondewo_nlu_operations_pb = require('../../ondewo/nlu/operations_pb.js')
+
+var ondewo_nlu_session_pb = require('../../ondewo/nlu/session_pb.js')
+
+var ondewo_nlu_common_pb = require('../../ondewo/nlu/common_pb.js')
 const proto = {};
 proto.ondewo = {};
 proto.ondewo.nlu = require('./rag_pb.js');
@@ -204,16 +216,16 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateDataset =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDeleteDatasetsRequest,
+ *   !proto.ondewo.nlu.RagDeleteRequest,
  *   !proto.ondewo.nlu.RagPartialSuccess>}
  */
 const methodDescriptor_Rags_RagDeleteDatasets = new grpc.web.MethodDescriptor(
   '/ondewo.nlu.Rags/RagDeleteDatasets',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDeleteDatasetsRequest,
+  proto.ondewo.nlu.RagDeleteRequest,
   proto.ondewo.nlu.RagPartialSuccess,
   /**
-   * @param {!proto.ondewo.nlu.RagDeleteDatasetsRequest} request
+   * @param {!proto.ondewo.nlu.RagDeleteRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -224,7 +236,7 @@ const methodDescriptor_Rags_RagDeleteDatasets = new grpc.web.MethodDescriptor(
 
 
 /**
- * @param {!proto.ondewo.nlu.RagDeleteDatasetsRequest} request The
+ * @param {!proto.ondewo.nlu.RagDeleteRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -245,7 +257,7 @@ proto.ondewo.nlu.RagsClient.prototype.ragDeleteDatasets =
 
 
 /**
- * @param {!proto.ondewo.nlu.RagDeleteDatasetsRequest} request The
+ * @param {!proto.ondewo.nlu.RagDeleteRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
@@ -320,128 +332,6 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragListDatasets =
       request,
       metadata || {},
       methodDescriptor_Rags_RagListDatasets);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagGetKnowledgeGraphRequest,
- *   !proto.ondewo.nlu.RagGetKnowledgeGraphResponse>}
- */
-const methodDescriptor_Rags_RagGetKnowledgeGraph = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagGetKnowledgeGraph',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagGetKnowledgeGraphRequest,
-  proto.ondewo.nlu.RagGetKnowledgeGraphResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagGetKnowledgeGraphRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagGetKnowledgeGraphResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetKnowledgeGraphRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetKnowledgeGraphResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetKnowledgeGraphResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragGetKnowledgeGraph =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetKnowledgeGraph',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetKnowledgeGraph,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetKnowledgeGraphRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagGetKnowledgeGraphResponse>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetKnowledgeGraph =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetKnowledgeGraph',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetKnowledgeGraph);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDeleteKnowledgeGraphRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodDescriptor_Rags_RagDeleteKnowledgeGraph = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagDeleteKnowledgeGraph',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDeleteKnowledgeGraphRequest,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.RagDeleteKnowledgeGraphRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDeleteKnowledgeGraphRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragDeleteKnowledgeGraph =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteKnowledgeGraph',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDeleteKnowledgeGraph,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDeleteKnowledgeGraphRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.google.protobuf.Empty>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteKnowledgeGraph =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteKnowledgeGraph',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDeleteKnowledgeGraph);
 };
 
 
@@ -566,13 +456,13 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragDownloadDocument =
  * @const
  * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.RagListDocumentsRequest,
- *   !proto.ondewo.nlu.RagListDocumentsResponse>}
+ *   !proto.ondewo.nlu.RagDocumentList>}
  */
 const methodDescriptor_Rags_RagListDocuments = new grpc.web.MethodDescriptor(
   '/ondewo.nlu.Rags/RagListDocuments',
   grpc.web.MethodType.UNARY,
   proto.ondewo.nlu.RagListDocumentsRequest,
-  proto.ondewo.nlu.RagListDocumentsResponse,
+  proto.ondewo.nlu.RagDocumentList,
   /**
    * @param {!proto.ondewo.nlu.RagListDocumentsRequest} request
    * @return {!Uint8Array}
@@ -580,7 +470,7 @@ const methodDescriptor_Rags_RagListDocuments = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagListDocumentsResponse.deserializeBinary
+  proto.ondewo.nlu.RagDocumentList.deserializeBinary
 );
 
 
@@ -589,9 +479,9 @@ const methodDescriptor_Rags_RagListDocuments = new grpc.web.MethodDescriptor(
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagListDocumentsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagDocumentList)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagListDocumentsResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagDocumentList>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.ondewo.nlu.RagsClient.prototype.ragListDocuments =
@@ -610,7 +500,7 @@ proto.ondewo.nlu.RagsClient.prototype.ragListDocuments =
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagListDocumentsResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagDocumentList>}
  *     Promise that resolves to the response
  */
 proto.ondewo.nlu.RagsPromiseClient.prototype.ragListDocuments =
@@ -681,6 +571,433 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteDocuments =
       request,
       metadata || {},
       methodDescriptor_Rags_RagDeleteDocuments);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagRetrievalRequest,
+ *   !proto.ondewo.nlu.RagRetrievalResponse>}
+ */
+const methodDescriptor_Rags_RagRetrieval = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagRetrieval',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagRetrievalRequest,
+  proto.ondewo.nlu.RagRetrievalResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagRetrievalRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagRetrievalResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagRetrievalRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagRetrievalResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagRetrievalResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragRetrieval =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagRetrieval',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagRetrieval,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagRetrievalRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagRetrievalResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragRetrieval =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagRetrieval',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagRetrieval);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDatasetIdRequest,
+ *   !proto.ondewo.nlu.RagGetKnowledgeGraphResponse>}
+ */
+const methodDescriptor_Rags_RagGetKnowledgeGraph = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetKnowledgeGraph',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDatasetIdRequest,
+  proto.ondewo.nlu.RagGetKnowledgeGraphResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagGetKnowledgeGraphResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetKnowledgeGraphResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetKnowledgeGraphResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragGetKnowledgeGraph =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetKnowledgeGraph',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetKnowledgeGraph,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagGetKnowledgeGraphResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetKnowledgeGraph =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetKnowledgeGraph',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetKnowledgeGraph);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDatasetIdRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Rags_RagDeleteKnowledgeGraph = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteKnowledgeGraph',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDatasetIdRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteKnowledgeGraph =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteKnowledgeGraph',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteKnowledgeGraph,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteKnowledgeGraph =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteKnowledgeGraph',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteKnowledgeGraph);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDatasetIdRequest,
+ *   !proto.ondewo.nlu.RagConstructKnowledgeGraphResponse>}
+ */
+const methodDescriptor_Rags_RagConstructKnowledgeGraph = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagConstructKnowledgeGraph',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDatasetIdRequest,
+  proto.ondewo.nlu.RagConstructKnowledgeGraphResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagConstructKnowledgeGraphResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagConstructKnowledgeGraphResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagConstructKnowledgeGraphResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragConstructKnowledgeGraph =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagConstructKnowledgeGraph',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagConstructKnowledgeGraph,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagConstructKnowledgeGraphResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragConstructKnowledgeGraph =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagConstructKnowledgeGraph',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagConstructKnowledgeGraph);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDatasetIdRequest,
+ *   !proto.ondewo.nlu.RagTaskStatus>}
+ */
+const methodDescriptor_Rags_RagKnowledgeGraphStatus = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagKnowledgeGraphStatus',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDatasetIdRequest,
+  proto.ondewo.nlu.RagTaskStatus,
+  /**
+   * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagTaskStatus.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagTaskStatus)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagTaskStatus>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragKnowledgeGraphStatus =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagKnowledgeGraphStatus',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagKnowledgeGraphStatus,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagTaskStatus>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragKnowledgeGraphStatus =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagKnowledgeGraphStatus',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagKnowledgeGraphStatus);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDatasetIdRequest,
+ *   !proto.ondewo.nlu.RagConstructRaptorResponse>}
+ */
+const methodDescriptor_Rags_RagConstructRaptor = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagConstructRaptor',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDatasetIdRequest,
+  proto.ondewo.nlu.RagConstructRaptorResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagConstructRaptorResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagConstructRaptorResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagConstructRaptorResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragConstructRaptor =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagConstructRaptor',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagConstructRaptor,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagConstructRaptorResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragConstructRaptor =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagConstructRaptor',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagConstructRaptor);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDatasetIdRequest,
+ *   !proto.ondewo.nlu.RagTaskStatus>}
+ */
+const methodDescriptor_Rags_RagRaptorStatus = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagRaptorStatus',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDatasetIdRequest,
+  proto.ondewo.nlu.RagTaskStatus,
+  /**
+   * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagTaskStatus.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagTaskStatus)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagTaskStatus>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragRaptorStatus =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagRaptorStatus',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagRaptorStatus,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDatasetIdRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagTaskStatus>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragRaptorStatus =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagRaptorStatus',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagRaptorStatus);
 };
 
 
@@ -1053,138 +1370,77 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateChunk =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagRetrievalRequest,
- *   !proto.ondewo.nlu.RagRetrievalResponse>}
+ *   !proto.ondewo.nlu.RagCreateChatAssistantRequest,
+ *   !proto.ondewo.nlu.RagChatAssistant>}
  */
-const methodDescriptor_Rags_RagRetrieval = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagRetrieval',
+const methodDescriptor_Rags_RagCreateChatAssistant = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagCreateChatAssistant',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagRetrievalRequest,
-  proto.ondewo.nlu.RagRetrievalResponse,
+  proto.ondewo.nlu.RagCreateChatAssistantRequest,
+  proto.ondewo.nlu.RagChatAssistant,
   /**
-   * @param {!proto.ondewo.nlu.RagRetrievalRequest} request
+   * @param {!proto.ondewo.nlu.RagCreateChatAssistantRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagRetrievalResponse.deserializeBinary
+  proto.ondewo.nlu.RagChatAssistant.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagRetrievalRequest} request The
+ * @param {!proto.ondewo.nlu.RagCreateChatAssistantRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagRetrievalResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatAssistant)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagRetrievalResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatAssistant>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragRetrieval =
+proto.ondewo.nlu.RagsClient.prototype.ragCreateChatAssistant =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagRetrieval',
+      '/ondewo.nlu.Rags/RagCreateChatAssistant',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagRetrieval,
+      methodDescriptor_Rags_RagCreateChatAssistant,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagRetrievalRequest} request The
+ * @param {!proto.ondewo.nlu.RagCreateChatAssistantRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagRetrievalResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagChatAssistant>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragRetrieval =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateChatAssistant =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagRetrieval',
+      '/ondewo.nlu.Rags/RagCreateChatAssistant',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagRetrieval);
+      methodDescriptor_Rags_RagCreateChatAssistant);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagCreateChatRequest,
- *   !proto.ondewo.nlu.RagChat>}
- */
-const methodDescriptor_Rags_RagCreateChat = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagCreateChat',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagCreateChatRequest,
-  proto.ondewo.nlu.RagChat,
-  /**
-   * @param {!proto.ondewo.nlu.RagCreateChatRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagChat.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagCreateChatRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChat)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChat>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragCreateChat =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateChat',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagCreateChat,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagCreateChatRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagChat>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateChat =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateChat',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagCreateChat);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagUpdateChatRequest,
+ *   !proto.ondewo.nlu.RagUpdateChatAssistantRequest,
  *   !proto.google.protobuf.Empty>}
  */
-const methodDescriptor_Rags_RagUpdateChat = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagUpdateChat',
+const methodDescriptor_Rags_RagUpdateChatAssistant = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagUpdateChatAssistant',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagUpdateChatRequest,
+  proto.ondewo.nlu.RagUpdateChatAssistantRequest,
   google_protobuf_empty_pb.Empty,
   /**
-   * @param {!proto.ondewo.nlu.RagUpdateChatRequest} request
+   * @param {!proto.ondewo.nlu.RagUpdateChatAssistantRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -1195,7 +1451,7 @@ const methodDescriptor_Rags_RagUpdateChat = new grpc.web.MethodDescriptor(
 
 
 /**
- * @param {!proto.ondewo.nlu.RagUpdateChatRequest} request The
+ * @param {!proto.ondewo.nlu.RagUpdateChatAssistantRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -1204,48 +1460,48 @@ const methodDescriptor_Rags_RagUpdateChat = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragUpdateChat =
+proto.ondewo.nlu.RagsClient.prototype.ragUpdateChatAssistant =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagUpdateChat',
+      '/ondewo.nlu.Rags/RagUpdateChatAssistant',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagUpdateChat,
+      methodDescriptor_Rags_RagUpdateChatAssistant,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagUpdateChatRequest} request The
+ * @param {!proto.ondewo.nlu.RagUpdateChatAssistantRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateChat =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateChatAssistant =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagUpdateChat',
+      '/ondewo.nlu.Rags/RagUpdateChatAssistant',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagUpdateChat);
+      methodDescriptor_Rags_RagUpdateChatAssistant);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDeleteChatsRequest,
+ *   !proto.ondewo.nlu.RagDeleteRequest,
  *   !proto.ondewo.nlu.RagPartialSuccess>}
  */
-const methodDescriptor_Rags_RagDeleteChats = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagDeleteChats',
+const methodDescriptor_Rags_RagDeleteChatAssistants = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteChatAssistants',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDeleteChatsRequest,
+  proto.ondewo.nlu.RagDeleteRequest,
   proto.ondewo.nlu.RagPartialSuccess,
   /**
-   * @param {!proto.ondewo.nlu.RagDeleteChatsRequest} request
+   * @param {!proto.ondewo.nlu.RagDeleteRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -1256,7 +1512,7 @@ const methodDescriptor_Rags_RagDeleteChats = new grpc.web.MethodDescriptor(
 
 
 /**
- * @param {!proto.ondewo.nlu.RagDeleteChatsRequest} request The
+ * @param {!proto.ondewo.nlu.RagDeleteRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -1265,744 +1521,93 @@ const methodDescriptor_Rags_RagDeleteChats = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagPartialSuccess>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragDeleteChats =
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteChatAssistants =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteChats',
+      '/ondewo.nlu.Rags/RagDeleteChatAssistants',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagDeleteChats,
+      methodDescriptor_Rags_RagDeleteChatAssistants,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagDeleteChatsRequest} request The
+ * @param {!proto.ondewo.nlu.RagDeleteRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ondewo.nlu.RagPartialSuccess>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteChats =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteChatAssistants =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteChats',
+      '/ondewo.nlu.Rags/RagDeleteChatAssistants',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagDeleteChats);
+      methodDescriptor_Rags_RagDeleteChatAssistants);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagListChatsRequest,
- *   !proto.ondewo.nlu.RagChatList>}
+ *   !proto.ondewo.nlu.RagListChatAssistantsRequest,
+ *   !proto.ondewo.nlu.RagChatAssistantList>}
  */
-const methodDescriptor_Rags_RagListChats = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagListChats',
+const methodDescriptor_Rags_RagListChatAssistants = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagListChatAssistants',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagListChatsRequest,
-  proto.ondewo.nlu.RagChatList,
+  proto.ondewo.nlu.RagListChatAssistantsRequest,
+  proto.ondewo.nlu.RagChatAssistantList,
   /**
-   * @param {!proto.ondewo.nlu.RagListChatsRequest} request
+   * @param {!proto.ondewo.nlu.RagListChatAssistantsRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagChatList.deserializeBinary
+  proto.ondewo.nlu.RagChatAssistantList.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagListChatsRequest} request The
+ * @param {!proto.ondewo.nlu.RagListChatAssistantsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatList)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatAssistantList)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatList>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatAssistantList>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragListChats =
+proto.ondewo.nlu.RagsClient.prototype.ragListChatAssistants =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListChats',
+      '/ondewo.nlu.Rags/RagListChatAssistants',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagListChats,
+      methodDescriptor_Rags_RagListChatAssistants,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagListChatsRequest} request The
+ * @param {!proto.ondewo.nlu.RagListChatAssistantsRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagChatList>}
+ * @return {!Promise<!proto.ondewo.nlu.RagChatAssistantList>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragListChats =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragListChatAssistants =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListChats',
+      '/ondewo.nlu.Rags/RagListChatAssistants',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagListChats);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagCreateChatSessionRequest,
- *   !proto.ondewo.nlu.RagChatSession>}
- */
-const methodDescriptor_Rags_RagCreateChatSession = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagCreateChatSession',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagCreateChatSessionRequest,
-  proto.ondewo.nlu.RagChatSession,
-  /**
-   * @param {!proto.ondewo.nlu.RagCreateChatSessionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagChatSession.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagCreateChatSessionRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatSession)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatSession>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragCreateChatSession =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateChatSession',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagCreateChatSession,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagCreateChatSessionRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagChatSession>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateChatSession =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateChatSession',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagCreateChatSession);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagCreateAgentSessionRequest,
- *   !proto.ondewo.nlu.RagAgentSession>}
- */
-const methodDescriptor_Rags_RagCreateAgentSession = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagCreateAgentSession',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagCreateAgentSessionRequest,
-  proto.ondewo.nlu.RagAgentSession,
-  /**
-   * @param {!proto.ondewo.nlu.RagCreateAgentSessionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagAgentSession.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagCreateAgentSessionRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagAgentSession)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentSession>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragCreateAgentSession =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateAgentSession',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagCreateAgentSession,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagCreateAgentSessionRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagAgentSession>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateAgentSession =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateAgentSession',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagCreateAgentSession);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagUpdateChatSessionRequest,
- *   !proto.google.protobuf.Empty>}
- */
-const methodDescriptor_Rags_RagUpdateChatSession = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagUpdateChatSession',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagUpdateChatSessionRequest,
-  google_protobuf_empty_pb.Empty,
-  /**
-   * @param {!proto.ondewo.nlu.RagUpdateChatSessionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  google_protobuf_empty_pb.Empty.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagUpdateChatSessionRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragUpdateChatSession =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagUpdateChatSession',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagUpdateChatSession,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagUpdateChatSessionRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.google.protobuf.Empty>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateChatSession =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagUpdateChatSession',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagUpdateChatSession);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagListChatSessionsRequest,
- *   !proto.ondewo.nlu.RagChatSessionList>}
- */
-const methodDescriptor_Rags_RagListChatSessions = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagListChatSessions',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagListChatSessionsRequest,
-  proto.ondewo.nlu.RagChatSessionList,
-  /**
-   * @param {!proto.ondewo.nlu.RagListChatSessionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagChatSessionList.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagListChatSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatSessionList)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatSessionList>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragListChatSessions =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListChatSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagListChatSessions,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagListChatSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagChatSessionList>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragListChatSessions =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListChatSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagListChatSessions);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagListAgentSessionsRequest,
- *   !proto.ondewo.nlu.RagAgentSessionList>}
- */
-const methodDescriptor_Rags_RagListAgentSessions = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagListAgentSessions',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagListAgentSessionsRequest,
-  proto.ondewo.nlu.RagAgentSessionList,
-  /**
-   * @param {!proto.ondewo.nlu.RagListAgentSessionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagAgentSessionList.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagListAgentSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagAgentSessionList)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentSessionList>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragListAgentSessions =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListAgentSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagListAgentSessions,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagListAgentSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagAgentSessionList>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragListAgentSessions =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListAgentSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagListAgentSessions);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDeleteChatSessionsRequest,
- *   !proto.ondewo.nlu.RagPartialSuccess>}
- */
-const methodDescriptor_Rags_RagDeleteChatSessions = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagDeleteChatSessions',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDeleteChatSessionsRequest,
-  proto.ondewo.nlu.RagPartialSuccess,
-  /**
-   * @param {!proto.ondewo.nlu.RagDeleteChatSessionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagPartialSuccess.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDeleteChatSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagPartialSuccess)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagPartialSuccess>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragDeleteChatSessions =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteChatSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDeleteChatSessions,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDeleteChatSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagPartialSuccess>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteChatSessions =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteChatSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDeleteChatSessions);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDeleteAgentSessionsRequest,
- *   !proto.ondewo.nlu.RagPartialSuccess>}
- */
-const methodDescriptor_Rags_RagDeleteAgentSessions = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagDeleteAgentSessions',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDeleteAgentSessionsRequest,
-  proto.ondewo.nlu.RagPartialSuccess,
-  /**
-   * @param {!proto.ondewo.nlu.RagDeleteAgentSessionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagPartialSuccess.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDeleteAgentSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagPartialSuccess)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagPartialSuccess>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragDeleteAgentSessions =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteAgentSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDeleteAgentSessions,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDeleteAgentSessionsRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagPartialSuccess>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteAgentSessions =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteAgentSessions',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDeleteAgentSessions);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagChatCompletionRequest,
- *   !proto.ondewo.nlu.RagChatCompletionResponse>}
- */
-const methodDescriptor_Rags_RagChatCompletion = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagChatCompletion',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagChatCompletionRequest,
-  proto.ondewo.nlu.RagChatCompletionResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagChatCompletionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagChatCompletionResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagChatCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragChatCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagChatCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagChatCompletion);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagChatCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragChatCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagChatCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagChatCompletion);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagOpenAiChatCompletionRequest,
- *   !proto.ondewo.nlu.RagOpenAiChatCompletionResponse>}
- */
-const methodDescriptor_Rags_RagOpenAiChatCompletion = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagOpenAiChatCompletion',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagOpenAiChatCompletionRequest,
-  proto.ondewo.nlu.RagOpenAiChatCompletionResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagOpenAiChatCompletionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagOpenAiChatCompletionResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagOpenAiChatCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagOpenAiChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragOpenAiChatCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagOpenAiChatCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagOpenAiChatCompletion);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagOpenAiChatCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagOpenAiChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragOpenAiChatCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagOpenAiChatCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagOpenAiChatCompletion);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagAgentCompletionRequest,
- *   !proto.ondewo.nlu.RagAgentCompletionResponse>}
- */
-const methodDescriptor_Rags_RagAgentCompletion = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagAgentCompletion',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagAgentCompletionRequest,
-  proto.ondewo.nlu.RagAgentCompletionResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagAgentCompletionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagAgentCompletionResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagAgentCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragAgentCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagAgentCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagAgentCompletion);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagAgentCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragAgentCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagAgentCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagAgentCompletion);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagOpenAiAgentCompletionRequest,
- *   !proto.ondewo.nlu.RagOpenAiChatCompletionResponse>}
- */
-const methodDescriptor_Rags_RagOpenAiAgentCompletion = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagOpenAiAgentCompletion',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagOpenAiAgentCompletionRequest,
-  proto.ondewo.nlu.RagOpenAiChatCompletionResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagOpenAiAgentCompletionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagOpenAiChatCompletionResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagOpenAiAgentCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagOpenAiChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragOpenAiAgentCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagOpenAiAgentCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagOpenAiAgentCompletion);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagOpenAiAgentCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagOpenAiChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragOpenAiAgentCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagOpenAiAgentCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagOpenAiAgentCompletion);
+      methodDescriptor_Rags_RagListChatAssistants);
 };
 
 
@@ -2253,321 +1858,77 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragListAgents =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagCreateFileRequest,
- *   !proto.ondewo.nlu.RagFile>}
+ *   !proto.ondewo.nlu.RagCreateChatSessionRequest,
+ *   !proto.ondewo.nlu.RagChatSession>}
  */
-const methodDescriptor_Rags_RagCreateFile = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagCreateFile',
+const methodDescriptor_Rags_RagCreateChatSession = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagCreateChatSession',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagCreateFileRequest,
-  proto.ondewo.nlu.RagFile,
+  proto.ondewo.nlu.RagCreateChatSessionRequest,
+  proto.ondewo.nlu.RagChatSession,
   /**
-   * @param {!proto.ondewo.nlu.RagCreateFileRequest} request
+   * @param {!proto.ondewo.nlu.RagCreateChatSessionRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagFile.deserializeBinary
+  proto.ondewo.nlu.RagChatSession.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagCreateFileRequest} request The
+ * @param {!proto.ondewo.nlu.RagCreateChatSessionRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagFile)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatSession)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagFile>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatSession>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragCreateFile =
+proto.ondewo.nlu.RagsClient.prototype.ragCreateChatSession =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateFile',
+      '/ondewo.nlu.Rags/RagCreateChatSession',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagCreateFile,
+      methodDescriptor_Rags_RagCreateChatSession,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagCreateFileRequest} request The
+ * @param {!proto.ondewo.nlu.RagCreateChatSessionRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagFile>}
+ * @return {!Promise<!proto.ondewo.nlu.RagChatSession>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateFile =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateChatSession =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagCreateFile',
+      '/ondewo.nlu.Rags/RagCreateChatSession',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagCreateFile);
+      methodDescriptor_Rags_RagCreateChatSession);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagListFilesRequest,
- *   !proto.ondewo.nlu.RagListFilesResponse>}
- */
-const methodDescriptor_Rags_RagListFiles = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagListFiles',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagListFilesRequest,
-  proto.ondewo.nlu.RagListFilesResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagListFilesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagListFilesResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagListFilesRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagListFilesResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagListFilesResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragListFiles =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListFiles',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagListFiles,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagListFilesRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagListFilesResponse>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragListFiles =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagListFiles',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagListFiles);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagGetRootFolderRequest,
- *   !proto.ondewo.nlu.RagGetRootFolderResponse>}
- */
-const methodDescriptor_Rags_RagGetRootFolder = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagGetRootFolder',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagGetRootFolderRequest,
-  proto.ondewo.nlu.RagGetRootFolderResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagGetRootFolderRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagGetRootFolderResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetRootFolderRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetRootFolderResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetRootFolderResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragGetRootFolder =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetRootFolder',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetRootFolder,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetRootFolderRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagGetRootFolderResponse>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetRootFolder =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetRootFolder',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetRootFolder);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagGetParentFolderRequest,
- *   !proto.ondewo.nlu.RagGetParentFolderResponse>}
- */
-const methodDescriptor_Rags_RagGetParentFolder = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagGetParentFolder',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagGetParentFolderRequest,
-  proto.ondewo.nlu.RagGetParentFolderResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagGetParentFolderRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagGetParentFolderResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetParentFolderRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetParentFolderResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetParentFolderResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragGetParentFolder =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetParentFolder',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetParentFolder,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetParentFolderRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagGetParentFolderResponse>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetParentFolder =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetParentFolder',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetParentFolder);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagGetAllParentFoldersRequest,
- *   !proto.ondewo.nlu.RagGetAllParentFoldersResponse>}
- */
-const methodDescriptor_Rags_RagGetAllParentFolders = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagGetAllParentFolders',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagGetAllParentFoldersRequest,
-  proto.ondewo.nlu.RagGetAllParentFoldersResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagGetAllParentFoldersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagGetAllParentFoldersResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetAllParentFoldersRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetAllParentFoldersResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetAllParentFoldersResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragGetAllParentFolders =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetAllParentFolders',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetAllParentFolders,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagGetAllParentFoldersRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagGetAllParentFoldersResponse>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetAllParentFolders =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetAllParentFolders',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagGetAllParentFolders);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDeleteFilesRequest,
+ *   !proto.ondewo.nlu.RagUpdateChatSessionRequest,
  *   !proto.google.protobuf.Empty>}
  */
-const methodDescriptor_Rags_RagDeleteFiles = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagDeleteFiles',
+const methodDescriptor_Rags_RagUpdateChatSession = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagUpdateChatSession',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDeleteFilesRequest,
+  proto.ondewo.nlu.RagUpdateChatSessionRequest,
   google_protobuf_empty_pb.Empty,
   /**
-   * @param {!proto.ondewo.nlu.RagDeleteFilesRequest} request
+   * @param {!proto.ondewo.nlu.RagUpdateChatSessionRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -2578,7 +1939,7 @@ const methodDescriptor_Rags_RagDeleteFiles = new grpc.web.MethodDescriptor(
 
 
 /**
- * @param {!proto.ondewo.nlu.RagDeleteFilesRequest} request The
+ * @param {!proto.ondewo.nlu.RagUpdateChatSessionRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -2587,332 +1948,388 @@ const methodDescriptor_Rags_RagDeleteFiles = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragDeleteFiles =
+proto.ondewo.nlu.RagsClient.prototype.ragUpdateChatSession =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteFiles',
+      '/ondewo.nlu.Rags/RagUpdateChatSession',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagDeleteFiles,
+      methodDescriptor_Rags_RagUpdateChatSession,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagDeleteFilesRequest} request The
+ * @param {!proto.ondewo.nlu.RagUpdateChatSessionRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.google.protobuf.Empty>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteFiles =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateChatSession =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDeleteFiles',
+      '/ondewo.nlu.Rags/RagUpdateChatSession',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagDeleteFiles);
+      methodDescriptor_Rags_RagUpdateChatSession);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagRenameFileRequest,
- *   !proto.google.protobuf.Empty>}
+ *   !proto.ondewo.nlu.RagListChatSessionsRequest,
+ *   !proto.ondewo.nlu.RagChatSessionList>}
  */
-const methodDescriptor_Rags_RagRenameFile = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagRenameFile',
+const methodDescriptor_Rags_RagListChatSessions = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagListChatSessions',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagRenameFileRequest,
-  google_protobuf_empty_pb.Empty,
+  proto.ondewo.nlu.RagListChatSessionsRequest,
+  proto.ondewo.nlu.RagChatSessionList,
   /**
-   * @param {!proto.ondewo.nlu.RagRenameFileRequest} request
+   * @param {!proto.ondewo.nlu.RagListChatSessionsRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+  proto.ondewo.nlu.RagChatSessionList.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagRenameFileRequest} request The
+ * @param {!proto.ondewo.nlu.RagListChatSessionsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatSessionList)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatSessionList>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragRenameFile =
+proto.ondewo.nlu.RagsClient.prototype.ragListChatSessions =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagRenameFile',
+      '/ondewo.nlu.Rags/RagListChatSessions',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagRenameFile,
+      methodDescriptor_Rags_RagListChatSessions,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagRenameFileRequest} request The
+ * @param {!proto.ondewo.nlu.RagListChatSessionsRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.google.protobuf.Empty>}
+ * @return {!Promise<!proto.ondewo.nlu.RagChatSessionList>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragRenameFile =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragListChatSessions =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagRenameFile',
+      '/ondewo.nlu.Rags/RagListChatSessions',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagRenameFile);
+      methodDescriptor_Rags_RagListChatSessions);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagGetFileRequest,
- *   !proto.ondewo.nlu.RagFileChunk>}
+ *   !proto.ondewo.nlu.RagDeleteChatSessionsRequest,
+ *   !proto.ondewo.nlu.RagPartialSuccess>}
  */
-const methodDescriptor_Rags_RagGetFile = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagGetFile',
+const methodDescriptor_Rags_RagDeleteChatSessions = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteChatSessions',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDeleteChatSessionsRequest,
+  proto.ondewo.nlu.RagPartialSuccess,
+  /**
+   * @param {!proto.ondewo.nlu.RagDeleteChatSessionsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagPartialSuccess.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteChatSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagPartialSuccess)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagPartialSuccess>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteChatSessions =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteChatSessions',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteChatSessions,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteChatSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagPartialSuccess>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteChatSessions =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteChatSessions',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteChatSessions);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagListAgentSessionsRequest,
+ *   !proto.ondewo.nlu.RagAgentSessionList>}
+ */
+const methodDescriptor_Rags_RagListAgentSessions = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagListAgentSessions',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagListAgentSessionsRequest,
+  proto.ondewo.nlu.RagAgentSessionList,
+  /**
+   * @param {!proto.ondewo.nlu.RagListAgentSessionsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagAgentSessionList.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagListAgentSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagAgentSessionList)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentSessionList>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragListAgentSessions =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagListAgentSessions',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagListAgentSessions,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagListAgentSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagAgentSessionList>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragListAgentSessions =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagListAgentSessions',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagListAgentSessions);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDeleteAgentSessionsRequest,
+ *   !proto.ondewo.nlu.RagPartialSuccess>}
+ */
+const methodDescriptor_Rags_RagDeleteAgentSessions = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteAgentSessions',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDeleteAgentSessionsRequest,
+  proto.ondewo.nlu.RagPartialSuccess,
+  /**
+   * @param {!proto.ondewo.nlu.RagDeleteAgentSessionsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagPartialSuccess.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteAgentSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagPartialSuccess)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagPartialSuccess>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteAgentSessions =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteAgentSessions',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteAgentSessions,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteAgentSessionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagPartialSuccess>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteAgentSessions =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteAgentSessions',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteAgentSessions);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagChatCompletionRequest,
+ *   !proto.ondewo.nlu.RagChatCompletionResponse>}
+ */
+const methodDescriptor_Rags_RagChatCompletion = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagChatCompletion',
   grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagGetFileRequest,
-  proto.ondewo.nlu.RagFileChunk,
+  proto.ondewo.nlu.RagChatCompletionRequest,
+  proto.ondewo.nlu.RagChatCompletionResponse,
   /**
-   * @param {!proto.ondewo.nlu.RagGetFileRequest} request
+   * @param {!proto.ondewo.nlu.RagChatCompletionRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagFileChunk.deserializeBinary
+  proto.ondewo.nlu.RagChatCompletionResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagGetFileRequest} request The request proto
+ * @param {!proto.ondewo.nlu.RagChatCompletionRequest} request The request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagFileChunk>}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatCompletionResponse>}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragGetFile =
+proto.ondewo.nlu.RagsClient.prototype.ragChatCompletion =
     function(request, metadata) {
   return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetFile',
+      '/ondewo.nlu.Rags/RagChatCompletion',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagGetFile);
+      methodDescriptor_Rags_RagChatCompletion);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagGetFileRequest} request The request proto
+ * @param {!proto.ondewo.nlu.RagChatCompletionRequest} request The request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagFileChunk>}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatCompletionResponse>}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetFile =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragChatCompletion =
     function(request, metadata) {
   return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagGetFile',
+      '/ondewo.nlu.Rags/RagChatCompletion',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagGetFile);
+      methodDescriptor_Rags_RagChatCompletion);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagMoveFileRequest,
- *   !proto.google.protobuf.Empty>}
+ *   !proto.ondewo.nlu.RagAgentCompletionRequest,
+ *   !proto.ondewo.nlu.RagAgentCompletionResponse>}
  */
-const methodDescriptor_Rags_RagMoveFile = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagMoveFile',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagMoveFileRequest,
-  google_protobuf_empty_pb.Empty,
+const methodDescriptor_Rags_RagAgentCompletion = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagAgentCompletion',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.ondewo.nlu.RagAgentCompletionRequest,
+  proto.ondewo.nlu.RagAgentCompletionResponse,
   /**
-   * @param {!proto.ondewo.nlu.RagMoveFileRequest} request
+   * @param {!proto.ondewo.nlu.RagAgentCompletionRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  google_protobuf_empty_pb.Empty.deserializeBinary
+  proto.ondewo.nlu.RagAgentCompletionResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagMoveFileRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragMoveFile =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagMoveFile',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagMoveFile,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagMoveFileRequest} request The
- *     request proto
+ * @param {!proto.ondewo.nlu.RagAgentCompletionRequest} request The request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.google.protobuf.Empty>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragMoveFile =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagMoveFile',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagMoveFile);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagFileToDocumentRequest,
- *   !proto.ondewo.nlu.RagFileToDocumentList>}
- */
-const methodDescriptor_Rags_RagFileToDocument = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagFileToDocument',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagFileToDocumentRequest,
-  proto.ondewo.nlu.RagFileToDocumentList,
-  /**
-   * @param {!proto.ondewo.nlu.RagFileToDocumentRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagFileToDocumentList.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagFileToDocumentRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagFileToDocumentList)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagFileToDocumentList>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentCompletionResponse>}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragFileToDocument =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagFileToDocument',
+proto.ondewo.nlu.RagsClient.prototype.ragAgentCompletion =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/ondewo.nlu.Rags/RagAgentCompletion',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagFileToDocument,
-      callback);
+      methodDescriptor_Rags_RagAgentCompletion);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagFileToDocumentRequest} request The
- *     request proto
+ * @param {!proto.ondewo.nlu.RagAgentCompletionRequest} request The request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagFileToDocumentList>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragFileToDocument =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagFileToDocument',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagFileToDocument);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagDifyRetrievalRequest,
- *   !proto.ondewo.nlu.RagDifyRecordList>}
- */
-const methodDescriptor_Rags_RagDifyRetrieval = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagDifyRetrieval',
-  grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagDifyRetrievalRequest,
-  proto.ondewo.nlu.RagDifyRecordList,
-  /**
-   * @param {!proto.ondewo.nlu.RagDifyRetrievalRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagDifyRecordList.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDifyRetrievalRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagDifyRecordList)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagDifyRecordList>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentCompletionResponse>}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragDifyRetrieval =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDifyRetrieval',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagDifyRetrieval,
-      callback);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagDifyRetrievalRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagDifyRecordList>}
- *     Promise that resolves to the response
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragDifyRetrieval =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragAgentCompletion =
     function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagDifyRetrieval',
+  return this.client_.serverStreaming(this.hostname_ +
+      '/ondewo.nlu.Rags/RagAgentCompletion',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagDifyRetrieval);
+      methodDescriptor_Rags_RagAgentCompletion);
 };
 
 
@@ -3036,534 +2453,976 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragRelatedQuestions =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagChatbotCompletionRequest,
- *   !proto.ondewo.nlu.RagChatCompletionResponse>}
+ *   !proto.ondewo.nlu.RagCreateCrawlerRequest,
+ *   !proto.ondewo.nlu.RagCrawler>}
  */
-const methodDescriptor_Rags_RagChatbotCompletion = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagChatbotCompletion',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagChatbotCompletionRequest,
-  proto.ondewo.nlu.RagChatCompletionResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagChatbotCompletionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagChatCompletionResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagChatbotCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragChatbotCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagChatbotCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagChatbotCompletion);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagChatbotCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragChatbotCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagChatbotCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagChatbotCompletion);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagChatbotInfoRequest,
- *   !proto.ondewo.nlu.RagChatbotInfoResponse>}
- */
-const methodDescriptor_Rags_RagChatbotInfo = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagChatbotInfo',
+const methodDescriptor_Rags_RagCreateCrawler = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagCreateCrawler',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagChatbotInfoRequest,
-  proto.ondewo.nlu.RagChatbotInfoResponse,
+  proto.ondewo.nlu.RagCreateCrawlerRequest,
+  proto.ondewo.nlu.RagCrawler,
   /**
-   * @param {!proto.ondewo.nlu.RagChatbotInfoRequest} request
+   * @param {!proto.ondewo.nlu.RagCreateCrawlerRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagChatbotInfoResponse.deserializeBinary
+  proto.ondewo.nlu.RagCrawler.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagChatbotInfoRequest} request The
+ * @param {!proto.ondewo.nlu.RagCreateCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagChatbotInfoResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagCrawler)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagChatbotInfoResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagCrawler>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragChatbotInfo =
+proto.ondewo.nlu.RagsClient.prototype.ragCreateCrawler =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagChatbotInfo',
+      '/ondewo.nlu.Rags/RagCreateCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagChatbotInfo,
+      methodDescriptor_Rags_RagCreateCrawler,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagChatbotInfoRequest} request The
+ * @param {!proto.ondewo.nlu.RagCreateCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagChatbotInfoResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagCrawler>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragChatbotInfo =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragCreateCrawler =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagChatbotInfo',
+      '/ondewo.nlu.Rags/RagCreateCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagChatbotInfo);
+      methodDescriptor_Rags_RagCreateCrawler);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagAgentbotCompletionRequest,
- *   !proto.ondewo.nlu.RagAgentCompletionResponse>}
+ *   !proto.ondewo.nlu.RagGetCrawlerRequest,
+ *   !proto.ondewo.nlu.RagCrawler>}
  */
-const methodDescriptor_Rags_RagAgentbotCompletion = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagAgentbotCompletion',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagAgentbotCompletionRequest,
-  proto.ondewo.nlu.RagAgentCompletionResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagAgentbotCompletionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagAgentCompletionResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagAgentbotCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragAgentbotCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagAgentbotCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagAgentbotCompletion);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagAgentbotCompletionRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentCompletionResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragAgentbotCompletion =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagAgentbotCompletion',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagAgentbotCompletion);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagAgentbotInputsRequest,
- *   !proto.ondewo.nlu.RagAgentbotInputsResponse>}
- */
-const methodDescriptor_Rags_RagAgentbotInputs = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagAgentbotInputs',
+const methodDescriptor_Rags_RagGetCrawler = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetCrawler',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagAgentbotInputsRequest,
-  proto.ondewo.nlu.RagAgentbotInputsResponse,
+  proto.ondewo.nlu.RagGetCrawlerRequest,
+  proto.ondewo.nlu.RagCrawler,
   /**
-   * @param {!proto.ondewo.nlu.RagAgentbotInputsRequest} request
+   * @param {!proto.ondewo.nlu.RagGetCrawlerRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagAgentbotInputsResponse.deserializeBinary
+  proto.ondewo.nlu.RagCrawler.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagAgentbotInputsRequest} request The
+ * @param {!proto.ondewo.nlu.RagGetCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagAgentbotInputsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagCrawler)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAgentbotInputsResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagCrawler>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragAgentbotInputs =
+proto.ondewo.nlu.RagsClient.prototype.ragGetCrawler =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagAgentbotInputs',
+      '/ondewo.nlu.Rags/RagGetCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagAgentbotInputs,
+      methodDescriptor_Rags_RagGetCrawler,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagAgentbotInputsRequest} request The
+ * @param {!proto.ondewo.nlu.RagGetCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagAgentbotInputsResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagCrawler>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragAgentbotInputs =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetCrawler =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagAgentbotInputs',
+      '/ondewo.nlu.Rags/RagGetCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagAgentbotInputs);
+      methodDescriptor_Rags_RagGetCrawler);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagSearchbotAskRequest,
- *   !proto.ondewo.nlu.RagAskResponse>}
+ *   !proto.ondewo.nlu.RagListCrawlersRequest,
+ *   !proto.ondewo.nlu.RagListCrawlersResponse>}
  */
-const methodDescriptor_Rags_RagSearchbotAsk = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagSearchbotAsk',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.ondewo.nlu.RagSearchbotAskRequest,
-  proto.ondewo.nlu.RagAskResponse,
-  /**
-   * @param {!proto.ondewo.nlu.RagSearchbotAskRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ondewo.nlu.RagAskResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.ondewo.nlu.RagSearchbotAskRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAskResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsClient.prototype.ragSearchbotAsk =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotAsk',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagSearchbotAsk);
-};
-
-
-/**
- * @param {!proto.ondewo.nlu.RagSearchbotAskRequest} request The request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagAskResponse>}
- *     The XHR Node Readable Stream
- */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragSearchbotAsk =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotAsk',
-      request,
-      metadata || {},
-      methodDescriptor_Rags_RagSearchbotAsk);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagSearchbotRetrievalRequest,
- *   !proto.ondewo.nlu.RagSearchbotRetrievalResponse>}
- */
-const methodDescriptor_Rags_RagSearchbotRetrieval = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagSearchbotRetrieval',
+const methodDescriptor_Rags_RagListCrawlers = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagListCrawlers',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagSearchbotRetrievalRequest,
-  proto.ondewo.nlu.RagSearchbotRetrievalResponse,
+  proto.ondewo.nlu.RagListCrawlersRequest,
+  proto.ondewo.nlu.RagListCrawlersResponse,
   /**
-   * @param {!proto.ondewo.nlu.RagSearchbotRetrievalRequest} request
+   * @param {!proto.ondewo.nlu.RagListCrawlersRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagSearchbotRetrievalResponse.deserializeBinary
+  proto.ondewo.nlu.RagListCrawlersResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotRetrievalRequest} request The
+ * @param {!proto.ondewo.nlu.RagListCrawlersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagSearchbotRetrievalResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagListCrawlersResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagSearchbotRetrievalResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagListCrawlersResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragSearchbotRetrieval =
+proto.ondewo.nlu.RagsClient.prototype.ragListCrawlers =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotRetrieval',
+      '/ondewo.nlu.Rags/RagListCrawlers',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotRetrieval,
+      methodDescriptor_Rags_RagListCrawlers,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotRetrievalRequest} request The
+ * @param {!proto.ondewo.nlu.RagListCrawlersRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagSearchbotRetrievalResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagListCrawlersResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragSearchbotRetrieval =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragListCrawlers =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotRetrieval',
+      '/ondewo.nlu.Rags/RagListCrawlers',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotRetrieval);
+      methodDescriptor_Rags_RagListCrawlers);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagSearchbotRelatedQuestionsRequest,
- *   !proto.ondewo.nlu.RagRelatedQuestionsResponse>}
+ *   !proto.ondewo.nlu.RagUpdateCrawlerRequest,
+ *   !proto.ondewo.nlu.RagCrawler>}
  */
-const methodDescriptor_Rags_RagSearchbotRelatedQuestions = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagSearchbotRelatedQuestions',
+const methodDescriptor_Rags_RagUpdateCrawler = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagUpdateCrawler',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagSearchbotRelatedQuestionsRequest,
-  proto.ondewo.nlu.RagRelatedQuestionsResponse,
+  proto.ondewo.nlu.RagUpdateCrawlerRequest,
+  proto.ondewo.nlu.RagCrawler,
   /**
-   * @param {!proto.ondewo.nlu.RagSearchbotRelatedQuestionsRequest} request
+   * @param {!proto.ondewo.nlu.RagUpdateCrawlerRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagRelatedQuestionsResponse.deserializeBinary
+  proto.ondewo.nlu.RagCrawler.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotRelatedQuestionsRequest} request The
+ * @param {!proto.ondewo.nlu.RagUpdateCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagRelatedQuestionsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagCrawler)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagRelatedQuestionsResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagCrawler>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragSearchbotRelatedQuestions =
+proto.ondewo.nlu.RagsClient.prototype.ragUpdateCrawler =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotRelatedQuestions',
+      '/ondewo.nlu.Rags/RagUpdateCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotRelatedQuestions,
+      methodDescriptor_Rags_RagUpdateCrawler,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotRelatedQuestionsRequest} request The
+ * @param {!proto.ondewo.nlu.RagUpdateCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagRelatedQuestionsResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagCrawler>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragSearchbotRelatedQuestions =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragUpdateCrawler =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotRelatedQuestions',
+      '/ondewo.nlu.Rags/RagUpdateCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotRelatedQuestions);
+      methodDescriptor_Rags_RagUpdateCrawler);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagSearchbotDetailRequest,
- *   !proto.ondewo.nlu.RagSearchbotDetailResponse>}
+ *   !proto.ondewo.nlu.RagDeleteCrawlerRequest,
+ *   !proto.ondewo.nlu.RagDeleteCrawlerResponse>}
  */
-const methodDescriptor_Rags_RagSearchbotDetail = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagSearchbotDetail',
+const methodDescriptor_Rags_RagDeleteCrawler = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteCrawler',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagSearchbotDetailRequest,
-  proto.ondewo.nlu.RagSearchbotDetailResponse,
+  proto.ondewo.nlu.RagDeleteCrawlerRequest,
+  proto.ondewo.nlu.RagDeleteCrawlerResponse,
   /**
-   * @param {!proto.ondewo.nlu.RagSearchbotDetailRequest} request
+   * @param {!proto.ondewo.nlu.RagDeleteCrawlerRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.ondewo.nlu.RagSearchbotDetailResponse.deserializeBinary
+  proto.ondewo.nlu.RagDeleteCrawlerResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotDetailRequest} request The
+ * @param {!proto.ondewo.nlu.RagDeleteCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagSearchbotDetailResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagDeleteCrawlerResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagSearchbotDetailResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagDeleteCrawlerResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragSearchbotDetail =
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteCrawler =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotDetail',
+      '/ondewo.nlu.Rags/RagDeleteCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotDetail,
+      methodDescriptor_Rags_RagDeleteCrawler,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotDetailRequest} request The
+ * @param {!proto.ondewo.nlu.RagDeleteCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.ondewo.nlu.RagSearchbotDetailResponse>}
+ * @return {!Promise<!proto.ondewo.nlu.RagDeleteCrawlerResponse>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragSearchbotDetail =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteCrawler =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotDetail',
+      '/ondewo.nlu.Rags/RagDeleteCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotDetail);
+      methodDescriptor_Rags_RagDeleteCrawler);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.ondewo.nlu.RagSearchbotMindmapRequest,
- *   !proto.google.protobuf.Struct>}
+ *   !proto.ondewo.nlu.RagStartCrawlerRequest,
+ *   !proto.ondewo.nlu.Operation>}
  */
-const methodDescriptor_Rags_RagSearchbotMindmap = new grpc.web.MethodDescriptor(
-  '/ondewo.nlu.Rags/RagSearchbotMindmap',
+const methodDescriptor_Rags_RagStartCrawler = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagStartCrawler',
   grpc.web.MethodType.UNARY,
-  proto.ondewo.nlu.RagSearchbotMindmapRequest,
-  google_protobuf_struct_pb.Struct,
+  proto.ondewo.nlu.RagStartCrawlerRequest,
+  ondewo_nlu_operations_pb.Operation,
   /**
-   * @param {!proto.ondewo.nlu.RagSearchbotMindmapRequest} request
+   * @param {!proto.ondewo.nlu.RagStartCrawlerRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  google_protobuf_struct_pb.Struct.deserializeBinary
+  ondewo_nlu_operations_pb.Operation.deserializeBinary
 );
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotMindmapRequest} request The
+ * @param {!proto.ondewo.nlu.RagStartCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Struct)}
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Struct>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.ondewo.nlu.RagsClient.prototype.ragSearchbotMindmap =
+proto.ondewo.nlu.RagsClient.prototype.ragStartCrawler =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotMindmap',
+      '/ondewo.nlu.Rags/RagStartCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotMindmap,
+      methodDescriptor_Rags_RagStartCrawler,
       callback);
 };
 
 
 /**
- * @param {!proto.ondewo.nlu.RagSearchbotMindmapRequest} request The
+ * @param {!proto.ondewo.nlu.RagStartCrawlerRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.google.protobuf.Struct>}
+ * @return {!Promise<!proto.ondewo.nlu.Operation>}
  *     Promise that resolves to the response
  */
-proto.ondewo.nlu.RagsPromiseClient.prototype.ragSearchbotMindmap =
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragStartCrawler =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/ondewo.nlu.Rags/RagSearchbotMindmap',
+      '/ondewo.nlu.Rags/RagStartCrawler',
       request,
       metadata || {},
-      methodDescriptor_Rags_RagSearchbotMindmap);
+      methodDescriptor_Rags_RagStartCrawler);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagStopCrawlerRequest,
+ *   !proto.ondewo.nlu.RagStopCrawlerResponse>}
+ */
+const methodDescriptor_Rags_RagStopCrawler = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagStopCrawler',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagStopCrawlerRequest,
+  proto.ondewo.nlu.RagStopCrawlerResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagStopCrawlerRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagStopCrawlerResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagStopCrawlerRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagStopCrawlerResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagStopCrawlerResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragStopCrawler =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagStopCrawler',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagStopCrawler,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagStopCrawlerRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagStopCrawlerResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragStopCrawler =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagStopCrawler',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagStopCrawler);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagGetCrawlerRunRequest,
+ *   !proto.ondewo.nlu.Operation>}
+ */
+const methodDescriptor_Rags_RagGetCrawlerRun = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetCrawlerRun',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagGetCrawlerRunRequest,
+  ondewo_nlu_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.RagGetCrawlerRunRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ondewo_nlu_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerRunRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragGetCrawlerRun =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerRun',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerRun,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerRunRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Operation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetCrawlerRun =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerRun',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerRun);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagListCrawlerRunsRequest,
+ *   !proto.ondewo.nlu.RagListCrawlerRunsResponse>}
+ */
+const methodDescriptor_Rags_RagListCrawlerRuns = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagListCrawlerRuns',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagListCrawlerRunsRequest,
+  proto.ondewo.nlu.RagListCrawlerRunsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagListCrawlerRunsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagListCrawlerRunsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagListCrawlerRunsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagListCrawlerRunsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagListCrawlerRunsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragListCrawlerRuns =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagListCrawlerRuns',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagListCrawlerRuns,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagListCrawlerRunsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagListCrawlerRunsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragListCrawlerRuns =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagListCrawlerRuns',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagListCrawlerRuns);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDeleteCrawlerRunsRequest,
+ *   !proto.ondewo.nlu.RagDeleteCrawlerRunsResponse>}
+ */
+const methodDescriptor_Rags_RagDeleteCrawlerRuns = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteCrawlerRuns',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDeleteCrawlerRunsRequest,
+  proto.ondewo.nlu.RagDeleteCrawlerRunsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagDeleteCrawlerRunsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagDeleteCrawlerRunsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteCrawlerRunsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagDeleteCrawlerRunsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagDeleteCrawlerRunsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteCrawlerRuns =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteCrawlerRuns',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteCrawlerRuns,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteCrawlerRunsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagDeleteCrawlerRunsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteCrawlerRuns =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteCrawlerRuns',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteCrawlerRuns);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagGetCrawlerResultRequest,
+ *   !proto.ondewo.nlu.RagCrawlerResult>}
+ */
+const methodDescriptor_Rags_RagGetCrawlerResult = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetCrawlerResult',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagGetCrawlerResultRequest,
+  proto.ondewo.nlu.RagCrawlerResult,
+  /**
+   * @param {!proto.ondewo.nlu.RagGetCrawlerResultRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagCrawlerResult.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerResultRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagCrawlerResult)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagCrawlerResult>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragGetCrawlerResult =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerResult',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerResult,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerResultRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagCrawlerResult>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetCrawlerResult =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerResult',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerResult);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagGetCrawlerResultsRequest,
+ *   !proto.ondewo.nlu.RagGetCrawlerResultsResponse>}
+ */
+const methodDescriptor_Rags_RagGetCrawlerResults = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetCrawlerResults',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagGetCrawlerResultsRequest,
+  proto.ondewo.nlu.RagGetCrawlerResultsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagGetCrawlerResultsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagGetCrawlerResultsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerResultsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetCrawlerResultsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetCrawlerResultsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragGetCrawlerResults =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerResults',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerResults,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerResultsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagGetCrawlerResultsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetCrawlerResults =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerResults',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerResults);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagAddCrawlerResultsToDatasetsRequest,
+ *   !proto.ondewo.nlu.Operation>}
+ */
+const methodDescriptor_Rags_RagAddCrawlerResultsToDatasets = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagAddCrawlerResultsToDatasets',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagAddCrawlerResultsToDatasetsRequest,
+  ondewo_nlu_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.RagAddCrawlerResultsToDatasetsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ondewo_nlu_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagAddCrawlerResultsToDatasetsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragAddCrawlerResultsToDatasets =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagAddCrawlerResultsToDatasets',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagAddCrawlerResultsToDatasets,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagAddCrawlerResultsToDatasetsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Operation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragAddCrawlerResultsToDatasets =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagAddCrawlerResultsToDatasets',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagAddCrawlerResultsToDatasets);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagRemoveCrawlerResultsFromDatasetsRequest,
+ *   !proto.ondewo.nlu.Operation>}
+ */
+const methodDescriptor_Rags_RagRemoveCrawlerResultsFromDatasets = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagRemoveCrawlerResultsFromDatasets',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagRemoveCrawlerResultsFromDatasetsRequest,
+  ondewo_nlu_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.RagRemoveCrawlerResultsFromDatasetsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ondewo_nlu_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagRemoveCrawlerResultsFromDatasetsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragRemoveCrawlerResultsFromDatasets =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagRemoveCrawlerResultsFromDatasets',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagRemoveCrawlerResultsFromDatasets,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagRemoveCrawlerResultsFromDatasetsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Operation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragRemoveCrawlerResultsFromDatasets =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagRemoveCrawlerResultsFromDatasets',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagRemoveCrawlerResultsFromDatasets);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsRequest,
+ *   !proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsResponse>}
+ */
+const methodDescriptor_Rags_RagGetCrawlerAttachedDatasets = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetCrawlerAttachedDatasets',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsRequest,
+  proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragGetCrawlerAttachedDatasets =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerAttachedDatasets',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerAttachedDatasets,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagGetCrawlerAttachedDatasetsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetCrawlerAttachedDatasets =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerAttachedDatasets',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerAttachedDatasets);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagDeleteCrawlersRequest,
+ *   !proto.ondewo.nlu.RagDeleteCrawlersResponse>}
+ */
+const methodDescriptor_Rags_RagDeleteCrawlers = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagDeleteCrawlers',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagDeleteCrawlersRequest,
+  proto.ondewo.nlu.RagDeleteCrawlersResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagDeleteCrawlersRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagDeleteCrawlersResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteCrawlersRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagDeleteCrawlersResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagDeleteCrawlersResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragDeleteCrawlers =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteCrawlers',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteCrawlers,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagDeleteCrawlersRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagDeleteCrawlersResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteCrawlers =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagDeleteCrawlers',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagDeleteCrawlers);
 };
 
 
