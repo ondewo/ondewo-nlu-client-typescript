@@ -1,6 +1,5 @@
 import * as grpcWeb from 'grpc-web';
 
-import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
 import * as ondewo_nlu_operations_pb from '../../ondewo/nlu/operations_pb'; // proto import: "ondewo/nlu/operations.proto"
 import * as ondewo_nlu_rag_pb from '../../ondewo/nlu/rag_pb'; // proto import: "ondewo/nlu/rag.proto"
 
@@ -71,209 +70,19 @@ export class RagsClient {
                response: ondewo_nlu_rag_pb.RagRetrievalResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagRetrievalResponse>;
 
-  ragGetKnowledgeGraph(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagGetKnowledgeGraphResponse) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagGetKnowledgeGraphResponse>;
-
-  ragDeleteKnowledgeGraph(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragConstructKnowledgeGraph(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagConstructKnowledgeGraphResponse) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagConstructKnowledgeGraphResponse>;
-
-  ragKnowledgeGraphStatus(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagTaskStatus) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagTaskStatus>;
-
-  ragConstructRaptor(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagConstructRaptorResponse) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagConstructRaptorResponse>;
-
-  ragRaptorStatus(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagTaskStatus) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagTaskStatus>;
-
   ragParseDocuments(
-    request: ondewo_nlu_rag_pb.RagParseDocumentsRequest,
+    request: ondewo_nlu_rag_pb.RagDocumentIdsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_rag_pb.RagPartialSuccess) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagPartialSuccess>;
 
   ragStopParsing(
-    request: ondewo_nlu_rag_pb.RagStopParsingRequest,
+    request: ondewo_nlu_rag_pb.RagDocumentIdsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
                response: ondewo_nlu_rag_pb.RagPartialSuccess) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragListChunks(
-    request: ondewo_nlu_rag_pb.RagListChunksRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagListChunksResponse) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagListChunksResponse>;
-
-  ragAddChunk(
-    request: ondewo_nlu_rag_pb.RagAddChunkRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagAddChunkResponse) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAddChunkResponse>;
-
-  ragRemoveChunks(
-    request: ondewo_nlu_rag_pb.RagRemoveChunksRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagPartialSuccess) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragUpdateChunk(
-    request: ondewo_nlu_rag_pb.RagUpdateChunkRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragCreateChatAssistant(
-    request: ondewo_nlu_rag_pb.RagCreateChatAssistantRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagChatAssistant) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagChatAssistant>;
-
-  ragUpdateChatAssistant(
-    request: ondewo_nlu_rag_pb.RagUpdateChatAssistantRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragDeleteChatAssistants(
-    request: ondewo_nlu_rag_pb.RagDeleteRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagPartialSuccess) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragListChatAssistants(
-    request: ondewo_nlu_rag_pb.RagListChatAssistantsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagChatAssistantList) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagChatAssistantList>;
-
-  ragCreateAgent(
-    request: ondewo_nlu_rag_pb.RagCreateAgentRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragUpdateAgent(
-    request: ondewo_nlu_rag_pb.RagUpdateAgentRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragDeleteAgent(
-    request: ondewo_nlu_rag_pb.RagDeleteAgentRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragListAgents(
-    request: ondewo_nlu_rag_pb.RagListAgentsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagAgentList) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAgentList>;
-
-  ragCreateChatSession(
-    request: ondewo_nlu_rag_pb.RagCreateChatSessionRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagChatSession) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagChatSession>;
-
-  ragUpdateChatSession(
-    request: ondewo_nlu_rag_pb.RagUpdateChatSessionRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: google_protobuf_empty_pb.Empty) => void
-  ): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
-
-  ragListChatSessions(
-    request: ondewo_nlu_rag_pb.RagListChatSessionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagChatSessionList) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagChatSessionList>;
-
-  ragDeleteChatSessions(
-    request: ondewo_nlu_rag_pb.RagDeleteChatSessionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagPartialSuccess) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragListAgentSessions(
-    request: ondewo_nlu_rag_pb.RagListAgentSessionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagAgentSessionList) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAgentSessionList>;
-
-  ragDeleteAgentSessions(
-    request: ondewo_nlu_rag_pb.RagDeleteAgentSessionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagPartialSuccess) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragChatCompletion(
-    request: ondewo_nlu_rag_pb.RagChatCompletionRequest,
-    metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagChatCompletionResponse>;
-
-  ragAgentCompletion(
-    request: ondewo_nlu_rag_pb.RagAgentCompletionRequest,
-    metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAgentCompletionResponse>;
-
-  ragAsk(
-    request: ondewo_nlu_rag_pb.RagAskRequest,
-    metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAskResponse>;
-
-  ragRelatedQuestions(
-    request: ondewo_nlu_rag_pb.RagRelatedQuestionsRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: ondewo_nlu_rag_pb.RagRelatedQuestionsResponse) => void
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagRelatedQuestionsResponse>;
 
   ragCreateCrawler(
     request: ondewo_nlu_rag_pb.RagCreateCrawlerRequest,
@@ -439,155 +248,15 @@ export class RagsPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_rag_pb.RagRetrievalResponse>;
 
-  ragGetKnowledgeGraph(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagGetKnowledgeGraphResponse>;
-
-  ragDeleteKnowledgeGraph(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragConstructKnowledgeGraph(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagConstructKnowledgeGraphResponse>;
-
-  ragKnowledgeGraphStatus(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagTaskStatus>;
-
-  ragConstructRaptor(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagConstructRaptorResponse>;
-
-  ragRaptorStatus(
-    request: ondewo_nlu_rag_pb.RagDatasetIdRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagTaskStatus>;
-
   ragParseDocuments(
-    request: ondewo_nlu_rag_pb.RagParseDocumentsRequest,
+    request: ondewo_nlu_rag_pb.RagDocumentIdsRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_rag_pb.RagPartialSuccess>;
 
   ragStopParsing(
-    request: ondewo_nlu_rag_pb.RagStopParsingRequest,
+    request: ondewo_nlu_rag_pb.RagDocumentIdsRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragListChunks(
-    request: ondewo_nlu_rag_pb.RagListChunksRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagListChunksResponse>;
-
-  ragAddChunk(
-    request: ondewo_nlu_rag_pb.RagAddChunkRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagAddChunkResponse>;
-
-  ragRemoveChunks(
-    request: ondewo_nlu_rag_pb.RagRemoveChunksRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragUpdateChunk(
-    request: ondewo_nlu_rag_pb.RagUpdateChunkRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragCreateChatAssistant(
-    request: ondewo_nlu_rag_pb.RagCreateChatAssistantRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagChatAssistant>;
-
-  ragUpdateChatAssistant(
-    request: ondewo_nlu_rag_pb.RagUpdateChatAssistantRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragDeleteChatAssistants(
-    request: ondewo_nlu_rag_pb.RagDeleteRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragListChatAssistants(
-    request: ondewo_nlu_rag_pb.RagListChatAssistantsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagChatAssistantList>;
-
-  ragCreateAgent(
-    request: ondewo_nlu_rag_pb.RagCreateAgentRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragUpdateAgent(
-    request: ondewo_nlu_rag_pb.RagUpdateAgentRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragDeleteAgent(
-    request: ondewo_nlu_rag_pb.RagDeleteAgentRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragListAgents(
-    request: ondewo_nlu_rag_pb.RagListAgentsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagAgentList>;
-
-  ragCreateChatSession(
-    request: ondewo_nlu_rag_pb.RagCreateChatSessionRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagChatSession>;
-
-  ragUpdateChatSession(
-    request: ondewo_nlu_rag_pb.RagUpdateChatSessionRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<google_protobuf_empty_pb.Empty>;
-
-  ragListChatSessions(
-    request: ondewo_nlu_rag_pb.RagListChatSessionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagChatSessionList>;
-
-  ragDeleteChatSessions(
-    request: ondewo_nlu_rag_pb.RagDeleteChatSessionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragListAgentSessions(
-    request: ondewo_nlu_rag_pb.RagListAgentSessionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagAgentSessionList>;
-
-  ragDeleteAgentSessions(
-    request: ondewo_nlu_rag_pb.RagDeleteAgentSessionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagPartialSuccess>;
-
-  ragChatCompletion(
-    request: ondewo_nlu_rag_pb.RagChatCompletionRequest,
-    metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagChatCompletionResponse>;
-
-  ragAgentCompletion(
-    request: ondewo_nlu_rag_pb.RagAgentCompletionRequest,
-    metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAgentCompletionResponse>;
-
-  ragAsk(
-    request: ondewo_nlu_rag_pb.RagAskRequest,
-    metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagAskResponse>;
-
-  ragRelatedQuestions(
-    request: ondewo_nlu_rag_pb.RagRelatedQuestionsRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<ondewo_nlu_rag_pb.RagRelatedQuestionsResponse>;
 
   ragCreateCrawler(
     request: ondewo_nlu_rag_pb.RagCreateCrawlerRequest,
