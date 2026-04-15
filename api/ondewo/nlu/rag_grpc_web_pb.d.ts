@@ -196,6 +196,13 @@ export class RagsClient {
                response: ondewo_nlu_rag_pb.RagDeleteCrawlersResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagDeleteCrawlersResponse>;
 
+  ragGetCrawlerRunLogs(
+    request: ondewo_nlu_rag_pb.RagGetCrawlerRunLogsRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: ondewo_nlu_rag_pb.RagGetCrawlerRunLogsResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_rag_pb.RagGetCrawlerRunLogsResponse>;
+
 }
 
 export class RagsPromiseClient {
@@ -337,6 +344,11 @@ export class RagsPromiseClient {
     request: ondewo_nlu_rag_pb.RagDeleteCrawlersRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_rag_pb.RagDeleteCrawlersResponse>;
+
+  ragGetCrawlerRunLogs(
+    request: ondewo_nlu_rag_pb.RagGetCrawlerRunLogsRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_rag_pb.RagGetCrawlerRunLogsResponse>;
 
 }
 

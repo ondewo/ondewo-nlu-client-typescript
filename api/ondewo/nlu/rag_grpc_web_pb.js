@@ -26,13 +26,13 @@ var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/fie
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js')
 
+var ondewo_nlu_common_pb = require('../../ondewo/nlu/common_pb.js')
+
 var ondewo_nlu_operation_metadata_pb = require('../../ondewo/nlu/operation_metadata_pb.js')
 
 var ondewo_nlu_operations_pb = require('../../ondewo/nlu/operations_pb.js')
 
 var ondewo_nlu_session_pb = require('../../ondewo/nlu/session_pb.js')
-
-var ondewo_nlu_common_pb = require('../../ondewo/nlu/common_pb.js')
 const proto = {};
 proto.ondewo = {};
 proto.ondewo.nlu = require('./rag_pb.js');
@@ -1728,6 +1728,67 @@ proto.ondewo.nlu.RagsPromiseClient.prototype.ragDeleteCrawlers =
       request,
       metadata || {},
       methodDescriptor_Rags_RagDeleteCrawlers);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RagGetCrawlerRunLogsRequest,
+ *   !proto.ondewo.nlu.RagGetCrawlerRunLogsResponse>}
+ */
+const methodDescriptor_Rags_RagGetCrawlerRunLogs = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Rags/RagGetCrawlerRunLogs',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RagGetCrawlerRunLogsRequest,
+  proto.ondewo.nlu.RagGetCrawlerRunLogsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RagGetCrawlerRunLogsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RagGetCrawlerRunLogsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerRunLogsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RagGetCrawlerRunLogsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RagGetCrawlerRunLogsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.RagsClient.prototype.ragGetCrawlerRunLogs =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerRunLogs',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerRunLogs,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RagGetCrawlerRunLogsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RagGetCrawlerRunLogsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.RagsPromiseClient.prototype.ragGetCrawlerRunLogs =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Rags/RagGetCrawlerRunLogs',
+      request,
+      metadata || {},
+      methodDescriptor_Rags_RagGetCrawlerRunLogs);
 };
 
 
