@@ -83,6 +83,9 @@ export class RagCreateDatasetRequest extends jspb.Message {
   hasParserConfig(): boolean;
   clearParserConfig(): RagCreateDatasetRequest;
 
+  getEmbeddingModelCcaiServiceName(): string;
+  setEmbeddingModelCcaiServiceName(value: string): RagCreateDatasetRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RagCreateDatasetRequest.AsObject;
   static toObject(includeInstance: boolean, msg: RagCreateDatasetRequest): RagCreateDatasetRequest.AsObject;
@@ -100,6 +103,7 @@ export namespace RagCreateDatasetRequest {
     avatar: string,
     chunkMethod: RagChunkMethod,
     parserConfig?: RagParserConfig.AsObject,
+    embeddingModelCcaiServiceName: string,
   }
 }
 
@@ -504,6 +508,9 @@ export class RagUpdateDatasetRequest extends jspb.Message {
   hasFieldMask(): boolean;
   clearFieldMask(): RagUpdateDatasetRequest;
 
+  getEmbeddingModelCcaiServiceName(): string;
+  setEmbeddingModelCcaiServiceName(value: string): RagUpdateDatasetRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RagUpdateDatasetRequest.AsObject;
   static toObject(includeInstance: boolean, msg: RagUpdateDatasetRequest): RagUpdateDatasetRequest.AsObject;
@@ -525,6 +532,7 @@ export namespace RagUpdateDatasetRequest {
     pagerank?: number,
     updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+    embeddingModelCcaiServiceName: string,
   }
 
   export enum DescriptionCase { 
@@ -1317,6 +1325,11 @@ export class RagRetrievalRequest extends jspb.Message {
   hasFieldMask(): boolean;
   clearFieldMask(): RagRetrievalRequest;
 
+  getRerankModelCcaiServiceName(): string;
+  setRerankModelCcaiServiceName(value: string): RagRetrievalRequest;
+  hasRerankModelCcaiServiceName(): boolean;
+  clearRerankModelCcaiServiceName(): RagRetrievalRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RagRetrievalRequest.AsObject;
   static toObject(includeInstance: boolean, msg: RagRetrievalRequest): RagRetrievalRequest.AsObject;
@@ -1342,6 +1355,7 @@ export namespace RagRetrievalRequest {
     highlight?: boolean,
     keyword?: boolean,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+    rerankModelCcaiServiceName?: string,
   }
 
   export enum UseKgCase { 
@@ -1372,6 +1386,11 @@ export namespace RagRetrievalRequest {
   export enum FieldMaskCase { 
     _FIELD_MASK_NOT_SET = 0,
     FIELD_MASK = 15,
+  }
+
+  export enum RerankModelCcaiServiceNameCase { 
+    _RERANK_MODEL_CCAI_SERVICE_NAME_NOT_SET = 0,
+    RERANK_MODEL_CCAI_SERVICE_NAME = 16,
   }
 }
 
