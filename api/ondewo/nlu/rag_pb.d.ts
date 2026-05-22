@@ -382,6 +382,9 @@ export class RagDataset extends jspb.Message {
   hasUpdateTime(): boolean;
   clearUpdateTime(): RagDataset;
 
+  getEmbeddingModelCcaiServiceName(): string;
+  setEmbeddingModelCcaiServiceName(value: string): RagDataset;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RagDataset.AsObject;
   static toObject(includeInstance: boolean, msg: RagDataset): RagDataset.AsObject;
@@ -405,6 +408,7 @@ export namespace RagDataset {
     parsingStatus?: RagDatasetParsingStatus.AsObject,
     createTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     updateTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    embeddingModelCcaiServiceName: string,
   }
 
   export enum DocumentCountCase { 
