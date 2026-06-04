@@ -11,6 +11,7 @@ import * as ondewo_nlu_user_pb from '../../ondewo/nlu/user_pb'; // proto import:
 import * as ondewo_nlu_project_role_pb from '../../ondewo/nlu/project_role_pb'; // proto import: "ondewo/nlu/project_role.proto"
 import * as ondewo_nlu_operations_pb from '../../ondewo/nlu/operations_pb'; // proto import: "ondewo/nlu/operations.proto"
 import * as ondewo_nlu_session_pb from '../../ondewo/nlu/session_pb'; // proto import: "ondewo/nlu/session.proto"
+import * as ondewo_nlu_ccai_project_pb from '../../ondewo/nlu/ccai_project_pb'; // proto import: "ondewo/nlu/ccai_project.proto"
 
 
 export class Agent extends jspb.Message {
@@ -691,6 +692,36 @@ export class GetAgentStatisticsRequest extends jspb.Message {
   getType(): ReportType;
   setType(value: ReportType): GetAgentStatisticsRequest;
 
+  getLlmModelFilterList(): Array<string>;
+  setLlmModelFilterList(value: Array<string>): GetAgentStatisticsRequest;
+  clearLlmModelFilterList(): GetAgentStatisticsRequest;
+  addLlmModelFilter(value: string, index?: number): GetAgentStatisticsRequest;
+
+  getLlmProviderFilterList(): Array<string>;
+  setLlmProviderFilterList(value: Array<string>): GetAgentStatisticsRequest;
+  clearLlmProviderFilterList(): GetAgentStatisticsRequest;
+  addLlmProviderFilter(value: string, index?: number): GetAgentStatisticsRequest;
+
+  getLlmAgentNameFilterList(): Array<string>;
+  setLlmAgentNameFilterList(value: Array<string>): GetAgentStatisticsRequest;
+  clearLlmAgentNameFilterList(): GetAgentStatisticsRequest;
+  addLlmAgentNameFilter(value: string, index?: number): GetAgentStatisticsRequest;
+
+  getLlmGroupBysList(): Array<string>;
+  setLlmGroupBysList(value: Array<string>): GetAgentStatisticsRequest;
+  clearLlmGroupBysList(): GetAgentStatisticsRequest;
+  addLlmGroupBys(value: string, index?: number): GetAgentStatisticsRequest;
+
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): GetAgentStatisticsRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): GetAgentStatisticsRequest;
+
+  getLlmCcaiServiceProviderFilterList(): Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>;
+  setLlmCcaiServiceProviderFilterList(value: Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>): GetAgentStatisticsRequest;
+  clearLlmCcaiServiceProviderFilterList(): GetAgentStatisticsRequest;
+  addLlmCcaiServiceProviderFilter(value: ondewo_nlu_ccai_project_pb.CcaiServiceProvider, index?: number): GetAgentStatisticsRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetAgentStatisticsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetAgentStatisticsRequest): GetAgentStatisticsRequest.AsObject;
@@ -705,6 +736,12 @@ export namespace GetAgentStatisticsRequest {
     format: ReportFormat,
     languageCode: string,
     type: ReportType,
+    llmModelFilterList: Array<string>,
+    llmProviderFilterList: Array<string>,
+    llmAgentNameFilterList: Array<string>,
+    llmGroupBysList: Array<string>,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+    llmCcaiServiceProviderFilterList: Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>,
   }
 }
 
@@ -720,6 +757,11 @@ export class GetAgentStatisticsResponse extends jspb.Message {
   getType(): ReportType;
   setType(value: ReportType): GetAgentStatisticsResponse;
 
+  getLlmTelemetryReport(): ondewo_nlu_session_pb.LlmTelemetryReport | undefined;
+  setLlmTelemetryReport(value?: ondewo_nlu_session_pb.LlmTelemetryReport): GetAgentStatisticsResponse;
+  hasLlmTelemetryReport(): boolean;
+  clearLlmTelemetryReport(): GetAgentStatisticsResponse;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetAgentStatisticsResponse.AsObject;
   static toObject(includeInstance: boolean, msg: GetAgentStatisticsResponse): GetAgentStatisticsResponse.AsObject;
@@ -733,6 +775,7 @@ export namespace GetAgentStatisticsResponse {
     reports: Uint8Array | string,
     format: ReportFormat,
     type: ReportType,
+    llmTelemetryReport?: ondewo_nlu_session_pb.LlmTelemetryReport.AsObject,
   }
 }
 
@@ -777,6 +820,31 @@ export class GetSessionsStatisticsRequest extends jspb.Message {
   getSqlQuery(): string;
   setSqlQuery(value: string): GetSessionsStatisticsRequest;
 
+  getLlmModelFilterList(): Array<string>;
+  setLlmModelFilterList(value: Array<string>): GetSessionsStatisticsRequest;
+  clearLlmModelFilterList(): GetSessionsStatisticsRequest;
+  addLlmModelFilter(value: string, index?: number): GetSessionsStatisticsRequest;
+
+  getLlmProviderFilterList(): Array<string>;
+  setLlmProviderFilterList(value: Array<string>): GetSessionsStatisticsRequest;
+  clearLlmProviderFilterList(): GetSessionsStatisticsRequest;
+  addLlmProviderFilter(value: string, index?: number): GetSessionsStatisticsRequest;
+
+  getLlmAgentNameFilterList(): Array<string>;
+  setLlmAgentNameFilterList(value: Array<string>): GetSessionsStatisticsRequest;
+  clearLlmAgentNameFilterList(): GetSessionsStatisticsRequest;
+  addLlmAgentNameFilter(value: string, index?: number): GetSessionsStatisticsRequest;
+
+  getLlmToolNameFilterList(): Array<string>;
+  setLlmToolNameFilterList(value: Array<string>): GetSessionsStatisticsRequest;
+  clearLlmToolNameFilterList(): GetSessionsStatisticsRequest;
+  addLlmToolNameFilter(value: string, index?: number): GetSessionsStatisticsRequest;
+
+  getLlmCcaiServiceProviderFilterList(): Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>;
+  setLlmCcaiServiceProviderFilterList(value: Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>): GetSessionsStatisticsRequest;
+  clearLlmCcaiServiceProviderFilterList(): GetSessionsStatisticsRequest;
+  addLlmCcaiServiceProviderFilter(value: ondewo_nlu_ccai_project_pb.CcaiServiceProvider, index?: number): GetSessionsStatisticsRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetSessionsStatisticsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetSessionsStatisticsRequest): GetSessionsStatisticsRequest.AsObject;
@@ -797,6 +865,11 @@ export namespace GetSessionsStatisticsRequest {
     orderBysList: Array<string>,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
     sqlQuery: string,
+    llmModelFilterList: Array<string>,
+    llmProviderFilterList: Array<string>,
+    llmAgentNameFilterList: Array<string>,
+    llmToolNameFilterList: Array<string>,
+    llmCcaiServiceProviderFilterList: Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>,
   }
 }
 
@@ -812,6 +885,11 @@ export class GetSessionsStatisticsResponse extends jspb.Message {
   getType(): SessionsReportType;
   setType(value: SessionsReportType): GetSessionsStatisticsResponse;
 
+  getLlmTelemetryReport(): ondewo_nlu_session_pb.LlmTelemetryReport | undefined;
+  setLlmTelemetryReport(value?: ondewo_nlu_session_pb.LlmTelemetryReport): GetSessionsStatisticsResponse;
+  hasLlmTelemetryReport(): boolean;
+  clearLlmTelemetryReport(): GetSessionsStatisticsResponse;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetSessionsStatisticsResponse.AsObject;
   static toObject(includeInstance: boolean, msg: GetSessionsStatisticsResponse): GetSessionsStatisticsResponse.AsObject;
@@ -825,6 +903,7 @@ export namespace GetSessionsStatisticsResponse {
     reports: Uint8Array | string,
     format: ReportFormat,
     type: SessionsReportType,
+    llmTelemetryReport?: ondewo_nlu_session_pb.LlmTelemetryReport.AsObject,
   }
 }
 
@@ -2537,6 +2616,26 @@ export enum ReportType {
   ENTITY_PER_LANGUAGE = 2,
   ENTITY_COLLISION = 3,
   INTENT_GENERAL = 4,
+  AGENT_LLM_TOKEN_USAGE = 5,
+  AGENT_LLM_MODELS_USED = 6,
+  AGENT_LLM_PROVIDERS_USED = 7,
+  AGENT_LLM_CCAI_SERVICES_USED = 8,
+  AGENT_LLM_AGENTS_USED = 9,
+  AGENT_LLM_ERRORS = 10,
+  AGENT_LLM_CACHE_EFFICIENCY = 11,
+  AGENT_LLM_REASONING_EFFORT = 12,
+  AGENT_LLM_TOP_X_TOOLS = 13,
+  AGENT_LLM_LEAST_X_TOOLS = 14,
+  AGENT_LLM_LATENCY = 15,
+  AGENT_LLM_FINISH_REASONS = 16,
+  AGENT_LLM_TOTAL_STATISTICS = 17,
+  AGENT_LLM_INPUT_TOKEN_USAGE = 18,
+  AGENT_LLM_OUTPUT_TOKEN_USAGE = 19,
+  AGENT_LLM_THINKING_TOKEN_USAGE = 20,
+  AGENT_LLM_TOOL_CALL_TOKEN_USAGE = 21,
+  AGENT_LLM_TOP_X_MODELS = 22,
+  AGENT_LLM_TOP_X_CCAI_SERVICE_PROVIDERS = 23,
+  AGENT_LLM_TOP_X_AGENT_NAMES = 24,
 }
 export enum SessionsReportType { 
   SESSIONS = 0,
@@ -2557,6 +2656,29 @@ export enum SessionsReportType {
   SESSION_LEAST_X_LABELS = 15,
   SESSION_LEAST_X_TAGS = 16,
   TOTAL_STATISTICS = 17,
+  SESSION_LLM_TOKEN_USAGE = 18,
+  SESSION_LLM_TOOL_CALLS = 19,
+  SESSION_LLM_THINKING = 20,
+  SESSION_LLM_FINISH_REASONS = 21,
+  SESSION_LLM_LATENCY = 22,
+  SESSION_LLM_RAG_METRICS = 23,
+  SESSION_LLM_MODELS_USED = 24,
+  SESSION_LLM_PROVIDERS_USED = 25,
+  SESSION_LLM_CCAI_SERVICES_USED = 26,
+  SESSION_LLM_AGENTS_USED = 27,
+  SESSION_LLM_ERRORS = 28,
+  SESSION_LLM_CACHE_EFFICIENCY = 29,
+  SESSION_LLM_REASONING_EFFORT = 30,
+  SESSION_LLM_TOP_X_TOOLS = 31,
+  SESSION_LLM_LEAST_X_TOOLS = 32,
+  SESSION_LLM_TOTAL_STATISTICS = 33,
+  SESSION_LLM_INPUT_TOKEN_USAGE = 34,
+  SESSION_LLM_OUTPUT_TOKEN_USAGE = 35,
+  SESSION_LLM_THINKING_TOKEN_USAGE = 36,
+  SESSION_LLM_TOOL_CALL_TOKEN_USAGE = 37,
+  SESSION_LLM_TOP_X_MODELS = 38,
+  SESSION_LLM_TOP_X_CCAI_SERVICE_PROVIDERS = 39,
+  SESSION_LLM_TOP_X_AGENT_NAMES = 40,
 }
 export enum ReportFormat { 
   CSV = 0,

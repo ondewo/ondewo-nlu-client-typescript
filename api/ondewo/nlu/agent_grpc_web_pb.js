@@ -41,6 +41,8 @@ var ondewo_nlu_project_role_pb = require('../../ondewo/nlu/project_role_pb.js')
 var ondewo_nlu_operations_pb = require('../../ondewo/nlu/operations_pb.js')
 
 var ondewo_nlu_session_pb = require('../../ondewo/nlu/session_pb.js')
+
+var ondewo_nlu_ccai_project_pb = require('../../ondewo/nlu/ccai_project_pb.js')
 const proto = {};
 proto.ondewo = {};
 proto.ondewo.nlu = require('./agent_pb.js');
