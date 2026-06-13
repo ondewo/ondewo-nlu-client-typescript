@@ -171,6 +171,13 @@ export class AgentsClient {
                response: ondewo_nlu_agent_pb.GetSessionsStatisticsResponse) => void
   ): grpcWeb.ClientReadableStream<ondewo_nlu_agent_pb.GetSessionsStatisticsResponse>;
 
+  getSessionsStatisticsTimeSeries(
+    request: ondewo_nlu_agent_pb.GetSessionsStatisticsTimeSeriesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: ondewo_nlu_agent_pb.GetSessionsStatisticsTimeSeriesResponse) => void
+  ): grpcWeb.ClientReadableStream<ondewo_nlu_agent_pb.GetSessionsStatisticsTimeSeriesResponse>;
+
   setAgentStatus(
     request: ondewo_nlu_agent_pb.SetAgentStatusRequest,
     metadata: grpcWeb.Metadata | undefined,
@@ -418,6 +425,11 @@ export class AgentsPromiseClient {
     request: ondewo_nlu_agent_pb.GetSessionsStatisticsRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<ondewo_nlu_agent_pb.GetSessionsStatisticsResponse>;
+
+  getSessionsStatisticsTimeSeries(
+    request: ondewo_nlu_agent_pb.GetSessionsStatisticsTimeSeriesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<ondewo_nlu_agent_pb.GetSessionsStatisticsTimeSeriesResponse>;
 
   setAgentStatus(
     request: ondewo_nlu_agent_pb.SetAgentStatusRequest,

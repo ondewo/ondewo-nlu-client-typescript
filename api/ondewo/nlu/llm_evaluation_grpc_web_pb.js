@@ -1366,5 +1366,3116 @@ proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteFeedba
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationFeedbackRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationFeedback>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateFeedback = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateFeedback',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationFeedbackRequest,
+  proto.ondewo.nlu.LlmEvaluationFeedback,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationFeedbackRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationFeedback.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationFeedbackRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationFeedback)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationFeedback>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateFeedback =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateFeedback',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateFeedback,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationFeedbackRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationFeedback>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateFeedback =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateFeedback',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateFeedback);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationReleaseGateRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationReleaseGate>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateReleaseGate = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateReleaseGate',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationReleaseGateRequest,
+  proto.ondewo.nlu.LlmEvaluationReleaseGate,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationReleaseGateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationReleaseGate.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationReleaseGate)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationReleaseGate>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateReleaseGate =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateReleaseGate,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationReleaseGate>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateReleaseGate =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateReleaseGate);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationReleaseGateRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationReleaseGate>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetReleaseGate = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReleaseGate',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationReleaseGateRequest,
+  proto.ondewo.nlu.LlmEvaluationReleaseGate,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationReleaseGateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationReleaseGate.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationReleaseGate)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationReleaseGate>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetReleaseGate =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetReleaseGate,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationReleaseGate>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetReleaseGate =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetReleaseGate);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationReleaseGatesRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationReleaseGatesResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListReleaseGates = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReleaseGates',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationReleaseGatesRequest,
+  proto.ondewo.nlu.ListLlmEvaluationReleaseGatesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationReleaseGatesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationReleaseGatesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationReleaseGatesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationReleaseGatesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationReleaseGatesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListReleaseGates =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReleaseGates',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListReleaseGates,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationReleaseGatesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationReleaseGatesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListReleaseGates =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReleaseGates',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListReleaseGates);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationReleaseGateRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationReleaseGate>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateReleaseGate = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateReleaseGate',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationReleaseGateRequest,
+  proto.ondewo.nlu.LlmEvaluationReleaseGate,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationReleaseGateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationReleaseGate.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationReleaseGate)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationReleaseGate>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateReleaseGate =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateReleaseGate,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationReleaseGate>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateReleaseGate =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateReleaseGate);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteLlmEvaluationReleaseGateRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationDeleteReleaseGate = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteReleaseGate',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteLlmEvaluationReleaseGateRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteLlmEvaluationReleaseGateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationDeleteReleaseGate =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteReleaseGate,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteReleaseGate =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteReleaseGate);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RunLlmEvaluationReleaseGateRequest,
+ *   !proto.ondewo.nlu.Operation>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationRunReleaseGate = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationRunReleaseGate',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RunLlmEvaluationReleaseGateRequest,
+  ondewo_nlu_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.RunLlmEvaluationReleaseGateRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ondewo_nlu_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RunLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationRunReleaseGate =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationRunReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationRunReleaseGate,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RunLlmEvaluationReleaseGateRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Operation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationRunReleaseGate =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationRunReleaseGate',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationRunReleaseGate);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationReleaseGateRunRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationReleaseGateRun>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetReleaseGateRun = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReleaseGateRun',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationReleaseGateRunRequest,
+  proto.ondewo.nlu.LlmEvaluationReleaseGateRun,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationReleaseGateRunRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationReleaseGateRun.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationReleaseGateRunRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationReleaseGateRun)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationReleaseGateRun>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetReleaseGateRun =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReleaseGateRun',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetReleaseGateRun,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationReleaseGateRunRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationReleaseGateRun>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetReleaseGateRun =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReleaseGateRun',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetReleaseGateRun);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListReleaseGateRuns = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReleaseGateRuns',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListReleaseGateRuns =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReleaseGateRuns',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListReleaseGateRuns,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationReleaseGateRunsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListReleaseGateRuns =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReleaseGateRuns',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListReleaseGateRuns);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationScorecardRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationScorecard>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateScorecard = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateScorecard',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationScorecardRequest,
+  proto.ondewo.nlu.LlmEvaluationScorecard,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationScorecardRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationScorecard.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationScorecard)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationScorecard>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateScorecard =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateScorecard,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationScorecard>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateScorecard =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateScorecard);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationScorecardRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationScorecard>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetScorecard = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetScorecard',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationScorecardRequest,
+  proto.ondewo.nlu.LlmEvaluationScorecard,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationScorecardRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationScorecard.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationScorecard)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationScorecard>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetScorecard =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetScorecard,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationScorecard>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetScorecard =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetScorecard);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationScorecardsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationScorecardsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListScorecards = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListScorecards',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationScorecardsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationScorecardsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationScorecardsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationScorecardsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationScorecardsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationScorecardsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationScorecardsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListScorecards =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListScorecards',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListScorecards,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationScorecardsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationScorecardsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListScorecards =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListScorecards',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListScorecards);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationScorecardRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationScorecard>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateScorecard = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateScorecard',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationScorecardRequest,
+  proto.ondewo.nlu.LlmEvaluationScorecard,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationScorecardRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationScorecard.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationScorecard)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationScorecard>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateScorecard =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateScorecard,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationScorecard>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateScorecard =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateScorecard);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteLlmEvaluationScorecardRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationDeleteScorecard = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteScorecard',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteLlmEvaluationScorecardRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteLlmEvaluationScorecardRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationDeleteScorecard =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteScorecard,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationScorecardRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteScorecard =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteScorecard',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteScorecard);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationProjectSettingsRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationProjectSettings>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetProjectSettings = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetProjectSettings',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationProjectSettingsRequest,
+  proto.ondewo.nlu.LlmEvaluationProjectSettings,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationProjectSettingsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationProjectSettings.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationProjectSettingsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationProjectSettings)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationProjectSettings>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetProjectSettings =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetProjectSettings',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetProjectSettings,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationProjectSettingsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationProjectSettings>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetProjectSettings =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetProjectSettings',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetProjectSettings);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationProjectSettingsRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationProjectSettings>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateProjectSettings = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateProjectSettings',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationProjectSettingsRequest,
+  proto.ondewo.nlu.LlmEvaluationProjectSettings,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationProjectSettingsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationProjectSettings.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationProjectSettingsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationProjectSettings)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationProjectSettings>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateProjectSettings =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateProjectSettings',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateProjectSettings,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationProjectSettingsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationProjectSettings>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateProjectSettings =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateProjectSettings',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateProjectSettings);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationEvaluatorsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationEvaluatorsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListEvaluators = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListEvaluators',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationEvaluatorsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationEvaluatorsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationEvaluatorsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationEvaluatorsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationEvaluatorsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationEvaluatorsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationEvaluatorsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListEvaluators =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListEvaluators',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListEvaluators,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationEvaluatorsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationEvaluatorsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListEvaluators =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListEvaluators',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListEvaluators);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionRequest,
+ *   !proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateExamplesFromSession = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateExamplesFromSession',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionRequest,
+  proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionResponse,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateExamplesFromSession =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateExamplesFromSession',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateExamplesFromSession,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.CreateLlmEvaluationExamplesFromSessionResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateExamplesFromSession =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateExamplesFromSession',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateExamplesFromSession);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.SimulateLlmEvaluationConversationsRequest,
+ *   !proto.ondewo.nlu.Operation>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationSimulateConversations = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationSimulateConversations',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.SimulateLlmEvaluationConversationsRequest,
+  ondewo_nlu_operations_pb.Operation,
+  /**
+   * @param {!proto.ondewo.nlu.SimulateLlmEvaluationConversationsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ondewo_nlu_operations_pb.Operation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.SimulateLlmEvaluationConversationsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.Operation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.Operation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationSimulateConversations =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationSimulateConversations',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationSimulateConversations,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.SimulateLlmEvaluationConversationsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.Operation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationSimulateConversations =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationSimulateConversations',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationSimulateConversations);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationScheduleRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationSchedule>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateSchedule = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateSchedule',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationScheduleRequest,
+  proto.ondewo.nlu.LlmEvaluationSchedule,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationScheduleRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationSchedule.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationSchedule)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationSchedule>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateSchedule =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateSchedule,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationSchedule>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateSchedule =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateSchedule);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationScheduleRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationSchedule>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetSchedule = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetSchedule',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationScheduleRequest,
+  proto.ondewo.nlu.LlmEvaluationSchedule,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationScheduleRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationSchedule.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationSchedule)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationSchedule>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetSchedule =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetSchedule,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationSchedule>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetSchedule =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetSchedule);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationSchedulesRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationSchedulesResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListSchedules = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListSchedules',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationSchedulesRequest,
+  proto.ondewo.nlu.ListLlmEvaluationSchedulesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationSchedulesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationSchedulesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationSchedulesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationSchedulesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationSchedulesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListSchedules =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListSchedules',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListSchedules,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationSchedulesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationSchedulesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListSchedules =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListSchedules',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListSchedules);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationScheduleRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationSchedule>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateSchedule = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateSchedule',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationScheduleRequest,
+  proto.ondewo.nlu.LlmEvaluationSchedule,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationScheduleRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationSchedule.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationSchedule)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationSchedule>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateSchedule =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateSchedule,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationSchedule>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateSchedule =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateSchedule);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteLlmEvaluationScheduleRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationDeleteSchedule = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteSchedule',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteLlmEvaluationScheduleRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteLlmEvaluationScheduleRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationDeleteSchedule =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteSchedule,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationScheduleRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteSchedule =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteSchedule',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteSchedule);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationReportRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationReport>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateReport = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateReport',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationReportRequest,
+  proto.ondewo.nlu.LlmEvaluationReport,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationReportRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationReport.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationReportRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationReport)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationReport>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateReport =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateReport',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateReport,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationReportRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationReport>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateReport =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateReport',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateReport);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationReportRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationReport>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetReport = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReport',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationReportRequest,
+  proto.ondewo.nlu.LlmEvaluationReport,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationReportRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationReport.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationReportRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationReport)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationReport>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetReport =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReport',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetReport,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationReportRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationReport>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetReport =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetReport',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetReport);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationReportsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationReportsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListReports = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReports',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationReportsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationReportsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationReportsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationReportsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationReportsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationReportsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationReportsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListReports =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReports',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListReports,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationReportsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationReportsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListReports =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListReports',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListReports);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteLlmEvaluationReportRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationDeleteReport = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteReport',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteLlmEvaluationReportRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteLlmEvaluationReportRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationReportRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationDeleteReport =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteReport',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteReport,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationReportRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteReport =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteReport',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteReport);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationAbExperimentRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateAbExperiment = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateAbExperiment',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationAbExperimentRequest,
+  proto.ondewo.nlu.LlmEvaluationAbExperiment,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationAbExperimentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbExperiment.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbExperiment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbExperiment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateAbExperiment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateAbExperiment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateAbExperiment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateAbExperiment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationAbExperimentRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetAbExperiment = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbExperiment',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationAbExperimentRequest,
+  proto.ondewo.nlu.LlmEvaluationAbExperiment,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationAbExperimentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbExperiment.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbExperiment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbExperiment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetAbExperiment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbExperiment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetAbExperiment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbExperiment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationAbExperimentsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationAbExperimentsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListAbExperiments = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAbExperiments',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationAbExperimentsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationAbExperimentsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationAbExperimentsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationAbExperimentsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationAbExperimentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationAbExperimentsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationAbExperimentsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListAbExperiments =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAbExperiments',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListAbExperiments,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationAbExperimentsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationAbExperimentsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListAbExperiments =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAbExperiments',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListAbExperiments);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationAbExperimentRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateAbExperiment = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateAbExperiment',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationAbExperimentRequest,
+  proto.ondewo.nlu.LlmEvaluationAbExperiment,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationAbExperimentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbExperiment.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbExperiment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbExperiment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateAbExperiment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateAbExperiment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateAbExperiment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateAbExperiment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteLlmEvaluationAbExperimentRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationDeleteAbExperiment = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteAbExperiment',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteLlmEvaluationAbExperimentRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteLlmEvaluationAbExperimentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationDeleteAbExperiment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteAbExperiment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteAbExperiment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteAbExperiment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.StartLlmEvaluationAbExperimentRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationStartAbExperiment = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationStartAbExperiment',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.StartLlmEvaluationAbExperimentRequest,
+  proto.ondewo.nlu.LlmEvaluationAbExperiment,
+  /**
+   * @param {!proto.ondewo.nlu.StartLlmEvaluationAbExperimentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbExperiment.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.StartLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbExperiment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbExperiment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationStartAbExperiment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationStartAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationStartAbExperiment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.StartLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationStartAbExperiment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationStartAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationStartAbExperiment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.StopLlmEvaluationAbExperimentRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationStopAbExperiment = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationStopAbExperiment',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.StopLlmEvaluationAbExperimentRequest,
+  proto.ondewo.nlu.LlmEvaluationAbExperiment,
+  /**
+   * @param {!proto.ondewo.nlu.StopLlmEvaluationAbExperimentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbExperiment.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.StopLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbExperiment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbExperiment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationStopAbExperiment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationStopAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationStopAbExperiment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.StopLlmEvaluationAbExperimentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbExperiment>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationStopAbExperiment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationStopAbExperiment',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationStopAbExperiment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsRequest,
+ *   !proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetAbExperimentResults = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbExperimentResults',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsRequest,
+  proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetAbExperimentResults =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbExperimentResults',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbExperimentResults,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.GetLlmEvaluationAbExperimentResultsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetAbExperimentResults =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbExperimentResults',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbExperimentResults);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationAbRolloutRecommendationRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbRolloutRecommendation>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetAbRolloutRecommendation = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbRolloutRecommendation',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationAbRolloutRecommendationRequest,
+  proto.ondewo.nlu.LlmEvaluationAbRolloutRecommendation,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationAbRolloutRecommendationRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbRolloutRecommendation.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbRolloutRecommendationRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbRolloutRecommendation)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbRolloutRecommendation>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetAbRolloutRecommendation =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbRolloutRecommendation',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbRolloutRecommendation,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbRolloutRecommendationRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbRolloutRecommendation>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetAbRolloutRecommendation =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbRolloutRecommendation',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbRolloutRecommendation);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ApplyLlmEvaluationAbRolloutRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbRolloutDecision>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationApplyAbRollout = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationApplyAbRollout',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ApplyLlmEvaluationAbRolloutRequest,
+  proto.ondewo.nlu.LlmEvaluationAbRolloutDecision,
+  /**
+   * @param {!proto.ondewo.nlu.ApplyLlmEvaluationAbRolloutRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbRolloutDecision.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ApplyLlmEvaluationAbRolloutRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbRolloutDecision)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbRolloutDecision>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationApplyAbRollout =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationApplyAbRollout',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationApplyAbRollout,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ApplyLlmEvaluationAbRolloutRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbRolloutDecision>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationApplyAbRollout =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationApplyAbRollout',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationApplyAbRollout);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationAbRolloutDecisionRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAbRolloutDecision>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetAbRolloutDecision = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbRolloutDecision',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationAbRolloutDecisionRequest,
+  proto.ondewo.nlu.LlmEvaluationAbRolloutDecision,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationAbRolloutDecisionRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAbRolloutDecision.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbRolloutDecisionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAbRolloutDecision)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAbRolloutDecision>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetAbRolloutDecision =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbRolloutDecision',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbRolloutDecision,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAbRolloutDecisionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAbRolloutDecision>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetAbRolloutDecision =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAbRolloutDecision',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAbRolloutDecision);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListAbRolloutDecisions = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAbRolloutDecisions',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListAbRolloutDecisions =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAbRolloutDecisions',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListAbRolloutDecisions,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationAbRolloutDecisionsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListAbRolloutDecisions =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAbRolloutDecisions',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListAbRolloutDecisions);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateLlmEvaluationOnlineConfigRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationOnlineConfig>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationCreateOnlineConfig = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateOnlineConfig',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateLlmEvaluationOnlineConfigRequest,
+  proto.ondewo.nlu.LlmEvaluationOnlineConfig,
+  /**
+   * @param {!proto.ondewo.nlu.CreateLlmEvaluationOnlineConfigRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationOnlineConfig.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationOnlineConfig)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationOnlineConfig>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationCreateOnlineConfig =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateOnlineConfig,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationOnlineConfig>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationCreateOnlineConfig =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationCreateOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationCreateOnlineConfig);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationOnlineConfigRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationOnlineConfig>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetOnlineConfig = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetOnlineConfig',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationOnlineConfigRequest,
+  proto.ondewo.nlu.LlmEvaluationOnlineConfig,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationOnlineConfigRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationOnlineConfig.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationOnlineConfig)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationOnlineConfig>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetOnlineConfig =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetOnlineConfig,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationOnlineConfig>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetOnlineConfig =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetOnlineConfig);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListOnlineConfigs = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListOnlineConfigs',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListOnlineConfigs =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListOnlineConfigs',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListOnlineConfigs,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationOnlineConfigsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListOnlineConfigs =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListOnlineConfigs',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListOnlineConfigs);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationOnlineConfigRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationOnlineConfig>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateOnlineConfig = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateOnlineConfig',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationOnlineConfigRequest,
+  proto.ondewo.nlu.LlmEvaluationOnlineConfig,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationOnlineConfigRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationOnlineConfig.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationOnlineConfig)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationOnlineConfig>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateOnlineConfig =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateOnlineConfig,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationOnlineConfig>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateOnlineConfig =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateOnlineConfig);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteLlmEvaluationOnlineConfigRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationDeleteOnlineConfig = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteOnlineConfig',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteLlmEvaluationOnlineConfigRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteLlmEvaluationOnlineConfigRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationDeleteOnlineConfig =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteOnlineConfig,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteLlmEvaluationOnlineConfigRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationDeleteOnlineConfig =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationDeleteOnlineConfig',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationDeleteOnlineConfig);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationOnlineResultRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationOnlineResult>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetOnlineResult = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetOnlineResult',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationOnlineResultRequest,
+  proto.ondewo.nlu.LlmEvaluationOnlineResult,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationOnlineResultRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationOnlineResult.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationOnlineResultRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationOnlineResult)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationOnlineResult>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetOnlineResult =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetOnlineResult',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetOnlineResult,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationOnlineResultRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationOnlineResult>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetOnlineResult =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetOnlineResult',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetOnlineResult);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationOnlineResultsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationOnlineResultsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListOnlineResults = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListOnlineResults',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationOnlineResultsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationOnlineResultsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationOnlineResultsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationOnlineResultsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationOnlineResultsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationOnlineResultsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationOnlineResultsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListOnlineResults =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListOnlineResults',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListOnlineResults,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationOnlineResultsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationOnlineResultsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListOnlineResults =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListOnlineResults',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListOnlineResults);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetLlmEvaluationAnnotationQueueItemRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationGetAnnotationQueueItem = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAnnotationQueueItem',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetLlmEvaluationAnnotationQueueItemRequest,
+  proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem,
+  /**
+   * @param {!proto.ondewo.nlu.GetLlmEvaluationAnnotationQueueItemRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAnnotationQueueItemRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationGetAnnotationQueueItem =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAnnotationQueueItem',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAnnotationQueueItem,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetLlmEvaluationAnnotationQueueItemRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationGetAnnotationQueueItem =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationGetAnnotationQueueItem',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationGetAnnotationQueueItem);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsRequest,
+ *   !proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationListAnnotationQueueItems = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAnnotationQueueItems',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsRequest,
+  proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationListAnnotationQueueItems =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAnnotationQueueItems',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListAnnotationQueueItems,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListLlmEvaluationAnnotationQueueItemsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationListAnnotationQueueItems =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationListAnnotationQueueItems',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationListAnnotationQueueItems);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.UpdateLlmEvaluationAnnotationQueueItemRequest,
+ *   !proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationUpdateAnnotationQueueItem = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateAnnotationQueueItem',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.UpdateLlmEvaluationAnnotationQueueItemRequest,
+  proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem,
+  /**
+   * @param {!proto.ondewo.nlu.UpdateLlmEvaluationAnnotationQueueItemRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationAnnotationQueueItemRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationUpdateAnnotationQueueItem =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateAnnotationQueueItem',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateAnnotationQueueItem,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.UpdateLlmEvaluationAnnotationQueueItemRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.LlmEvaluationAnnotationQueueItem>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationUpdateAnnotationQueueItem =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationUpdateAnnotationQueueItem',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationUpdateAnnotationQueueItem);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemRequest,
+ *   !proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemResponse>}
+ */
+const methodDescriptor_LlmEvaluations_LlmEvaluationPromoteAnnotationQueueItem = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.LlmEvaluations/LlmEvaluationPromoteAnnotationQueueItem',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemRequest,
+  proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemResponse,
+  /**
+   * @param {!proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.LlmEvaluationsClient.prototype.llmEvaluationPromoteAnnotationQueueItem =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationPromoteAnnotationQueueItem',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationPromoteAnnotationQueueItem,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.PromoteLlmEvaluationAnnotationQueueItemResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.LlmEvaluationsPromiseClient.prototype.llmEvaluationPromoteAnnotationQueueItem =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.LlmEvaluations/LlmEvaluationPromoteAnnotationQueueItem',
+      request,
+      metadata || {},
+      methodDescriptor_LlmEvaluations_LlmEvaluationPromoteAnnotationQueueItem);
+};
+
+
 module.exports = proto.ondewo.nlu;
 

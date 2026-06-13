@@ -1505,6 +1505,67 @@ proto.ondewo.nlu.AgentsPromiseClient.prototype.getSessionsStatistics =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesRequest,
+ *   !proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesResponse>}
+ */
+const methodDescriptor_Agents_GetSessionsStatisticsTimeSeries = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/GetSessionsStatisticsTimeSeries',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesRequest,
+  proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesResponse,
+  /**
+   * @param {!proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.getSessionsStatisticsTimeSeries =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/GetSessionsStatisticsTimeSeries',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_GetSessionsStatisticsTimeSeries,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.GetSessionsStatisticsTimeSeriesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.getSessionsStatisticsTimeSeries =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/GetSessionsStatisticsTimeSeries',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_GetSessionsStatisticsTimeSeries);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.ondewo.nlu.SetAgentStatusRequest,
  *   !proto.ondewo.nlu.Agent>}
  */

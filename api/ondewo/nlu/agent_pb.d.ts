@@ -907,6 +907,134 @@ export namespace GetSessionsStatisticsResponse {
   }
 }
 
+export class GetSessionsStatisticsTimeSeriesRequest extends jspb.Message {
+  getParent(): string;
+  setParent(value: string): GetSessionsStatisticsTimeSeriesRequest;
+
+  getType(): SessionsReportType;
+  setType(value: SessionsReportType): GetSessionsStatisticsTimeSeriesRequest;
+
+  getSessionFilter(): ondewo_nlu_session_pb.SessionFilter | undefined;
+  setSessionFilter(value?: ondewo_nlu_session_pb.SessionFilter): GetSessionsStatisticsTimeSeriesRequest;
+  hasSessionFilter(): boolean;
+  clearSessionFilter(): GetSessionsStatisticsTimeSeriesRequest;
+
+  getBucketWidthSeconds(): number;
+  setBucketWidthSeconds(value: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getMaxBuckets(): number;
+  setMaxBuckets(value: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getLlmModelFilterList(): Array<string>;
+  setLlmModelFilterList(value: Array<string>): GetSessionsStatisticsTimeSeriesRequest;
+  clearLlmModelFilterList(): GetSessionsStatisticsTimeSeriesRequest;
+  addLlmModelFilter(value: string, index?: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getLlmProviderFilterList(): Array<string>;
+  setLlmProviderFilterList(value: Array<string>): GetSessionsStatisticsTimeSeriesRequest;
+  clearLlmProviderFilterList(): GetSessionsStatisticsTimeSeriesRequest;
+  addLlmProviderFilter(value: string, index?: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getLlmAgentNameFilterList(): Array<string>;
+  setLlmAgentNameFilterList(value: Array<string>): GetSessionsStatisticsTimeSeriesRequest;
+  clearLlmAgentNameFilterList(): GetSessionsStatisticsTimeSeriesRequest;
+  addLlmAgentNameFilter(value: string, index?: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getLlmToolNameFilterList(): Array<string>;
+  setLlmToolNameFilterList(value: Array<string>): GetSessionsStatisticsTimeSeriesRequest;
+  clearLlmToolNameFilterList(): GetSessionsStatisticsTimeSeriesRequest;
+  addLlmToolNameFilter(value: string, index?: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getLlmCcaiServiceProviderFilterList(): Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>;
+  setLlmCcaiServiceProviderFilterList(value: Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>): GetSessionsStatisticsTimeSeriesRequest;
+  clearLlmCcaiServiceProviderFilterList(): GetSessionsStatisticsTimeSeriesRequest;
+  addLlmCcaiServiceProviderFilter(value: ondewo_nlu_ccai_project_pb.CcaiServiceProvider, index?: number): GetSessionsStatisticsTimeSeriesRequest;
+
+  getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
+  setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): GetSessionsStatisticsTimeSeriesRequest;
+  hasFieldMask(): boolean;
+  clearFieldMask(): GetSessionsStatisticsTimeSeriesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetSessionsStatisticsTimeSeriesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetSessionsStatisticsTimeSeriesRequest): GetSessionsStatisticsTimeSeriesRequest.AsObject;
+  static serializeBinaryToWriter(message: GetSessionsStatisticsTimeSeriesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetSessionsStatisticsTimeSeriesRequest;
+  static deserializeBinaryFromReader(message: GetSessionsStatisticsTimeSeriesRequest, reader: jspb.BinaryReader): GetSessionsStatisticsTimeSeriesRequest;
+}
+
+export namespace GetSessionsStatisticsTimeSeriesRequest {
+  export type AsObject = {
+    parent: string,
+    type: SessionsReportType,
+    sessionFilter?: ondewo_nlu_session_pb.SessionFilter.AsObject,
+    bucketWidthSeconds: number,
+    maxBuckets: number,
+    llmModelFilterList: Array<string>,
+    llmProviderFilterList: Array<string>,
+    llmAgentNameFilterList: Array<string>,
+    llmToolNameFilterList: Array<string>,
+    llmCcaiServiceProviderFilterList: Array<ondewo_nlu_ccai_project_pb.CcaiServiceProvider>,
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+  }
+}
+
+export class LlmTelemetryTimeSeriesBucket extends jspb.Message {
+  getBucketStart(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setBucketStart(value?: google_protobuf_timestamp_pb.Timestamp): LlmTelemetryTimeSeriesBucket;
+  hasBucketStart(): boolean;
+  clearBucketStart(): LlmTelemetryTimeSeriesBucket;
+
+  getBucketEnd(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setBucketEnd(value?: google_protobuf_timestamp_pb.Timestamp): LlmTelemetryTimeSeriesBucket;
+  hasBucketEnd(): boolean;
+  clearBucketEnd(): LlmTelemetryTimeSeriesBucket;
+
+  getLlmTelemetryReport(): ondewo_nlu_session_pb.LlmTelemetryReport | undefined;
+  setLlmTelemetryReport(value?: ondewo_nlu_session_pb.LlmTelemetryReport): LlmTelemetryTimeSeriesBucket;
+  hasLlmTelemetryReport(): boolean;
+  clearLlmTelemetryReport(): LlmTelemetryTimeSeriesBucket;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LlmTelemetryTimeSeriesBucket.AsObject;
+  static toObject(includeInstance: boolean, msg: LlmTelemetryTimeSeriesBucket): LlmTelemetryTimeSeriesBucket.AsObject;
+  static serializeBinaryToWriter(message: LlmTelemetryTimeSeriesBucket, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LlmTelemetryTimeSeriesBucket;
+  static deserializeBinaryFromReader(message: LlmTelemetryTimeSeriesBucket, reader: jspb.BinaryReader): LlmTelemetryTimeSeriesBucket;
+}
+
+export namespace LlmTelemetryTimeSeriesBucket {
+  export type AsObject = {
+    bucketStart?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    bucketEnd?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    llmTelemetryReport?: ondewo_nlu_session_pb.LlmTelemetryReport.AsObject,
+  }
+}
+
+export class GetSessionsStatisticsTimeSeriesResponse extends jspb.Message {
+  getLlmTelemetryTimeSeriesBucketsList(): Array<LlmTelemetryTimeSeriesBucket>;
+  setLlmTelemetryTimeSeriesBucketsList(value: Array<LlmTelemetryTimeSeriesBucket>): GetSessionsStatisticsTimeSeriesResponse;
+  clearLlmTelemetryTimeSeriesBucketsList(): GetSessionsStatisticsTimeSeriesResponse;
+  addLlmTelemetryTimeSeriesBuckets(value?: LlmTelemetryTimeSeriesBucket, index?: number): LlmTelemetryTimeSeriesBucket;
+
+  getBucketWidthSeconds(): number;
+  setBucketWidthSeconds(value: number): GetSessionsStatisticsTimeSeriesResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetSessionsStatisticsTimeSeriesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetSessionsStatisticsTimeSeriesResponse): GetSessionsStatisticsTimeSeriesResponse.AsObject;
+  static serializeBinaryToWriter(message: GetSessionsStatisticsTimeSeriesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetSessionsStatisticsTimeSeriesResponse;
+  static deserializeBinaryFromReader(message: GetSessionsStatisticsTimeSeriesResponse, reader: jspb.BinaryReader): GetSessionsStatisticsTimeSeriesResponse;
+}
+
+export namespace GetSessionsStatisticsTimeSeriesResponse {
+  export type AsObject = {
+    llmTelemetryTimeSeriesBucketsList: Array<LlmTelemetryTimeSeriesBucket.AsObject>,
+    bucketWidthSeconds: number,
+  }
+}
+
 export class AddUserToProjectRequest extends jspb.Message {
   getParent(): string;
   setParent(value: string): AddUserToProjectRequest;
@@ -2636,6 +2764,7 @@ export enum ReportType {
   AGENT_LLM_TOP_X_MODELS = 22,
   AGENT_LLM_TOP_X_CCAI_SERVICE_PROVIDERS = 23,
   AGENT_LLM_TOP_X_AGENT_NAMES = 24,
+  AGENT_LLM_SAFETY = 25,
 }
 export enum SessionsReportType { 
   SESSIONS = 0,
@@ -2679,6 +2808,7 @@ export enum SessionsReportType {
   SESSION_LLM_TOP_X_MODELS = 38,
   SESSION_LLM_TOP_X_CCAI_SERVICE_PROVIDERS = 39,
   SESSION_LLM_TOP_X_AGENT_NAMES = 40,
+  SESSION_LLM_SAFETY = 41,
 }
 export enum ReportFormat { 
   CSV = 0,
