@@ -2661,5 +2661,249 @@ proto.ondewo.nlu.AgentsPromiseClient.prototype.reindexAgent =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.CreateProjectTechnicalUserRequest,
+ *   !proto.ondewo.nlu.CreateProjectTechnicalUserResponse>}
+ */
+const methodDescriptor_Agents_CreateProjectTechnicalUser = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/CreateProjectTechnicalUser',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.CreateProjectTechnicalUserRequest,
+  proto.ondewo.nlu.CreateProjectTechnicalUserResponse,
+  /**
+   * @param {!proto.ondewo.nlu.CreateProjectTechnicalUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.CreateProjectTechnicalUserResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateProjectTechnicalUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.CreateProjectTechnicalUserResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.CreateProjectTechnicalUserResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.createProjectTechnicalUser =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/CreateProjectTechnicalUser',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_CreateProjectTechnicalUser,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.CreateProjectTechnicalUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.CreateProjectTechnicalUserResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.createProjectTechnicalUser =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/CreateProjectTechnicalUser',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_CreateProjectTechnicalUser);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.ListProjectTechnicalUsersRequest,
+ *   !proto.ondewo.nlu.ListProjectTechnicalUsersResponse>}
+ */
+const methodDescriptor_Agents_ListProjectTechnicalUsers = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/ListProjectTechnicalUsers',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.ListProjectTechnicalUsersRequest,
+  proto.ondewo.nlu.ListProjectTechnicalUsersResponse,
+  /**
+   * @param {!proto.ondewo.nlu.ListProjectTechnicalUsersRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.ListProjectTechnicalUsersResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListProjectTechnicalUsersRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.ListProjectTechnicalUsersResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.ListProjectTechnicalUsersResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.listProjectTechnicalUsers =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/ListProjectTechnicalUsers',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_ListProjectTechnicalUsers,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.ListProjectTechnicalUsersRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.ListProjectTechnicalUsersResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.listProjectTechnicalUsers =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/ListProjectTechnicalUsers',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_ListProjectTechnicalUsers);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.DeleteProjectTechnicalUserRequest,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Agents_DeleteProjectTechnicalUser = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/DeleteProjectTechnicalUser',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.DeleteProjectTechnicalUserRequest,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.ondewo.nlu.DeleteProjectTechnicalUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteProjectTechnicalUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.deleteProjectTechnicalUser =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/DeleteProjectTechnicalUser',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_DeleteProjectTechnicalUser,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.DeleteProjectTechnicalUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.deleteProjectTechnicalUser =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/DeleteProjectTechnicalUser',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_DeleteProjectTechnicalUser);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.ondewo.nlu.RotateProjectTechnicalUserPasswordRequest,
+ *   !proto.ondewo.nlu.RotateProjectTechnicalUserPasswordResponse>}
+ */
+const methodDescriptor_Agents_RotateProjectTechnicalUserPassword = new grpc.web.MethodDescriptor(
+  '/ondewo.nlu.Agents/RotateProjectTechnicalUserPassword',
+  grpc.web.MethodType.UNARY,
+  proto.ondewo.nlu.RotateProjectTechnicalUserPasswordRequest,
+  proto.ondewo.nlu.RotateProjectTechnicalUserPasswordResponse,
+  /**
+   * @param {!proto.ondewo.nlu.RotateProjectTechnicalUserPasswordRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.ondewo.nlu.RotateProjectTechnicalUserPasswordResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.ondewo.nlu.RotateProjectTechnicalUserPasswordRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.ondewo.nlu.RotateProjectTechnicalUserPasswordResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.ondewo.nlu.RotateProjectTechnicalUserPasswordResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.ondewo.nlu.AgentsClient.prototype.rotateProjectTechnicalUserPassword =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/ondewo.nlu.Agents/RotateProjectTechnicalUserPassword',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_RotateProjectTechnicalUserPassword,
+      callback);
+};
+
+
+/**
+ * @param {!proto.ondewo.nlu.RotateProjectTechnicalUserPasswordRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.ondewo.nlu.RotateProjectTechnicalUserPasswordResponse>}
+ *     Promise that resolves to the response
+ */
+proto.ondewo.nlu.AgentsPromiseClient.prototype.rotateProjectTechnicalUserPassword =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/ondewo.nlu.Agents/RotateProjectTechnicalUserPassword',
+      request,
+      metadata || {},
+      methodDescriptor_Agents_RotateProjectTechnicalUserPassword);
+};
+
+
 module.exports = proto.ondewo.nlu;
 
