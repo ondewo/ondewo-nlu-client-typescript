@@ -1742,6 +1742,56 @@ export namespace LlmTokenUsageUpdateEvent {
   }
 }
 
+export class ReferencedChunk extends jspb.Message {
+  getReferenceIndex(): number;
+  setReferenceIndex(value: number): ReferencedChunk;
+
+  getDatasetId(): string;
+  setDatasetId(value: string): ReferencedChunk;
+
+  getDocumentId(): string;
+  setDocumentId(value: string): ReferencedChunk;
+
+  getChunkId(): string;
+  setChunkId(value: string): ReferencedChunk;
+
+  getDocumentName(): string;
+  setDocumentName(value: string): ReferencedChunk;
+
+  getContent(): string;
+  setContent(value: string): ReferencedChunk;
+
+  getSimilarity(): number;
+  setSimilarity(value: number): ReferencedChunk;
+
+  getDocumentUrl(): string;
+  setDocumentUrl(value: string): ReferencedChunk;
+
+  getDeepLinkUrl(): string;
+  setDeepLinkUrl(value: string): ReferencedChunk;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ReferencedChunk.AsObject;
+  static toObject(includeInstance: boolean, msg: ReferencedChunk): ReferencedChunk.AsObject;
+  static serializeBinaryToWriter(message: ReferencedChunk, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ReferencedChunk;
+  static deserializeBinaryFromReader(message: ReferencedChunk, reader: jspb.BinaryReader): ReferencedChunk;
+}
+
+export namespace ReferencedChunk {
+  export type AsObject = {
+    referenceIndex: number,
+    datasetId: string,
+    documentId: string,
+    chunkId: string,
+    documentName: string,
+    content: string,
+    similarity: number,
+    documentUrl: string,
+    deepLinkUrl: string,
+  }
+}
+
 export class QueryResult extends jspb.Message {
   getQueryText(): string;
   setQueryText(value: string): QueryResult;
@@ -1810,6 +1860,11 @@ export class QueryResult extends jspb.Message {
   hasLlmTelemetryReport(): boolean;
   clearLlmTelemetryReport(): QueryResult;
 
+  getReferencedChunksList(): Array<ReferencedChunk>;
+  setReferencedChunksList(value: Array<ReferencedChunk>): QueryResult;
+  clearReferencedChunksList(): QueryResult;
+  addReferencedChunks(value?: ReferencedChunk, index?: number): ReferencedChunk;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): QueryResult.AsObject;
   static toObject(includeInstance: boolean, msg: QueryResult): QueryResult.AsObject;
@@ -1837,6 +1892,7 @@ export namespace QueryResult {
     languageCode: string,
     fileResourcesList: Array<FileResource.AsObject>,
     llmTelemetryReport?: LlmTelemetryReport.AsObject,
+    referencedChunksList: Array<ReferencedChunk.AsObject>,
   }
 }
 
