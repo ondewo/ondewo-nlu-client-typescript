@@ -2804,6 +2804,14 @@ export class ProjectTechnicalUser extends jspb.Message {
   getUsername(): string;
   setUsername(value: string): ProjectTechnicalUser;
 
+  getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): ProjectTechnicalUser;
+  hasCreatedAt(): boolean;
+  clearCreatedAt(): ProjectTechnicalUser;
+
+  getCreatedBy(): string;
+  setCreatedBy(value: string): ProjectTechnicalUser;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ProjectTechnicalUser.AsObject;
   static toObject(includeInstance: boolean, msg: ProjectTechnicalUser): ProjectTechnicalUser.AsObject;
@@ -2816,6 +2824,8 @@ export namespace ProjectTechnicalUser {
   export type AsObject = {
     userId: string,
     username: string,
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    createdBy: string,
   }
 }
 
