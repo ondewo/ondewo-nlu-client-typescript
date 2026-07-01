@@ -1,37 +1,48 @@
 import { AgentsClient } from '../api/ondewo/nlu/agent_grpc_web_pb';
-import { ListAgentsRequest } from '../api/ondewo/nlu/agent_pb';
+import { ListAgentsRequest, ListAgentsResponse } from '../api/ondewo/nlu/agent_pb';
+import type { AgentWithOwner } from '../api/ondewo/nlu/agent_pb';
+import { login, OfflineTokenProvider } from '../auth/offlineTokenProvider';
 import { Client } from './ts-client';
-import { config as dotenvConfig } from 'dotenv';
+import { config as loadDotenv } from 'dotenv';
 
-// Load environment variables from .env file
-dotenvConfig();
+// Load EXAMPLES_* variables from a local .env file (see the assignments below for the expected names).
+loadDotenv();
 
-interface ClientConfig {
-	host: string;
-	port: string;
-	http_token: string;
-	user_name: string;
-	password: string;
-	grpc_cert: string;
+/**
+ * Minimal end-to-end example: a headless Keycloak login followed by a bearer-authenticated `ListAgents`.
+ *
+ * @returns A promise that resolves once the agents have been listed and printed.
+ */
+async function main(): Promise<void> {
+	// 1. One-time headless login (ROPC + offline_access) against the public NLU SDK Keycloak client.
+	//    This replaces the removed cai-token / HTTP-basic `users.login()` credentials.
+	const tokenProvider: OfflineTokenProvider = await login({
+		keycloakUrl: process.env.EXAMPLES_KEYCLOAK_URL ?? '',
+		realm: process.env.EXAMPLES_KEYCLOAK_REALM ?? '',
+		clientId: process.env.EXAMPLES_KEYCLOAK_CLIENT_ID ?? 'ondewo-nlu-cai-sdk-public',
+		username: process.env.EXAMPLES_USER_NAME ?? '',
+		password: process.env.EXAMPLES_PASSWORD ?? ''
+	});
+
+	try {
+		// 2. Build the generated gRPC-web client against the NLU (envoy) endpoint.
+		const host: string = process.env.EXAMPLES_HOST ?? 'http://localhost:50053';
+		const agentsClient: AgentsClient = new AgentsClient(host);
+
+		// 3. Wrap it and issue a representative RPC; the wrapper attaches the bearer authorization header.
+		const client: Client = new Client(agentsClient, tokenProvider.getAuthorizationHeader());
+		const response: ListAgentsResponse = await client.listAllAgents(new ListAgentsRequest());
+
+		// 4. Handle the response.
+		const agents: AgentWithOwner[] = response.getAgentsWithOwnersList();
+		console.log(`ListAgents returned ${agents.length} agent(s).`);
+	} finally {
+		// 5. Stop the background token-refresh loop so the process can exit cleanly.
+		tokenProvider.stop();
+	}
 }
 
-const clientConfig: ClientConfig = {
-	host: process.env.EXAMPLES_HOST || '',
-	port: process.env.EXAMPLES_PORT || '',
-	http_token: process.env.EXAMPLES_HTTP_TOKEN || '',
-	user_name: process.env.EXAMPLES_USER_NAME || '',
-	password: process.env.EXAMPLES_PASSWORD || '',
-	grpc_cert: process.env.EXAMPLES_GRPC_CERT || ''
-};
-
-const client: Client = new Client(
-	new AgentsClient(`${clientConfig.host}:${clientConfig.port}`, {
-		user_name: clientConfig.user_name,
-		password: clientConfig.password,
-		grpc_cert: clientConfig.grpc_cert,
-		http_token: clientConfig.http_token
-	})
-);
-
-// Explicitly define the return type based on `listAllAgents`'s return value
-client.listAllAgents(new ListAgentsRequest());
+main().catch((error: unknown): void => {
+	console.error('list_agents example failed:', error);
+	process.exitCode = 1;
+});
