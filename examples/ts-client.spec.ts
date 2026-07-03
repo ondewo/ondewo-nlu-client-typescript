@@ -50,7 +50,7 @@ runTestCase('listAllAgents forwards the request, attaches the bearer metadata, a
 
 	assert.equal(capturedRequest, FAKE_REQUEST);
 	assert.ok(capturedMetadata);
-	assert.equal(capturedMetadata.authorization, AUTHORIZATION_HEADER);
+	assert.equal(capturedMetadata.Authorization, AUTHORIZATION_HEADER);
 	assert.equal(response, expectedResponse);
 	assert.equal(response.getAgentsWithOwnersList().length, 2);
 });

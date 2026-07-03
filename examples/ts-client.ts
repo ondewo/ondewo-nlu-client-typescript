@@ -44,7 +44,7 @@ export class Client {
 	 *   a failed call.
 	 */
 	public listAllAgents(request: ListAgentsRequest): Promise<ListAgentsResponse> {
-		const metadata: Metadata = { authorization: this.authorizationHeader };
+		const metadata: Metadata = { Authorization: this.authorizationHeader };
 		return new Promise<ListAgentsResponse>(
 			(
 				resolve: (value: ListAgentsResponse | PromiseLike<ListAgentsResponse>) => void,
