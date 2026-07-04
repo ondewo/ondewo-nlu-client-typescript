@@ -15,7 +15,7 @@ loadDotenv();
  */
 async function main(): Promise<void> {
 	// 1. One-time headless login (ROPC + offline_access) against the public NLU SDK Keycloak client.
-	//    This replaces the removed cai-token / HTTP-basic `users.login()` credentials.
+	//    Bearer authentication is the only supported NLU auth scheme.
 	const tokenProvider: OfflineTokenProvider = await login({
 		keycloakUrl: process.env.EXAMPLES_KEYCLOAK_URL ?? '',
 		realm: process.env.EXAMPLES_KEYCLOAK_REALM ?? '',

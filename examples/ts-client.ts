@@ -18,9 +18,8 @@ export interface AgentsService {
 /**
  * Thin, promise-returning wrapper around the generated NLU `AgentsClient`.
  *
- * Every call carries the Keycloak access token as the `authorization` gRPC-web metadata header -- the
- * current NLU auth scheme. The legacy cai-token / HTTP-basic `users.login()` credentials were removed in
- * the Keycloak migration; obtain the header from `OfflineTokenProvider.getAuthorizationHeader()`.
+ * Every call carries the Keycloak access token as the `Authorization` gRPC-web metadata header -- the
+ * only supported NLU auth scheme; obtain the header from `OfflineTokenProvider.getAuthorizationHeader()`.
  */
 export class Client {
 	private readonly agentsClient: AgentsService;
