@@ -16,8 +16,8 @@ export
 
 ONDEWO_NLU_VERSION = 6.13.0
 
-NLU_API_GIT_BRANCH=tags/6.13.0
-ONDEWO_PROTO_COMPILER_GIT_BRANCH=tags/5.9.0
+NLU_API_GIT_BRANCH=OND211-2418-add-keycloak-for-2-fa
+ONDEWO_PROTO_COMPILER_GIT_BRANCH=tags/5.10.0
 ONDEWO_PROTO_COMPILER_DIR=ondewo-proto-compiler
 NLU_APIS_DIR=src/ondewo-nlu-api
 NLU_PROTOS_DIR=${NLU_APIS_DIR}/ondewo
@@ -225,6 +225,8 @@ create_npm_package: ## Create NPM Package for Release
 	cp package.json npm
 	cp LICENSE npm
 	cp README.md npm
+	mkdir -p npm/auth
+	npx tsc auth/offlineTokenProvider.ts --ignoreConfig --declaration --module commonjs --target es2020 --strict --lib es2020,dom --skipLibCheck --types node --typeRoots ./node_modules/@types --outDir npm/auth
 
 install_dependencies: ## Installs Dev-Dependencies
 	npm i --save-dev \
