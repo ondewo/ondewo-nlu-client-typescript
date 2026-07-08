@@ -1,0 +1,50 @@
+# Auto-fix the mechanical rules (blank-line spacing, list indentation, emphasis
+# style, ...) the same way ruff-format does for Python.
+fix: true
+config:
+  # MD013 line-length: docs contain long lines / tables.
+  MD013: false
+  # MD033 no-inline-html: docs embed <p>/<code> HTML tags.
+  MD033: false
+  # MD024 duplicate-heading: the RELEASE.md changelog repeats "Improvements" /
+  # "Breaking Changes" and identical "Release ONDEWO NLU Typescript X.Y.Z" titles
+  # under every release section — inherent to the changelog template.
+  MD024: false
+  # MD025 single-h1: the RELEASE.md changelog uses one top-level "Release ONDEWO
+  # NLU Typescript X.Y.Z" heading per release entry (many h1 in one document).
+  MD025: false
+  # MD001 heading-increment: changelog entries jump h1 -> h3 (release title then
+  # "### Improvements") by template convention.
+  MD001: false
+  # MD035 hr-style: the changelog separates release entries with fixed-width
+  # asterisk rules of varying length ("****...").
+  MD035: false
+  # MD053 link-reference-definitions: the READMEs use intentional
+  # "[comment]: <> (START/END OF GITHUB README)" markers (consumed by the release
+  # tooling to extract the GitHub README) which MD053's autofix wrongly strips.
+  MD053: false
+  # MD031 blanks-around-fences: the READMEs embed fenced code blocks inside list
+  # items; markdownlint's autofix mangles those list-indented fences, so leave the
+  # (purely cosmetic) blank-line-around-fences rule off.
+  MD031: false
+  # MD040 fenced-code-language: README embeds plain directory-tree / output blocks.
+  MD040: false
+  # MD041 first-line-heading: README opens with the HTML branding/logo header.
+  MD041: false
+  # MD045 image-alt-text: the branding header uses <img> logos / social icons.
+  MD045: false
+globs:
+  - "*.md"
+ignores:
+  - "node_modules/**"
+  - "api/**"
+  - "src/ondewo-nlu-api/**"
+  - "ondewo-proto-compiler/**"
+  - ".venv/**"
+  # Append-only historical release changelogs with years of inconsistent legacy
+  # formatting (mixed heading levels, pre-existing typos). markdownlint-cli2
+  # v0.23.0's autofix mis-applies overlapping fixes on these files and drops
+  # characters mid-line ("Version" -> "Vesion", "github.com" -> "githubcom"), so
+  # leave them to the generic whitespace/eof hygiene hooks only.
+  - "RELEASE.md"
+  - "src/RELEASE.md"
