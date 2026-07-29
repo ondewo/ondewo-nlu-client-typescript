@@ -2,25 +2,57 @@ name: tests
 
 on:
   push:
-    branches: ["**"]
+    branches: ['**']
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One run per branch/PR ref: a new push supersedes the in-flight run. Never on master, so every
+# commit on the release branch keeps its own result instead of being cancelled by the next push.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        # c8@11 declares engines.node "20 || >=22" - node 21 is deliberately excluded.
+        node-version: ['20', '22', '24']
     steps:
+      # `submodules:` is deliberately NOT enabled:
+      #   1. no hand-written source (auth/**, examples/**) references src/ondewo-nlu-api or
+      #      ondewo-proto-compiler - both are codegen inputs only,
+      #   2. the generated api/ directory is committed to this repo, so the tests compile without them,
+      #   3. .gitmodules gives ondewo-proto-compiler an SSH URL (git@github.com:...) that a hosted
+      #      runner cannot clone.
       - uses: actions/checkout@v5
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
-      # The repo is ~95% generated gRPC/protobuf stubs; coverage is gated on the HAND-WRITTEN surface
-      # (the D18 Keycloak offline-token auth provider). The test compiles the TS provider + spec and runs
-      # node's built-in test runner under c8 with a 100% line/branch/function-coverage gate.
+      # The repo is ~95% generated gRPC/protobuf stubs; coverage is gated on the HAND-WRITTEN surface.
+      # The gate is structural: tsconfig.test.json compiles every .ts file under auth/ and examples/ and
+      # .c8rc.json (all: true, per-file: true) enforces 100% lines/branches/functions/statements on each of
+      # them, so a new hand-written file without tests fails CI automatically.
       - name: Unit tests + 100% coverage gate on hand-written code
         run: npm test
+
+      # Packaging is architecture-independent; run it once, on the node 22 leg only.
+      - name: Build and verify the npm package contents
+        if: matrix.node-version == '22'
+        run: |
+          make create_npm_package
+          make verify_npm_package_contents

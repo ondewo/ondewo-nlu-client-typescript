@@ -13,7 +13,6 @@ ondewo-nlu-api/*
 
 .isort.cfg
 grpc_cert
-.test-build/
-.test-build-examples/
+.test-build*/
 coverage/
 .nyc_output/

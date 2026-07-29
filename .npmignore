@@ -1,5 +1,12 @@
+# NOTE: this file does NOT govern the published package.
+# The release runs `npm publish ./npm`, so the npm/ directory is the package root
+# and this repo-root .npmignore is never read by npm. The published contents are
+# defined by the allow-list copy in the Makefile target `create_npm_package` and
+# enforced by `make verify_npm_package_contents`.
+# The patterns below only apply when someone packs the repo root by hand.
 src/ondewo-nlu-api
-.test-build/
+.test-build*/
 coverage/
 .nyc_output/
 auth/*.spec.ts
+examples/*.spec.ts

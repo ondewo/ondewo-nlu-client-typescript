@@ -117,7 +117,51 @@ The proto-compiler codegen (`cd src && npm run build`, whose output-volume is th
 
 This repo now runs the pre-commit framework (markdownlint-cli2, pre-commit-hooks, giticket, conventional-commit) **alongside** husky's eslint/prettier. Hard-won rules:
 
-- **`.husky/pre-commit` must skip `pre-commit run` when `.pre-commit-config.yaml` is unstaged.** The release's `make run_precommit_hooks` invokes `.husky/pre-commit` **directly** (not via a git commit), and the codegen leaves the config unstaged → `pre-commit run` aborts with *"Your pre-commit configuration is unstaged"* → the entire release fails. The guard (present in `.husky/pre-commit`): `if command -v pre-commit && git diff --quiet -- .pre-commit-config.yaml; then pre-commit run; fi` — still enforced on normal dev commits (config clean there).
+- **`.husky/pre-commit` must skip `pre-commit run` when `.pre-commit-config.yaml` is unstaged.** The release's `make run_precommit_hooks` invokes `.husky/pre-commit` **directly** (not via a git commit), and the codegen leaves the config unstaged → `pre-commit run` aborts with _"Your pre-commit configuration is unstaged"_ → the entire release fails. The guard (present in `.husky/pre-commit`): `if command -v pre-commit && git diff --quiet -- .pre-commit-config.yaml; then pre-commit run; fi` — still enforced on normal dev commits (config clean there).
 - **The release `git commit` uses `--no-verify`** so husky can't reformat the freshly-generated RELEASE.md / package.json mid-commit and break the release.
 - **markdownlint MD053 is disabled** in `.markdownlint-cli2.yaml`. Its auto-fix DELETES the `[comment]: <> (START/END OF GITHUB README)` reference-definition markers that the release Makefile slices the published README with (`perl … /START OF GITHUB README/../END OF GITHUB README/`). **Never re-enable MD053 here** — it silently breaks the README slice.
 - **RELEASE.md is the authoritative changelog and the release tag holds the complete history.** A markdownlint/`--all-files` pass (or a careless manual "dedup") can drop `## Release … X.Y.Z` headings; if that happens, restore `RELEASE.md` + `src/RELEASE.md` from the latest release tag.
+
+## The 100% coverage gate (`.c8rc.json` + `tsconfig.test.json`)
+
+The gate covers the **hand-written** surface only (`auth/**`, `examples/**`); `api/**` and `public-api.*` are
+machine-generated and excluded. It is scoped **structurally**, not by an allow-list of file names:
+`tsconfig.test.json` compiles every `.ts` under `auth/` and `examples/` into `.test-build/`, and `.c8rc.json`
+(`all: true`, `per-file: true`, thresholds 100 for lines/branches/functions/statements) enforces the threshold on
+each compiled file. A new hand-written file is therefore gated automatically, with no config edit.
+
+- **A c8 include-glob that matches nothing exits 0.** The previous gate was `--include '**/offlineTokenProvider.js'`
+  — a single basename. Any rename would have produced `All files | 0 | 0 | 0 | 0` and a **green** build enforcing
+  nothing (reproducible: pass a nonsense `--include` and check `$?`). Never gate on file names; gate on a directory.
+- **Never use c8's `--100` shorthand.** The option parses but the middleware that applies it is commented out in
+  c8 11 (`node_modules/c8/lib/parse-args.js`), so it is a silent no-op. Set all four thresholds explicitly —
+  `--statements` in particular defaults to 0.
+- **`.c8rc.json` must stay a separate root file.** A `c8` key inside `package.json` would be destroyed by the
+  codegen on every release: `restore_ci_test_setup` merges back only `scripts`/`dependencies`/`devDependencies`/
+  `description`. For the same reason the `pretest`/`test` scripts must stay **byte-identical** in `package.json`
+  and `.ci-package.json`.
+- **Coverage is reported against the original `.ts` paths via source maps**, so `rootDir: "."` must stay in
+  `tsconfig.test.json`. If the `.ts` sources are ever unreadable next to `.test-build`, c8 reports zero files and
+  exits 0 instead of failing.
+- **The test gate lives in `.husky/pre-push`, never in `.husky/pre-commit`.** `make run_precommit_hooks` executes
+  `.husky/pre-commit` directly and `make release` calls it, so `npm test` there would run the whole tsc build +
+  coverage gate inside the automated release, right after codegen rewrote `api/` and `package.json`.
+- **Test files cannot reach the published package**, and `make verify_npm_package_contents` now proves it:
+  `npm publish ./npm` makes `npm/` the package root (the repo-root `.npmignore` is never read), and
+  `create_npm_package` is an explicit allow-list copy. The verifier runs `npm pack --dry-run --json ./npm` through
+  an **inline `node -e`** (a helper `.js` file would be caught by the release's type-checked eslint) and fails on
+  any packed spec/test/raw-`.ts`/map/examples path or any missing required file.
+
+## Known upstream bug: the generated `api/**` stubs do not load under Node
+
+`api/google/api/annotations_pb.js` requires `../../google/api/http_pb.js`, which the proto-compiler never emits —
+`require('./api/ondewo/nlu/agent_pb.js')` fails with `MODULE_NOT_FOUND`, and so does everything that transitively
+imports `annotations_pb`. The root cause is upstream in
+`ondewo-proto-compiler/typescript/image-data/compile-proto-2-typescript.sh`, which only scans the selected
+`ondewo` protos for `google/` dependencies and so never compiles a transitive google→google import.
+
+- Do **not** hand-restore the missing file: the same script runs `rm -rf "$OUTPUT_VOLUME_FS/api"`, so it is wiped
+  on the next `make build`. Fixing it durably belongs in `ondewo-proto-compiler`.
+- Consequence for tests: hand-written specs must import from `api/**` with **`import type`** only, or pre-seed
+  `require.cache` with fakes before loading a module that imports the stubs as values (see
+  `examples/list_agents.spec.ts`).
