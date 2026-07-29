@@ -32,14 +32,14 @@
     "undici": "^6.27.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.13.0",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^9.39.4",
     "@types/node": "^22.15.27",
-    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/eslint-plugin": "^8.63.0",
     "dotenv": "^16.4.5",
-    "eslint": "^9.13.0",
+    "eslint": "^9.39.4",
     "global": "^4.4.0",
-    "husky": "^9.1.6",
-    "prettier": "^3.3.3"
+    "husky": "^9.1.7",
+    "prettier": "^3.9.4"
   }
 }

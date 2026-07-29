@@ -31,11 +31,6 @@ export namespace ListLlmModelsRequest {
     ccaiServiceName: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 2,
-  }
 }
 
 export class ListLlmModelsResponse extends jspb.Message {
@@ -126,11 +121,6 @@ export namespace LlmGenerateRequest {
     fileResourcesList: Array<ondewo_nlu_session_pb.FileResource.AsObject>,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 4,
-  }
 }
 
 export class LlmGenerateResponse extends jspb.Message {
@@ -213,11 +203,6 @@ export namespace ExtractEntitiesRequest {
     intentName: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 5,
-  }
 }
 
 export class ExtractEntitiesFuzzyRequest extends jspb.Message {
@@ -259,11 +244,6 @@ export namespace ExtractEntitiesFuzzyRequest {
     minimalScore: number,
     allowOverlaps: boolean,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 6,
   }
 }
 
@@ -410,11 +390,6 @@ export namespace GetAlternativeSentencesRequest {
     wordsToChangeList: Array<string>,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 8,
-  }
 }
 
 export class GenerateUserSaysRequest extends jspb.Message {
@@ -450,11 +425,6 @@ export namespace GenerateUserSaysRequest {
     nRepeatSynonym: number,
     branch: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 9,
   }
 }
 
@@ -495,11 +465,6 @@ export namespace GenerateResponsesRequest {
     branch: string,
     dropUnknownParameters: boolean,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 10,
   }
 }
 
@@ -569,11 +534,6 @@ export namespace GetAlternativeTrainingPhrasesRequest {
     branch: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 11,
-  }
 }
 
 export class GetSynonymsRequest extends jspb.Message {
@@ -611,11 +571,6 @@ export namespace GetSynonymsRequest {
     languageCode: string,
     parent: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 6,
   }
 }
 
@@ -1142,11 +1097,6 @@ export namespace ClassifyIntentsRequest {
     mode: Mode,
     algorithmsList: Array<IntentAlgorithms>,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 8,
   }
 }
 

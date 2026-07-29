@@ -164,13 +164,9 @@ export class CcaiService extends jspb.Message {
 
   getCcaiServiceProvider(): CcaiServiceProvider;
   setCcaiServiceProvider(value: CcaiServiceProvider): CcaiService;
-  hasCcaiServiceProvider(): boolean;
-  clearCcaiServiceProvider(): CcaiService;
 
   getServiceHierarchy(): string;
   setServiceHierarchy(value: string): CcaiService;
-  hasServiceHierarchy(): boolean;
-  clearServiceHierarchy(): CcaiService;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CcaiService.AsObject;
@@ -205,23 +201,8 @@ export namespace CcaiService {
     createdBy: string,
     modifiedBy: string,
     headers?: google_protobuf_struct_pb.Struct.AsObject,
-    ccaiServiceProvider?: CcaiServiceProvider,
-    serviceHierarchy?: string,
-  }
-
-  export enum HeadersCase { 
-    _HEADERS_NOT_SET = 0,
-    HEADERS = 23,
-  }
-
-  export enum CcaiServiceProviderCase { 
-    _CCAI_SERVICE_PROVIDER_NOT_SET = 0,
-    CCAI_SERVICE_PROVIDER = 24,
-  }
-
-  export enum ServiceHierarchyCase { 
-    _SERVICE_HIERARCHY_NOT_SET = 0,
-    SERVICE_HIERARCHY = 25,
+    ccaiServiceProvider: CcaiServiceProvider,
+    serviceHierarchy: string,
   }
 }
 
@@ -279,8 +260,6 @@ export class GetCcaiProjectRequest extends jspb.Message {
 
   getCcaiProjectView(): CcaiProjectView;
   setCcaiProjectView(value: CcaiProjectView): GetCcaiProjectRequest;
-  hasCcaiProjectView(): boolean;
-  clearCcaiProjectView(): GetCcaiProjectRequest;
 
   getCcaiServiceFilter(): CcaiServiceFilter | undefined;
   setCcaiServiceFilter(value?: CcaiServiceFilter): GetCcaiProjectRequest;
@@ -306,25 +285,10 @@ export class GetCcaiProjectRequest extends jspb.Message {
 export namespace GetCcaiProjectRequest {
   export type AsObject = {
     name: string,
-    ccaiProjectView?: CcaiProjectView,
+    ccaiProjectView: CcaiProjectView,
     ccaiServiceFilter?: CcaiServiceFilter.AsObject,
     nluProjectName: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum CcaiProjectViewCase { 
-    _CCAI_PROJECT_VIEW_NOT_SET = 0,
-    CCAI_PROJECT_VIEW = 2,
-  }
-
-  export enum CcaiServiceFilterCase { 
-    _CCAI_SERVICE_FILTER_NOT_SET = 0,
-    CCAI_SERVICE_FILTER = 3,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 5,
   }
 }
 
@@ -354,11 +318,6 @@ export namespace GetCcaiServiceRequest {
     nluProjectName: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 5,
-  }
 }
 
 export class ListCcaiProjectsRequest extends jspb.Message {
@@ -377,8 +336,6 @@ export class ListCcaiProjectsRequest extends jspb.Message {
 
   getPageToken(): string;
   setPageToken(value: string): ListCcaiProjectsRequest;
-  hasPageToken(): boolean;
-  clearPageToken(): ListCcaiProjectsRequest;
 
   getNluProjectName(): string;
   setNluProjectName(value: string): ListCcaiProjectsRequest;
@@ -401,29 +358,9 @@ export namespace ListCcaiProjectsRequest {
     ccaiProjectView: CcaiProjectView,
     ccaiServiceFilter?: CcaiServiceFilter.AsObject,
     ccaiProjectSorting?: CcaiProjectSorting.AsObject,
-    pageToken?: string,
+    pageToken: string,
     nluProjectName: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum CcaiServiceFilterCase { 
-    _CCAI_SERVICE_FILTER_NOT_SET = 0,
-    CCAI_SERVICE_FILTER = 2,
-  }
-
-  export enum CcaiProjectSortingCase { 
-    _CCAI_PROJECT_SORTING_NOT_SET = 0,
-    CCAI_PROJECT_SORTING = 3,
-  }
-
-  export enum PageTokenCase { 
-    _PAGE_TOKEN_NOT_SET = 0,
-    PAGE_TOKEN = 4,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 6,
   }
 }
 
@@ -454,13 +391,9 @@ export namespace ListCcaiProjectsResponse {
 export class CcaiProjectSorting extends jspb.Message {
   getSortingField(): CcaiProjectSorting.CcaiProjectSortingField;
   setSortingField(value: CcaiProjectSorting.CcaiProjectSortingField): CcaiProjectSorting;
-  hasSortingField(): boolean;
-  clearSortingField(): CcaiProjectSorting;
 
   getSortingMode(): ondewo_nlu_common_pb.SortingMode;
   setSortingMode(value: ondewo_nlu_common_pb.SortingMode): CcaiProjectSorting;
-  hasSortingMode(): boolean;
-  clearSortingMode(): CcaiProjectSorting;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CcaiProjectSorting.AsObject;
@@ -472,8 +405,8 @@ export class CcaiProjectSorting extends jspb.Message {
 
 export namespace CcaiProjectSorting {
   export type AsObject = {
-    sortingField?: CcaiProjectSorting.CcaiProjectSortingField,
-    sortingMode?: ondewo_nlu_common_pb.SortingMode,
+    sortingField: CcaiProjectSorting.CcaiProjectSortingField,
+    sortingMode: ondewo_nlu_common_pb.SortingMode,
   }
 
   export enum CcaiProjectSortingField { 
@@ -482,16 +415,6 @@ export namespace CcaiProjectSorting {
     SORT_CCAI_PROJECT_BY_DISPLAY_NAME = 2,
     SORT_CCAI_PROJECT_BY_CREATION_DATE = 3,
     SORT_CCAI_PROJECT_BY_LAST_MODIFIED = 4,
-  }
-
-  export enum SortingFieldCase { 
-    _SORTING_FIELD_NOT_SET = 0,
-    SORTING_FIELD = 1,
-  }
-
-  export enum SortingModeCase { 
-    _SORTING_MODE_NOT_SET = 0,
-    SORTING_MODE = 2,
   }
 }
 
@@ -560,16 +483,6 @@ export namespace UpdateCcaiProjectRequest {
     ccaiServiceFilter?: CcaiServiceFilter.AsObject,
     updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
     nluProjectName: string,
-  }
-
-  export enum CcaiServiceFilterCase { 
-    _CCAI_SERVICE_FILTER_NOT_SET = 0,
-    CCAI_SERVICE_FILTER = 2,
-  }
-
-  export enum UpdateMaskCase { 
-    _UPDATE_MASK_NOT_SET = 0,
-    UPDATE_MASK = 3,
   }
 }
 

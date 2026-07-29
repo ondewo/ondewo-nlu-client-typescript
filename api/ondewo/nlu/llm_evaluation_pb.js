@@ -6122,7 +6122,7 @@ proto.ondewo.nlu.LlmEvaluationFeedback.toObject = function(includeInstance, msg)
 name: jspb.Message.getFieldWithDefault(msg, 1, ""),
 displayName: jspb.Message.getFieldWithDefault(msg, 2, ""),
 criterion: jspb.Message.getFieldWithDefault(msg, 3, ""),
-score: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
+score: (f = jspb.Message.getOptionalFloatingPointField(msg, 4)) == null ? undefined : f,
 categoricalValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
 comment: jspb.Message.getFieldWithDefault(msg, 6, ""),
 annotatorUserId: jspb.Message.getFieldWithDefault(msg, 7, ""),
@@ -6283,8 +6283,8 @@ proto.ondewo.nlu.LlmEvaluationFeedback.serializeBinaryToWriter = function(messag
       f
     );
   }
-  f = message.getScore();
-  if (f !== 0.0) {
+  f = /** @type {number} */ (jspb.Message.getField(message, 4));
+  if (f != null) {
     writer.writeDouble(
       4,
       f
@@ -6441,7 +6441,25 @@ proto.ondewo.nlu.LlmEvaluationFeedback.prototype.getScore = function() {
  * @return {!proto.ondewo.nlu.LlmEvaluationFeedback} returns this
  */
 proto.ondewo.nlu.LlmEvaluationFeedback.prototype.setScore = function(value) {
-  return jspb.Message.setProto3FloatField(this, 4, value);
+  return jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ondewo.nlu.LlmEvaluationFeedback} returns this
+ */
+proto.ondewo.nlu.LlmEvaluationFeedback.prototype.clearScore = function() {
+  return jspb.Message.setField(this, 4, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ondewo.nlu.LlmEvaluationFeedback.prototype.hasScore = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
@@ -15761,7 +15779,7 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.prototype.toObject = functio
 proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.toObject = function(includeInstance, msg) {
   var f, obj = {
 minPassRate: jspb.Message.getFloatingPointFieldWithDefault(msg, 1, 0.0),
-maxRegressionPerCriterion: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+maxRegressionPerCriterion: (f = jspb.Message.getOptionalFloatingPointField(msg, 2)) == null ? undefined : f,
 maxP95LatencySeconds: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
 acceptanceMustPass: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
@@ -15852,8 +15870,8 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.serializeBinaryToWriter = fu
       f
     );
   }
-  f = message.getMaxRegressionPerCriterion();
-  if (f !== 0.0) {
+  f = /** @type {number} */ (jspb.Message.getField(message, 2));
+  if (f != null) {
     writer.writeDouble(
       2,
       f
@@ -15908,7 +15926,25 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.prototype.getMaxRegressionPe
  * @return {!proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds} returns this
  */
 proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.prototype.setMaxRegressionPerCriterion = function(value) {
-  return jspb.Message.setProto3FloatField(this, 2, value);
+  return jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds} returns this
+ */
+proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.prototype.clearMaxRegressionPerCriterion = function() {
+  return jspb.Message.setField(this, 2, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ondewo.nlu.LlmEvaluationReleaseGateThresholds.prototype.hasMaxRegressionPerCriterion = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
@@ -15990,8 +16026,8 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.toObject = function(includ
 enabled: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
 adversarialDatasetName: jspb.Message.getFieldWithDefault(msg, 2, ""),
 evaluatorNamesList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
-maxToxicity: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
-maxBias: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0)
+maxToxicity: (f = jspb.Message.getOptionalFloatingPointField(msg, 4)) == null ? undefined : f,
+maxBias: (f = jspb.Message.getOptionalFloatingPointField(msg, 5)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -16098,15 +16134,15 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.serializeBinaryToWriter = 
       f
     );
   }
-  f = message.getMaxToxicity();
-  if (f !== 0.0) {
+  f = /** @type {number} */ (jspb.Message.getField(message, 4));
+  if (f != null) {
     writer.writeDouble(
       4,
       f
     );
   }
-  f = message.getMaxBias();
-  if (f !== 0.0) {
+  f = /** @type {number} */ (jspb.Message.getField(message, 5));
+  if (f != null) {
     writer.writeDouble(
       5,
       f
@@ -16202,7 +16238,25 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.getMaxToxicity =
  * @return {!proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig} returns this
  */
 proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.setMaxToxicity = function(value) {
-  return jspb.Message.setProto3FloatField(this, 4, value);
+  return jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig} returns this
+ */
+proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.clearMaxToxicity = function() {
+  return jspb.Message.setField(this, 4, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.hasMaxToxicity = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
@@ -16220,7 +16274,25 @@ proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.getMaxBias = fun
  * @return {!proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig} returns this
  */
 proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.setMaxBias = function(value) {
-  return jspb.Message.setProto3FloatField(this, 5, value);
+  return jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig} returns this
+ */
+proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.clearMaxBias = function() {
+  return jspb.Message.setField(this, 5, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ondewo.nlu.LlmEvaluationReleaseGateSafetyConfig.prototype.hasMaxBias = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
@@ -37912,7 +37984,7 @@ evaluatorNamesList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefi
 sampleRate: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0),
 enabled: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
 targetDatasetName: jspb.Message.getFieldWithDefault(msg, 7, ""),
-failThreshold: jspb.Message.getFloatingPointFieldWithDefault(msg, 8, 0.0),
+failThreshold: (f = jspb.Message.getOptionalFloatingPointField(msg, 8)) == null ? undefined : f,
 settleSeconds: jspb.Message.getFieldWithDefault(msg, 9, 0),
 requireTelemetry: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
 llmEvaluationOnlineSessionFilter: (f = msg.getLlmEvaluationOnlineSessionFilter()) && proto.ondewo.nlu.LlmEvaluationOnlineSessionFilter.toObject(includeInstance, f),
@@ -38118,8 +38190,8 @@ proto.ondewo.nlu.LlmEvaluationOnlineConfig.serializeBinaryToWriter = function(me
       f
     );
   }
-  f = message.getFailThreshold();
-  if (f !== 0.0) {
+  f = /** @type {number} */ (jspb.Message.getField(message, 8));
+  if (f != null) {
     writer.writeDouble(
       8,
       f
@@ -38368,7 +38440,25 @@ proto.ondewo.nlu.LlmEvaluationOnlineConfig.prototype.getFailThreshold = function
  * @return {!proto.ondewo.nlu.LlmEvaluationOnlineConfig} returns this
  */
 proto.ondewo.nlu.LlmEvaluationOnlineConfig.prototype.setFailThreshold = function(value) {
-  return jspb.Message.setProto3FloatField(this, 8, value);
+  return jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.ondewo.nlu.LlmEvaluationOnlineConfig} returns this
+ */
+proto.ondewo.nlu.LlmEvaluationOnlineConfig.prototype.clearFailThreshold = function() {
+  return jspb.Message.setField(this, 8, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ondewo.nlu.LlmEvaluationOnlineConfig.prototype.hasFailThreshold = function() {
+  return jspb.Message.getField(this, 8) != null;
 };
 
 

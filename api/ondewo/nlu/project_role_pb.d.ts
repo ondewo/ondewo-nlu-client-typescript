@@ -158,11 +158,6 @@ export namespace GetProjectRoleRequest {
     ROLE_ID = 2,
     ROLE_NAME = 3,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 5,
-  }
 }
 
 export class DeleteProjectRoleRequest extends jspb.Message {
@@ -216,11 +211,6 @@ export namespace ListProjectRolesRequest {
     pageToken: string,
     projectRoleView: ProjectRoleView,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 4,
   }
 }
 

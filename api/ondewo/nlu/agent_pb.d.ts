@@ -276,11 +276,6 @@ export namespace ListAgentsRequest {
     sortByField?: AgentSorting.AsObject,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 4,
-  }
 }
 
 export class ListAgentsResponse extends jspb.Message {
@@ -1109,11 +1104,6 @@ export namespace ListUsersInProjectRequest {
     pageToken: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
   }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 3,
-  }
 }
 
 export class UserInProject extends jspb.Message {
@@ -1211,11 +1201,6 @@ export namespace ListProjectPermissionsRequest {
   export type AsObject = {
     pageToken: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
-
-  export enum FieldMaskCase { 
-    _FIELD_MASK_NOT_SET = 0,
-    FIELD_MASK = 2,
   }
 }
 
