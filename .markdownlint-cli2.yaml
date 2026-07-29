@@ -34,17 +34,17 @@ config:
   # MD045 image-alt-text: the branding header uses <img> logos / social icons.
   MD045: false
 globs:
-  - "*.md"
+  - '*.md'
 ignores:
-  - "node_modules/**"
-  - "api/**"
-  - "src/ondewo-nlu-api/**"
-  - "ondewo-proto-compiler/**"
-  - ".venv/**"
+  - 'node_modules/**'
+  - 'api/**'
+  - 'src/ondewo-nlu-api/**'
+  - 'ondewo-proto-compiler/**'
+  - '.venv/**'
   # Append-only historical release changelogs with years of inconsistent legacy
   # formatting (mixed heading levels, pre-existing typos). markdownlint-cli2
   # v0.23.0's autofix mis-applies overlapping fixes on these files and drops
   # characters mid-line ("Version" -> "Vesion", "github.com" -> "githubcom"), so
   # leave them to the generic whitespace/eof hygiene hooks only.
-  - "RELEASE.md"
-  - "src/RELEASE.md"
+  - 'RELEASE.md'
+  - 'src/RELEASE.md'

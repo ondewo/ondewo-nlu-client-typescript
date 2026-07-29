@@ -1,12 +1,23 @@
 .idea/
 .vscode/
 api/
+
+# test build + coverage output
+.test-build*/
+coverage/
+.nyc_output/
+
 esm2022/
 fesm2022/
 node_modules
 npm
-RELEASE.md
 src/
+
+# Release-critical markdown: prettier rewrites `[comment]: <> (START OF GITHUB README)` into
+# `[comment]: <> 'START OF GITHUB README'`. The Makefile slices the published README between those
+# markers, so they are left exactly as-is (same reason RELEASE.md is ignored).
+README.md
+RELEASE.md
 
 ondewo-proto-compiler
 
