@@ -42,3 +42,4 @@ export * from './api/google/protobuf/timestamp_pb.d';
 export * from './api/google/protobuf/any_pb.d';
 export * from './api/google/protobuf/struct_pb.d';
 export * from './api/google/type/latlng_pb.d';
+export * from './auth/offlineTokenProvider';
