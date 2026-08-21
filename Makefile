@@ -28,7 +28,7 @@ IMAGE_UTILS_NAME=ondewo-nlu-client-utils-typescript:${ONDEWO_NLU_VERSION}
 PRETTIER_WRITE?=
 
 CURRENT_RELEASE_NOTES=`cat RELEASE.md \
-	| perl -ne 'print if /Release ONDEWO NLU Typescript Client ${ONDEWO_NLU_VERSION}/../\*\*/'`
+	| perl -ne 'print if /Release ONDEWO NLU Typescript Client ${ONDEWO_NLU_VERSION}/../^\*{5}/'`
 
 GH_REPO="https://github.com/ondewo/ondewo-nlu-client-typescript"
 DEVOPS_ACCOUNT_GIT="ondewo-devops-accounts"
