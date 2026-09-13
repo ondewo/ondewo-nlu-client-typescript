@@ -110,6 +110,9 @@ release: ## Create Github and NPM Release
 # tests/ and .ci-package.json are NOT packaged, but a regression test written alongside a fix
 # must reach the repository or CI never runs it.
 	git add tests .ci-package.json
+# tsconfig.json gates eslint via parserOptions.project: a spec outside its include list is a
+# parse error in CI even though it compiles standalone.
+	-git add tsconfig.json
 # README.md is a BUILD OUTPUT: `make build` runs `cp src/README.md .`, so anything written
 # only in the root copy is destroyed on the next build. src/README.md is the source of
 # truth (it is covered by `git add src`); this stages the generated copy so the tracked
