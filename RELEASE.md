@@ -2,15 +2,6 @@
 
 *****************
 
-## Release ONDEWO NLU Typescript Client 7.1.1
-
-### Bug fixes
-
-* [[OND211-2418]](https://ondewo.atlassian.net/browse/OND211-2418) **A single failed background refresh permanently ended proactive token renewal.** `refresh()` re-arms the timer on its last line — which is *after* the `await` that performs the token request — so when that request threw, `scheduleRefresh()` was never reached and the `catch` in the timer callback surfaced the error without re-arming. One transient answer from the token endpoint (a 502 from a proxy, a DNS blip, a restarting Keycloak) therefore ended background renewal for the life of the provider, leaving every later token to the stale-token/`UNAUTHENTICATED` fallback. The `catch` now re-arms via `scheduleRefresh(undefined)`, which uses `MIN_REFRESH_DELAY_IN_S` so a persistently failing endpoint is retried at a bounded floor rather than in a hot loop; the `stopped` and deadline guards at the top of `scheduleRefresh` still apply, so a stopped provider re-arms nothing.
-* The spec previously **pinned this defect as intended behaviour** (`assert.equal(stub.calls.length, 2, 'the refresh loop unexpectedly re-armed after a failure')`, commented "CURRENT behavior"). That assertion now requires the re-arm and additionally proves the provider recovers — a transient failure self-heals on the next tick.
-
-*****************
-
 ## Release ONDEWO NLU Typescript Client 7.1.0
 
 ### Improvements
