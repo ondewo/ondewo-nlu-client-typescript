@@ -629,11 +629,12 @@ runTestCase('login rejects a missing options object', async (): Promise<void> =>
 });
 
 runTestCase(
-	'a failed background refresh is surfaced to onRefreshError and keeps the stale token',
+	'a failed background refresh is surfaced, re-arms the timer and recovers',
 	async (): Promise<void> => {
 		const stub: FetchStub = makeFetchStub([
 			{ body: { access_token: 'access-1', refresh_token: 'offline-1', expires_in: 31 } },
-			{ status: 500, body: 'boom' }
+			{ status: 500, body: 'boom' },
+			{ body: { access_token: 'access-2', refresh_token: 'offline-2', expires_in: 31 } }
 		]);
 
 		mock.timers.enable({ apis: ['setTimeout'] });
@@ -654,11 +655,17 @@ runTestCase(
 			// The transient failure must NOT clobber the still-valid access token.
 			assert.equal(provider.getAccessToken(), 'access-1');
 
-			// CURRENT behavior: the failed refresh threw BEFORE scheduleRefresh(), so the loop is never
-			// re-armed -- one transient 5xx permanently ends background renewal.
-			mock.timers.tick(1_000_000);
+			// The failed refresh MUST re-arm the timer. `refresh()` reschedules on its last line,
+			// which is after the `await` that threw, so the catch is the only thing that can keep
+			// proactive renewal alive -- and before this was fixed a single transient 5xx ended it
+			// for the life of the provider, leaving every later token to the UNAUTHENTICATED
+			// fallback. The re-arm uses MIN_REFRESH_DELAY_IN_S (1s), so one more tick reaches it.
+			mock.timers.tick(1000);
 			await flushMicrotasks();
-			assert.equal(stub.calls.length, 2, 'the refresh loop unexpectedly re-armed after a failure');
+			await flushMicrotasks();
+			assert.equal(stub.calls.length, 3, 'the refresh loop did not re-arm after a failure');
+			// ...and having re-armed, it recovers: the transient failure self-heals.
+			assert.equal(provider.getAccessToken(), 'access-2');
 			provider.stop();
 		} finally {
 			mock.timers.reset();

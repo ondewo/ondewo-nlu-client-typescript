@@ -389,11 +389,22 @@ export class OfflineTokenProvider {
 
 		this.timer = setTimeout((): void => {
 			this.refresh().catch((refreshError: unknown): void => {
-				// Swallow a transient refresh failure but surface it so the caller can react; the next
-				// gRPC call gets the stale (possibly expired) token and re-logs in on UNAUTHENTICATED.
+				// Surface the failure so the caller can react; the next gRPC call gets the stale
+				// (possibly expired) token and re-logs in on UNAUTHENTICATED.
 				if (this.onRefreshErrorHandler !== null) {
 					this.onRefreshErrorHandler(refreshError);
 				}
+				// AND RE-ARM. `refresh()` reschedules on its last line, which is AFTER the `await`
+				// that just threw, so without this a single failed refresh left no timer armed and
+				// proactive refresh was over for the life of the provider -- one transient answer
+				// from the token endpoint (a 502 from a proxy, a DNS blip, a restarting Keycloak)
+				// and every later token came from the UNAUTHENTICATED fallback instead.
+				//
+				// `undefined` makes scheduleRefresh use MIN_REFRESH_DELAY_IN_S, so a persistently
+				// failing endpoint is retried at a bounded floor rather than in a hot loop, and the
+				// `stopped` and deadline guards at the top of scheduleRefresh still apply -- a
+				// stopped provider re-arms nothing.
+				this.scheduleRefresh(undefined);
 			});
 		}, delayInS * 1000);
 		// Do not keep the event loop alive solely for the refresh timer. Node's Timeout exposes unref();
