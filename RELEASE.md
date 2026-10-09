@@ -336,3 +336,6 @@
 
 ### New Features
  * Update to NLU client version tag 1.0.0
+ * Tracks https://github.com/ondewo/ondewo-nlu-api release tag 1.0.0.
+
+*****************
