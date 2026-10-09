@@ -554,3 +554,8 @@ export async function login(options: OfflineTokenLoginOptions): Promise<OfflineT
 	await provider.bootstrap(options.username, options.password);
 	return provider;
 }
+
+// The gRPC-web endpoint / TLS helper ships through this module: the generated public-api re-exports
+// only `./auth/offlineTokenProvider`, and `make create_npm_package` compiles this file (tsc follows the
+// import), so the helper reaches the package without a proto-compiler change.
+export * from './grpcWebEndpoint';
