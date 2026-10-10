@@ -2,6 +2,41 @@
 
 *****************
 
+## Release ONDEWO NLU Typescript Client 7.3.1
+
+### New Features
+
+* [[OND211-2443]](https://ondewo.atlassian.net/browse/OND211-2443) `createGrpcWebEndpoint({ host, port, useSecureChannel, withCredentials })`
+  (`auth/grpcWebEndpoint`, re-exported from `auth/offlineTokenProvider` and the package entry point) builds the
+  `hostname` URL and the client options a generated `*Client` / `*PromiseClient` takes. `https://` is the default;
+  `useSecureChannel: false` builds `http://` and logs a warning naming `host:port`; a bare IPv6 host is bracketed;
+  `host`, `port` and both flags are validated (`'false'` is refused, not read as `true`).
+* TLS in a browser is the browser's TLS: the server certificate is checked against the browser / OS trust store and a
+  client certificate (mutual TLS) comes from the browser's certificate store. A config carrying a non-empty
+  `grpcCert` / `grpcClientCert` / `grpcClientKey` (or `grpc_cert` / `grpc_client_cert` / `grpc_client_key`) is
+  therefore refused with an error naming the field, never the value; empty values are ignored. `withCredentials: true`
+  lets a cross-origin call present the browser's client certificate. No error message renders a refused value.
+* README section "TLS, mutual TLS and certificates": modes, the Envoy side of mutual TLS, a test PKI with openssl,
+  security notes and troubleshooting. Documented gap: the generated clients need `XMLHttpRequest`, so gRPC calls run
+  in browsers only; in Node.js only the Keycloak `login` helper is usable and there is no Node.js path for a custom CA
+  or client certificate.
+
+### Bug Fixes
+
+* [[OND211-2443]](https://ondewo.atlassian.net/browse/OND211-2443) `OfflineTokenProvider` no longer leaks its tokens
+  when logged: `JSON.stringify`, `console.log` and `util.inspect` of a provider (also nested in another object) render
+  the access and refresh tokens as `***REDACTED***`. `getAuthorizationHeader()` is unchanged.
+
+### Improvements
+
+* Tests: the endpoint helper's edge cases, including calls through the real grpc-web runtime with a recording
+  `XMLHttpRequest`, and the token redaction. `tests/releaseNotes.spec.ts` pins the RELEASE.md heading spelling the
+  Makefile slices, a `*****` separator ending every section, and non-empty notes for the version being released.
+* RELEASE.md: every section now ends at its separator (the last one ran to the end of the file).
+* Tracking API Version [7.3.0](https://github.com/ondewo/ondewo-nlu-api/releases/tag/7.3.0) ( [Documentation](https://ondewo.github.io/ondewo-nlu-api/) )
+
+*****************
+
 ## Release ONDEWO NLU Typescript Client 7.3.0
 
 ### Improvements
