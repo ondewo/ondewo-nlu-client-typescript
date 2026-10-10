@@ -2,6 +2,21 @@
 
 *****************
 
+## Release ONDEWO NLU Typescript Client 7.3.2
+
+### Bug Fixes
+
+* [[OND211-2443]](https://ondewo.atlassian.net/browse/OND211-2443) 7.3.1 shipped `api/google/api/annotations_pb.js`,
+  which requires `../../google/api/http_pb.js`, without that file: loading any generated client module that reaches
+  `annotations_pb` (every `ondewo/nlu/*_pb.js` / `*_grpc_web_pb.js` with an HTTP annotation) failed with
+  `Cannot find module '../../google/api/http_pb.js'`. The proto compiler generated only the google protos the API
+  imports directly; 5.15.6 follows their own imports too. Regenerated with ondewo-proto-compiler 5.15.6, so
+  `api/google/api/http_pb.js` and `http_pb.d.ts` are shipped. Do not use 7.3.1.
+* A new test (`tests/generatedModules.spec.ts`) requires every generated module and resolves every relative import in
+  `api/` and in the entry point, so a missing stub fails CI.
+
+*****************
+
 ## Release ONDEWO NLU Typescript Client 7.3.1
 
 ### New Features
