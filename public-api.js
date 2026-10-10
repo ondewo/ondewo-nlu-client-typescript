@@ -1,3 +1,4 @@
+export * from './api/google/protobuf/descriptor_pb';
 export * from './api/google/protobuf/field_mask_pb';
 export * from './api/google/protobuf/struct_pb';
 export * from './api/google/protobuf/empty_pb';
@@ -5,6 +6,7 @@ export * from './api/google/protobuf/timestamp_pb';
 export * from './api/google/protobuf/any_pb';
 export * from './api/google/type/latlng_pb';
 export * from './api/google/rpc/status_pb';
+export * from './api/google/api/http_pb';
 export * from './api/google/api/annotations_pb';
 export * from './api/ondewo/qa/qa_grpc_web_pb';
 export * from './api/ondewo/qa/qa_pb';
