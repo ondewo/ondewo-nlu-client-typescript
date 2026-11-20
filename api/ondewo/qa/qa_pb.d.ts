@@ -6,6 +6,8 @@ import * as ondewo_nlu_session_pb from '../../ondewo/nlu/session_pb'; // proto i
 
 
 export class GetAnswerRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetAnswerRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): GetAnswerRequest;
 
@@ -44,18 +46,20 @@ export class GetAnswerRequest extends jspb.Message {
 
 export namespace GetAnswerRequest {
   export type AsObject = {
-    sessionId: string,
-    text?: ondewo_nlu_session_pb.TextInput.AsObject,
-    maxNumAnswers: number,
-    thresholdReader: number,
-    thresholdRetriever: number,
-    thresholdOverall: number,
-    readerModelName: string,
-    urlFilter?: UrlFilter.AsObject,
-  }
+    sessionId: string;
+    text?: ondewo_nlu_session_pb.TextInput.AsObject;
+    maxNumAnswers: number;
+    thresholdReader: number;
+    thresholdRetriever: number;
+    thresholdOverall: number;
+    readerModelName: string;
+    urlFilter?: UrlFilter.AsObject;
+  };
 }
 
 export class GetAnswerResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetAnswerResponse.AsObject);
   getQueryResult(): ondewo_nlu_session_pb.DetectIntentResponse | undefined;
   setQueryResult(value?: ondewo_nlu_session_pb.DetectIntentResponse): GetAnswerResponse;
   hasQueryResult(): boolean;
@@ -71,11 +75,13 @@ export class GetAnswerResponse extends jspb.Message {
 
 export namespace GetAnswerResponse {
   export type AsObject = {
-    queryResult?: ondewo_nlu_session_pb.DetectIntentResponse.AsObject,
-  }
+    queryResult?: ondewo_nlu_session_pb.DetectIntentResponse.AsObject;
+  };
 }
 
 export class RunScraperRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: RunScraperRequest.AsObject);
   getProjectIdsList(): Array<string>;
   setProjectIdsList(value: Array<string>): RunScraperRequest;
   clearProjectIdsList(): RunScraperRequest;
@@ -91,11 +97,13 @@ export class RunScraperRequest extends jspb.Message {
 
 export namespace RunScraperRequest {
   export type AsObject = {
-    projectIdsList: Array<string>,
-  }
+    projectIdsList: Array<string>;
+  };
 }
 
 export class RunScraperResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: RunScraperResponse.AsObject);
   getScraperContainersList(): Array<RunScraperResponse.ScraperContainer>;
   setScraperContainersList(value: Array<RunScraperResponse.ScraperContainer>): RunScraperResponse;
   clearScraperContainersList(): RunScraperResponse;
@@ -111,10 +119,12 @@ export class RunScraperResponse extends jspb.Message {
 
 export namespace RunScraperResponse {
   export type AsObject = {
-    scraperContainersList: Array<RunScraperResponse.ScraperContainer.AsObject>,
-  }
+    scraperContainersList: Array<RunScraperResponse.ScraperContainer.AsObject>;
+  };
 
   export class ScraperContainer extends jspb.Message {
+    constructor();
+    constructor(opt_data?: ScraperContainer.AsObject);
     getContainerName(): string;
     setContainerName(value: string): ScraperContainer;
 
@@ -131,14 +141,16 @@ export namespace RunScraperResponse {
 
   export namespace ScraperContainer {
     export type AsObject = {
-      containerName: string,
-      containerId: string,
-    }
+      containerName: string;
+      containerId: string;
+    };
   }
 
 }
 
 export class RunTrainingResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: RunTrainingResponse.AsObject);
   getF1(): number;
   setF1(value: number): RunTrainingResponse;
 
@@ -155,12 +167,14 @@ export class RunTrainingResponse extends jspb.Message {
 
 export namespace RunTrainingResponse {
   export type AsObject = {
-    f1: number,
-    accuracy: number,
-  }
+    f1: number;
+    accuracy: number;
+  };
 }
 
 export class UrlFilter extends jspb.Message {
+  constructor();
+  constructor(opt_data?: UrlFilter.AsObject);
   getAllowedValuesList(): Array<string>;
   setAllowedValuesList(value: Array<string>): UrlFilter;
   clearAllowedValuesList(): UrlFilter;
@@ -182,13 +196,15 @@ export class UrlFilter extends jspb.Message {
 
 export namespace UrlFilter {
   export type AsObject = {
-    allowedValuesList: Array<string>,
-    regexFilterInclude: string,
-    regexFilterExclude: string,
-  }
+    allowedValuesList: Array<string>;
+    regexFilterInclude: string;
+    regexFilterExclude: string;
+  };
 }
 
 export class GetServerStateResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetServerStateResponse.AsObject);
   getServerIsReady(): boolean;
   setServerIsReady(value: boolean): GetServerStateResponse;
 
@@ -202,11 +218,13 @@ export class GetServerStateResponse extends jspb.Message {
 
 export namespace GetServerStateResponse {
   export type AsObject = {
-    serverIsReady: boolean,
-  }
+    serverIsReady: boolean;
+  };
 }
 
 export class ListProjectIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListProjectIdsResponse.AsObject);
   getProjectIdsList(): Array<string>;
   setProjectIdsList(value: Array<string>): ListProjectIdsResponse;
   clearProjectIdsList(): ListProjectIdsResponse;
@@ -222,11 +240,13 @@ export class ListProjectIdsResponse extends jspb.Message {
 
 export namespace ListProjectIdsResponse {
   export type AsObject = {
-    projectIdsList: Array<string>,
-  }
+    projectIdsList: Array<string>;
+  };
 }
 
 export class GetProjectConfigRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetProjectConfigRequest.AsObject);
   getProjectId(): string;
   setProjectId(value: string): GetProjectConfigRequest;
 
@@ -240,11 +260,13 @@ export class GetProjectConfigRequest extends jspb.Message {
 
 export namespace GetProjectConfigRequest {
   export type AsObject = {
-    projectId: string,
-  }
+    projectId: string;
+  };
 }
 
 export class GetProjectConfigResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetProjectConfigResponse.AsObject);
   getConfigSerialized(): string;
   setConfigSerialized(value: string): GetProjectConfigResponse;
 
@@ -258,11 +280,13 @@ export class GetProjectConfigResponse extends jspb.Message {
 
 export namespace GetProjectConfigResponse {
   export type AsObject = {
-    configSerialized: string,
-  }
+    configSerialized: string;
+  };
 }
 
 export class UpdateDatabaseRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: UpdateDatabaseRequest.AsObject);
   getProjectIdsList(): Array<string>;
   setProjectIdsList(value: Array<string>): UpdateDatabaseRequest;
   clearProjectIdsList(): UpdateDatabaseRequest;
@@ -278,11 +302,13 @@ export class UpdateDatabaseRequest extends jspb.Message {
 
 export namespace UpdateDatabaseRequest {
   export type AsObject = {
-    projectIdsList: Array<string>,
-  }
+    projectIdsList: Array<string>;
+  };
 }
 
 export class UpdateDatabaseResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: UpdateDatabaseResponse.AsObject);
   getErrorMessagesList(): Array<string>;
   setErrorMessagesList(value: Array<string>): UpdateDatabaseResponse;
   clearErrorMessagesList(): UpdateDatabaseResponse;
@@ -298,7 +324,7 @@ export class UpdateDatabaseResponse extends jspb.Message {
 
 export namespace UpdateDatabaseResponse {
   export type AsObject = {
-    errorMessagesList: Array<string>,
-  }
+    errorMessagesList: Array<string>;
+  };
 }
 

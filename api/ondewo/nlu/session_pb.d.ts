@@ -16,6 +16,8 @@ import * as ondewo_nlu_llm_evaluation_pb from '../../ondewo/nlu/llm_evaluation_p
 
 
 export class DetectIntentRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DetectIntentRequest.AsObject);
   getSession(): string;
   setSession(value: string): DetectIntentRequest;
 
@@ -44,14 +46,16 @@ export class DetectIntentRequest extends jspb.Message {
 
 export namespace DetectIntentRequest {
   export type AsObject = {
-    session: string,
-    queryParams?: QueryParameters.AsObject,
-    queryInput?: QueryInput.AsObject,
-    inputAudio: Uint8Array | string,
-  }
+    session: string;
+    queryParams?: QueryParameters.AsObject;
+    queryInput?: QueryInput.AsObject;
+    inputAudio: Uint8Array | string;
+  };
 }
 
 export class DetectIntentResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DetectIntentResponse.AsObject);
   getResponseId(): string;
   setResponseId(value: string): DetectIntentResponse;
 
@@ -80,14 +84,16 @@ export class DetectIntentResponse extends jspb.Message {
 
 export namespace DetectIntentResponse {
   export type AsObject = {
-    responseId: string,
-    queryResult?: QueryResult.AsObject,
-    webhookStatus?: google_rpc_status_pb.Status.AsObject,
-    llmTelemetryReport?: LlmTelemetryReport.AsObject,
-  }
+    responseId: string;
+    queryResult?: QueryResult.AsObject;
+    webhookStatus?: google_rpc_status_pb.Status.AsObject;
+    llmTelemetryReport?: LlmTelemetryReport.AsObject;
+  };
 }
 
 export class QueryParameters extends jspb.Message {
+  constructor();
+  constructor(opt_data?: QueryParameters.AsObject);
   getTimeZone(): string;
   setTimeZone(value: string): QueryParameters;
 
@@ -139,6 +145,9 @@ export class QueryParameters extends jspb.Message {
   clearTranscriptionsList(): QueryParameters;
   addTranscriptions(value?: S2tTranscription, index?: number): S2tTranscription;
 
+  getPreemptiveDraft(): boolean;
+  setPreemptiveDraft(value: boolean): QueryParameters;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): QueryParameters.AsObject;
   static toObject(includeInstance: boolean, msg: QueryParameters): QueryParameters.AsObject;
@@ -149,23 +158,26 @@ export class QueryParameters extends jspb.Message {
 
 export namespace QueryParameters {
   export type AsObject = {
-    timeZone: string,
-    geoLocation?: google_type_latlng_pb.LatLng.AsObject,
-    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    resetContexts: boolean,
-    payload?: google_protobuf_struct_pb.Struct.AsObject,
-    labelsList: Array<string>,
-    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>,
-    accountId: string,
-    propertyId: string,
-    datastreamId: string,
-    originId: string,
-    identifiedUserId: string,
-    transcriptionsList: Array<S2tTranscription.AsObject>,
-  }
+    timeZone: string;
+    geoLocation?: google_type_latlng_pb.LatLng.AsObject;
+    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    resetContexts: boolean;
+    payload?: google_protobuf_struct_pb.Struct.AsObject;
+    labelsList: Array<string>;
+    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>;
+    accountId: string;
+    propertyId: string;
+    datastreamId: string;
+    originId: string;
+    identifiedUserId: string;
+    transcriptionsList: Array<S2tTranscription.AsObject>;
+    preemptiveDraft: boolean;
+  };
 }
 
 export class S2tTranscription extends jspb.Message {
+  constructor();
+  constructor(opt_data?: S2tTranscription.AsObject);
   getName(): string;
   setName(value: string): S2tTranscription;
 
@@ -216,22 +228,24 @@ export class S2tTranscription extends jspb.Message {
 
 export namespace S2tTranscription {
   export type AsObject = {
-    name: string,
-    text: string,
-    score: number,
-    languageCode: string,
-    audioResourceName: string,
-    pipelineId: string,
-    durationInS: number,
-    transcriptionType: TranscriptionType,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    text: string;
+    score: number;
+    languageCode: string;
+    audioResourceName: string;
+    pipelineId: string;
+    durationInS: number;
+    transcriptionType: TranscriptionType;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 }
 
 export class QueryInput extends jspb.Message {
+  constructor();
+  constructor(opt_data?: QueryInput.AsObject);
   getAudioConfig(): InputAudioConfig | undefined;
   setAudioConfig(value?: InputAudioConfig): QueryInput;
   hasAudioConfig(): boolean;
@@ -264,13 +278,13 @@ export class QueryInput extends jspb.Message {
 
 export namespace QueryInput {
   export type AsObject = {
-    audioConfig?: InputAudioConfig.AsObject,
-    text?: TextInput.AsObject,
-    event?: EventInput.AsObject,
-    fileResourcesList: Array<FileResource.AsObject>,
-  }
+    audioConfig?: InputAudioConfig.AsObject;
+    text?: TextInput.AsObject;
+    event?: EventInput.AsObject;
+    fileResourcesList: Array<FileResource.AsObject>;
+  };
 
-  export enum InputCase { 
+  export enum InputCase {
     INPUT_NOT_SET = 0,
     AUDIO_CONFIG = 1,
     TEXT = 2,
@@ -279,6 +293,8 @@ export namespace QueryInput {
 }
 
 export class LlmTokenUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmTokenUsage.AsObject);
   getTotalTokens(): number;
   setTotalTokens(value: number): LlmTokenUsage;
 
@@ -298,13 +314,15 @@ export class LlmTokenUsage extends jspb.Message {
 
 export namespace LlmTokenUsage {
   export type AsObject = {
-    totalTokens: number,
-    inputTokens: number,
-    outputTokens: number,
-  }
+    totalTokens: number;
+    inputTokens: number;
+    outputTokens: number;
+  };
 }
 
 export class LlmToolCallMetadata extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmToolCallMetadata.AsObject);
   getToolCallId(): string;
   setToolCallId(value: string): LlmToolCallMetadata;
 
@@ -352,19 +370,21 @@ export class LlmToolCallMetadata extends jspb.Message {
 
 export namespace LlmToolCallMetadata {
   export type AsObject = {
-    toolCallId: string,
-    toolName: string,
-    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    durationInS: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    arguments?: google_protobuf_struct_pb.Struct.AsObject,
-    result?: google_protobuf_struct_pb.Struct.AsObject,
-    errorMessage: string,
-  }
+    toolCallId: string;
+    toolName: string;
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    durationInS: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    arguments?: google_protobuf_struct_pb.Struct.AsObject;
+    result?: google_protobuf_struct_pb.Struct.AsObject;
+    errorMessage: string;
+  };
 }
 
 export class LlmThinkingMetadata extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmThinkingMetadata.AsObject);
   getLlmTokenUsage(): LlmTokenUsage | undefined;
   setLlmTokenUsage(value?: LlmTokenUsage): LlmThinkingMetadata;
   hasLlmTokenUsage(): boolean;
@@ -396,15 +416,17 @@ export class LlmThinkingMetadata extends jspb.Message {
 
 export namespace LlmThinkingMetadata {
   export type AsObject = {
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    durationInS: number,
-    thinkingText: string,
-  }
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    durationInS: number;
+    thinkingText: string;
+  };
 }
 
 export class LlmTelemetry extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmTelemetry.AsObject);
   getProvider(): string;
   setProvider(value: string): LlmTelemetry;
 
@@ -654,103 +676,105 @@ export class LlmTelemetry extends jspb.Message {
 
 export namespace LlmTelemetry {
   export type AsObject = {
-    provider: string,
-    modelName: string,
-    agentName: string,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    llmToolCallMetadatasList: Array<LlmToolCallMetadata.AsObject>,
-    toolCallCount: number,
-    llmThinkingMetadata?: LlmThinkingMetadata.AsObject,
-    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    durationInS: number,
-    runId: string,
-    parentRunId: string,
-    runType: string,
-    componentName: string,
-    tagsList: Array<string>,
-    metadata?: google_protobuf_struct_pb.Struct.AsObject,
-    inputs?: google_protobuf_struct_pb.Struct.AsObject,
-    outputs?: google_protobuf_struct_pb.Struct.AsObject,
-    errorClass: string,
-    errorMessage: string,
-    traceback: string,
-    streamingChunkCount: number,
-    firstTokenLatencySeconds: number,
-    systemFingerprint: string,
-    cached: boolean,
-    retryCount: number,
-    fallbackDepth: number,
-    temperature: number,
-    topP: number,
-    maxTokens: number,
-    nGenerations: number,
-    finishReasonsList: Array<string>,
-    cachedInputTokens: number,
-    cacheCreationInputTokens: number,
-    langsmithRunUrl: string,
-    teamName: string,
-    teamId: string,
-    agentRole: string,
-    senderAgent: string,
-    recipientAgent: string,
-    turnIndex: number,
-    reflectionIterations: number,
-    terminationReason: string,
-    evaluatorRunsJoinKey: string,
-    llmEvaluationFeedbacksList: Array<ondewo_nlu_llm_evaluation_pb.LlmEvaluationFeedback.AsObject>,
-    ccaiServiceName: string,
-    baseUrl: string,
-    defaultHeaders?: google_protobuf_struct_pb.Struct.AsObject,
-    defaultQuery?: google_protobuf_struct_pb.Struct.AsObject,
-    frequencyPenalty?: number,
-    openaiMetadata?: google_protobuf_struct_pb.Struct.AsObject,
-    presencePenalty?: number,
-    reasoningEffort?: ReasoningEffort,
-    user?: string,
-    timeout?: number,
-    strictResponseValidation?: boolean,
-    extraHeaders?: google_protobuf_struct_pb.Struct.AsObject,
-    extraQuery?: google_protobuf_struct_pb.Struct.AsObject,
-    extraBody?: google_protobuf_struct_pb.Struct.AsObject,
-    ccaiServiceProvider: ondewo_nlu_ccai_project_pb.CcaiServiceProvider,
-    llmSafetyAssessment?: LlmSafetyAssessment.AsObject,
-    llmRetrievalMetadata?: LlmRetrievalMetadata.AsObject,
-    llmCallId: string,
-  }
+    provider: string;
+    modelName: string;
+    agentName: string;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    llmToolCallMetadatasList: Array<LlmToolCallMetadata.AsObject>;
+    toolCallCount: number;
+    llmThinkingMetadata?: LlmThinkingMetadata.AsObject;
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    durationInS: number;
+    runId: string;
+    parentRunId: string;
+    runType: string;
+    componentName: string;
+    tagsList: Array<string>;
+    metadata?: google_protobuf_struct_pb.Struct.AsObject;
+    inputs?: google_protobuf_struct_pb.Struct.AsObject;
+    outputs?: google_protobuf_struct_pb.Struct.AsObject;
+    errorClass: string;
+    errorMessage: string;
+    traceback: string;
+    streamingChunkCount: number;
+    firstTokenLatencySeconds: number;
+    systemFingerprint: string;
+    cached: boolean;
+    retryCount: number;
+    fallbackDepth: number;
+    temperature: number;
+    topP: number;
+    maxTokens: number;
+    nGenerations: number;
+    finishReasonsList: Array<string>;
+    cachedInputTokens: number;
+    cacheCreationInputTokens: number;
+    langsmithRunUrl: string;
+    teamName: string;
+    teamId: string;
+    agentRole: string;
+    senderAgent: string;
+    recipientAgent: string;
+    turnIndex: number;
+    reflectionIterations: number;
+    terminationReason: string;
+    evaluatorRunsJoinKey: string;
+    llmEvaluationFeedbacksList: Array<ondewo_nlu_llm_evaluation_pb.LlmEvaluationFeedback.AsObject>;
+    ccaiServiceName: string;
+    baseUrl: string;
+    defaultHeaders?: google_protobuf_struct_pb.Struct.AsObject;
+    defaultQuery?: google_protobuf_struct_pb.Struct.AsObject;
+    frequencyPenalty?: number;
+    openaiMetadata?: google_protobuf_struct_pb.Struct.AsObject;
+    presencePenalty?: number;
+    reasoningEffort?: ReasoningEffort;
+    user?: string;
+    timeout?: number;
+    strictResponseValidation?: boolean;
+    extraHeaders?: google_protobuf_struct_pb.Struct.AsObject;
+    extraQuery?: google_protobuf_struct_pb.Struct.AsObject;
+    extraBody?: google_protobuf_struct_pb.Struct.AsObject;
+    ccaiServiceProvider: ondewo_nlu_ccai_project_pb.CcaiServiceProvider;
+    llmSafetyAssessment?: LlmSafetyAssessment.AsObject;
+    llmRetrievalMetadata?: LlmRetrievalMetadata.AsObject;
+    llmCallId: string;
+  };
 
-  export enum FrequencyPenaltyCase { 
+  export enum FrequencyPenaltyCase {
     _FREQUENCY_PENALTY_NOT_SET = 0,
     FREQUENCY_PENALTY = 50,
   }
 
-  export enum PresencePenaltyCase { 
+  export enum PresencePenaltyCase {
     _PRESENCE_PENALTY_NOT_SET = 0,
     PRESENCE_PENALTY = 52,
   }
 
-  export enum ReasoningEffortCase { 
+  export enum ReasoningEffortCase {
     _REASONING_EFFORT_NOT_SET = 0,
     REASONING_EFFORT = 53,
   }
 
-  export enum UserCase { 
+  export enum UserCase {
     _USER_NOT_SET = 0,
     USER = 54,
   }
 
-  export enum TimeoutCase { 
+  export enum TimeoutCase {
     _TIMEOUT_NOT_SET = 0,
     TIMEOUT = 55,
   }
 
-  export enum StrictResponseValidationCase { 
+  export enum StrictResponseValidationCase {
     _STRICT_RESPONSE_VALIDATION_NOT_SET = 0,
     STRICT_RESPONSE_VALIDATION = 56,
   }
 }
 
 export class LlmSafetyFinding extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmSafetyFinding.AsObject);
   getCategory(): string;
   setCategory(value: string): LlmSafetyFinding;
 
@@ -773,14 +797,16 @@ export class LlmSafetyFinding extends jspb.Message {
 
 export namespace LlmSafetyFinding {
   export type AsObject = {
-    category: string,
-    severity: string,
-    matchedPattern: string,
-    location: LlmSafetyLocation,
-  }
+    category: string;
+    severity: string;
+    matchedPattern: string;
+    location: LlmSafetyLocation;
+  };
 }
 
 export class LlmSafetyAssessment extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmSafetyAssessment.AsObject);
   getFlaggedCategoriesList(): Array<string>;
   setFlaggedCategoriesList(value: Array<string>): LlmSafetyAssessment;
   clearFlaggedCategoriesList(): LlmSafetyAssessment;
@@ -813,16 +839,18 @@ export class LlmSafetyAssessment extends jspb.Message {
 
 export namespace LlmSafetyAssessment {
   export type AsObject = {
-    flaggedCategoriesList: Array<string>,
-    hasPii: boolean,
-    hasInjectionAttempt: boolean,
-    hasJailbreakAttempt: boolean,
-    safetyScore: number,
-    findingsList: Array<LlmSafetyFinding.AsObject>,
-  }
+    flaggedCategoriesList: Array<string>;
+    hasPii: boolean;
+    hasInjectionAttempt: boolean;
+    hasJailbreakAttempt: boolean;
+    safetyScore: number;
+    findingsList: Array<LlmSafetyFinding.AsObject>;
+  };
 }
 
 export class LlmRetrievedChunk extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmRetrievedChunk.AsObject);
   getDocumentId(): string;
   setDocumentId(value: string): LlmRetrievedChunk;
 
@@ -851,16 +879,18 @@ export class LlmRetrievedChunk extends jspb.Message {
 
 export namespace LlmRetrievedChunk {
   export type AsObject = {
-    documentId: string,
-    chunkId: string,
-    score: number,
-    text: string,
-    sourceUri: string,
-    rank: number,
-  }
+    documentId: string;
+    chunkId: string;
+    score: number;
+    text: string;
+    sourceUri: string;
+    rank: number;
+  };
 }
 
 export class LlmRetrievalMetadata extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmRetrievalMetadata.AsObject);
   getChunksList(): Array<LlmRetrievedChunk>;
   setChunksList(value: Array<LlmRetrievedChunk>): LlmRetrievalMetadata;
   clearChunksList(): LlmRetrievalMetadata;
@@ -876,11 +906,13 @@ export class LlmRetrievalMetadata extends jspb.Message {
 
 export namespace LlmRetrievalMetadata {
   export type AsObject = {
-    chunksList: Array<LlmRetrievedChunk.AsObject>,
-  }
+    chunksList: Array<LlmRetrievedChunk.AsObject>;
+  };
 }
 
 export class LlmLatencyStats extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmLatencyStats.AsObject);
   getCallCount(): number;
   setCallCount(value: number): LlmLatencyStats;
 
@@ -915,18 +947,20 @@ export class LlmLatencyStats extends jspb.Message {
 
 export namespace LlmLatencyStats {
   export type AsObject = {
-    callCount: number,
-    meanDurationSeconds: number,
-    p50DurationSeconds: number,
-    p95DurationSeconds: number,
-    p99DurationSeconds: number,
-    maxDurationSeconds: number,
-    meanFirstTokenLatencySeconds: number,
-    p95FirstTokenLatencySeconds: number,
-  }
+    callCount: number;
+    meanDurationSeconds: number;
+    p50DurationSeconds: number;
+    p95DurationSeconds: number;
+    p99DurationSeconds: number;
+    maxDurationSeconds: number;
+    meanFirstTokenLatencySeconds: number;
+    p95FirstTokenLatencySeconds: number;
+  };
 }
 
 export class LlmCacheStats extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmCacheStats.AsObject);
   getCachedInputTokens(): number;
   setCachedInputTokens(value: number): LlmCacheStats;
 
@@ -952,15 +986,17 @@ export class LlmCacheStats extends jspb.Message {
 
 export namespace LlmCacheStats {
   export type AsObject = {
-    cachedInputTokens: number,
-    cacheCreationInputTokens: number,
-    uncachedInputTokens: number,
-    cacheHitRate: number,
-    tokenSavings: number,
-  }
+    cachedInputTokens: number;
+    cacheCreationInputTokens: number;
+    uncachedInputTokens: number;
+    cacheHitRate: number;
+    tokenSavings: number;
+  };
 }
 
 export class LlmModelUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmModelUsage.AsObject);
   getModelName(): string;
   setModelName(value: string): LlmModelUsage;
 
@@ -1020,25 +1056,27 @@ export class LlmModelUsage extends jspb.Message {
 
 export namespace LlmModelUsage {
   export type AsObject = {
-    modelName: string,
-    provider: string,
-    callCount: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    toolCallCount: number,
-    errorCount: number,
-    durationSecondsTotal: number,
-    cacheStats?: LlmCacheStats.AsObject,
-    ccaiServiceName: string,
-    ccaiServiceProvider: ondewo_nlu_ccai_project_pb.CcaiServiceProvider,
-    baseUrl: string,
-    thinkingTokensTotal: number,
-    thinkingDurationSecondsTotal: number,
-    toolCallTokensTotal: number,
-    toolCallDurationSecondsTotal: number,
-  }
+    modelName: string;
+    provider: string;
+    callCount: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    toolCallCount: number;
+    errorCount: number;
+    durationSecondsTotal: number;
+    cacheStats?: LlmCacheStats.AsObject;
+    ccaiServiceName: string;
+    ccaiServiceProvider: ondewo_nlu_ccai_project_pb.CcaiServiceProvider;
+    baseUrl: string;
+    thinkingTokensTotal: number;
+    thinkingDurationSecondsTotal: number;
+    toolCallTokensTotal: number;
+    toolCallDurationSecondsTotal: number;
+  };
 }
 
 export class LlmProviderUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmProviderUsage.AsObject);
   getProvider(): string;
   setProvider(value: string): LlmProviderUsage;
 
@@ -1071,16 +1109,18 @@ export class LlmProviderUsage extends jspb.Message {
 
 export namespace LlmProviderUsage {
   export type AsObject = {
-    provider: string,
-    callCount: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    errorCount: number,
-    durationSecondsTotal: number,
-    modelNamesList: Array<string>,
-  }
+    provider: string;
+    callCount: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    errorCount: number;
+    durationSecondsTotal: number;
+    modelNamesList: Array<string>;
+  };
 }
 
 export class LlmCcaiServiceUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmCcaiServiceUsage.AsObject);
   getCcaiServiceProvider(): ondewo_nlu_ccai_project_pb.CcaiServiceProvider;
   setCcaiServiceProvider(value: ondewo_nlu_ccai_project_pb.CcaiServiceProvider): LlmCcaiServiceUsage;
 
@@ -1113,16 +1153,18 @@ export class LlmCcaiServiceUsage extends jspb.Message {
 
 export namespace LlmCcaiServiceUsage {
   export type AsObject = {
-    ccaiServiceProvider: ondewo_nlu_ccai_project_pb.CcaiServiceProvider,
-    ccaiServiceName: string,
-    callCount: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    baseUrl: string,
-    modelNamesList: Array<string>,
-  }
+    ccaiServiceProvider: ondewo_nlu_ccai_project_pb.CcaiServiceProvider;
+    ccaiServiceName: string;
+    callCount: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    baseUrl: string;
+    modelNamesList: Array<string>;
+  };
 }
 
 export class LlmBaseUrlUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmBaseUrlUsage.AsObject);
   getBaseUrl(): string;
   setBaseUrl(value: string): LlmBaseUrlUsage;
 
@@ -1149,14 +1191,16 @@ export class LlmBaseUrlUsage extends jspb.Message {
 
 export namespace LlmBaseUrlUsage {
   export type AsObject = {
-    baseUrl: string,
-    callCount: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    modelNamesList: Array<string>,
-  }
+    baseUrl: string;
+    callCount: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    modelNamesList: Array<string>;
+  };
 }
 
 export class LlmAgentUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmAgentUsage.AsObject);
   getAgentName(): string;
   setAgentName(value: string): LlmAgentUsage;
 
@@ -1187,16 +1231,18 @@ export class LlmAgentUsage extends jspb.Message {
 
 export namespace LlmAgentUsage {
   export type AsObject = {
-    agentName: string,
-    agentRole: string,
-    teamName: string,
-    callCount: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    toolCallCount: number,
-  }
+    agentName: string;
+    agentRole: string;
+    teamName: string;
+    callCount: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    toolCallCount: number;
+  };
 }
 
 export class LlmToolUsage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmToolUsage.AsObject);
   getToolName(): string;
   setToolName(value: string): LlmToolUsage;
 
@@ -1241,20 +1287,22 @@ export class LlmToolUsage extends jspb.Message {
 
 export namespace LlmToolUsage {
   export type AsObject = {
-    toolName: string,
-    callCount: number,
-    errorCount: number,
-    errorRate: number,
-    durationSecondsTotal: number,
-    meanDurationSeconds: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    arguments?: google_protobuf_struct_pb.Struct.AsObject,
-    llmCallId: string,
-    toolCallId: string,
-  }
+    toolName: string;
+    callCount: number;
+    errorCount: number;
+    errorRate: number;
+    durationSecondsTotal: number;
+    meanDurationSeconds: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    arguments?: google_protobuf_struct_pb.Struct.AsObject;
+    llmCallId: string;
+    toolCallId: string;
+  };
 }
 
 export class LlmErrorStat extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmErrorStat.AsObject);
   getErrorClass(): string;
   setErrorClass(value: string): LlmErrorStat;
 
@@ -1277,14 +1325,16 @@ export class LlmErrorStat extends jspb.Message {
 
 export namespace LlmErrorStat {
   export type AsObject = {
-    errorClass: string,
-    count: number,
-    rate: number,
-    sampleMessage: string,
-  }
+    errorClass: string;
+    count: number;
+    rate: number;
+    sampleMessage: string;
+  };
 }
 
 export class LlmErrorStats extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmErrorStats.AsObject);
   getTotalErrorCount(): number;
   setTotalErrorCount(value: number): LlmErrorStats;
 
@@ -1312,15 +1362,17 @@ export class LlmErrorStats extends jspb.Message {
 
 export namespace LlmErrorStats {
   export type AsObject = {
-    totalErrorCount: number,
-    overallErrorRate: number,
-    errorsByClassList: Array<LlmErrorStat.AsObject>,
-    retryCountTotal: number,
-    maxFallbackDepth: number,
-  }
+    totalErrorCount: number;
+    overallErrorRate: number;
+    errorsByClassList: Array<LlmErrorStat.AsObject>;
+    retryCountTotal: number;
+    maxFallbackDepth: number;
+  };
 }
 
 export class LlmFinishReasonStat extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmFinishReasonStat.AsObject);
   getFinishReason(): string;
   setFinishReason(value: string): LlmFinishReasonStat;
 
@@ -1340,13 +1392,15 @@ export class LlmFinishReasonStat extends jspb.Message {
 
 export namespace LlmFinishReasonStat {
   export type AsObject = {
-    finishReason: string,
-    count: number,
-    rate: number,
-  }
+    finishReason: string;
+    count: number;
+    rate: number;
+  };
 }
 
 export class LlmReasoningEffortStat extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmReasoningEffortStat.AsObject);
   getReasoningEffort(): ReasoningEffort;
   setReasoningEffort(value: ReasoningEffort): LlmReasoningEffortStat;
 
@@ -1371,14 +1425,16 @@ export class LlmReasoningEffortStat extends jspb.Message {
 
 export namespace LlmReasoningEffortStat {
   export type AsObject = {
-    reasoningEffort: ReasoningEffort,
-    count: number,
-    rate: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-  }
+    reasoningEffort: ReasoningEffort;
+    count: number;
+    rate: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+  };
 }
 
 export class LlmTelemetryReport extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmTelemetryReport.AsObject);
   getLlmTokenUsage(): LlmTokenUsage | undefined;
   setLlmTokenUsage(value?: LlmTokenUsage): LlmTelemetryReport;
   hasLlmTokenUsage(): boolean;
@@ -1480,31 +1536,33 @@ export class LlmTelemetryReport extends jspb.Message {
 
 export namespace LlmTelemetryReport {
   export type AsObject = {
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    toolCallCountTotal: number,
-    llmCallCount: number,
-    llmTelemetriesList: Array<LlmTelemetry.AsObject>,
-    durationSecondsTotal: number,
-    modelsUsedList: Array<LlmModelUsage.AsObject>,
-    providersUsedList: Array<LlmProviderUsage.AsObject>,
-    ccaiServicesUsedList: Array<LlmCcaiServiceUsage.AsObject>,
-    agentsUsedList: Array<LlmAgentUsage.AsObject>,
-    toolsUsedList: Array<LlmToolUsage.AsObject>,
-    latencyStats?: LlmLatencyStats.AsObject,
-    cacheStats?: LlmCacheStats.AsObject,
-    errorStats?: LlmErrorStats.AsObject,
-    finishReasonDistributionList: Array<LlmFinishReasonStat.AsObject>,
-    reasoningEffortDistributionList: Array<LlmReasoningEffortStat.AsObject>,
-    thinkingTokensTotal: number,
-    thinkingDurationSecondsTotal: number,
-    toolCallTokensTotal: number,
-    toolCallDurationSecondsTotal: number,
-    safetyStats?: LlmSafetyStats.AsObject,
-    baseUrlsUsedList: Array<LlmBaseUrlUsage.AsObject>,
-  }
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    toolCallCountTotal: number;
+    llmCallCount: number;
+    llmTelemetriesList: Array<LlmTelemetry.AsObject>;
+    durationSecondsTotal: number;
+    modelsUsedList: Array<LlmModelUsage.AsObject>;
+    providersUsedList: Array<LlmProviderUsage.AsObject>;
+    ccaiServicesUsedList: Array<LlmCcaiServiceUsage.AsObject>;
+    agentsUsedList: Array<LlmAgentUsage.AsObject>;
+    toolsUsedList: Array<LlmToolUsage.AsObject>;
+    latencyStats?: LlmLatencyStats.AsObject;
+    cacheStats?: LlmCacheStats.AsObject;
+    errorStats?: LlmErrorStats.AsObject;
+    finishReasonDistributionList: Array<LlmFinishReasonStat.AsObject>;
+    reasoningEffortDistributionList: Array<LlmReasoningEffortStat.AsObject>;
+    thinkingTokensTotal: number;
+    thinkingDurationSecondsTotal: number;
+    toolCallTokensTotal: number;
+    toolCallDurationSecondsTotal: number;
+    safetyStats?: LlmSafetyStats.AsObject;
+    baseUrlsUsedList: Array<LlmBaseUrlUsage.AsObject>;
+  };
 }
 
 export class LlmSafetyCategoryStat extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmSafetyCategoryStat.AsObject);
   getCategory(): string;
   setCategory(value: string): LlmSafetyCategoryStat;
 
@@ -1524,13 +1582,15 @@ export class LlmSafetyCategoryStat extends jspb.Message {
 
 export namespace LlmSafetyCategoryStat {
   export type AsObject = {
-    category: string,
-    count: number,
-    rate: number,
-  }
+    category: string;
+    count: number;
+    rate: number;
+  };
 }
 
 export class LlmSafetyStats extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmSafetyStats.AsObject);
   getTotalAssessed(): number;
   setTotalAssessed(value: number): LlmSafetyStats;
 
@@ -1555,14 +1615,16 @@ export class LlmSafetyStats extends jspb.Message {
 
 export namespace LlmSafetyStats {
   export type AsObject = {
-    totalAssessed: number,
-    flaggedCount: number,
-    overallSafetyScore: number,
-    categoryStatsList: Array<LlmSafetyCategoryStat.AsObject>,
-  }
+    totalAssessed: number;
+    flaggedCount: number;
+    overallSafetyScore: number;
+    categoryStatsList: Array<LlmSafetyCategoryStat.AsObject>;
+  };
 }
 
 export class LlmCallStartedEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmCallStartedEvent.AsObject);
   getLlmCallId(): string;
   setLlmCallId(value: string): LlmCallStartedEvent;
 
@@ -1590,15 +1652,17 @@ export class LlmCallStartedEvent extends jspb.Message {
 
 export namespace LlmCallStartedEvent {
   export type AsObject = {
-    llmCallId: string,
-    provider: string,
-    modelName: string,
-    agentName: string,
-    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    llmCallId: string;
+    provider: string;
+    modelName: string;
+    agentName: string;
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 }
 
 export class LlmCallFinishedEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmCallFinishedEvent.AsObject);
   getLlmCallId(): string;
   setLlmCallId(value: string): LlmCallFinishedEvent;
 
@@ -1625,14 +1689,16 @@ export class LlmCallFinishedEvent extends jspb.Message {
 
 export namespace LlmCallFinishedEvent {
   export type AsObject = {
-    llmCallId: string,
-    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    durationInS: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-  }
+    llmCallId: string;
+    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    durationInS: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+  };
 }
 
 export class LlmToolCallStartedEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmToolCallStartedEvent.AsObject);
   getToolCallId(): string;
   setToolCallId(value: string): LlmToolCallStartedEvent;
 
@@ -1662,15 +1728,17 @@ export class LlmToolCallStartedEvent extends jspb.Message {
 
 export namespace LlmToolCallStartedEvent {
   export type AsObject = {
-    toolCallId: string,
-    toolName: string,
-    arguments?: google_protobuf_struct_pb.Struct.AsObject,
-    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    llmCallId: string,
-  }
+    toolCallId: string;
+    toolName: string;
+    arguments?: google_protobuf_struct_pb.Struct.AsObject;
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    llmCallId: string;
+  };
 }
 
 export class LlmToolCallFinishedEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmToolCallFinishedEvent.AsObject);
   getToolCallId(): string;
   setToolCallId(value: string): LlmToolCallFinishedEvent;
 
@@ -1708,17 +1776,19 @@ export class LlmToolCallFinishedEvent extends jspb.Message {
 
 export namespace LlmToolCallFinishedEvent {
   export type AsObject = {
-    toolCallId: string,
-    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    durationInS: number,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-    result?: google_protobuf_struct_pb.Struct.AsObject,
-    errorMessage: string,
-    llmCallId: string,
-  }
+    toolCallId: string;
+    endTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    durationInS: number;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+    result?: google_protobuf_struct_pb.Struct.AsObject;
+    errorMessage: string;
+    llmCallId: string;
+  };
 }
 
 export class LlmThinkingDeltaEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmThinkingDeltaEvent.AsObject);
   getLlmCallId(): string;
   setLlmCallId(value: string): LlmThinkingDeltaEvent;
 
@@ -1740,13 +1810,15 @@ export class LlmThinkingDeltaEvent extends jspb.Message {
 
 export namespace LlmThinkingDeltaEvent {
   export type AsObject = {
-    llmCallId: string,
-    textDelta: string,
-    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    llmCallId: string;
+    textDelta: string;
+    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 }
 
 export class LlmTokenUsageUpdateEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmTokenUsageUpdateEvent.AsObject);
   getLlmCallId(): string;
   setLlmCallId(value: string): LlmTokenUsageUpdateEvent;
 
@@ -1765,12 +1837,14 @@ export class LlmTokenUsageUpdateEvent extends jspb.Message {
 
 export namespace LlmTokenUsageUpdateEvent {
   export type AsObject = {
-    llmCallId: string,
-    llmTokenUsage?: LlmTokenUsage.AsObject,
-  }
+    llmCallId: string;
+    llmTokenUsage?: LlmTokenUsage.AsObject;
+  };
 }
 
 export class LlmAgentNodeEvent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: LlmAgentNodeEvent.AsObject);
   getLlmAgentNodeEventNodeRunId(): string;
   setLlmAgentNodeEventNodeRunId(value: string): LlmAgentNodeEvent;
 
@@ -1809,18 +1883,20 @@ export class LlmAgentNodeEvent extends jspb.Message {
 
 export namespace LlmAgentNodeEvent {
   export type AsObject = {
-    llmAgentNodeEventNodeRunId: string,
-    llmAgentNodeEventParentNodeRunId: string,
-    llmAgentNodeEventNodeDisplayName: string,
-    llmAgentNodeEventNodePathList: Array<string>,
-    llmAgentNodePhase: LlmAgentNodePhase,
-    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    llmAgentNodeEventDurationInS: number,
-    llmAgentNodeEventErrorMessage: string,
-  }
+    llmAgentNodeEventNodeRunId: string;
+    llmAgentNodeEventParentNodeRunId: string;
+    llmAgentNodeEventNodeDisplayName: string;
+    llmAgentNodeEventNodePathList: Array<string>;
+    llmAgentNodePhase: LlmAgentNodePhase;
+    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    llmAgentNodeEventDurationInS: number;
+    llmAgentNodeEventErrorMessage: string;
+  };
 }
 
 export class ReferencedChunk extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ReferencedChunk.AsObject);
   getReferenceIndex(): number;
   setReferenceIndex(value: number): ReferencedChunk;
 
@@ -1848,6 +1924,9 @@ export class ReferencedChunk extends jspb.Message {
   getDeepLinkUrl(): string;
   setDeepLinkUrl(value: string): ReferencedChunk;
 
+  getDocumentTitle(): string;
+  setDocumentTitle(value: string): ReferencedChunk;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ReferencedChunk.AsObject;
   static toObject(includeInstance: boolean, msg: ReferencedChunk): ReferencedChunk.AsObject;
@@ -1858,19 +1937,22 @@ export class ReferencedChunk extends jspb.Message {
 
 export namespace ReferencedChunk {
   export type AsObject = {
-    referenceIndex: number,
-    datasetId: string,
-    documentId: string,
-    chunkId: string,
-    documentName: string,
-    content: string,
-    similarity: number,
-    documentUrl: string,
-    deepLinkUrl: string,
-  }
+    referenceIndex: number;
+    datasetId: string;
+    documentId: string;
+    chunkId: string;
+    documentName: string;
+    content: string;
+    similarity: number;
+    documentUrl: string;
+    deepLinkUrl: string;
+    documentTitle: string;
+  };
 }
 
 export class QueryResult extends jspb.Message {
+  constructor();
+  constructor(opt_data?: QueryResult.AsObject);
   getQueryText(): string;
   setQueryText(value: string): QueryResult;
 
@@ -1953,28 +2035,30 @@ export class QueryResult extends jspb.Message {
 
 export namespace QueryResult {
   export type AsObject = {
-    queryText: string,
-    speechRecognitionConfidence: number,
-    action: string,
-    parameters?: google_protobuf_struct_pb.Struct.AsObject,
-    allRequiredParamsPresent: boolean,
-    fulfillmentText: string,
-    fulfillmentMessagesList: Array<ondewo_nlu_intent_pb.Intent.Message.AsObject>,
-    webhookSource: string,
-    webhookPayload?: google_protobuf_struct_pb.Struct.AsObject,
-    outputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    intent?: ondewo_nlu_intent_pb.Intent.AsObject,
-    intentDetectionConfidence: number,
-    queryTextOriginal: string,
-    diagnosticInfo?: google_protobuf_struct_pb.Struct.AsObject,
-    languageCode: string,
-    fileResourcesList: Array<FileResource.AsObject>,
-    llmTelemetryReport?: LlmTelemetryReport.AsObject,
-    referencedChunksList: Array<ReferencedChunk.AsObject>,
-  }
+    queryText: string;
+    speechRecognitionConfidence: number;
+    action: string;
+    parameters?: google_protobuf_struct_pb.Struct.AsObject;
+    allRequiredParamsPresent: boolean;
+    fulfillmentText: string;
+    fulfillmentMessagesList: Array<ondewo_nlu_intent_pb.Intent.Message.AsObject>;
+    webhookSource: string;
+    webhookPayload?: google_protobuf_struct_pb.Struct.AsObject;
+    outputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    intent?: ondewo_nlu_intent_pb.Intent.AsObject;
+    intentDetectionConfidence: number;
+    queryTextOriginal: string;
+    diagnosticInfo?: google_protobuf_struct_pb.Struct.AsObject;
+    languageCode: string;
+    fileResourcesList: Array<FileResource.AsObject>;
+    llmTelemetryReport?: LlmTelemetryReport.AsObject;
+    referencedChunksList: Array<ReferencedChunk.AsObject>;
+  };
 }
 
 export class StreamingDetectIntentRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: StreamingDetectIntentRequest.AsObject);
   getSession(): string;
   setSession(value: string): StreamingDetectIntentRequest;
 
@@ -1996,6 +2080,14 @@ export class StreamingDetectIntentRequest extends jspb.Message {
   getInputAudio_asB64(): string;
   setInputAudio(value: Uint8Array | string): StreamingDetectIntentRequest;
 
+  getTurnControl(): TurnControl | undefined;
+  setTurnControl(value?: TurnControl): StreamingDetectIntentRequest;
+  hasTurnControl(): boolean;
+  clearTurnControl(): StreamingDetectIntentRequest;
+
+  getClientTurnId(): string;
+  setClientTurnId(value: string): StreamingDetectIntentRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): StreamingDetectIntentRequest.AsObject;
   static toObject(includeInstance: boolean, msg: StreamingDetectIntentRequest): StreamingDetectIntentRequest.AsObject;
@@ -2006,15 +2098,19 @@ export class StreamingDetectIntentRequest extends jspb.Message {
 
 export namespace StreamingDetectIntentRequest {
   export type AsObject = {
-    session: string,
-    queryParams?: QueryParameters.AsObject,
-    queryInput?: QueryInput.AsObject,
-    singleUtterance: boolean,
-    inputAudio: Uint8Array | string,
-  }
+    session: string;
+    queryParams?: QueryParameters.AsObject;
+    queryInput?: QueryInput.AsObject;
+    singleUtterance: boolean;
+    inputAudio: Uint8Array | string;
+    turnControl?: TurnControl.AsObject;
+    clientTurnId: string;
+  };
 }
 
 export class StreamingDetectIntentResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: StreamingDetectIntentResponse.AsObject);
   getResponseId(): string;
   setResponseId(value: string): StreamingDetectIntentResponse;
 
@@ -2068,6 +2164,14 @@ export class StreamingDetectIntentResponse extends jspb.Message {
   hasLlmAgentNodeEvent(): boolean;
   clearLlmAgentNodeEvent(): StreamingDetectIntentResponse;
 
+  getTurnControlAck(): TurnControlAck | undefined;
+  setTurnControlAck(value?: TurnControlAck): StreamingDetectIntentResponse;
+  hasTurnControlAck(): boolean;
+  clearTurnControlAck(): StreamingDetectIntentResponse;
+
+  getClientTurnId(): string;
+  setClientTurnId(value: string): StreamingDetectIntentResponse;
+
   getTelemetryEventCase(): StreamingDetectIntentResponse.TelemetryEventCase;
 
   serializeBinary(): Uint8Array;
@@ -2080,20 +2184,22 @@ export class StreamingDetectIntentResponse extends jspb.Message {
 
 export namespace StreamingDetectIntentResponse {
   export type AsObject = {
-    responseId: string,
-    recognitionResult?: StreamingRecognitionResult.AsObject,
-    queryResult?: QueryResult.AsObject,
-    webhookStatus?: google_rpc_status_pb.Status.AsObject,
-    llmCallStarted?: LlmCallStartedEvent.AsObject,
-    llmCallFinished?: LlmCallFinishedEvent.AsObject,
-    llmToolCallStarted?: LlmToolCallStartedEvent.AsObject,
-    llmToolCallFinished?: LlmToolCallFinishedEvent.AsObject,
-    llmThinkingDelta?: LlmThinkingDeltaEvent.AsObject,
-    llmTokenUsageUpdate?: LlmTokenUsageUpdateEvent.AsObject,
-    llmAgentNodeEvent?: LlmAgentNodeEvent.AsObject,
-  }
+    responseId: string;
+    recognitionResult?: StreamingRecognitionResult.AsObject;
+    queryResult?: QueryResult.AsObject;
+    webhookStatus?: google_rpc_status_pb.Status.AsObject;
+    llmCallStarted?: LlmCallStartedEvent.AsObject;
+    llmCallFinished?: LlmCallFinishedEvent.AsObject;
+    llmToolCallStarted?: LlmToolCallStartedEvent.AsObject;
+    llmToolCallFinished?: LlmToolCallFinishedEvent.AsObject;
+    llmThinkingDelta?: LlmThinkingDeltaEvent.AsObject;
+    llmTokenUsageUpdate?: LlmTokenUsageUpdateEvent.AsObject;
+    llmAgentNodeEvent?: LlmAgentNodeEvent.AsObject;
+    turnControlAck?: TurnControlAck.AsObject;
+    clientTurnId: string;
+  };
 
-  export enum TelemetryEventCase { 
+  export enum TelemetryEventCase {
     TELEMETRY_EVENT_NOT_SET = 0,
     LLM_CALL_STARTED = 5,
     LLM_CALL_FINISHED = 6,
@@ -2105,7 +2211,516 @@ export namespace StreamingDetectIntentResponse {
   }
 }
 
+export class TurnControl extends jspb.Message {
+  constructor();
+  constructor(opt_data?: TurnControl.AsObject);
+  getCancelTurn(): CancelTurn | undefined;
+  setCancelTurn(value?: CancelTurn): TurnControl;
+  hasCancelTurn(): boolean;
+  clearCancelTurn(): TurnControl;
+
+  getHeardReport(): HeardReport | undefined;
+  setHeardReport(value?: HeardReport): TurnControl;
+  hasHeardReport(): boolean;
+  clearHeardReport(): TurnControl;
+
+  getDiscardDraft(): DiscardDraft | undefined;
+  setDiscardDraft(value?: DiscardDraft): TurnControl;
+  hasDiscardDraft(): boolean;
+  clearDiscardDraft(): TurnControl;
+
+  getTurnControlCase(): TurnControl.TurnControlCase;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TurnControl.AsObject;
+  static toObject(includeInstance: boolean, msg: TurnControl): TurnControl.AsObject;
+  static serializeBinaryToWriter(message: TurnControl, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TurnControl;
+  static deserializeBinaryFromReader(message: TurnControl, reader: jspb.BinaryReader): TurnControl;
+}
+
+export namespace TurnControl {
+  export type AsObject = {
+    cancelTurn?: CancelTurn.AsObject;
+    heardReport?: HeardReport.AsObject;
+    discardDraft?: DiscardDraft.AsObject;
+  };
+
+  export enum TurnControlCase {
+    TURN_CONTROL_NOT_SET = 0,
+    CANCEL_TURN = 1,
+    HEARD_REPORT = 2,
+    DISCARD_DRAFT = 3,
+  }
+}
+
+export class CancelTurn extends jspb.Message {
+  constructor();
+  constructor(opt_data?: CancelTurn.AsObject);
+  getResponseId(): string;
+  setResponseId(value: string): CancelTurn;
+
+  getClientTurnId(): string;
+  setClientTurnId(value: string): CancelTurn;
+
+  getTurnInterruptionReason(): TurnInterruptionReason;
+  setTurnInterruptionReason(value: TurnInterruptionReason): CancelTurn;
+
+  getDecidedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setDecidedAt(value?: google_protobuf_timestamp_pb.Timestamp): CancelTurn;
+  hasDecidedAt(): boolean;
+  clearDecidedAt(): CancelTurn;
+
+  getBackgroundWorkPolicy(): BackgroundWorkPolicy;
+  setBackgroundWorkPolicy(value: BackgroundWorkPolicy): CancelTurn;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CancelTurn.AsObject;
+  static toObject(includeInstance: boolean, msg: CancelTurn): CancelTurn.AsObject;
+  static serializeBinaryToWriter(message: CancelTurn, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CancelTurn;
+  static deserializeBinaryFromReader(message: CancelTurn, reader: jspb.BinaryReader): CancelTurn;
+}
+
+export namespace CancelTurn {
+  export type AsObject = {
+    responseId: string;
+    clientTurnId: string;
+    turnInterruptionReason: TurnInterruptionReason;
+    decidedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    backgroundWorkPolicy: BackgroundWorkPolicy;
+  };
+}
+
+export class HeardMessage extends jspb.Message {
+  constructor();
+  constructor(opt_data?: HeardMessage.AsObject);
+  getFulfillmentMessageIndex(): number;
+  setFulfillmentMessageIndex(value: number): HeardMessage;
+
+  getPlatform(): ondewo_nlu_intent_pb.Intent.Message.Platform;
+  setPlatform(value: ondewo_nlu_intent_pb.Intent.Message.Platform): HeardMessage;
+
+  getFullText(): string;
+  setFullText(value: string): HeardMessage;
+
+  getHeardText(): string;
+  setHeardText(value: string): HeardMessage;
+
+  getHeardCharCount(): number;
+  setHeardCharCount(value: number): HeardMessage;
+
+  getHeardAudioDurationInS(): number;
+  setHeardAudioDurationInS(value: number): HeardMessage;
+
+  getTotalAudioDurationInS(): number;
+  setTotalAudioDurationInS(value: number): HeardMessage;
+
+  getCompleted(): boolean;
+  setCompleted(value: boolean): HeardMessage;
+
+  getNeverStarted(): boolean;
+  setNeverStarted(value: boolean): HeardMessage;
+
+  getSkippedSipTrigger(): boolean;
+  setSkippedSipTrigger(value: boolean): HeardMessage;
+
+  getFillerId(): string;
+  setFillerId(value: string): HeardMessage;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): HeardMessage.AsObject;
+  static toObject(includeInstance: boolean, msg: HeardMessage): HeardMessage.AsObject;
+  static serializeBinaryToWriter(message: HeardMessage, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HeardMessage;
+  static deserializeBinaryFromReader(message: HeardMessage, reader: jspb.BinaryReader): HeardMessage;
+}
+
+export namespace HeardMessage {
+  export type AsObject = {
+    fulfillmentMessageIndex: number;
+    platform: ondewo_nlu_intent_pb.Intent.Message.Platform;
+    fullText: string;
+    heardText: string;
+    heardCharCount: number;
+    heardAudioDurationInS: number;
+    totalAudioDurationInS: number;
+    completed: boolean;
+    neverStarted: boolean;
+    skippedSipTrigger: boolean;
+    fillerId: string;
+  };
+}
+
+export class HeardReport extends jspb.Message {
+  constructor();
+  constructor(opt_data?: HeardReport.AsObject);
+  getResponseId(): string;
+  setResponseId(value: string): HeardReport;
+
+  getClientTurnId(): string;
+  setClientTurnId(value: string): HeardReport;
+
+  getRevision(): number;
+  setRevision(value: number): HeardReport;
+
+  getTurnInterruptionReason(): TurnInterruptionReason;
+  setTurnInterruptionReason(value: TurnInterruptionReason): HeardReport;
+
+  getHeardMessagesList(): Array<HeardMessage>;
+  setHeardMessagesList(value: Array<HeardMessage>): HeardReport;
+  clearHeardMessagesList(): HeardReport;
+  addHeardMessages(value?: HeardMessage, index?: number): HeardMessage;
+
+  getHeardTextPrecision(): HeardTextPrecision;
+  setHeardTextPrecision(value: HeardTextPrecision): HeardReport;
+
+  getCallerOverlapDurationInS(): number;
+  setCallerOverlapDurationInS(value: number): HeardReport;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): HeardReport.AsObject;
+  static toObject(includeInstance: boolean, msg: HeardReport): HeardReport.AsObject;
+  static serializeBinaryToWriter(message: HeardReport, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HeardReport;
+  static deserializeBinaryFromReader(message: HeardReport, reader: jspb.BinaryReader): HeardReport;
+}
+
+export namespace HeardReport {
+  export type AsObject = {
+    responseId: string;
+    clientTurnId: string;
+    revision: number;
+    turnInterruptionReason: TurnInterruptionReason;
+    heardMessagesList: Array<HeardMessage.AsObject>;
+    heardTextPrecision: HeardTextPrecision;
+    callerOverlapDurationInS: number;
+  };
+}
+
+export class DiscardDraft extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DiscardDraft.AsObject);
+  getResponseId(): string;
+  setResponseId(value: string): DiscardDraft;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DiscardDraft.AsObject;
+  static toObject(includeInstance: boolean, msg: DiscardDraft): DiscardDraft.AsObject;
+  static serializeBinaryToWriter(message: DiscardDraft, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DiscardDraft;
+  static deserializeBinaryFromReader(message: DiscardDraft, reader: jspb.BinaryReader): DiscardDraft;
+}
+
+export namespace DiscardDraft {
+  export type AsObject = {
+    responseId: string;
+  };
+}
+
+export class TurnControlAck extends jspb.Message {
+  constructor();
+  constructor(opt_data?: TurnControlAck.AsObject);
+  getResponseId(): string;
+  setResponseId(value: string): TurnControlAck;
+
+  getClientTurnId(): string;
+  setClientTurnId(value: string): TurnControlAck;
+
+  getTurnControlAckStatus(): TurnControlAckStatus;
+  setTurnControlAckStatus(value: TurnControlAckStatus): TurnControlAck;
+
+  getServerCancelDurationInS(): number;
+  setServerCancelDurationInS(value: number): TurnControlAck;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TurnControlAck.AsObject;
+  static toObject(includeInstance: boolean, msg: TurnControlAck): TurnControlAck.AsObject;
+  static serializeBinaryToWriter(message: TurnControlAck, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TurnControlAck;
+  static deserializeBinaryFromReader(message: TurnControlAck, reader: jspb.BinaryReader): TurnControlAck;
+}
+
+export namespace TurnControlAck {
+  export type AsObject = {
+    responseId: string;
+    clientTurnId: string;
+    turnControlAckStatus: TurnControlAckStatus;
+    serverCancelDurationInS: number;
+  };
+}
+
+export class InterruptTurnRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: InterruptTurnRequest.AsObject);
+  getSession(): string;
+  setSession(value: string): InterruptTurnRequest;
+
+  getTurnControl(): TurnControl | undefined;
+  setTurnControl(value?: TurnControl): InterruptTurnRequest;
+  hasTurnControl(): boolean;
+  clearTurnControl(): InterruptTurnRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InterruptTurnRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: InterruptTurnRequest): InterruptTurnRequest.AsObject;
+  static serializeBinaryToWriter(message: InterruptTurnRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InterruptTurnRequest;
+  static deserializeBinaryFromReader(message: InterruptTurnRequest, reader: jspb.BinaryReader): InterruptTurnRequest;
+}
+
+export namespace InterruptTurnRequest {
+  export type AsObject = {
+    session: string;
+    turnControl?: TurnControl.AsObject;
+  };
+}
+
+export class InterruptTurnResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: InterruptTurnResponse.AsObject);
+  getTurnControlAck(): TurnControlAck | undefined;
+  setTurnControlAck(value?: TurnControlAck): InterruptTurnResponse;
+  hasTurnControlAck(): boolean;
+  clearTurnControlAck(): InterruptTurnResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InterruptTurnResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: InterruptTurnResponse): InterruptTurnResponse.AsObject;
+  static serializeBinaryToWriter(message: InterruptTurnResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InterruptTurnResponse;
+  static deserializeBinaryFromReader(message: InterruptTurnResponse, reader: jspb.BinaryReader): InterruptTurnResponse;
+}
+
+export namespace InterruptTurnResponse {
+  export type AsObject = {
+    turnControlAck?: TurnControlAck.AsObject;
+  };
+}
+
+export class WarmTransferIntroConfig extends jspb.Message {
+  constructor();
+  constructor(opt_data?: WarmTransferIntroConfig.AsObject);
+  getIntroPrompt(): string;
+  setIntroPrompt(value: string): WarmTransferIntroConfig;
+
+  getTextSource(): WarmTransferIntroTextSource;
+  setTextSource(value: WarmTransferIntroTextSource): WarmTransferIntroConfig;
+
+  getReadyQuestion(): string;
+  setReadyQuestion(value: string): WarmTransferIntroConfig;
+
+  getConfirmHumanBeforeIntro(): boolean;
+  setConfirmHumanBeforeIntro(value: boolean): WarmTransferIntroConfig;
+  hasConfirmHumanBeforeIntro(): boolean;
+  clearConfirmHumanBeforeIntro(): WarmTransferIntroConfig;
+
+  getAcceptQuestion(): string;
+  setAcceptQuestion(value: string): WarmTransferIntroConfig;
+
+  getDeclineReasonQuestion(): string;
+  setDeclineReasonQuestion(value: string): WarmTransferIntroConfig;
+  hasDeclineReasonQuestion(): boolean;
+  clearDeclineReasonQuestion(): WarmTransferIntroConfig;
+
+  getCallerDeclinedMessage(): string;
+  setCallerDeclinedMessage(value: string): WarmTransferIntroConfig;
+
+  getCallerUnreachableMessage(): string;
+  setCallerUnreachableMessage(value: string): WarmTransferIntroConfig;
+
+  getAcceptDtmf(): string;
+  setAcceptDtmf(value: string): WarmTransferIntroConfig;
+
+  getDeclineDtmf(): string;
+  setDeclineDtmf(value: string): WarmTransferIntroConfig;
+
+  getCalleeDisplayName(): string;
+  setCalleeDisplayName(value: string): WarmTransferIntroConfig;
+
+  getCalleeDescription(): string;
+  setCalleeDescription(value: string): WarmTransferIntroConfig;
+
+  getLlmCcaiServiceName(): string;
+  setLlmCcaiServiceName(value: string): WarmTransferIntroConfig;
+
+  getMaxHistorySteps(): number;
+  setMaxHistorySteps(value: number): WarmTransferIntroConfig;
+
+  getDecisionTimeoutS(): number;
+  setDecisionTimeoutS(value: number): WarmTransferIntroConfig;
+
+  getProjectDisplayName(): string;
+  setProjectDisplayName(value: string): WarmTransferIntroConfig;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WarmTransferIntroConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: WarmTransferIntroConfig): WarmTransferIntroConfig.AsObject;
+  static serializeBinaryToWriter(message: WarmTransferIntroConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WarmTransferIntroConfig;
+  static deserializeBinaryFromReader(message: WarmTransferIntroConfig, reader: jspb.BinaryReader): WarmTransferIntroConfig;
+}
+
+export namespace WarmTransferIntroConfig {
+  export type AsObject = {
+    introPrompt: string;
+    textSource: WarmTransferIntroTextSource;
+    readyQuestion: string;
+    confirmHumanBeforeIntro?: boolean;
+    acceptQuestion: string;
+    declineReasonQuestion?: string;
+    callerDeclinedMessage: string;
+    callerUnreachableMessage: string;
+    acceptDtmf: string;
+    declineDtmf: string;
+    calleeDisplayName: string;
+    calleeDescription: string;
+    llmCcaiServiceName: string;
+    maxHistorySteps: number;
+    decisionTimeoutS: number;
+    projectDisplayName: string;
+  };
+
+  export enum ConfirmHumanBeforeIntroCase {
+    _CONFIRM_HUMAN_BEFORE_INTRO_NOT_SET = 0,
+    CONFIRM_HUMAN_BEFORE_INTRO = 4,
+  }
+
+  export enum DeclineReasonQuestionCase {
+    _DECLINE_REASON_QUESTION_NOT_SET = 0,
+    DECLINE_REASON_QUESTION = 6,
+  }
+}
+
+export class PrepareWarmTransferIntroRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: PrepareWarmTransferIntroRequest.AsObject);
+  getIntroSession(): string;
+  setIntroSession(value: string): PrepareWarmTransferIntroRequest;
+
+  getSourceSession(): string;
+  setSourceSession(value: string): PrepareWarmTransferIntroRequest;
+
+  getConfig(): WarmTransferIntroConfig | undefined;
+  setConfig(value?: WarmTransferIntroConfig): PrepareWarmTransferIntroRequest;
+  hasConfig(): boolean;
+  clearConfig(): PrepareWarmTransferIntroRequest;
+
+  getLanguageCode(): string;
+  setLanguageCode(value: string): PrepareWarmTransferIntroRequest;
+
+  getTransferRequestId(): string;
+  setTransferRequestId(value: string): PrepareWarmTransferIntroRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PrepareWarmTransferIntroRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: PrepareWarmTransferIntroRequest): PrepareWarmTransferIntroRequest.AsObject;
+  static serializeBinaryToWriter(message: PrepareWarmTransferIntroRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PrepareWarmTransferIntroRequest;
+  static deserializeBinaryFromReader(message: PrepareWarmTransferIntroRequest, reader: jspb.BinaryReader): PrepareWarmTransferIntroRequest;
+}
+
+export namespace PrepareWarmTransferIntroRequest {
+  export type AsObject = {
+    introSession: string;
+    sourceSession: string;
+    config?: WarmTransferIntroConfig.AsObject;
+    languageCode: string;
+    transferRequestId: string;
+  };
+}
+
+export class PrepareWarmTransferIntroResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: PrepareWarmTransferIntroResponse.AsObject);
+  getTextSourceUsed(): WarmTransferIntroTextSource;
+  setTextSourceUsed(value: WarmTransferIntroTextSource): PrepareWarmTransferIntroResponse;
+
+  getTextFellBack(): boolean;
+  setTextFellBack(value: boolean): PrepareWarmTransferIntroResponse;
+
+  getIntroTextChars(): number;
+  setIntroTextChars(value: number): PrepareWarmTransferIntroResponse;
+
+  getPromptDigest(): string;
+  setPromptDigest(value: string): PrepareWarmTransferIntroResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PrepareWarmTransferIntroResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: PrepareWarmTransferIntroResponse): PrepareWarmTransferIntroResponse.AsObject;
+  static serializeBinaryToWriter(message: PrepareWarmTransferIntroResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PrepareWarmTransferIntroResponse;
+  static deserializeBinaryFromReader(message: PrepareWarmTransferIntroResponse, reader: jspb.BinaryReader): PrepareWarmTransferIntroResponse;
+}
+
+export namespace PrepareWarmTransferIntroResponse {
+  export type AsObject = {
+    textSourceUsed: WarmTransferIntroTextSource;
+    textFellBack: boolean;
+    introTextChars: number;
+    promptDigest: string;
+  };
+}
+
+export class GetWarmTransferIntroOutcomeRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetWarmTransferIntroOutcomeRequest.AsObject);
+  getIntroSession(): string;
+  setIntroSession(value: string): GetWarmTransferIntroOutcomeRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetWarmTransferIntroOutcomeRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetWarmTransferIntroOutcomeRequest): GetWarmTransferIntroOutcomeRequest.AsObject;
+  static serializeBinaryToWriter(message: GetWarmTransferIntroOutcomeRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetWarmTransferIntroOutcomeRequest;
+  static deserializeBinaryFromReader(message: GetWarmTransferIntroOutcomeRequest, reader: jspb.BinaryReader): GetWarmTransferIntroOutcomeRequest;
+}
+
+export namespace GetWarmTransferIntroOutcomeRequest {
+  export type AsObject = {
+    introSession: string;
+  };
+}
+
+export class WarmTransferIntroOutcome extends jspb.Message {
+  constructor();
+  constructor(opt_data?: WarmTransferIntroOutcome.AsObject);
+  getDecision(): WarmTransferIntroDecision;
+  setDecision(value: WarmTransferIntroDecision): WarmTransferIntroOutcome;
+
+  getDecidedBy(): WarmTransferIntroDecidedBy;
+  setDecidedBy(value: WarmTransferIntroDecidedBy): WarmTransferIntroOutcome;
+
+  getDeclineReasonPresent(): boolean;
+  setDeclineReasonPresent(value: boolean): WarmTransferIntroOutcome;
+
+  getStage(): WarmTransferIntroStage;
+  setStage(value: WarmTransferIntroStage): WarmTransferIntroOutcome;
+
+  getCause(): string;
+  setCause(value: string): WarmTransferIntroOutcome;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WarmTransferIntroOutcome.AsObject;
+  static toObject(includeInstance: boolean, msg: WarmTransferIntroOutcome): WarmTransferIntroOutcome.AsObject;
+  static serializeBinaryToWriter(message: WarmTransferIntroOutcome, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WarmTransferIntroOutcome;
+  static deserializeBinaryFromReader(message: WarmTransferIntroOutcome, reader: jspb.BinaryReader): WarmTransferIntroOutcome;
+}
+
+export namespace WarmTransferIntroOutcome {
+  export type AsObject = {
+    decision: WarmTransferIntroDecision;
+    decidedBy: WarmTransferIntroDecidedBy;
+    declineReasonPresent: boolean;
+    stage: WarmTransferIntroStage;
+    cause: string;
+  };
+}
+
 export class StreamingRecognitionResult extends jspb.Message {
+  constructor();
+  constructor(opt_data?: StreamingRecognitionResult.AsObject);
   getMessageType(): StreamingRecognitionResult.MessageType;
   setMessageType(value: StreamingRecognitionResult.MessageType): StreamingRecognitionResult;
 
@@ -2128,13 +2743,13 @@ export class StreamingRecognitionResult extends jspb.Message {
 
 export namespace StreamingRecognitionResult {
   export type AsObject = {
-    messageType: StreamingRecognitionResult.MessageType,
-    transcript: string,
-    isFinal: boolean,
-    confidence: number,
-  }
+    messageType: StreamingRecognitionResult.MessageType;
+    transcript: string;
+    isFinal: boolean;
+    confidence: number;
+  };
 
-  export enum MessageType { 
+  export enum MessageType {
     MESSAGE_TYPE_UNSPECIFIED = 0,
     TRANSCRIPT = 1,
     END_OF_SINGLE_UTTERANCE = 2,
@@ -2142,6 +2757,8 @@ export namespace StreamingRecognitionResult {
 }
 
 export class InputAudioConfig extends jspb.Message {
+  constructor();
+  constructor(opt_data?: InputAudioConfig.AsObject);
   getAudioEncoding(): AudioEncoding;
   setAudioEncoding(value: AudioEncoding): InputAudioConfig;
 
@@ -2166,14 +2783,16 @@ export class InputAudioConfig extends jspb.Message {
 
 export namespace InputAudioConfig {
   export type AsObject = {
-    audioEncoding: AudioEncoding,
-    sampleRateHertz: number,
-    languageCode: string,
-    phraseHintsList: Array<string>,
-  }
+    audioEncoding: AudioEncoding;
+    sampleRateHertz: number;
+    languageCode: string;
+    phraseHintsList: Array<string>;
+  };
 }
 
 export class TextInput extends jspb.Message {
+  constructor();
+  constructor(opt_data?: TextInput.AsObject);
   getText(): string;
   setText(value: string): TextInput;
 
@@ -2190,12 +2809,14 @@ export class TextInput extends jspb.Message {
 
 export namespace TextInput {
   export type AsObject = {
-    text: string,
-    languageCode: string,
-  }
+    text: string;
+    languageCode: string;
+  };
 }
 
 export class EventInput extends jspb.Message {
+  constructor();
+  constructor(opt_data?: EventInput.AsObject);
   getName(): string;
   setName(value: string): EventInput;
 
@@ -2217,13 +2838,15 @@ export class EventInput extends jspb.Message {
 
 export namespace EventInput {
   export type AsObject = {
-    name: string,
-    parameters?: google_protobuf_struct_pb.Struct.AsObject,
-    languageCode: string,
-  }
+    name: string;
+    parameters?: google_protobuf_struct_pb.Struct.AsObject;
+    languageCode: string;
+  };
 }
 
 export class Session extends jspb.Message {
+  constructor();
+  constructor(opt_data?: Session.AsObject);
   getName(): string;
   setName(value: string): Session;
 
@@ -2263,16 +2886,16 @@ export class Session extends jspb.Message {
 
 export namespace Session {
   export type AsObject = {
-    name: string,
-    sessionStepsList: Array<SessionStep.AsObject>,
-    sessionInfo?: SessionInfo.AsObject,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    sessionStepsList: Array<SessionStep.AsObject>;
+    sessionInfo?: SessionInfo.AsObject;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 
-  export enum View { 
+  export enum View {
     VIEW_UNSPECIFIED = 0,
     VIEW_FULL = 1,
     VIEW_SPARSE = 2,
@@ -2280,6 +2903,8 @@ export namespace Session {
 }
 
 export class SessionStep extends jspb.Message {
+  constructor();
+  constructor(opt_data?: SessionStep.AsObject);
   getName(): string;
   setName(value: string): SessionStep;
 
@@ -2339,21 +2964,23 @@ export class SessionStep extends jspb.Message {
 
 export namespace SessionStep {
   export type AsObject = {
-    name: string,
-    detectIntentRequest?: DetectIntentRequest.AsObject,
-    detectIntentResponse?: DetectIntentResponse.AsObject,
-    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-    audioFileResourcesList: Array<AudioFileResource.AsObject>,
-    llmTelemetryReport?: LlmTelemetryReport.AsObject,
-  }
+    name: string;
+    detectIntentRequest?: DetectIntentRequest.AsObject;
+    detectIntentResponse?: DetectIntentResponse.AsObject;
+    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+    audioFileResourcesList: Array<AudioFileResource.AsObject>;
+    llmTelemetryReport?: LlmTelemetryReport.AsObject;
+  };
 }
 
 export class GetSessionStepRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetSessionStepRequest.AsObject);
   getName(): string;
   setName(value: string): GetSessionStepRequest;
 
@@ -2372,12 +2999,14 @@ export class GetSessionStepRequest extends jspb.Message {
 
 export namespace GetSessionStepRequest {
   export type AsObject = {
-    name: string,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    name: string;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class UpdateSessionStepRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: UpdateSessionStepRequest.AsObject);
   getSessionStep(): SessionStep | undefined;
   setSessionStep(value?: SessionStep): UpdateSessionStepRequest;
   hasSessionStep(): boolean;
@@ -2403,13 +3032,15 @@ export class UpdateSessionStepRequest extends jspb.Message {
 
 export namespace UpdateSessionStepRequest {
   export type AsObject = {
-    sessionStep?: SessionStep.AsObject,
-    updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    sessionStep?: SessionStep.AsObject;
+    updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class DeleteSessionStepRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteSessionStepRequest.AsObject);
   getName(): string;
   setName(value: string): DeleteSessionStepRequest;
 
@@ -2423,11 +3054,13 @@ export class DeleteSessionStepRequest extends jspb.Message {
 
 export namespace DeleteSessionStepRequest {
   export type AsObject = {
-    name: string,
-  }
+    name: string;
+  };
 }
 
 export class CreateSessionStepRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: CreateSessionStepRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): CreateSessionStepRequest;
 
@@ -2451,13 +3084,15 @@ export class CreateSessionStepRequest extends jspb.Message {
 
 export namespace CreateSessionStepRequest {
   export type AsObject = {
-    sessionId: string,
-    sessionStep?: SessionStep.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    sessionId: string;
+    sessionStep?: SessionStep.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListSessionsRequest;
 
@@ -2487,15 +3122,17 @@ export class ListSessionsRequest extends jspb.Message {
 
 export namespace ListSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionView: Session.View,
-    pageToken: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionView: Session.View;
+    pageToken: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ContextFilter extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ContextFilter.AsObject);
   getContextName(): string;
   setContextName(value: string): ContextFilter;
 
@@ -2518,14 +3155,16 @@ export class ContextFilter extends jspb.Message {
 
 export namespace ContextFilter {
   export type AsObject = {
-    contextName: string,
-    key: string,
-    value: string,
-    operator: ComparisonOperator,
-  }
+    contextName: string;
+    key: string;
+    value: string;
+    operator: ComparisonOperator;
+  };
 }
 
 export class SessionFilter extends jspb.Message {
+  constructor();
+  constructor(opt_data?: SessionFilter.AsObject);
   getLanguageCodesList(): Array<string>;
   setLanguageCodesList(value: Array<string>): SessionFilter;
   clearLanguageCodesList(): SessionFilter;
@@ -2713,59 +3352,61 @@ export class SessionFilter extends jspb.Message {
 
 export namespace SessionFilter {
   export type AsObject = {
-    languageCodesList: Array<string>,
-    matchedIntentsList: Array<ondewo_nlu_intent_pb.Intent.AsObject>,
-    matchedEntityTypesList: Array<ondewo_nlu_entity_type_pb.EntityType.AsObject>,
-    minIntentsConfidenceMin: number,
-    minIntentsConfidenceMax: number,
-    minEntityTypesConfidenceMin: number,
-    minEntityTypesConfidenceMax: number,
-    earliest: number,
-    latest: number,
-    minNumberTurns: number,
-    maxNumberTurns: number,
-    labelsList: Array<string>,
-    userIdsList: Array<string>,
-    intentTagsList: Array<string>,
-    sessionIdsList: Array<string>,
-    inputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    outputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    durationInSMin: number,
-    durationInSMax: number,
-    durationInMMin: number,
-    durationInMMax: number,
-    durationInMRoundedMin: number,
-    durationInMRoundedMax: number,
-    durationInterval15sRoundedMin: number,
-    durationInterval15sRoundedMax: number,
-    durationInterval30sRoundedMin: number,
-    durationInterval30sRoundedMax: number,
-    durationInterval45sRoundedMin: number,
-    durationInterval45sRoundedMax: number,
-    startedTimeSlotPerHourMin: string,
-    startedTimeSlotPerHourMax: string,
-    startedTimeSlotPerQuarterHourMin: string,
-    startedTimeSlotPerQuarterHourMax: string,
-    startedTimeSlotPerHalfHourMin: string,
-    startedTimeSlotPerHalfHourMax: string,
-    startedTimeSlotPerDayPhaseMin: string,
-    startedTimeSlotPerDayPhaseMax: string,
-    startedTimeSlotPerMinuteMin: string,
-    startedTimeSlotPerMinuteMax: string,
-    durationInSRoundedMin: number,
-    durationInSRoundedMax: number,
-    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>,
-    accountIdsList: Array<string>,
-    propertyIdsList: Array<string>,
-    datastreamIdsList: Array<string>,
-    originIdsList: Array<string>,
-    identifiedUserIdsList: Array<string>,
-    durationInterval60sRoundedMin: number,
-    durationInterval60sRoundedMax: number,
-  }
+    languageCodesList: Array<string>;
+    matchedIntentsList: Array<ondewo_nlu_intent_pb.Intent.AsObject>;
+    matchedEntityTypesList: Array<ondewo_nlu_entity_type_pb.EntityType.AsObject>;
+    minIntentsConfidenceMin: number;
+    minIntentsConfidenceMax: number;
+    minEntityTypesConfidenceMin: number;
+    minEntityTypesConfidenceMax: number;
+    earliest: number;
+    latest: number;
+    minNumberTurns: number;
+    maxNumberTurns: number;
+    labelsList: Array<string>;
+    userIdsList: Array<string>;
+    intentTagsList: Array<string>;
+    sessionIdsList: Array<string>;
+    inputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    outputContextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    durationInSMin: number;
+    durationInSMax: number;
+    durationInMMin: number;
+    durationInMMax: number;
+    durationInMRoundedMin: number;
+    durationInMRoundedMax: number;
+    durationInterval15sRoundedMin: number;
+    durationInterval15sRoundedMax: number;
+    durationInterval30sRoundedMin: number;
+    durationInterval30sRoundedMax: number;
+    durationInterval45sRoundedMin: number;
+    durationInterval45sRoundedMax: number;
+    startedTimeSlotPerHourMin: string;
+    startedTimeSlotPerHourMax: string;
+    startedTimeSlotPerQuarterHourMin: string;
+    startedTimeSlotPerQuarterHourMax: string;
+    startedTimeSlotPerHalfHourMin: string;
+    startedTimeSlotPerHalfHourMax: string;
+    startedTimeSlotPerDayPhaseMin: string;
+    startedTimeSlotPerDayPhaseMax: string;
+    startedTimeSlotPerMinuteMin: string;
+    startedTimeSlotPerMinuteMax: string;
+    durationInSRoundedMin: number;
+    durationInSRoundedMax: number;
+    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>;
+    accountIdsList: Array<string>;
+    propertyIdsList: Array<string>;
+    datastreamIdsList: Array<string>;
+    originIdsList: Array<string>;
+    identifiedUserIdsList: Array<string>;
+    durationInterval60sRoundedMin: number;
+    durationInterval60sRoundedMax: number;
+  };
 }
 
 export class SessionInfo extends jspb.Message {
+  constructor();
+  constructor(opt_data?: SessionInfo.AsObject);
   getLanguageCodesList(): Array<string>;
   setLanguageCodesList(value: Array<string>): SessionInfo;
   clearLanguageCodesList(): SessionInfo;
@@ -2905,42 +3546,44 @@ export class SessionInfo extends jspb.Message {
 
 export namespace SessionInfo {
   export type AsObject = {
-    languageCodesList: Array<string>,
-    matchedIntentsList: Array<ondewo_nlu_intent_pb.Intent.AsObject>,
-    matchedEntityTypesList: Array<ondewo_nlu_entity_type_pb.EntityType.AsObject>,
-    minIntentsConfidence: number,
-    minEntityTypesConfidence: number,
-    earliest: number,
-    latest: number,
-    numberTurns: number,
-    labelsList: Array<string>,
-    userIdsList: Array<string>,
-    intentTagsList: Array<string>,
-    inputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>,
-    outputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>,
-    durationInS: number,
-    durationInM: number,
-    durationInMRounded: number,
-    durationInterval15sRounded: number,
-    durationInterval30sRounded: number,
-    durationInterval45sRounded: number,
-    startedTimeSlotPerHour: string,
-    startedTimeSlotPerQuarterHour: string,
-    startedTimeSlotPerHalfHour: string,
-    startedTimeSlotPerDayPhase: string,
-    startedTimeSlotPerMinute: string,
-    durationInSRounded: number,
-    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>,
-    accountIdsList: Array<string>,
-    propertyIdsList: Array<string>,
-    datastreamIdsList: Array<string>,
-    originIdsList: Array<string>,
-    identifiedUserIdsList: Array<string>,
-    durationInterval60sRounded: number,
-    parentCommentList: Array<ondewo_nlu_common_pb.Comment.AsObject>,
-  }
+    languageCodesList: Array<string>;
+    matchedIntentsList: Array<ondewo_nlu_intent_pb.Intent.AsObject>;
+    matchedEntityTypesList: Array<ondewo_nlu_entity_type_pb.EntityType.AsObject>;
+    minIntentsConfidence: number;
+    minEntityTypesConfidence: number;
+    earliest: number;
+    latest: number;
+    numberTurns: number;
+    labelsList: Array<string>;
+    userIdsList: Array<string>;
+    intentTagsList: Array<string>;
+    inputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>;
+    outputContextStepsList: Array<SessionInfo.ContextSteps.AsObject>;
+    durationInS: number;
+    durationInM: number;
+    durationInMRounded: number;
+    durationInterval15sRounded: number;
+    durationInterval30sRounded: number;
+    durationInterval45sRounded: number;
+    startedTimeSlotPerHour: string;
+    startedTimeSlotPerQuarterHour: string;
+    startedTimeSlotPerHalfHour: string;
+    startedTimeSlotPerDayPhase: string;
+    startedTimeSlotPerMinute: string;
+    durationInSRounded: number;
+    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>;
+    accountIdsList: Array<string>;
+    propertyIdsList: Array<string>;
+    datastreamIdsList: Array<string>;
+    originIdsList: Array<string>;
+    identifiedUserIdsList: Array<string>;
+    durationInterval60sRounded: number;
+    parentCommentList: Array<ondewo_nlu_common_pb.Comment.AsObject>;
+  };
 
   export class ContextSteps extends jspb.Message {
+    constructor();
+    constructor(opt_data?: ContextSteps.AsObject);
     getContextsList(): Array<ondewo_nlu_context_pb.Context>;
     setContextsList(value: Array<ondewo_nlu_context_pb.Context>): ContextSteps;
     clearContextsList(): ContextSteps;
@@ -2956,13 +3599,15 @@ export namespace SessionInfo {
 
   export namespace ContextSteps {
     export type AsObject = {
-      contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    }
+      contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    };
   }
 
 }
 
 export class ListSessionsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionsResponse.AsObject);
   getSessionsList(): Array<Session>;
   setSessionsList(value: Array<Session>): ListSessionsResponse;
   clearSessionsList(): ListSessionsResponse;
@@ -2981,12 +3626,14 @@ export class ListSessionsResponse extends jspb.Message {
 
 export namespace ListSessionsResponse {
   export type AsObject = {
-    sessionsList: Array<Session.AsObject>,
-    nextPageToken: string,
-  }
+    sessionsList: Array<Session.AsObject>;
+    nextPageToken: string;
+  };
 }
 
 export class GetSessionRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetSessionRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): GetSessionRequest;
 
@@ -3008,13 +3655,15 @@ export class GetSessionRequest extends jspb.Message {
 
 export namespace GetSessionRequest {
   export type AsObject = {
-    sessionId: string,
-    sessionView: Session.View,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    sessionId: string;
+    sessionView: Session.View;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class CreateSessionRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: CreateSessionRequest.AsObject);
   getParent(): string;
   setParent(value: string): CreateSessionRequest;
 
@@ -3041,14 +3690,16 @@ export class CreateSessionRequest extends jspb.Message {
 
 export namespace CreateSessionRequest {
   export type AsObject = {
-    parent: string,
-    sessionUuid: string,
-    labelsList: Array<string>,
-    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-  }
+    parent: string;
+    sessionUuid: string;
+    labelsList: Array<string>;
+    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+  };
 }
 
 export class DeleteSessionRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteSessionRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): DeleteSessionRequest;
 
@@ -3062,11 +3713,13 @@ export class DeleteSessionRequest extends jspb.Message {
 
 export namespace DeleteSessionRequest {
   export type AsObject = {
-    sessionId: string,
-  }
+    sessionId: string;
+  };
 }
 
 export class CreateSessionReviewRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: CreateSessionReviewRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): CreateSessionReviewRequest;
 
@@ -3091,14 +3744,16 @@ export class CreateSessionReviewRequest extends jspb.Message {
 
 export namespace CreateSessionReviewRequest {
   export type AsObject = {
-    sessionId: string,
-    parentReviewId: string,
-    sessionReview?: SessionReview.AsObject,
-    sessionReviewView: SessionReview.View,
-  }
+    sessionId: string;
+    parentReviewId: string;
+    sessionReview?: SessionReview.AsObject;
+    sessionReviewView: SessionReview.View;
+  };
 }
 
 export class SessionReview extends jspb.Message {
+  constructor();
+  constructor(opt_data?: SessionReview.AsObject);
   getName(): string;
   setName(value: string): SessionReview;
 
@@ -3133,15 +3788,15 @@ export class SessionReview extends jspb.Message {
 
 export namespace SessionReview {
   export type AsObject = {
-    name: string,
-    sessionReviewStepsList: Array<SessionReviewStep.AsObject>,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    sessionReviewStepsList: Array<SessionReviewStep.AsObject>;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 
-  export enum View { 
+  export enum View {
     VIEW_UNSPECIFIED = 0,
     VIEW_FULL = 1,
     VIEW_SPARSE = 2,
@@ -3149,6 +3804,8 @@ export namespace SessionReview {
 }
 
 export class SessionReviewStep extends jspb.Message {
+  constructor();
+  constructor(opt_data?: SessionReviewStep.AsObject);
   getName(): string;
   setName(value: string): SessionReviewStep;
 
@@ -3219,24 +3876,26 @@ export class SessionReviewStep extends jspb.Message {
 
 export namespace SessionReviewStep {
   export type AsObject = {
-    name: string,
-    annotatedUsersays?: ondewo_nlu_intent_pb.Intent.TrainingPhrase.AsObject,
-    languageCode: string,
-    detectedIntentsList: Array<DetectedIntent.AsObject>,
-    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    contextsOutList: Array<ondewo_nlu_context_pb.Context.AsObject>,
-    queryTextOriginal: string,
-    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>,
-    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-    audioFileResourcesList: Array<AudioFileResource.AsObject>,
-  }
+    name: string;
+    annotatedUsersays?: ondewo_nlu_intent_pb.Intent.TrainingPhrase.AsObject;
+    languageCode: string;
+    detectedIntentsList: Array<DetectedIntent.AsObject>;
+    contextsList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    contextsOutList: Array<ondewo_nlu_context_pb.Context.AsObject>;
+    queryTextOriginal: string;
+    platformsList: Array<ondewo_nlu_intent_pb.Intent.Message.Platform>;
+    timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+    audioFileResourcesList: Array<AudioFileResource.AsObject>;
+  };
 }
 
 export class DetectedIntent extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DetectedIntent.AsObject);
   getIntent(): ondewo_nlu_intent_pb.Intent | undefined;
   setIntent(value?: ondewo_nlu_intent_pb.Intent): DetectedIntent;
   hasIntent(): boolean;
@@ -3266,15 +3925,17 @@ export class DetectedIntent extends jspb.Message {
 
 export namespace DetectedIntent {
   export type AsObject = {
-    intent?: ondewo_nlu_intent_pb.Intent.AsObject,
-    score: number,
-    algorithm: string,
-    fulfillmentMessagesList: Array<ondewo_nlu_intent_pb.Intent.Message.AsObject>,
-    requiredParamMissing: boolean,
-  }
+    intent?: ondewo_nlu_intent_pb.Intent.AsObject;
+    score: number;
+    algorithm: string;
+    fulfillmentMessagesList: Array<ondewo_nlu_intent_pb.Intent.Message.AsObject>;
+    requiredParamMissing: boolean;
+  };
 }
 
 export class ListSessionLabelsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionLabelsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): ListSessionLabelsRequest;
 
@@ -3288,11 +3949,13 @@ export class ListSessionLabelsRequest extends jspb.Message {
 
 export namespace ListSessionLabelsRequest {
   export type AsObject = {
-    sessionId: string,
-  }
+    sessionId: string;
+  };
 }
 
 export class ListSessionLabelsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionLabelsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListSessionLabelsOfAllSessionsRequest;
 
@@ -3316,13 +3979,15 @@ export class ListSessionLabelsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListSessionLabelsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListSessionLabelsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionLabelsResponse.AsObject);
   getLabelsList(): Array<string>;
   setLabelsList(value: Array<string>): ListSessionLabelsResponse;
   clearLabelsList(): ListSessionLabelsResponse;
@@ -3338,11 +4003,13 @@ export class ListSessionLabelsResponse extends jspb.Message {
 
 export namespace ListSessionLabelsResponse {
   export type AsObject = {
-    labelsList: Array<string>,
-  }
+    labelsList: Array<string>;
+  };
 }
 
 export class ListLanguageCodesOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListLanguageCodesOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListLanguageCodesOfAllSessionsRequest;
 
@@ -3366,13 +4033,15 @@ export class ListLanguageCodesOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListLanguageCodesOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListLanguageCodesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListLanguageCodesResponse.AsObject);
   getLanguageCodesList(): Array<string>;
   setLanguageCodesList(value: Array<string>): ListLanguageCodesResponse;
   clearLanguageCodesList(): ListLanguageCodesResponse;
@@ -3388,11 +4057,13 @@ export class ListLanguageCodesResponse extends jspb.Message {
 
 export namespace ListLanguageCodesResponse {
   export type AsObject = {
-    languageCodesList: Array<string>,
-  }
+    languageCodesList: Array<string>;
+  };
 }
 
 export class ListMatchedIntentsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListMatchedIntentsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListMatchedIntentsOfAllSessionsRequest;
 
@@ -3416,13 +4087,15 @@ export class ListMatchedIntentsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListMatchedIntentsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListMatchedIntentsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListMatchedIntentsResponse.AsObject);
   getMatchedIntentsList(): Array<string>;
   setMatchedIntentsList(value: Array<string>): ListMatchedIntentsResponse;
   clearMatchedIntentsList(): ListMatchedIntentsResponse;
@@ -3438,11 +4111,13 @@ export class ListMatchedIntentsResponse extends jspb.Message {
 
 export namespace ListMatchedIntentsResponse {
   export type AsObject = {
-    matchedIntentsList: Array<string>,
-  }
+    matchedIntentsList: Array<string>;
+  };
 }
 
 export class ListMatchedEntityTypesOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListMatchedEntityTypesOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListMatchedEntityTypesOfAllSessionsRequest;
 
@@ -3466,13 +4141,15 @@ export class ListMatchedEntityTypesOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListMatchedEntityTypesOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListMatchedEntityTypesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListMatchedEntityTypesResponse.AsObject);
   getMatchedEntityTypesList(): Array<string>;
   setMatchedEntityTypesList(value: Array<string>): ListMatchedEntityTypesResponse;
   clearMatchedEntityTypesList(): ListMatchedEntityTypesResponse;
@@ -3488,11 +4165,13 @@ export class ListMatchedEntityTypesResponse extends jspb.Message {
 
 export namespace ListMatchedEntityTypesResponse {
   export type AsObject = {
-    matchedEntityTypesList: Array<string>,
-  }
+    matchedEntityTypesList: Array<string>;
+  };
 }
 
 export class ListUserIdsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListUserIdsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListUserIdsOfAllSessionsRequest;
 
@@ -3516,13 +4195,15 @@ export class ListUserIdsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListUserIdsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListUserIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListUserIdsResponse.AsObject);
   getUserIdsList(): Array<string>;
   setUserIdsList(value: Array<string>): ListUserIdsResponse;
   clearUserIdsList(): ListUserIdsResponse;
@@ -3538,11 +4219,13 @@ export class ListUserIdsResponse extends jspb.Message {
 
 export namespace ListUserIdsResponse {
   export type AsObject = {
-    userIdsList: Array<string>,
-  }
+    userIdsList: Array<string>;
+  };
 }
 
 export class ListIdentifiedUserIdsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListIdentifiedUserIdsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListIdentifiedUserIdsOfAllSessionsRequest;
 
@@ -3566,13 +4249,15 @@ export class ListIdentifiedUserIdsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListIdentifiedUserIdsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListIdentifiedUserIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListIdentifiedUserIdsResponse.AsObject);
   getIdentifiedUserIdsList(): Array<string>;
   setIdentifiedUserIdsList(value: Array<string>): ListIdentifiedUserIdsResponse;
   clearIdentifiedUserIdsList(): ListIdentifiedUserIdsResponse;
@@ -3588,11 +4273,13 @@ export class ListIdentifiedUserIdsResponse extends jspb.Message {
 
 export namespace ListIdentifiedUserIdsResponse {
   export type AsObject = {
-    identifiedUserIdsList: Array<string>,
-  }
+    identifiedUserIdsList: Array<string>;
+  };
 }
 
 export class ListTagsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListTagsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListTagsOfAllSessionsRequest;
 
@@ -3616,13 +4303,15 @@ export class ListTagsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListTagsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListTagsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListTagsResponse.AsObject);
   getTagsList(): Array<string>;
   setTagsList(value: Array<string>): ListTagsResponse;
   clearTagsList(): ListTagsResponse;
@@ -3638,11 +4327,13 @@ export class ListTagsResponse extends jspb.Message {
 
 export namespace ListTagsResponse {
   export type AsObject = {
-    tagsList: Array<string>,
-  }
+    tagsList: Array<string>;
+  };
 }
 
 export class ListInputContextsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListInputContextsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListInputContextsOfAllSessionsRequest;
 
@@ -3666,13 +4357,15 @@ export class ListInputContextsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListInputContextsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListInputContextsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListInputContextsResponse.AsObject);
   getInputContextsList(): Array<string>;
   setInputContextsList(value: Array<string>): ListInputContextsResponse;
   clearInputContextsList(): ListInputContextsResponse;
@@ -3688,11 +4381,13 @@ export class ListInputContextsResponse extends jspb.Message {
 
 export namespace ListInputContextsResponse {
   export type AsObject = {
-    inputContextsList: Array<string>,
-  }
+    inputContextsList: Array<string>;
+  };
 }
 
 export class ListOutputContextsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListOutputContextsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListOutputContextsOfAllSessionsRequest;
 
@@ -3716,13 +4411,15 @@ export class ListOutputContextsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListOutputContextsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListOutputContextsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListOutputContextsResponse.AsObject);
   getOutputContextsList(): Array<string>;
   setOutputContextsList(value: Array<string>): ListOutputContextsResponse;
   clearOutputContextsList(): ListOutputContextsResponse;
@@ -3738,11 +4435,13 @@ export class ListOutputContextsResponse extends jspb.Message {
 
 export namespace ListOutputContextsResponse {
   export type AsObject = {
-    outputContextsList: Array<string>,
-  }
+    outputContextsList: Array<string>;
+  };
 }
 
 export class ListPlatformsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListPlatformsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListPlatformsOfAllSessionsRequest;
 
@@ -3766,13 +4465,15 @@ export class ListPlatformsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListPlatformsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListPlatformsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListPlatformsResponse.AsObject);
   getPlatformsList(): Array<string>;
   setPlatformsList(value: Array<string>): ListPlatformsResponse;
   clearPlatformsList(): ListPlatformsResponse;
@@ -3788,11 +4489,13 @@ export class ListPlatformsResponse extends jspb.Message {
 
 export namespace ListPlatformsResponse {
   export type AsObject = {
-    platformsList: Array<string>,
-  }
+    platformsList: Array<string>;
+  };
 }
 
 export class ListAccountIdsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListAccountIdsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListAccountIdsOfAllSessionsRequest;
 
@@ -3816,13 +4519,15 @@ export class ListAccountIdsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListAccountIdsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListAccountIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListAccountIdsResponse.AsObject);
   getAccountIdsList(): Array<string>;
   setAccountIdsList(value: Array<string>): ListAccountIdsResponse;
   clearAccountIdsList(): ListAccountIdsResponse;
@@ -3838,11 +4543,13 @@ export class ListAccountIdsResponse extends jspb.Message {
 
 export namespace ListAccountIdsResponse {
   export type AsObject = {
-    accountIdsList: Array<string>,
-  }
+    accountIdsList: Array<string>;
+  };
 }
 
 export class ListPropertyIdsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListPropertyIdsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListPropertyIdsOfAllSessionsRequest;
 
@@ -3861,12 +4568,14 @@ export class ListPropertyIdsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListPropertyIdsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+  };
 }
 
 export class ListPropertyIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListPropertyIdsResponse.AsObject);
   getPropertyIdsList(): Array<string>;
   setPropertyIdsList(value: Array<string>): ListPropertyIdsResponse;
   clearPropertyIdsList(): ListPropertyIdsResponse;
@@ -3882,11 +4591,13 @@ export class ListPropertyIdsResponse extends jspb.Message {
 
 export namespace ListPropertyIdsResponse {
   export type AsObject = {
-    propertyIdsList: Array<string>,
-  }
+    propertyIdsList: Array<string>;
+  };
 }
 
 export class ListDatastreamIdsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListDatastreamIdsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListDatastreamIdsOfAllSessionsRequest;
 
@@ -3905,12 +4616,14 @@ export class ListDatastreamIdsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListDatastreamIdsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+  };
 }
 
 export class ListDatastreamIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListDatastreamIdsResponse.AsObject);
   getDatastreamIdsList(): Array<string>;
   setDatastreamIdsList(value: Array<string>): ListDatastreamIdsResponse;
   clearDatastreamIdsList(): ListDatastreamIdsResponse;
@@ -3926,11 +4639,13 @@ export class ListDatastreamIdsResponse extends jspb.Message {
 
 export namespace ListDatastreamIdsResponse {
   export type AsObject = {
-    datastreamIdsList: Array<string>,
-  }
+    datastreamIdsList: Array<string>;
+  };
 }
 
 export class ListOriginIdsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListOriginIdsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListOriginIdsOfAllSessionsRequest;
 
@@ -3954,13 +4669,15 @@ export class ListOriginIdsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListOriginIdsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListOriginIdsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListOriginIdsResponse.AsObject);
   getOriginIdsList(): Array<string>;
   setOriginIdsList(value: Array<string>): ListOriginIdsResponse;
   clearOriginIdsList(): ListOriginIdsResponse;
@@ -3976,11 +4693,13 @@ export class ListOriginIdsResponse extends jspb.Message {
 
 export namespace ListOriginIdsResponse {
   export type AsObject = {
-    originIdsList: Array<string>,
-  }
+    originIdsList: Array<string>;
+  };
 }
 
 export class AddSessionLabelsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AddSessionLabelsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): AddSessionLabelsRequest;
 
@@ -3999,12 +4718,14 @@ export class AddSessionLabelsRequest extends jspb.Message {
 
 export namespace AddSessionLabelsRequest {
   export type AsObject = {
-    sessionId: string,
-    labelsList: Array<string>,
-  }
+    sessionId: string;
+    labelsList: Array<string>;
+  };
 }
 
 export class DeleteSessionLabelsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteSessionLabelsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): DeleteSessionLabelsRequest;
 
@@ -4023,12 +4744,14 @@ export class DeleteSessionLabelsRequest extends jspb.Message {
 
 export namespace DeleteSessionLabelsRequest {
   export type AsObject = {
-    sessionId: string,
-    labelsList: Array<string>,
-  }
+    sessionId: string;
+    labelsList: Array<string>;
+  };
 }
 
 export class AddSessionCommentRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AddSessionCommentRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): AddSessionCommentRequest;
 
@@ -4047,12 +4770,14 @@ export class AddSessionCommentRequest extends jspb.Message {
 
 export namespace AddSessionCommentRequest {
   export type AsObject = {
-    sessionId: string,
-    comment?: ondewo_nlu_common_pb.Comment.AsObject,
-  }
+    sessionId: string;
+    comment?: ondewo_nlu_common_pb.Comment.AsObject;
+  };
 }
 
 export class DeleteSessionCommentsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteSessionCommentsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): DeleteSessionCommentsRequest;
 
@@ -4071,12 +4796,14 @@ export class DeleteSessionCommentsRequest extends jspb.Message {
 
 export namespace DeleteSessionCommentsRequest {
   export type AsObject = {
-    sessionId: string,
-    commentNamesList: Array<string>,
-  }
+    sessionId: string;
+    commentNamesList: Array<string>;
+  };
 }
 
 export class UpdateSessionCommentsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: UpdateSessionCommentsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): UpdateSessionCommentsRequest;
 
@@ -4095,12 +4822,14 @@ export class UpdateSessionCommentsRequest extends jspb.Message {
 
 export namespace UpdateSessionCommentsRequest {
   export type AsObject = {
-    sessionId: string,
-    comment?: ondewo_nlu_common_pb.Comment.AsObject,
-  }
+    sessionId: string;
+    comment?: ondewo_nlu_common_pb.Comment.AsObject;
+  };
 }
 
 export class ListSessionCommentsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionCommentsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): ListSessionCommentsRequest;
 
@@ -4127,19 +4856,21 @@ export class ListSessionCommentsRequest extends jspb.Message {
 
 export namespace ListSessionCommentsRequest {
   export type AsObject = {
-    sessionId: string,
-    pageToken: string,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-    isResolved?: boolean,
-  }
+    sessionId: string;
+    pageToken: string;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+    isResolved?: boolean;
+  };
 
-  export enum IsResolvedCase { 
+  export enum IsResolvedCase {
     _IS_RESOLVED_NOT_SET = 0,
     IS_RESOLVED = 4,
   }
 }
 
 export class ListSessionCommentsOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionCommentsOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListSessionCommentsOfAllSessionsRequest;
 
@@ -4171,20 +4902,22 @@ export class ListSessionCommentsOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListSessionCommentsOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    pageToken: string,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-    isResolved?: boolean,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    pageToken: string;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+    isResolved?: boolean;
+  };
 
-  export enum IsResolvedCase { 
+  export enum IsResolvedCase {
     _IS_RESOLVED_NOT_SET = 0,
     IS_RESOLVED = 5,
   }
 }
 
 export class ListSessionCommentsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionCommentsResponse.AsObject);
   getCommentList(): Array<ondewo_nlu_common_pb.Comment>;
   setCommentList(value: Array<ondewo_nlu_common_pb.Comment>): ListSessionCommentsResponse;
   clearCommentList(): ListSessionCommentsResponse;
@@ -4203,12 +4936,14 @@ export class ListSessionCommentsResponse extends jspb.Message {
 
 export namespace ListSessionCommentsResponse {
   export type AsObject = {
-    commentList: Array<ondewo_nlu_common_pb.Comment.AsObject>,
-    pageToken: string,
-  }
+    commentList: Array<ondewo_nlu_common_pb.Comment.AsObject>;
+    pageToken: string;
+  };
 }
 
 export class SessionFeedback extends jspb.Message {
+  constructor();
+  constructor(opt_data?: SessionFeedback.AsObject);
   getName(): string;
   setName(value: string): SessionFeedback;
 
@@ -4284,34 +5019,36 @@ export class SessionFeedback extends jspb.Message {
 
 export namespace SessionFeedback {
   export type AsObject = {
-    name: string,
-    sessionId: string,
-    sessionStepId: string,
-    responseId: string,
-    sessionStepLlmTelemetryId: string,
-    rating: FeedbackRating,
-    categoricalValue: string,
-    score?: number,
-    comment: string,
-    criterion: string,
-    authorType: FeedbackAuthorType,
-    annotatorUserId: string,
-    originId: string,
-    identifiedUserId: string,
-    raw?: google_protobuf_struct_pb.Struct.AsObject,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    sessionId: string;
+    sessionStepId: string;
+    responseId: string;
+    sessionStepLlmTelemetryId: string;
+    rating: FeedbackRating;
+    categoricalValue: string;
+    score?: number;
+    comment: string;
+    criterion: string;
+    authorType: FeedbackAuthorType;
+    annotatorUserId: string;
+    originId: string;
+    identifiedUserId: string;
+    raw?: google_protobuf_struct_pb.Struct.AsObject;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 
-  export enum ScoreCase { 
+  export enum ScoreCase {
     _SCORE_NOT_SET = 0,
     SCORE = 8,
   }
 }
 
 export class AddSessionFeedbackRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AddSessionFeedbackRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): AddSessionFeedbackRequest;
 
@@ -4330,12 +5067,14 @@ export class AddSessionFeedbackRequest extends jspb.Message {
 
 export namespace AddSessionFeedbackRequest {
   export type AsObject = {
-    sessionId: string,
-    feedback?: SessionFeedback.AsObject,
-  }
+    sessionId: string;
+    feedback?: SessionFeedback.AsObject;
+  };
 }
 
 export class AddSessionStepFeedbackRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AddSessionStepFeedbackRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): AddSessionStepFeedbackRequest;
 
@@ -4357,13 +5096,15 @@ export class AddSessionStepFeedbackRequest extends jspb.Message {
 
 export namespace AddSessionStepFeedbackRequest {
   export type AsObject = {
-    sessionId: string,
-    sessionStepId: string,
-    feedback?: SessionFeedback.AsObject,
-  }
+    sessionId: string;
+    sessionStepId: string;
+    feedback?: SessionFeedback.AsObject;
+  };
 }
 
 export class GetSessionFeedbackRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetSessionFeedbackRequest.AsObject);
   getName(): string;
   setName(value: string): GetSessionFeedbackRequest;
 
@@ -4382,12 +5123,14 @@ export class GetSessionFeedbackRequest extends jspb.Message {
 
 export namespace GetSessionFeedbackRequest {
   export type AsObject = {
-    name: string,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    name: string;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class UpdateSessionFeedbackRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: UpdateSessionFeedbackRequest.AsObject);
   getFeedback(): SessionFeedback | undefined;
   setFeedback(value?: SessionFeedback): UpdateSessionFeedbackRequest;
   hasFeedback(): boolean;
@@ -4408,12 +5151,14 @@ export class UpdateSessionFeedbackRequest extends jspb.Message {
 
 export namespace UpdateSessionFeedbackRequest {
   export type AsObject = {
-    feedback?: SessionFeedback.AsObject,
-    updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    feedback?: SessionFeedback.AsObject;
+    updateMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class DeleteSessionFeedbackRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteSessionFeedbackRequest.AsObject);
   getName(): string;
   setName(value: string): DeleteSessionFeedbackRequest;
 
@@ -4427,11 +5172,13 @@ export class DeleteSessionFeedbackRequest extends jspb.Message {
 
 export namespace DeleteSessionFeedbackRequest {
   export type AsObject = {
-    name: string,
-  }
+    name: string;
+  };
 }
 
 export class ListSessionFeedbackRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionFeedbackRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): ListSessionFeedbackRequest;
 
@@ -4453,13 +5200,15 @@ export class ListSessionFeedbackRequest extends jspb.Message {
 
 export namespace ListSessionFeedbackRequest {
   export type AsObject = {
-    sessionId: string,
-    pageToken: string,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    sessionId: string;
+    pageToken: string;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListSessionFeedbackOfAllSessionsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionFeedbackOfAllSessionsRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListSessionFeedbackOfAllSessionsRequest;
 
@@ -4494,16 +5243,18 @@ export class ListSessionFeedbackOfAllSessionsRequest extends jspb.Message {
 
 export namespace ListSessionFeedbackOfAllSessionsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    pageToken: string,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-    feedbackFilter?: FeedbackFilter.AsObject,
-    orderBy: string,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    pageToken: string;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+    feedbackFilter?: FeedbackFilter.AsObject;
+    orderBy: string;
+  };
 }
 
 export class ListSessionFeedbackResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionFeedbackResponse.AsObject);
   getFeedbackList(): Array<SessionFeedback>;
   setFeedbackList(value: Array<SessionFeedback>): ListSessionFeedbackResponse;
   clearFeedbackList(): ListSessionFeedbackResponse;
@@ -4525,13 +5276,15 @@ export class ListSessionFeedbackResponse extends jspb.Message {
 
 export namespace ListSessionFeedbackResponse {
   export type AsObject = {
-    feedbackList: Array<SessionFeedback.AsObject>,
-    nextPageToken: string,
-    totalCount: number,
-  }
+    feedbackList: Array<SessionFeedback.AsObject>;
+    nextPageToken: string;
+    totalCount: number;
+  };
 }
 
 export class FeedbackFilter extends jspb.Message {
+  constructor();
+  constructor(opt_data?: FeedbackFilter.AsObject);
   getRatingsList(): Array<FeedbackRating>;
   setRatingsList(value: Array<FeedbackRating>): FeedbackFilter;
   clearRatingsList(): FeedbackFilter;
@@ -4600,37 +5353,39 @@ export class FeedbackFilter extends jspb.Message {
 
 export namespace FeedbackFilter {
   export type AsObject = {
-    ratingsList: Array<FeedbackRating>,
-    authorTypesList: Array<FeedbackAuthorType>,
-    hasComment?: boolean,
-    earliest?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    latest?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    criteriaList: Array<string>,
-    languageCodesList: Array<string>,
-    annotatorUserIdsList: Array<string>,
-    originIdsList: Array<string>,
-    scoreMin?: number,
-    scoreMax?: number,
-    scope: FeedbackScope,
-  }
+    ratingsList: Array<FeedbackRating>;
+    authorTypesList: Array<FeedbackAuthorType>;
+    hasComment?: boolean;
+    earliest?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    latest?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    criteriaList: Array<string>;
+    languageCodesList: Array<string>;
+    annotatorUserIdsList: Array<string>;
+    originIdsList: Array<string>;
+    scoreMin?: number;
+    scoreMax?: number;
+    scope: FeedbackScope;
+  };
 
-  export enum HasCommentCase { 
+  export enum HasCommentCase {
     _HAS_COMMENT_NOT_SET = 0,
     HAS_COMMENT = 3,
   }
 
-  export enum ScoreMinCase { 
+  export enum ScoreMinCase {
     _SCORE_MIN_NOT_SET = 0,
     SCORE_MIN = 10,
   }
 
-  export enum ScoreMaxCase { 
+  export enum ScoreMaxCase {
     _SCORE_MAX_NOT_SET = 0,
     SCORE_MAX = 11,
   }
 }
 
 export class FeedbackBreakdownBucket extends jspb.Message {
+  constructor();
+  constructor(opt_data?: FeedbackBreakdownBucket.AsObject);
   getKey(): string;
   setKey(value: string): FeedbackBreakdownBucket;
 
@@ -4653,14 +5408,16 @@ export class FeedbackBreakdownBucket extends jspb.Message {
 
 export namespace FeedbackBreakdownBucket {
   export type AsObject = {
-    key: string,
-    thumbsUpCount: number,
-    thumbsDownCount: number,
-    total: number,
-  }
+    key: string;
+    thumbsUpCount: number;
+    thumbsDownCount: number;
+    total: number;
+  };
 }
 
 export class FeedbackStatistics extends jspb.Message {
+  constructor();
+  constructor(opt_data?: FeedbackStatistics.AsObject);
   getTotalFeedback(): number;
   setTotalFeedback(value: number): FeedbackStatistics;
 
@@ -4729,26 +5486,28 @@ export class FeedbackStatistics extends jspb.Message {
 
 export namespace FeedbackStatistics {
   export type AsObject = {
-    totalFeedback: number,
-    thumbsUpCount: number,
-    thumbsDownCount: number,
-    sessionLevelCount: number,
-    sessionStepLevelCount: number,
-    commentCount: number,
-    sessionReviewCount: number,
-    sessionCommentCount: number,
-    byLanguageList: Array<FeedbackBreakdownBucket.AsObject>,
-    byIntentList: Array<FeedbackBreakdownBucket.AsObject>,
-    byAuthorTypeList: Array<FeedbackBreakdownBucket.AsObject>,
-    unspecifiedRatingCount: number,
-    scoredCount: number,
-    averageScore: number,
-    byOriginList: Array<FeedbackBreakdownBucket.AsObject>,
-    byCriterionList: Array<FeedbackBreakdownBucket.AsObject>,
-  }
+    totalFeedback: number;
+    thumbsUpCount: number;
+    thumbsDownCount: number;
+    sessionLevelCount: number;
+    sessionStepLevelCount: number;
+    commentCount: number;
+    sessionReviewCount: number;
+    sessionCommentCount: number;
+    byLanguageList: Array<FeedbackBreakdownBucket.AsObject>;
+    byIntentList: Array<FeedbackBreakdownBucket.AsObject>;
+    byAuthorTypeList: Array<FeedbackBreakdownBucket.AsObject>;
+    unspecifiedRatingCount: number;
+    scoredCount: number;
+    averageScore: number;
+    byOriginList: Array<FeedbackBreakdownBucket.AsObject>;
+    byCriterionList: Array<FeedbackBreakdownBucket.AsObject>;
+  };
 }
 
 export class GetFeedbackStatisticsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetFeedbackStatisticsRequest.AsObject);
   getParent(): string;
   setParent(value: string): GetFeedbackStatisticsRequest;
 
@@ -4780,15 +5539,17 @@ export class GetFeedbackStatisticsRequest extends jspb.Message {
 
 export namespace GetFeedbackStatisticsRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    includeReviewAndCommentRollup: boolean,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-    feedbackFilter?: FeedbackFilter.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    includeReviewAndCommentRollup: boolean;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+    feedbackFilter?: FeedbackFilter.AsObject;
+  };
 }
 
 export class GetFeedbackStatisticsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetFeedbackStatisticsResponse.AsObject);
   getStatistics(): FeedbackStatistics | undefined;
   setStatistics(value?: FeedbackStatistics): GetFeedbackStatisticsResponse;
   hasStatistics(): boolean;
@@ -4804,11 +5565,13 @@ export class GetFeedbackStatisticsResponse extends jspb.Message {
 
 export namespace GetFeedbackStatisticsResponse {
   export type AsObject = {
-    statistics?: FeedbackStatistics.AsObject,
-  }
+    statistics?: FeedbackStatistics.AsObject;
+  };
 }
 
 export class FeedbackTimeSeriesBucket extends jspb.Message {
+  constructor();
+  constructor(opt_data?: FeedbackTimeSeriesBucket.AsObject);
   getBucketStart(): google_protobuf_timestamp_pb.Timestamp | undefined;
   setBucketStart(value?: google_protobuf_timestamp_pb.Timestamp): FeedbackTimeSeriesBucket;
   hasBucketStart(): boolean;
@@ -4838,15 +5601,17 @@ export class FeedbackTimeSeriesBucket extends jspb.Message {
 
 export namespace FeedbackTimeSeriesBucket {
   export type AsObject = {
-    bucketStart?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    thumbsUpCount: number,
-    thumbsDownCount: number,
-    total: number,
-    bucketEnd?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    bucketStart?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    thumbsUpCount: number;
+    thumbsDownCount: number;
+    total: number;
+    bucketEnd?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 }
 
 export class GetFeedbackStatisticsTimeSeriesRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetFeedbackStatisticsTimeSeriesRequest.AsObject);
   getParent(): string;
   setParent(value: string): GetFeedbackStatisticsTimeSeriesRequest;
 
@@ -4897,20 +5662,22 @@ export class GetFeedbackStatisticsTimeSeriesRequest extends jspb.Message {
 
 export namespace GetFeedbackStatisticsTimeSeriesRequest {
   export type AsObject = {
-    parent: string,
-    sessionFilter?: SessionFilter.AsObject,
-    bucketWidthSeconds: number,
-    maxBuckets: number,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-    feedbackFilter?: FeedbackFilter.AsObject,
-    granularity: FeedbackTimeGranularity,
-    timeZone: string,
-    start?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    end?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    parent: string;
+    sessionFilter?: SessionFilter.AsObject;
+    bucketWidthSeconds: number;
+    maxBuckets: number;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+    feedbackFilter?: FeedbackFilter.AsObject;
+    granularity: FeedbackTimeGranularity;
+    timeZone: string;
+    start?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    end?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 }
 
 export class GetFeedbackStatisticsTimeSeriesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetFeedbackStatisticsTimeSeriesResponse.AsObject);
   getBucketsList(): Array<FeedbackTimeSeriesBucket>;
   setBucketsList(value: Array<FeedbackTimeSeriesBucket>): GetFeedbackStatisticsTimeSeriesResponse;
   clearBucketsList(): GetFeedbackStatisticsTimeSeriesResponse;
@@ -4926,11 +5693,13 @@ export class GetFeedbackStatisticsTimeSeriesResponse extends jspb.Message {
 
 export namespace GetFeedbackStatisticsTimeSeriesResponse {
   export type AsObject = {
-    bucketsList: Array<FeedbackTimeSeriesBucket.AsObject>,
-  }
+    bucketsList: Array<FeedbackTimeSeriesBucket.AsObject>;
+  };
 }
 
 export class ListSessionReviewsRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionReviewsRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): ListSessionReviewsRequest;
 
@@ -4950,13 +5719,15 @@ export class ListSessionReviewsRequest extends jspb.Message {
 
 export namespace ListSessionReviewsRequest {
   export type AsObject = {
-    sessionId: string,
-    sessionReviewView: SessionReview.View,
-    pageToken: string,
-  }
+    sessionId: string;
+    sessionReviewView: SessionReview.View;
+    pageToken: string;
+  };
 }
 
 export class ListSessionReviewsResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListSessionReviewsResponse.AsObject);
   getSessionReviewsList(): Array<SessionReview>;
   setSessionReviewsList(value: Array<SessionReview>): ListSessionReviewsResponse;
   clearSessionReviewsList(): ListSessionReviewsResponse;
@@ -4975,12 +5746,14 @@ export class ListSessionReviewsResponse extends jspb.Message {
 
 export namespace ListSessionReviewsResponse {
   export type AsObject = {
-    sessionReviewsList: Array<SessionReview.AsObject>,
-    nextPageToken: string,
-  }
+    sessionReviewsList: Array<SessionReview.AsObject>;
+    nextPageToken: string;
+  };
 }
 
 export class GetSessionReviewRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetSessionReviewRequest.AsObject);
   getSessionReviewId(): string;
   setSessionReviewId(value: string): GetSessionReviewRequest;
 
@@ -5002,13 +5775,15 @@ export class GetSessionReviewRequest extends jspb.Message {
 
 export namespace GetSessionReviewRequest {
   export type AsObject = {
-    sessionReviewId: string,
-    sessionReviewView: SessionReview.View,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    sessionReviewId: string;
+    sessionReviewView: SessionReview.View;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class GetLatestSessionReviewRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetLatestSessionReviewRequest.AsObject);
   getSessionId(): string;
   setSessionId(value: string): GetLatestSessionReviewRequest;
 
@@ -5030,13 +5805,15 @@ export class GetLatestSessionReviewRequest extends jspb.Message {
 
 export namespace GetLatestSessionReviewRequest {
   export type AsObject = {
-    sessionId: string,
-    sessionReviewView: SessionReview.View,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    sessionId: string;
+    sessionReviewView: SessionReview.View;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class FileResource extends jspb.Message {
+  constructor();
+  constructor(opt_data?: FileResource.AsObject);
   getDocumentFileResource(): DocumentFileResource | undefined;
   setDocumentFileResource(value?: DocumentFileResource): FileResource;
   hasDocumentFileResource(): boolean;
@@ -5069,13 +5846,13 @@ export class FileResource extends jspb.Message {
 
 export namespace FileResource {
   export type AsObject = {
-    documentFileResource?: DocumentFileResource.AsObject,
-    audioFileResource?: AudioFileResource.AsObject,
-    imageFileResource?: ImageFileResource.AsObject,
-    videoFileResource?: VideoFileResource.AsObject,
-  }
+    documentFileResource?: DocumentFileResource.AsObject;
+    audioFileResource?: AudioFileResource.AsObject;
+    imageFileResource?: ImageFileResource.AsObject;
+    videoFileResource?: VideoFileResource.AsObject;
+  };
 
-  export enum FileResourceCase { 
+  export enum FileResourceCase {
     FILE_RESOURCE_NOT_SET = 0,
     DOCUMENT_FILE_RESOURCE = 1,
     AUDIO_FILE_RESOURCE = 2,
@@ -5085,6 +5862,8 @@ export namespace FileResource {
 }
 
 export class DocumentFileResource extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DocumentFileResource.AsObject);
   getName(): string;
   setName(value: string): DocumentFileResource;
 
@@ -5122,17 +5901,19 @@ export class DocumentFileResource extends jspb.Message {
 
 export namespace DocumentFileResource {
   export type AsObject = {
-    name: string,
-    displayName: string,
-    bytes: Uint8Array | string,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    displayName: string;
+    bytes: Uint8Array | string;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 }
 
 export class ImageFileResource extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ImageFileResource.AsObject);
   getName(): string;
   setName(value: string): ImageFileResource;
 
@@ -5170,17 +5951,19 @@ export class ImageFileResource extends jspb.Message {
 
 export namespace ImageFileResource {
   export type AsObject = {
-    name: string,
-    displayName: string,
-    bytes: Uint8Array | string,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    displayName: string;
+    bytes: Uint8Array | string;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 }
 
 export class AudioFileResource extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AudioFileResource.AsObject);
   getName(): string;
   setName(value: string): AudioFileResource;
 
@@ -5235,22 +6018,24 @@ export class AudioFileResource extends jspb.Message {
 
 export namespace AudioFileResource {
   export type AsObject = {
-    name: string,
-    bytes: Uint8Array | string,
-    language: string,
-    durationInS: number,
-    sampleRate: number,
-    audioFileResourceType: AudioFileResourceType,
-    transcriptionsList: Array<S2tTranscription.AsObject>,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-    displayName: string,
-  }
+    name: string;
+    bytes: Uint8Array | string;
+    language: string;
+    durationInS: number;
+    sampleRate: number;
+    audioFileResourceType: AudioFileResourceType;
+    transcriptionsList: Array<S2tTranscription.AsObject>;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+    displayName: string;
+  };
 }
 
 export class VideoFileResource extends jspb.Message {
+  constructor();
+  constructor(opt_data?: VideoFileResource.AsObject);
   getName(): string;
   setName(value: string): VideoFileResource;
 
@@ -5297,20 +6082,22 @@ export class VideoFileResource extends jspb.Message {
 
 export namespace VideoFileResource {
   export type AsObject = {
-    name: string,
-    displayName: string,
-    bytes: Uint8Array | string,
-    durationInS: number,
-    resolution: string,
-    frameRate: number,
-    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    modifiedBy: string,
-  }
+    name: string;
+    displayName: string;
+    bytes: Uint8Array | string;
+    durationInS: number;
+    resolution: string;
+    frameRate: number;
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    modifiedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    createdBy: string;
+    modifiedBy: string;
+  };
 }
 
 export class GetAudioFilesRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetAudioFilesRequest.AsObject);
   getParent(): string;
   setParent(value: string): GetAudioFilesRequest;
 
@@ -5343,16 +6130,18 @@ export class GetAudioFilesRequest extends jspb.Message {
 
 export namespace GetAudioFilesRequest {
   export type AsObject = {
-    parent: string,
-    namesList: Array<string>,
-    resourceView: ResourceView,
-    pageToken: string,
-    sortingMode: ondewo_nlu_common_pb.SortingMode,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    namesList: Array<string>;
+    resourceView: ResourceView;
+    pageToken: string;
+    sortingMode: ondewo_nlu_common_pb.SortingMode;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class GetAudioFilesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetAudioFilesResponse.AsObject);
   getAudioFilesList(): Array<AudioFileResource>;
   setAudioFilesList(value: Array<AudioFileResource>): GetAudioFilesResponse;
   clearAudioFilesList(): GetAudioFilesResponse;
@@ -5374,13 +6163,15 @@ export class GetAudioFilesResponse extends jspb.Message {
 
 export namespace GetAudioFilesResponse {
   export type AsObject = {
-    audioFilesList: Array<AudioFileResource.AsObject>,
-    errorMessage: string,
-    nextPageToken: string,
-  }
+    audioFilesList: Array<AudioFileResource.AsObject>;
+    errorMessage: string;
+    nextPageToken: string;
+  };
 }
 
 export class AddAudioFilesRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AddAudioFilesRequest.AsObject);
   getParent(): string;
   setParent(value: string): AddAudioFilesRequest;
 
@@ -5405,14 +6196,16 @@ export class AddAudioFilesRequest extends jspb.Message {
 
 export namespace AddAudioFilesRequest {
   export type AsObject = {
-    parent: string,
-    sessionId: string,
-    audioFileResourcesList: Array<AudioFileResource.AsObject>,
-    sessionStepId: string,
-  }
+    parent: string;
+    sessionId: string;
+    audioFileResourcesList: Array<AudioFileResource.AsObject>;
+    sessionStepId: string;
+  };
 }
 
 export class AddAudioFilesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: AddAudioFilesResponse.AsObject);
   getAudioFileResourcesList(): Array<AudioFileResource>;
   setAudioFileResourcesList(value: Array<AudioFileResource>): AddAudioFilesResponse;
   clearAudioFileResourcesList(): AddAudioFilesResponse;
@@ -5431,12 +6224,14 @@ export class AddAudioFilesResponse extends jspb.Message {
 
 export namespace AddAudioFilesResponse {
   export type AsObject = {
-    audioFileResourcesList: Array<AudioFileResource.AsObject>,
-    errorMessage: string,
-  }
+    audioFileResourcesList: Array<AudioFileResource.AsObject>;
+    errorMessage: string;
+  };
 }
 
 export class DeleteAudioFilesRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteAudioFilesRequest.AsObject);
   getParent(): string;
   setParent(value: string): DeleteAudioFilesRequest;
 
@@ -5455,12 +6250,14 @@ export class DeleteAudioFilesRequest extends jspb.Message {
 
 export namespace DeleteAudioFilesRequest {
   export type AsObject = {
-    parent: string,
-    namesList: Array<string>,
-  }
+    parent: string;
+    namesList: Array<string>;
+  };
 }
 
 export class DeleteAudioFilesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: DeleteAudioFilesResponse.AsObject);
   getNamesList(): Array<string>;
   setNamesList(value: Array<string>): DeleteAudioFilesResponse;
   clearNamesList(): DeleteAudioFilesResponse;
@@ -5479,12 +6276,14 @@ export class DeleteAudioFilesResponse extends jspb.Message {
 
 export namespace DeleteAudioFilesResponse {
   export type AsObject = {
-    namesList: Array<string>,
-    errorMessage: string,
-  }
+    namesList: Array<string>;
+    errorMessage: string;
+  };
 }
 
 export class ListAudioFilesRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListAudioFilesRequest.AsObject);
   getParent(): string;
   setParent(value: string): ListAudioFilesRequest;
 
@@ -5515,16 +6314,18 @@ export class ListAudioFilesRequest extends jspb.Message {
 
 export namespace ListAudioFilesRequest {
   export type AsObject = {
-    parent: string,
-    sessionId: string,
-    resourceView: ResourceView,
-    pageToken: string,
-    sortingMode: ondewo_nlu_common_pb.SortingMode,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionId: string;
+    resourceView: ResourceView;
+    pageToken: string;
+    sortingMode: ondewo_nlu_common_pb.SortingMode;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
 export class ListAudioFilesResponse extends jspb.Message {
+  constructor();
+  constructor(opt_data?: ListAudioFilesResponse.AsObject);
   getAudioFilesList(): Array<AudioFileResource>;
   setAudioFilesList(value: Array<AudioFileResource>): ListAudioFilesResponse;
   clearAudioFilesList(): ListAudioFilesResponse;
@@ -5546,13 +6347,15 @@ export class ListAudioFilesResponse extends jspb.Message {
 
 export namespace ListAudioFilesResponse {
   export type AsObject = {
-    audioFilesList: Array<AudioFileResource.AsObject>,
-    nextPageToken: string,
-    errorMessage: string,
-  }
+    audioFilesList: Array<AudioFileResource.AsObject>;
+    nextPageToken: string;
+    errorMessage: string;
+  };
 }
 
 export class GetAudioFileOfSessionRequest extends jspb.Message {
+  constructor();
+  constructor(opt_data?: GetAudioFileOfSessionRequest.AsObject);
   getParent(): string;
   setParent(value: string): GetAudioFileOfSessionRequest;
 
@@ -5577,37 +6380,94 @@ export class GetAudioFileOfSessionRequest extends jspb.Message {
 
 export namespace GetAudioFileOfSessionRequest {
   export type AsObject = {
-    parent: string,
-    sessionId: string,
-    resourceView: ResourceView,
-    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
-  }
+    parent: string;
+    sessionId: string;
+    resourceView: ResourceView;
+    fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject;
+  };
 }
 
-export enum TranscriptionType { 
+export enum TranscriptionType {
   TRANSCRIPTION_TYPE_UNSPECIFIED = 0,
   TRANSCRIPTION_TYPE_S2T = 1,
   TRANSCRIPTION_TYPE_HUMAN = 2,
 }
-export enum ReasoningEffort { 
+export enum ReasoningEffort {
   REASONING_EFFORT_UNSPECIFIED = 0,
   REASONING_EFFORT_MINIMAL = 1,
   REASONING_EFFORT_LOW = 2,
   REASONING_EFFORT_MEDIUM = 3,
   REASONING_EFFORT_HIGH = 4,
 }
-export enum LlmSafetyLocation { 
+export enum LlmSafetyLocation {
   LLM_SAFETY_LOCATION_UNSPECIFIED = 0,
   LLM_SAFETY_LOCATION_INPUT = 1,
   LLM_SAFETY_LOCATION_OUTPUT = 2,
 }
-export enum LlmAgentNodePhase { 
+export enum LlmAgentNodePhase {
   LLM_AGENT_NODE_PHASE_UNSPECIFIED = 0,
   LLM_AGENT_NODE_PHASE_STARTED = 1,
   LLM_AGENT_NODE_PHASE_COMPLETED = 2,
   LLM_AGENT_NODE_PHASE_FAILED = 3,
 }
-export enum AudioEncoding { 
+export enum TurnInterruptionReason {
+  TURN_INTERRUPTION_REASON_UNSPECIFIED = 0,
+  TURN_INTERRUPTION_REASON_BARGE_IN = 1,
+  TURN_INTERRUPTION_REASON_CALLER_SPOKE_WHILE_THINKING = 2,
+  TURN_INTERRUPTION_REASON_CALL_ENDED = 3,
+  TURN_INTERRUPTION_REASON_FILLER_CUT = 4,
+  TURN_INTERRUPTION_REASON_NO_FINAL_TIMEOUT = 5,
+  TURN_INTERRUPTION_REASON_OPERATOR_TAKEOVER = 6,
+  TURN_INTERRUPTION_REASON_BOT_MUTED = 7,
+}
+export enum BackgroundWorkPolicy {
+  BACKGROUND_WORK_POLICY_KEEP = 0,
+  BACKGROUND_WORK_POLICY_CANCEL_PENDING = 1,
+}
+export enum HeardTextPrecision {
+  HEARD_TEXT_PRECISION_UNSPECIFIED = 0,
+  HEARD_TEXT_PRECISION_NONE_HEARD = 1,
+  HEARD_TEXT_PRECISION_FULL = 2,
+  HEARD_TEXT_PRECISION_ESTIMATED_SERVER = 3,
+  HEARD_TEXT_PRECISION_PROPORTIONAL = 4,
+}
+export enum TurnControlAckStatus {
+  TURN_CONTROL_ACK_STATUS_UNSPECIFIED = 0,
+  TURN_CONTROL_ACK_STATUS_CANCELLED = 1,
+  TURN_CONTROL_ACK_STATUS_CANCELLED_QUEUED = 2,
+  TURN_CONTROL_ACK_STATUS_ALREADY_FINISHED = 3,
+  TURN_CONTROL_ACK_STATUS_UNKNOWN_TURN = 4,
+  TURN_CONTROL_ACK_STATUS_HEARD_APPLIED = 5,
+  TURN_CONTROL_ACK_STATUS_HEARD_STALE = 6,
+  TURN_CONTROL_ACK_STATUS_DRAFT_DISCARDED = 7,
+}
+export enum WarmTransferIntroTextSource {
+  WARM_TRANSFER_INTRO_TEXT_SOURCE_UNSPECIFIED = 0,
+  WARM_TRANSFER_INTRO_TEXT_SOURCE_TEMPLATE = 1,
+  WARM_TRANSFER_INTRO_TEXT_SOURCE_LLM_SUMMARY = 2,
+}
+export enum WarmTransferIntroDecision {
+  WARM_TRANSFER_INTRO_DECISION_UNSPECIFIED = 0,
+  WARM_TRANSFER_INTRO_DECISION_PENDING = 1,
+  WARM_TRANSFER_INTRO_DECISION_ACCEPTED = 2,
+  WARM_TRANSFER_INTRO_DECISION_DECLINED = 3,
+  WARM_TRANSFER_INTRO_DECISION_NO_DECISION = 4,
+}
+export enum WarmTransferIntroDecidedBy {
+  WARM_TRANSFER_INTRO_DECIDED_BY_UNSPECIFIED = 0,
+  WARM_TRANSFER_INTRO_DECIDED_BY_DTMF = 1,
+  WARM_TRANSFER_INTRO_DECIDED_BY_SPEECH = 2,
+  WARM_TRANSFER_INTRO_DECIDED_BY_TIMEOUT = 3,
+}
+export enum WarmTransferIntroStage {
+  WARM_TRANSFER_INTRO_STAGE_UNSPECIFIED = 0,
+  WARM_TRANSFER_INTRO_STAGE_PREPARED = 1,
+  WARM_TRANSFER_INTRO_STAGE_READY_ASKED = 2,
+  WARM_TRANSFER_INTRO_STAGE_INTRO_SPOKEN = 3,
+  WARM_TRANSFER_INTRO_STAGE_REASON_ASKED = 4,
+  WARM_TRANSFER_INTRO_STAGE_CLOSED = 5,
+}
+export enum AudioEncoding {
   AUDIO_ENCODING_UNSPECIFIED = 0,
   AUDIO_ENCODING_LINEAR_16 = 1,
   AUDIO_ENCODING_FLAC = 2,
@@ -5617,7 +6477,7 @@ export enum AudioEncoding {
   AUDIO_ENCODING_OGG_OPUS = 6,
   AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE = 7,
 }
-export enum ComparisonOperator { 
+export enum ComparisonOperator {
   EQUAL = 0,
   GREATER = 1,
   GREATER_OR_EQUAL = 2,
@@ -5626,23 +6486,23 @@ export enum ComparisonOperator {
   STARTS_WITH = 5,
   ENDS_WITH = 6,
 }
-export enum FeedbackRating { 
+export enum FeedbackRating {
   FEEDBACK_RATING_UNSPECIFIED = 0,
   FEEDBACK_RATING_THUMBS_UP = 1,
   FEEDBACK_RATING_THUMBS_DOWN = 2,
 }
-export enum FeedbackAuthorType { 
+export enum FeedbackAuthorType {
   FEEDBACK_AUTHOR_TYPE_UNSPECIFIED = 0,
   FEEDBACK_AUTHOR_TYPE_HUMAN_REVIEWER = 1,
   FEEDBACK_AUTHOR_TYPE_TECHNICAL_USER = 2,
   FEEDBACK_AUTHOR_TYPE_END_USER_ANONYMOUS = 3,
 }
-export enum FeedbackScope { 
+export enum FeedbackScope {
   FEEDBACK_SCOPE_UNSPECIFIED = 0,
   FEEDBACK_SCOPE_SESSION_LEVEL = 1,
   FEEDBACK_SCOPE_STEP_LEVEL = 2,
 }
-export enum FeedbackTimeGranularity { 
+export enum FeedbackTimeGranularity {
   FEEDBACK_TIME_GRANULARITY_UNSPECIFIED = 0,
   FEEDBACK_TIME_GRANULARITY_HOUR = 1,
   FEEDBACK_TIME_GRANULARITY_DAY = 2,
@@ -5650,13 +6510,13 @@ export enum FeedbackTimeGranularity {
   FEEDBACK_TIME_GRANULARITY_MONTH = 4,
   FEEDBACK_TIME_GRANULARITY_YEAR = 5,
 }
-export enum ResourceView { 
+export enum ResourceView {
   RESOURCE_VIEW_UNSPECIFIED = 0,
   RESOURCE_VIEW_FULL = 1,
   RESOURCE_VIEW_PARTIAL = 2,
   RESOURCE_VIEW_MINIMUM = 3,
 }
-export enum AudioFileResourceType { 
+export enum AudioFileResourceType {
   AUDIO_FILE_RESOURCE_TYPE_UNSPECIFIED = 0,
   AUDIO_FILE_RESOURCE_TYPE_T2S = 1,
   AUDIO_FILE_RESOURCE_TYPE_S2T = 2,
