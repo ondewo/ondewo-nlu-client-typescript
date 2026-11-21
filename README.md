@@ -94,11 +94,14 @@ npm
 
 ## Authentication
 
-All RPCs are authenticated with a Keycloak-issued **bearer token**. Obtain one with the offline-token login helper, which is re-exported from the package entry point.
+All RPCs are authenticated with a Keycloak-issued **bearer token**. The offline-token helper is re-exported from the
+package entry point and authenticates either with the technical user's password or with a handed-off Keycloak
+**offline refresh token**:
 
 ```ts
-import { login } from '@ondewo/nlu-client-typescript';
+import { createKeycloakAuthClientOptions, login } from '@ondewo/nlu-client-typescript';
 
+// Password: one ROPC login (grant_type=password, scope=offline_access).
 const provider = await login({
  keycloakUrl: 'https://auth.example.com/auth',
  realm: 'ondewo-ccai-platform',
@@ -107,11 +110,36 @@ const provider = await login({
  password: '...'
 });
 
-// `Bearer <jwt>` — set this as the `Authorization` gRPC metadata on each request.
-const authorizationHeader = provider.getAuthorizationHeader();
+// Offline token: one grant_type=refresh_token request; the password is never sent, not even as a fallback.
+const tokenProvider = await login({
+ keycloakUrl: 'https://auth.example.com/auth',
+ realm: 'ondewo-ccai-platform',
+ clientId: 'ondewo-nlu-cai-sdk-public',
+ username: 'tech-user@example.com',
+ password: '',
+ refreshToken: process.env.ONDEWO_NLU_OFFLINE_TOKEN ?? ''
+});
+
+// Attach `authorization: Bearer <token>` to every call of a generated client ...
+const client = new AgentsPromiseClient(hostname, null, { ...options, ...createKeycloakAuthClientOptions(provider) });
+// ... or per call: the token is refreshed on read when it is within 30 s of expiry.
+await client.listAgents(request, await provider.getAuthorizationMetadata());
 ```
 
-`login(...)` returns an `OfflineTokenProvider` whose access token is auto-refreshed in the background; call `provider.stop()` when you are done. Deep-importing `@ondewo/nlu-client-typescript/auth/offlineTokenProvider` keeps working. See the [`examples/`](https://github.com/ondewo/ondewo-nlu-client-typescript/tree/master/examples) directory for a full `Agents.ListAgents` RPC example.
+- `login(...)` always builds a new provider. `getKeycloakTokenProvider(...)` (same options) shares ONE provider (one
+  login) per credential set, and returns `null` when none of `keycloakUrl` / `realm` / `clientId` is set (attach no
+  auth metadata then).
+- The token is refreshed in the background 30 s before it expires. A failed refresh never stops that: it is retried
+  with a jittered backoff (5 s doubling to 300 s) shared with the per-call read, a still-valid token keeps being
+  served meanwhile, and only an expired token that cannot be refreshed raises `KeycloakAuthenticationError` (also
+  exported as `TokenError`, with the underlying error as `cause`).
+- `tokenExpirationInS` bounds how long the refresh runs; `keycloakVerifySsl: false` skips certificate verification
+  of the token request only (Node; a self-signed local Envoy). Call `provider.stop()` (or `await provider.close()`)
+  when you are done. `redactLoginOptions(options)` renders options safe to log.
+
+Deep-importing `@ondewo/nlu-client-typescript/auth/offlineTokenProvider` keeps working. See the
+[`examples/`](https://github.com/ondewo/ondewo-nlu-client-typescript/tree/master/examples) directory for a full
+`Agents.ListAgents` RPC example.
 
 ## TLS, mutual TLS and certificates
 

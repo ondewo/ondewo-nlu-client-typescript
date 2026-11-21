@@ -45,7 +45,11 @@ const BASE_OPTIONS: OfflineTokenLoginOptions = {
 	realm: 'ondewo-ccai-platform',
 	clientId: 'ondewo-nlu-cai-sdk-public',
 	username: 'tech-user@example.com',
-	password: 'super-secret'
+	password: 'super-secret',
+	// The provider's clock is monotonic (`performance.now`), which `mock.timers` does not advance; the
+	// mocked `Date` does, so every timer-driven test sees time move with `mock.timers.tick`.
+	nowInMs: (): number => Date.now(),
+	logger: { warn: (): void => undefined, info: (): void => undefined }
 };
 
 /** The OIDC token endpoint the helper must derive from {@link BASE_OPTIONS} (`keycloakUrl` + `realm`). */
@@ -97,17 +101,18 @@ interface FetchStub {
  */
 interface ProviderInternals {
 	/**
-	 * The private background-refresh routine.
+	 * The private background-refresh loop.
 	 *
-	 * @returns A promise resolving once the refresh has settled (or returned early).
+	 * @returns A promise resolving once the loop has ended (or returned early).
 	 */
-	refresh(): Promise<void>;
+	runRefreshLoop(): Promise<void>;
 	/**
-	 * The private timer-arming routine.
+	 * The private default wait, which arms the timer.
 	 *
-	 * @param expiresInRaw - The `expires_in` (seconds) to derive the delay from.
+	 * @param delayInS - Seconds to wait.
+	 * @returns A promise resolving `false` once the delay has elapsed.
 	 */
-	scheduleRefresh(expiresInRaw: number | undefined): void;
+	wait(delayInS: number): Promise<boolean>;
 	/** The currently armed timer handle, or `null` when nothing is armed. */
 	timer: unknown;
 }
@@ -161,7 +166,7 @@ function makeFetchStub(responses: StubResponse[]): FetchStub {
  */
 function flushMicrotasks(): Promise<void> {
 	return new Promise((resolve: () => void): void => {
-		process.nextTick(resolve);
+		setImmediate(resolve);
 	});
 }
 
@@ -282,7 +287,7 @@ runTestCase(
 			{ body: { access_token: 'access-1', refresh_token: 'offline-1', expires_in: 300 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 
@@ -319,7 +324,7 @@ runTestCase('the token endpoint tolerates trailing slashes and URL-encodes the r
 		{ body: { access_token: 'access-1', refresh_token: 'offline-1', expires_in: 300 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({
 			...BASE_OPTIONS,
@@ -347,7 +352,7 @@ runTestCase(
 		]);
 
 		// expires_in 31 - 30 skew = 1s scheduled delay; drive it deterministically via fake timers.
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 			assert.equal(provider.getAccessToken(), 'access-1');
@@ -385,7 +390,7 @@ runTestCase('the refresh fires at expires_in minus the 30s skew (300s => 270s)',
 		{ body: { access_token: 'access-2', refresh_token: 'offline-2', expires_in: 300 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 
@@ -410,27 +415,25 @@ runTestCase('the scheduled delay is clamped to the remaining bounded lifetime', 
 		{ body: { access_token: 'access-2', refresh_token: 'offline-2', expires_in: 3600 } }
 	]);
 
-	// A frozen clock keeps the deadline 5s away, so the Math.min() clamp -- not expires_in - skew
-	// (3570s) -- decides the delay.
-	const frozenNowInMs: () => number = (): number => 2_000_000;
-
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({
 			...BASE_OPTIONS,
 			fetchImpl: stub.fetchImpl,
-			nowInMs: frozenNowInMs,
 			tokenExpirationInS: 5
 		});
 
 		mock.timers.tick(4999);
 		await flushMicrotasks();
-		assert.equal(stub.calls.length, 1, 'the refresh fired before the clamped 5s deadline');
+		assert.equal(provider.toJSON().stopped, false, 'the loop ended before the clamped 5s deadline');
 
+		// The wait was clamped to the 5 s deadline (not expires_in - skew = 3570 s): the loop wakes at the
+		// deadline and ends there without renewing.
 		mock.timers.tick(1);
 		await flushMicrotasks();
-		assert.equal(stub.calls.length, 2, 'the delay was not clamped to the remaining bounded lifetime');
-		assert.equal(provider.getAccessToken(), 'access-2');
+		assert.equal(provider.toJSON().stopped, true, 'the wait was not clamped to the remaining bounded lifetime');
+		assert.equal(stub.calls.length, 1);
+		assert.equal(provider.getAccessToken(), 'access-1');
 		provider.stop();
 	} finally {
 		mock.timers.reset();
@@ -445,7 +448,7 @@ runTestCase('the refresh loop stops after tokenExpirationInS elapses (no further
 	let fakeNowInMs: number = 1_000_000;
 	const nowInMs: () => number = (): number => fakeNowInMs;
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		// Bound the loop to 2s; the first refresh is armed at ~1s but the deadline passes before it fires.
 		const provider: OfflineTokenProvider = await login({
@@ -481,7 +484,7 @@ runTestCase(
 		let fakeNowInMs: number = 7_000_000;
 		const nowInMs: () => number = (): number => fakeNowInMs;
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			// Bound the loop to 2s; the refresh is armed at ~1s.
 			const provider: OfflineTokenProvider = await login({
@@ -512,7 +515,7 @@ runTestCase('login rejects a non-2xx token response with TokenError', async (): 
 	const stub: FetchStub = makeFetchStub([{ status: 401, body: { error: 'invalid_grant' } }]);
 	await assert.rejects(
 		(): Promise<OfflineTokenProvider> => login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl }),
-		expectTokenError(/^Keycloak token endpoint returned HTTP 401: \{"error":"invalid_grant"\}$/)
+		expectTokenError(/^Keycloak token login failed with status 401: \{"error":"invalid_grant"\}$/)
 	);
 });
 
@@ -541,7 +544,11 @@ runTestCase(
 
 				await assert.rejects(
 					(): Promise<OfflineTokenProvider> => login(options),
-					expectTokenError(new RegExp(`^login\\(\\) option "${key}" is required and must be a non-empty string$`))
+					expectTokenError(
+						key === 'password'
+							? /^Either the option "password" or the option "refreshToken" \(a handed-off Keycloak offline refresh_token\) is mandatory/
+							: new RegExp(`^login\\(\\) option "${key}" is required and must be a non-empty string`)
+					)
 				);
 				// Validation must happen BEFORE any network call.
 				assert.equal(stub.calls.length, 0);
@@ -572,7 +579,7 @@ runTestCase('login rejects a 2xx token response whose body is not valid JSON', a
 	const stub: FetchStub = makeFetchStub([{ body: '<<<not-json>>>' }]);
 	await assert.rejects(
 		(): Promise<OfflineTokenProvider> => login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl }),
-		expectTokenError(/^Keycloak token endpoint returned a non-JSON body: <<<not-json>>>$/)
+		expectTokenError(/^Keycloak token login returned status 200 with a body that is not JSON$/)
 	);
 });
 
@@ -580,7 +587,7 @@ runTestCase('login rejects a parseable token response that carries no access_tok
 	const stub: FetchStub = makeFetchStub([{ body: { refresh_token: 'offline-1', expires_in: 300 } }]);
 	await assert.rejects(
 		(): Promise<OfflineTokenProvider> => login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl }),
-		expectTokenError(/^Keycloak token response did not contain an access_token$/)
+		expectTokenError(/^Keycloak token response did not contain an access_token; the response carried the fields \[/)
 	);
 });
 
@@ -588,7 +595,7 @@ runTestCase('login rejects a token response whose access_token is an empty strin
 	const stub: FetchStub = makeFetchStub([{ body: { access_token: '', refresh_token: 'offline-1', expires_in: 300 } }]);
 	await assert.rejects(
 		(): Promise<OfflineTokenProvider> => login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl }),
-		expectTokenError(/^Keycloak token response did not contain an access_token$/)
+		expectTokenError(/^Keycloak token response did not contain an access_token; the response carried the fields \[/)
 	);
 });
 
@@ -600,7 +607,7 @@ runTestCase(
 			{ body: { access_token: 'access-2', refresh_token: 'offline-2', expires_in: 31 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			// `''` IS a string, so bootstrap()'s `refreshToken === null` check does not fire: login succeeds.
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
@@ -636,7 +643,7 @@ runTestCase('a failed background refresh is surfaced, re-arms the timer and reco
 		{ body: { access_token: 'access-2', refresh_token: 'offline-2', expires_in: 31 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		// randomFraction 0 puts the retry at the base of its window, so the delay is exactly
 		// REFRESH_RETRY_BASE_DELAY_IN_S rather than drawn.
@@ -656,7 +663,7 @@ runTestCase('a failed background refresh is surfaced, re-arms the timer and reco
 
 		assert.ok(captured instanceof TokenError);
 		assert.equal(captured.name, 'TokenError');
-		assert.equal(captured.message, 'Keycloak token endpoint returned HTTP 500: boom');
+		assert.equal(captured.message, 'Keycloak token refresh failed with status 500: boom');
 		// The transient failure must NOT clobber the still-valid access token.
 		assert.equal(provider.getAccessToken(), 'access-1');
 
@@ -690,7 +697,7 @@ runTestCase(
 			{ status: 503, body: 'down' }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 
@@ -717,7 +724,7 @@ runTestCase(
 			{ body: { access_token: 'access-3', refresh_token: 'offline-3', expires_in: 31 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 
@@ -747,7 +754,7 @@ runTestCase(
 			{ body: { access_token: 'access-3', refresh_token: 'offline-3', expires_in: 31 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 
@@ -775,7 +782,7 @@ runTestCase('an absent/zero expires_in falls back to the minimum refresh delay',
 		{ body: { access_token: 'access-2', refresh_token: 'offline-2', expires_in: 31 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 		assert.equal(provider.getAccessToken(), 'access-1');
@@ -807,7 +814,7 @@ runTestCase(
 		let fakeNowInMs: number = 5_000_000;
 		const nowInMs: () => number = (): number => fakeNowInMs;
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			// tokenExpirationInS=0 -> deadline == now at bootstrap -> scheduleRefresh sees remaining <= 0 and stops.
 			const provider: OfflineTokenProvider = await login({
@@ -840,7 +847,7 @@ runTestCase('stop() is idempotent and keeps the last token readable', async (): 
 		{ body: { access_token: 'access-1', refresh_token: 'offline-1', expires_in: 31 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 
@@ -884,14 +891,13 @@ runTestCase(
 			{ body: { access_token: 'access-1', refresh_token: 'offline-1', expires_in: 31 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl: stub.fetchImpl });
 			provider.stop();
 
-			// stop() clears the only timer that calls refresh(), so the re-entry guard is only reachable
-			// through a direct invocation of the private method.
-			await internalsOf(provider).refresh();
+			// stop() ends the loop, so a loop entered afterwards must return without a request.
+			await internalsOf(provider).runRefreshLoop();
 
 			assert.equal(stub.calls.length, 1);
 			assert.equal(provider.getAccessToken(), 'access-1');
@@ -907,11 +913,11 @@ runTestCase('a browser-style numeric timer handle (no unref) is armed without ca
 	const originalSetTimeout: typeof globalThis.setTimeout = globalThis.setTimeout;
 	const browserTimerHandle: number = 4242;
 
-	// A browser's setTimeout returns a plain number, which has no unref(). scheduleRefresh() is fully
-	// synchronous, so the stub is only installed around the direct call -- no await inside the swap.
+	// A browser's setTimeout returns a plain number, which has no unref(). wait() arms its timer
+	// synchronously, so the stub is only installed around the direct call -- no await inside the swap.
 	globalThis.setTimeout = ((): number => browserTimerHandle) as unknown as typeof globalThis.setTimeout;
 	try {
-		internalsOf(provider).scheduleRefresh(300);
+		void internalsOf(provider).wait(300);
 	} finally {
 		globalThis.setTimeout = originalSetTimeout;
 	}
@@ -935,7 +941,7 @@ runTestCase('login falls back to the global fetch when no fetchImpl is provided'
 		});
 	}) as unknown as typeof globalThis.fetch;
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS });
 		assert.equal(calls.length, 1);
@@ -958,7 +964,7 @@ runTestCase(
 		// Install the capturing stub as the global fetch so the DEFAULT transport (no fetchImpl) is exercised.
 		globalThis.fetch = stub.fetchImpl as unknown as typeof globalThis.fetch;
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS });
 			assert.equal(stub.calls.length, 1);
@@ -982,7 +988,7 @@ runTestCase(
 		const originalFetch: typeof globalThis.fetch = globalThis.fetch;
 		globalThis.fetch = stub.fetchImpl as unknown as typeof globalThis.fetch;
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, keycloakVerifySsl: true });
 			assert.equal(stub.calls.length, 1);
@@ -1005,7 +1011,7 @@ runTestCase(
 		const originalFetch: typeof globalThis.fetch = globalThis.fetch;
 		globalThis.fetch = stub.fetchImpl as unknown as typeof globalThis.fetch;
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			// Two independent logins -> two independent default transports -> two dispatcher lookups.
 			const firstProvider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, keycloakVerifySsl: false });
@@ -1077,7 +1083,7 @@ runTestCase(
 			{ body: { access_token: 'access-1', refresh_token: 'offline-1', expires_in: 31 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			// Custom transport injected: the flag must not touch its init (Python parity: flag ignored).
 			const provider: OfflineTokenProvider = await login({
@@ -1122,7 +1128,7 @@ runTestCase('stop() during an in-flight refresh suppresses re-arming the next re
 		});
 	};
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({ ...BASE_OPTIONS, fetchImpl });
 
@@ -1166,7 +1172,7 @@ runTestCase('consecutive failures back off exponentially and stop growing at the
 	}
 	const stub: FetchStub = makeFetchStub(responses);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		// randomFraction 1 puts every retry at the TOP of its window, i.e. exactly the ceiling for
 		// that failure count -- which is what makes the ladder observable.
@@ -1210,7 +1216,7 @@ runTestCase(
 			{ body: { access_token: 'b', refresh_token: 'r2', expires_in: 31 } }
 		]);
 
-		mock.timers.enable({ apis: ['setTimeout'] });
+		mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 		try {
 			const provider: OfflineTokenProvider = await login({
 				...BASE_OPTIONS,
@@ -1254,7 +1260,7 @@ runTestCase('a successful refresh resets the backoff ladder', async (): Promise<
 		{ body: { access_token: 'c', refresh_token: 'r3', expires_in: 31 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({
 			...BASE_OPTIONS,
@@ -1301,7 +1307,7 @@ runTestCase('a throwing onRefreshError handler still leaves the loop armed', asy
 		{ body: { access_token: 'b', refresh_token: 'r2', expires_in: 31 } }
 	]);
 
-	mock.timers.enable({ apis: ['setTimeout'] });
+	mock.timers.enable({ apis: ['setTimeout', 'Date'] });
 	try {
 		const provider: OfflineTokenProvider = await login({
 			...BASE_OPTIONS,
