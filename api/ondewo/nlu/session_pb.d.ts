@@ -1848,6 +1848,9 @@ export class ReferencedChunk extends jspb.Message {
   getDeepLinkUrl(): string;
   setDeepLinkUrl(value: string): ReferencedChunk;
 
+  getDocumentTitle(): string;
+  setDocumentTitle(value: string): ReferencedChunk;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ReferencedChunk.AsObject;
   static toObject(includeInstance: boolean, msg: ReferencedChunk): ReferencedChunk.AsObject;
@@ -1867,6 +1870,7 @@ export namespace ReferencedChunk {
     similarity: number,
     documentUrl: string,
     deepLinkUrl: string,
+    documentTitle: string,
   }
 }
 
